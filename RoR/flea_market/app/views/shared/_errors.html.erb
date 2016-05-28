@@ -1,0 +1,7 @@
+<% if obj.errors.any?%>
+  <%= pluralize(obj.errors.count, "error") %>
+  prohibited this article from being saved:
+  <% obj.errors.full_messages.each do |msg| %>
+  <%= msg %>
+  <% end %>
+<% end %>
