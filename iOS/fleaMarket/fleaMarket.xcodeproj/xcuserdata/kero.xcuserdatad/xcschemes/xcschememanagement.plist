@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>fleaMarket.xcscheme</key>
+		<key>TabStoryReferenceSample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,7 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6AA48F711CE2BF0100626528</key>
+		<key>7A751C361CF9BDBA0096BDE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A751C4C1CF9BDBA0096BDE6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7A751C571CF9BDBA0096BDE6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
