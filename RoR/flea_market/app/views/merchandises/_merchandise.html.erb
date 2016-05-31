@@ -1,0 +1,14 @@
+<% obj.each do |merchandise| %>
+        <div class="merchandise-title">
+          <%= link_to merchandise.title, merchandise_path(merchandise) %>
+        </div>
+        <div class="merchandise-body">
+          <%= truncate(merchandise.description, length: 100) %>
+        </div>
+        <div class="merchandise-actions">
+          <%= link_to "Edit this merchandise", edit_merchandise_path(merchandise) %>
+          <%= link_to "Delete this merchandise", merchandise_path(merchandise), method: :delete, 
+                                              data: { confirm: "Are you sure you want to delete the merchandise?"} %>
+        </div>
+        <br />
+<% end %>

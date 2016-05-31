@@ -1,0 +1,21 @@
+<%= render 'shared/errors', obj: @merchandise %>
+    <div>
+    <%= form_for @merchandise do |f| %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title, placeholder: "Title of merchandise", autofocus: true %>
+        <br />
+        <%= f.label :description %>
+        <%= f.text_area :description, rows: 10, placeholder: "Description the status and spec of your merchandise" %>
+        <br />
+        <%= f.label :price %>
+        <%= f.text_field :price, placeholder: "Price of merchandise" %>
+        <br />
+        <%= f.label :amount %>
+        <%= f.text_field :amount, placeholder: "Amount of merchandise" %>
+        <br />
+        <%= f.submit %>
+   
+    <% end %>
+    </div>
+    <%= link_to "Cancel request and return to merchandise listing", merchandises_path %>
