@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6AA48F711CE2BF0100626528"
+               BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
                BuildableName = "fleaMarket.app"
                BlueprintName = "fleaMarket"
                ReferencedContainer = "container:fleaMarket.xcodeproj">
@@ -28,11 +28,31 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7A751C4C1CF9BDBA0096BDE6"
+               BuildableName = "fleaMarket.xctest"
+               BlueprintName = "fleaMarketTests"
+               ReferencedContainer = "container:fleaMarket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "7A751C571CF9BDBA0096BDE6"
+               BuildableName = "fleaMarket.xctest"
+               BlueprintName = "fleaMarketUITests"
+               ReferencedContainer = "container:fleaMarket.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AA48F711CE2BF0100626528"
+            BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
             BuildableName = "fleaMarket.app"
             BlueprintName = "fleaMarket"
             ReferencedContainer = "container:fleaMarket.xcodeproj">
@@ -55,7 +75,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AA48F711CE2BF0100626528"
+            BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
             BuildableName = "fleaMarket.app"
             BlueprintName = "fleaMarket"
             ReferencedContainer = "container:fleaMarket.xcodeproj">
@@ -74,7 +94,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6AA48F711CE2BF0100626528"
+            BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
             BuildableName = "fleaMarket.app"
             BlueprintName = "fleaMarket"
             ReferencedContainer = "container:fleaMarket.xcodeproj">

@@ -7,27 +7,80 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6AA48F761CE2BF0100626528 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA48F751CE2BF0100626528 /* AppDelegate.swift */; };
-		6AA48F781CE2BF0100626528 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA48F771CE2BF0100626528 /* FirstViewController.swift */; };
-		6AA48F7A1CE2BF0100626528 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA48F791CE2BF0100626528 /* SecondViewController.swift */; };
-		6AA48F7D1CE2BF0100626528 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA48F7B1CE2BF0100626528 /* Main.storyboard */; };
-		6AA48F7F1CE2BF0100626528 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AA48F7E1CE2BF0100626528 /* Assets.xcassets */; };
-		6AA48F821CE2BF0100626528 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA48F801CE2BF0100626528 /* LaunchScreen.storyboard */; };
+		7A751C3B1CF9BDBA0096BDE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */; };
+		7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */; };
+		7A751C3F1CF9BDBA0096BDE6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A751C3E1CF9BDBA0096BDE6 /* SecondViewController.swift */; };
+		7A751C421CF9BDBA0096BDE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C401CF9BDBA0096BDE6 /* Main.storyboard */; };
+		7A751C441CF9BDBA0096BDE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C431CF9BDBA0096BDE6 /* Assets.xcassets */; };
+		7A751C471CF9BDBA0096BDE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C451CF9BDBA0096BDE6 /* LaunchScreen.storyboard */; };
+		7A751C521CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A751C511CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift */; };
+		7A751C5D1CF9BDBA0096BDE6 /* TabStoryReferenceSampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A751C5C1CF9BDBA0096BDE6 /* TabStoryReferenceSampleUITests.swift */; };
+		7A751C6C1CF9BE990096BDE6 /* FirstTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C6A1CF9BE990096BDE6 /* FirstTab.storyboard */; };
+		7A751C6E1CF9BEAD0096BDE6 /* SecondTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C6D1CF9BEAD0096BDE6 /* SecondTab.storyboard */; };
+		7A751C711CF9BEBC0096BDE6 /* 3rdTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */; };
+		7A751C731CF9BED00096BDE6 /* 4thTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C721CF9BED00096BDE6 /* 4thTab.storyboard */; };
+		7A751C761CF9BEE20096BDE6 /* 5thTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */; };
+		C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */; };
+		C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7A751C4E1CF9BDBA0096BDE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A751C2F1CF9BDBA0096BDE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A751C361CF9BDBA0096BDE6;
+			remoteInfo = TabStoryReferenceSample;
+		};
+		7A751C591CF9BDBA0096BDE6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A751C2F1CF9BDBA0096BDE6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A751C361CF9BDBA0096BDE6;
+			remoteInfo = TabStoryReferenceSample;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		6AA48F721CE2BF0100626528 /* fleaMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fleaMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AA48F751CE2BF0100626528 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6AA48F771CE2BF0100626528 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		6AA48F791CE2BF0100626528 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		6AA48F7C1CE2BF0100626528 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6AA48F7E1CE2BF0100626528 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6AA48F811CE2BF0100626528 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6AA48F831CE2BF0100626528 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A751C371CF9BDBA0096BDE6 /* fleaMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fleaMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		7A751C3E1CF9BDBA0096BDE6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		7A751C411CF9BDBA0096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7A751C431CF9BDBA0096BDE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7A751C461CF9BDBA0096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A751C481CF9BDBA0096BDE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A751C4D1CF9BDBA0096BDE6 /* fleaMarket.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fleaMarket.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A751C511CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStoryReferenceSampleTests.swift; sourceTree = "<group>"; };
+		7A751C531CF9BDBA0096BDE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A751C581CF9BDBA0096BDE6 /* fleaMarket.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fleaMarket.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A751C5C1CF9BDBA0096BDE6 /* TabStoryReferenceSampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStoryReferenceSampleUITests.swift; sourceTree = "<group>"; };
+		7A751C5E1CF9BDBA0096BDE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A751C6B1CF9BE990096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstTab.storyboard; sourceTree = "<group>"; };
+		7A751C6D1CF9BEAD0096BDE6 /* SecondTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondTab.storyboard; sourceTree = "<group>"; };
+		7A751C701CF9BEBC0096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/3rdTab.storyboard; sourceTree = "<group>"; };
+		7A751C721CF9BED00096BDE6 /* 4thTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 4thTab.storyboard; sourceTree = "<group>"; };
+		7A751C751CF9BEE20096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/5thTab.storyboard; sourceTree = "<group>"; };
+		C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6AA48F6F1CE2BF0100626528 /* Frameworks */ = {
+		7A751C341CF9BDBA0096BDE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A751C4A1CF9BDBA0096BDE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A751C551CF9BDBA0096BDE6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +90,148 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6AA48F691CE2BF0100626528 = {
+		7A751C2E1CF9BDBA0096BDE6 = {
 			isa = PBXGroup;
 			children = (
-				6AA48F741CE2BF0100626528 /* fleaMarket */,
-				6AA48F731CE2BF0100626528 /* Products */,
+				7A751C391CF9BDBA0096BDE6 /* fleaMarket */,
+				7A751C501CF9BDBA0096BDE6 /* fleaMarketTests */,
+				7A751C5B1CF9BDBA0096BDE6 /* fleaMarketUITests */,
+				7A751C381CF9BDBA0096BDE6 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		6AA48F731CE2BF0100626528 /* Products */ = {
+		7A751C381CF9BDBA0096BDE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6AA48F721CE2BF0100626528 /* fleaMarket.app */,
+				7A751C371CF9BDBA0096BDE6 /* fleaMarket.app */,
+				7A751C4D1CF9BDBA0096BDE6 /* fleaMarket.xctest */,
+				7A751C581CF9BDBA0096BDE6 /* fleaMarket.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6AA48F741CE2BF0100626528 /* fleaMarket */ = {
+		7A751C391CF9BDBA0096BDE6 /* fleaMarket */ = {
 			isa = PBXGroup;
 			children = (
-				6AA48F751CE2BF0100626528 /* AppDelegate.swift */,
-				6AA48F771CE2BF0100626528 /* FirstViewController.swift */,
-				6AA48F791CE2BF0100626528 /* SecondViewController.swift */,
-				6AA48F7B1CE2BF0100626528 /* Main.storyboard */,
-				6AA48F7E1CE2BF0100626528 /* Assets.xcassets */,
-				6AA48F801CE2BF0100626528 /* LaunchScreen.storyboard */,
-				6AA48F831CE2BF0100626528 /* Info.plist */,
+				7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */,
+				7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */,
+				7A751C3E1CF9BDBA0096BDE6 /* SecondViewController.swift */,
+				7A751C401CF9BDBA0096BDE6 /* Main.storyboard */,
+				7A751C6A1CF9BE990096BDE6 /* FirstTab.storyboard */,
+				C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */,
+				C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */,
+				7A751C6D1CF9BEAD0096BDE6 /* SecondTab.storyboard */,
+				7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */,
+				7A751C721CF9BED00096BDE6 /* 4thTab.storyboard */,
+				7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */,
+				7A751C431CF9BDBA0096BDE6 /* Assets.xcassets */,
+				7A751C451CF9BDBA0096BDE6 /* LaunchScreen.storyboard */,
+				7A751C481CF9BDBA0096BDE6 /* Info.plist */,
 			);
-			path = fleaMarket;
+			name = fleaMarket;
+			path = TabStoryReferenceSample;
+			sourceTree = "<group>";
+		};
+		7A751C501CF9BDBA0096BDE6 /* fleaMarketTests */ = {
+			isa = PBXGroup;
+			children = (
+				7A751C511CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift */,
+				7A751C531CF9BDBA0096BDE6 /* Info.plist */,
+			);
+			name = fleaMarketTests;
+			path = TabStoryReferenceSampleTests;
+			sourceTree = "<group>";
+		};
+		7A751C5B1CF9BDBA0096BDE6 /* fleaMarketUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7A751C5C1CF9BDBA0096BDE6 /* TabStoryReferenceSampleUITests.swift */,
+				7A751C5E1CF9BDBA0096BDE6 /* Info.plist */,
+			);
+			name = fleaMarketUITests;
+			path = TabStoryReferenceSampleUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AA48F711CE2BF0100626528 /* fleaMarket */ = {
+		7A751C361CF9BDBA0096BDE6 /* fleaMarket */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AA48F861CE2BF0100626528 /* Build configuration list for PBXNativeTarget "fleaMarket" */;
+			buildConfigurationList = 7A751C611CF9BDBA0096BDE6 /* Build configuration list for PBXNativeTarget "fleaMarket" */;
 			buildPhases = (
-				6AA48F6E1CE2BF0100626528 /* Sources */,
-				6AA48F6F1CE2BF0100626528 /* Frameworks */,
-				6AA48F701CE2BF0100626528 /* Resources */,
+				7A751C331CF9BDBA0096BDE6 /* Sources */,
+				7A751C341CF9BDBA0096BDE6 /* Frameworks */,
+				7A751C351CF9BDBA0096BDE6 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = fleaMarket;
-			productName = fleaMarket;
-			productReference = 6AA48F721CE2BF0100626528 /* fleaMarket.app */;
+			productName = TabStoryReferenceSample;
+			productReference = 7A751C371CF9BDBA0096BDE6 /* fleaMarket.app */;
 			productType = "com.apple.product-type.application";
+		};
+		7A751C4C1CF9BDBA0096BDE6 /* fleaMarketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A751C641CF9BDBA0096BDE6 /* Build configuration list for PBXNativeTarget "fleaMarketTests" */;
+			buildPhases = (
+				7A751C491CF9BDBA0096BDE6 /* Sources */,
+				7A751C4A1CF9BDBA0096BDE6 /* Frameworks */,
+				7A751C4B1CF9BDBA0096BDE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A751C4F1CF9BDBA0096BDE6 /* PBXTargetDependency */,
+			);
+			name = fleaMarketTests;
+			productName = TabStoryReferenceSampleTests;
+			productReference = 7A751C4D1CF9BDBA0096BDE6 /* fleaMarket.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7A751C571CF9BDBA0096BDE6 /* fleaMarketUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7A751C671CF9BDBA0096BDE6 /* Build configuration list for PBXNativeTarget "fleaMarketUITests" */;
+			buildPhases = (
+				7A751C541CF9BDBA0096BDE6 /* Sources */,
+				7A751C551CF9BDBA0096BDE6 /* Frameworks */,
+				7A751C561CF9BDBA0096BDE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7A751C5A1CF9BDBA0096BDE6 /* PBXTargetDependency */,
+			);
+			name = fleaMarketUITests;
+			productName = TabStoryReferenceSampleUITests;
+			productReference = 7A751C581CF9BDBA0096BDE6 /* fleaMarket.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6AA48F6A1CE2BF0100626528 /* Project object */ = {
+		7A751C2F1CF9BDBA0096BDE6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = absoluteyl;
+				ORGANIZATIONNAME = ColorKit;
 				TargetAttributes = {
-					6AA48F711CE2BF0100626528 = {
+					7A751C361CF9BDBA0096BDE6 = {
 						CreatedOnToolsVersion = 7.3.1;
+					};
+					7A751C4C1CF9BDBA0096BDE6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 7A751C361CF9BDBA0096BDE6;
+					};
+					7A751C571CF9BDBA0096BDE6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 7A751C361CF9BDBA0096BDE6;
 					};
 				};
 			};
-			buildConfigurationList = 6AA48F6D1CE2BF0100626528 /* Build configuration list for PBXProject "fleaMarket" */;
+			buildConfigurationList = 7A751C321CF9BDBA0096BDE6 /* Build configuration list for PBXProject "fleaMarket" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -110,63 +239,139 @@
 				en,
 				Base,
 			);
-			mainGroup = 6AA48F691CE2BF0100626528;
-			productRefGroup = 6AA48F731CE2BF0100626528 /* Products */;
+			mainGroup = 7A751C2E1CF9BDBA0096BDE6;
+			productRefGroup = 7A751C381CF9BDBA0096BDE6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AA48F711CE2BF0100626528 /* fleaMarket */,
+				7A751C361CF9BDBA0096BDE6 /* fleaMarket */,
+				7A751C4C1CF9BDBA0096BDE6 /* fleaMarketTests */,
+				7A751C571CF9BDBA0096BDE6 /* fleaMarketUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6AA48F701CE2BF0100626528 /* Resources */ = {
+		7A751C351CF9BDBA0096BDE6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AA48F821CE2BF0100626528 /* LaunchScreen.storyboard in Resources */,
-				6AA48F7F1CE2BF0100626528 /* Assets.xcassets in Resources */,
-				6AA48F7D1CE2BF0100626528 /* Main.storyboard in Resources */,
+				7A751C761CF9BEE20096BDE6 /* 5thTab.storyboard in Resources */,
+				7A751C471CF9BDBA0096BDE6 /* LaunchScreen.storyboard in Resources */,
+				7A751C6C1CF9BE990096BDE6 /* FirstTab.storyboard in Resources */,
+				7A751C6E1CF9BEAD0096BDE6 /* SecondTab.storyboard in Resources */,
+				7A751C441CF9BDBA0096BDE6 /* Assets.xcassets in Resources */,
+				7A751C711CF9BEBC0096BDE6 /* 3rdTab.storyboard in Resources */,
+				7A751C731CF9BED00096BDE6 /* 4thTab.storyboard in Resources */,
+				7A751C421CF9BDBA0096BDE6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A751C4B1CF9BDBA0096BDE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A751C561CF9BDBA0096BDE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6AA48F6E1CE2BF0100626528 /* Sources */ = {
+		7A751C331CF9BDBA0096BDE6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AA48F7A1CE2BF0100626528 /* SecondViewController.swift in Sources */,
-				6AA48F761CE2BF0100626528 /* AppDelegate.swift in Sources */,
-				6AA48F781CE2BF0100626528 /* FirstViewController.swift in Sources */,
+				7A751C3F1CF9BDBA0096BDE6 /* SecondViewController.swift in Sources */,
+				C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */,
+				7A751C3B1CF9BDBA0096BDE6 /* AppDelegate.swift in Sources */,
+				C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */,
+				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A751C491CF9BDBA0096BDE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A751C521CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A751C541CF9BDBA0096BDE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7A751C5D1CF9BDBA0096BDE6 /* TabStoryReferenceSampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7A751C4F1CF9BDBA0096BDE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A751C361CF9BDBA0096BDE6 /* fleaMarket */;
+			targetProxy = 7A751C4E1CF9BDBA0096BDE6 /* PBXContainerItemProxy */;
+		};
+		7A751C5A1CF9BDBA0096BDE6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A751C361CF9BDBA0096BDE6 /* fleaMarket */;
+			targetProxy = 7A751C591CF9BDBA0096BDE6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
-		6AA48F7B1CE2BF0100626528 /* Main.storyboard */ = {
+		7A751C401CF9BDBA0096BDE6 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6AA48F7C1CE2BF0100626528 /* Base */,
+				7A751C411CF9BDBA0096BDE6 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6AA48F801CE2BF0100626528 /* LaunchScreen.storyboard */ = {
+		7A751C451CF9BDBA0096BDE6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6AA48F811CE2BF0100626528 /* Base */,
+				7A751C461CF9BDBA0096BDE6 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7A751C6A1CF9BE990096BDE6 /* FirstTab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A751C6B1CF9BE990096BDE6 /* Base */,
+			);
+			name = FirstTab.storyboard;
+			sourceTree = "<group>";
+		};
+		7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A751C701CF9BEBC0096BDE6 /* Base */,
+			);
+			name = 3rdTab.storyboard;
+			sourceTree = "<group>";
+		};
+		7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7A751C751CF9BEE20096BDE6 /* Base */,
+			);
+			name = 5thTab.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6AA48F841CE2BF0100626528 /* Debug */ = {
+		7A751C5F1CF9BDBA0096BDE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,7 +417,7 @@
 			};
 			name = Debug;
 		};
-		6AA48F851CE2BF0100626528 /* Release */ = {
+		7A751C601CF9BDBA0096BDE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -251,49 +456,114 @@
 			};
 			name = Release;
 		};
-		6AA48F871CE2BF0100626528 /* Debug */ = {
+		7A751C621CF9BDBA0096BDE6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = fleaMarket/Info.plist;
+				INFOPLIST_FILE = TabStoryReferenceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = absoluteyl.fleaMarket;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSample;
+				PRODUCT_NAME = fleaMarket;
 			};
 			name = Debug;
 		};
-		6AA48F881CE2BF0100626528 /* Release */ = {
+		7A751C631CF9BDBA0096BDE6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = fleaMarket/Info.plist;
+				INFOPLIST_FILE = TabStoryReferenceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = absoluteyl.fleaMarket;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSample;
+				PRODUCT_NAME = fleaMarket;
+			};
+			name = Release;
+		};
+		7A751C651CF9BDBA0096BDE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TabStoryReferenceSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSampleTests;
+				PRODUCT_NAME = fleaMarket;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fleaMarket.app/fleaMarket";
+			};
+			name = Debug;
+		};
+		7A751C661CF9BDBA0096BDE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TabStoryReferenceSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSampleTests;
+				PRODUCT_NAME = fleaMarket;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/fleaMarket.app/fleaMarket";
+			};
+			name = Release;
+		};
+		7A751C681CF9BDBA0096BDE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TabStoryReferenceSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSampleUITests;
+				PRODUCT_NAME = fleaMarket;
+				TEST_TARGET_NAME = TabStoryReferenceSample;
+			};
+			name = Debug;
+		};
+		7A751C691CF9BDBA0096BDE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TabStoryReferenceSampleUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSampleUITests;
+				PRODUCT_NAME = fleaMarket;
+				TEST_TARGET_NAME = TabStoryReferenceSample;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6AA48F6D1CE2BF0100626528 /* Build configuration list for PBXProject "fleaMarket" */ = {
+		7A751C321CF9BDBA0096BDE6 /* Build configuration list for PBXProject "fleaMarket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AA48F841CE2BF0100626528 /* Debug */,
-				6AA48F851CE2BF0100626528 /* Release */,
+				7A751C5F1CF9BDBA0096BDE6 /* Debug */,
+				7A751C601CF9BDBA0096BDE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AA48F861CE2BF0100626528 /* Build configuration list for PBXNativeTarget "fleaMarket" */ = {
+		7A751C611CF9BDBA0096BDE6 /* Build configuration list for PBXNativeTarget "fleaMarket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AA48F871CE2BF0100626528 /* Debug */,
-				6AA48F881CE2BF0100626528 /* Release */,
+				7A751C621CF9BDBA0096BDE6 /* Debug */,
+				7A751C631CF9BDBA0096BDE6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A751C641CF9BDBA0096BDE6 /* Build configuration list for PBXNativeTarget "fleaMarketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A751C651CF9BDBA0096BDE6 /* Debug */,
+				7A751C661CF9BDBA0096BDE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7A751C671CF9BDBA0096BDE6 /* Build configuration list for PBXNativeTarget "fleaMarketUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7A751C681CF9BDBA0096BDE6 /* Debug */,
+				7A751C691CF9BDBA0096BDE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6AA48F6A1CE2BF0100626528 /* Project object */;
+	rootObject = 7A751C2F1CF9BDBA0096BDE6 /* Project object */;
 }
