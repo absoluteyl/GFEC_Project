@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528025621) do
+ActiveRecord::Schema.define(version: 20160601133413) do
 
   create_table "merchandises", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "price"
     t.integer  "amount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "mobile"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
