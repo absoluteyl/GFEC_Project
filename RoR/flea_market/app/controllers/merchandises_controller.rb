@@ -4,6 +4,7 @@ class MerchandisesController < ApplicationController
     end
     def create
         @merchandise = Merchandise.new(merchandise_params)
+        @merchandise.user = User.first #hard code user id temporary
         if @merchandise.save
           flash[:success] = "Your merchandise was successfully uploaded"
           redirect_to merchandise_path(@merchandise)

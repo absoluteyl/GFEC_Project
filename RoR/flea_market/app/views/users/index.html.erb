@@ -1,0 +1,9 @@
+<h1 align="center">All Alpha Bloggers</h1>
+<div align="center">
+    <% @users.each do |user| %>
+    <div>
+        <p class="merchandise-title"><%= link_to user.username, user_path(user) %></p>
+        <p><small><%= pluralize(user.merchandises.count, "merchandise") if user.merchandises %></small></p>
+    </div>
+    <% end %>
+</div>

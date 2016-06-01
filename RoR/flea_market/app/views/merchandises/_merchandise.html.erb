@@ -4,6 +4,13 @@
         </div>
         <div class="merchandise-body">
           <%= truncate(merchandise.description, length: 100) %>
+          <div class="merchandise-meta-details">
+            <small>
+              Seller: <%= merchandise.user.username if merchandise.user %>,
+              <%= time_ago_in_words(merchandise.created_at) %> ago,
+              last update: <%= time_ago_in_words(merchandise.updated_at) %> ago
+            </small>
+          </div>
         </div>
         <div class="merchandise-actions">
           <%= link_to "Edit this merchandise", edit_merchandise_path(merchandise) %>
@@ -12,3 +19,4 @@
         </div>
         <br />
 <% end %>
+<%= link_to 'Upload merchandise', new_merchandise_path %>
