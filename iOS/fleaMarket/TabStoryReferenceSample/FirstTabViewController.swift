@@ -10,10 +10,14 @@ import UIKit
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    //let v1 = productInfoVC(nibName: "productInfoVC", bundle: nil)//連接到商品頁面
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
+    let prices = ["1","2","3","4","5","6","7","8","9","100","110","120"]
+ 
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -25,6 +29,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             return CGSize(width: 200, height: 200)
         }
     }
+    
+
 
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -44,8 +50,9 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     //cell中顯示內容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
-        cell.imageView.image = UIImage(named:images[indexPath.row])
-        cell.cellLabel.text = "\(images[indexPath.row])"
+        cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
+        cell.cellLabel.text = "\(images[indexPath.row])" //顯示物件名稱
+        cell.cellPriceLabel.text = "$ \(prices[indexPath.row])"//顯示價格
         
         return cell
     }
@@ -60,6 +67,11 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+         //self.navigationController?.pushViewController(v1, animated: true)//連接到商品頁面
+        self.performSegueWithIdentifier("showItemDetail", sender: indexPath.row)
     }
     
 
