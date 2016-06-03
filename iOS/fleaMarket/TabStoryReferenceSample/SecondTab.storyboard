@@ -20,8 +20,12 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Rt-uz-esJ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyY-fa-8Ur">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyY-fa-8Ur">
                                 <rect key="frame" x="254" y="497" width="93" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="93" id="Qrq-bf-WBc"/>
+                                    <constraint firstAttribute="height" constant="30" id="Zix-ny-Lqv"/>
+                                </constraints>
                                 <state key="normal" title="Go Back" backgroundImage="animal10"/>
                                 <connections>
                                     <action selector="resetLocationButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="liT-5S-D2N"/>
@@ -30,6 +34,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zyY-fa-8Ur" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="01Q-nG-a6p"/>
                             <constraint firstItem="4Rt-uz-esJ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="07l-lZ-joC"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="4Rt-uz-esJ" secondAttribute="bottom" id="3pB-Q4-uJm"/>
                             <constraint firstAttribute="trailing" secondItem="4Rt-uz-esJ" secondAttribute="trailing" id="OfS-IW-9gM"/>

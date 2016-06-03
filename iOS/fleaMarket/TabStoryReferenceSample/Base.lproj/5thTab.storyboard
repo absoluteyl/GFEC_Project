@@ -8,7 +8,7 @@
         <!--Item-->
         <scene sceneID="3dq-VC-I6z">
             <objects>
-                <viewController id="T61-0W-SZC" sceneMemberID="viewController">
+                <viewController id="T61-0W-SZC" customClass="FifthTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zEx-i8-otw"/>
                         <viewControllerLayoutGuide type="bottom" id="sDX-gX-2G6"/>
@@ -17,22 +17,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="5th View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLk-rh-sfn">
-                                <rect key="frame" x="231" y="279" width="138" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6A-42-n8A">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="161"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="kLk-rh-sfn" firstAttribute="centerX" secondItem="h09-r7-Dgs" secondAttribute="centerX" id="4pG-kM-38z"/>
-                            <constraint firstItem="kLk-rh-sfn" firstAttribute="centerY" secondItem="h09-r7-Dgs" secondAttribute="centerY" id="Lp3-NY-Ynv"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" image="first" id="FsA-E3-i5l"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="map" destination="r6A-42-n8A" id="55F-9z-akC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moa-z9-oIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
