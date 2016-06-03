@@ -11,13 +11,18 @@ import UIKit
 class FourthTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var imageView: UIView!
 
-    let contacts = ["Amy","Bob","Caroline","Dandy","Esla","Fergus","George","Harry","Issac"]
+    let contacts = ["Amy","Bob","Caroline","Dandy","Elsa","Fergus","George","Harry","Issac"]
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Beggining of adding logo to Navigation Bar
+        let logo = UIImage(named: "logo_temp_small.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        // End of adding logo to Navigation Bar
+        
     }
 
     override func didReceiveMemoryWarning() {

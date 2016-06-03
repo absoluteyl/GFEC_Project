@@ -13,10 +13,12 @@ import CoreLocation
 class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
     @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var homeButton: UIButton!
     
     let locationManager = CLLocationManager() // get user's location
     
     var location: CLLocation!
+    
     
     @IBAction func resetLocationButton(sender: UIButton) {
         
@@ -28,6 +30,15 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Beggining of adding logo to Navigation Bar
+        let logo = UIImage(named: "logo_temp_small.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        // End of adding logo to Navigation Bar
+        
+        homeButton.layer.cornerRadius = homeButton.frame.size.width/2
+        homeButton.clipsToBounds = true //make home button round
         
         self.locationManager.delegate = self
         

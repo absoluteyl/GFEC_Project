@@ -64,8 +64,12 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Beggining of adding logo to Navigation Bar
+        let logo = UIImage(named: "logo_temp_small.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        // End of adding logo to Navigation Bar
     }
 
     override func didReceiveMemoryWarning() {

@@ -20,13 +20,13 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Rt-uz-esJ">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyY-fa-8Ur">
-                                <rect key="frame" x="254" y="497" width="93" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyY-fa-8Ur">
+                                <rect key="frame" x="520" y="471" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="93" id="Qrq-bf-WBc"/>
-                                    <constraint firstAttribute="height" constant="30" id="Zix-ny-Lqv"/>
+                                    <constraint firstAttribute="width" constant="60" id="Qrq-bf-WBc"/>
+                                    <constraint firstAttribute="height" constant="60" id="Zix-ny-Lqv"/>
                                 </constraints>
-                                <state key="normal" title="Go Back" backgroundImage="animal10"/>
+                                <state key="normal" image="mapHome"/>
                                 <connections>
                                     <action selector="resetLocationButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="liT-5S-D2N"/>
                                 </connections>
@@ -37,13 +37,21 @@
                             <constraint firstItem="zyY-fa-8Ur" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="01Q-nG-a6p"/>
                             <constraint firstItem="4Rt-uz-esJ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="07l-lZ-joC"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="4Rt-uz-esJ" secondAttribute="bottom" id="3pB-Q4-uJm"/>
+                            <constraint firstItem="zyY-fa-8Ur" firstAttribute="bottom" secondItem="4Rt-uz-esJ" secondAttribute="bottom" constant="-20" id="EyG-yb-0nX"/>
                             <constraint firstAttribute="trailing" secondItem="4Rt-uz-esJ" secondAttribute="trailing" id="OfS-IW-9gM"/>
                             <constraint firstItem="4Rt-uz-esJ" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="YnN-c2-xNn"/>
+                            <constraint firstItem="zyY-fa-8Ur" firstAttribute="trailing" secondItem="4Rt-uz-esJ" secondAttribute="trailing" constant="-20" id="eL5-04-7mQ"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="01Q-nG-a6p"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="7ZM-39-0f3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="homeButton" destination="zyY-fa-8Ur" id="lHg-il-QiP"/>
                         <outlet property="map" destination="4Rt-uz-esJ" id="mtd-A8-BaM"/>
                     </connections>
                 </viewController>
@@ -72,7 +80,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="animal10" width="204" height="204"/>
+        <image name="mapHome" width="60" height="60"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
