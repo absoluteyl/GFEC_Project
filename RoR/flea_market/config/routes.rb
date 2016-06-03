@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-
+  
   # Example resource route with more complex sub-resources:
   #   resources :products do
   #     resources :comments
@@ -58,4 +58,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :api do
+    resources :merchandises
+    resources :users
+  end
 end
