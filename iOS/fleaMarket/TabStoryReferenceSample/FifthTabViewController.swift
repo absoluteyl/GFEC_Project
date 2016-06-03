@@ -11,6 +11,7 @@ import MapKit
 
 class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBOutlet weak var userImage: UIImageView!
     
     @IBOutlet weak var map: MKMapView!
     
@@ -21,6 +22,9 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userImage.layer.cornerRadius = userImage.frame.size.width/2
+        userImage.clipsToBounds = true
         
         self.locationManager.delegate = self
         

@@ -10,8 +10,6 @@ import UIKit
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
-    //let v1 = productInfoVC(nibName: "productInfoVC", bundle: nil)//連接到商品頁面
-    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
@@ -29,6 +27,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             return CGSize(width: 200, height: 200)
             
         }
+        
+
     }
     
 
@@ -36,6 +36,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.reloadData() //螢幕轉直or橫時會更新cell的大小
+        
     }
     
     //有幾個section
@@ -51,6 +52,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     //cell中顯示內容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
         cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
         cell.cellLabel.text = "\(images[indexPath.row])" //顯示物件名稱
         cell.cellPriceLabel.text = "$ \(prices[indexPath.row])"//顯示價格

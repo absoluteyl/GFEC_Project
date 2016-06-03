@@ -3,12 +3,13 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--4th-->
+        <!--Messages-->
         <scene sceneID="k9J-ki-Syj">
             <objects>
-                <viewController id="ikC-PM-pZY" sceneMemberID="viewController">
+                <viewController id="ikC-PM-pZY" customClass="FourthTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zBy-kR-l6h"/>
                         <viewControllerLayoutGuide type="bottom" id="gkl-Gz-ukM"/>
@@ -17,21 +18,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="4th View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zn7-7j-yiQ">
-                                <rect key="frame" x="231" y="279" width="138" height="42"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0yc-f1-NkR">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="0Hd-xv-dO6">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Hd-xv-dO6" id="XQ2-Je-gkQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" restorationIdentifier="imageVIew" translatesAutoresizingMaskIntoConstraints="NO" id="XQM-dt-ui3">
+                                                    <rect key="frame" x="8" y="10" width="80" height="80"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XQM-dt-ui3" firstAttribute="centerY" secondItem="XQ2-Je-gkQ" secondAttribute="centerY" id="1iP-pz-yfb"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="XQM-dt-ui3" secondAttribute="leading" id="IcO-qU-ECC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="ikC-PM-pZY" id="HGU-jB-w5t"/>
+                                    <outlet property="delegate" destination="ikC-PM-pZY" id="B2X-ba-aYF"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zn7-7j-yiQ" firstAttribute="centerX" secondItem="Wjv-iN-MEM" secondAttribute="centerX" id="acL-lo-aIm"/>
-                            <constraint firstItem="zn7-7j-yiQ" firstAttribute="centerY" secondItem="Wjv-iN-MEM" secondAttribute="centerY" id="upc-ry-Pbg"/>
+                            <constraint firstItem="gkl-Gz-ukM" firstAttribute="top" secondItem="0yc-f1-NkR" secondAttribute="bottom" id="9h7-lu-Iir"/>
+                            <constraint firstItem="0yc-f1-NkR" firstAttribute="top" secondItem="Wjv-iN-MEM" secondAttribute="top" constant="20" id="Ge9-rk-pKI"/>
+                            <constraint firstItem="0yc-f1-NkR" firstAttribute="leading" secondItem="Wjv-iN-MEM" secondAttribute="leading" id="o4k-aJ-hkX"/>
+                            <constraint firstAttribute="trailing" secondItem="0yc-f1-NkR" secondAttribute="trailing" id="xep-ZG-gY9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="4th" image="second" id="irD-BY-kvz"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="tab4message" id="irD-BY-kvz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wij-EH-5Yq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -40,6 +63,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="second" width="30" height="30"/>
+        <image name="tab4message" width="18" height="18"/>
     </resources>
 </document>
