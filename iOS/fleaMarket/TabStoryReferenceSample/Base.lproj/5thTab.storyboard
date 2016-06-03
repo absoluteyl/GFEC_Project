@@ -1,45 +1,170 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="T61-0W-SZC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZKW-9d-ycR">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Fifth Tab View Controller-->
         <scene sceneID="3dq-VC-I6z">
             <objects>
-                <viewController id="T61-0W-SZC" sceneMemberID="viewController">
+                <viewController id="T61-0W-SZC" customClass="FifthTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zEx-i8-otw"/>
                         <viewControllerLayoutGuide type="bottom" id="sDX-gX-2G6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="h09-r7-Dgs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="5th View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="kLk-rh-sfn">
-                                <rect key="frame" x="231" y="279" width="138" height="42"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" zoomEnabled="NO" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6A-42-n8A">
+                                <rect key="frame" x="0.0" y="64" width="414" height="109"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="喬治" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34j-uc-mib">
+                                <rect key="frame" x="150" y="174" width="125" height="57.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="評價：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hId-Qx-Qxg">
+                                <rect key="frame" x="150" y="238.5" width="51" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="george" translatesAutoresizingMaskIntoConstraints="NO" id="mbV-gY-ZX7">
+                                <rect key="frame" x="5" y="174" width="128" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH9-ZP-mJo">
+                                <rect key="frame" x="302" y="272" width="99" height="30"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit Profile">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-ua-YPO">
+                                <rect key="frame" x="0.0" y="323" width="414" height="364"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gWa-6L-K3V">
+                                        <rect key="frame" x="70" y="48" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="hEt-pX-AlG"/>
+                                            <constraint firstAttribute="height" constant="60" id="oyV-us-c2y"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab1"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-9b-ovP">
+                                        <rect key="frame" x="177" y="48" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="c4a-xG-fKt"/>
+                                            <constraint firstAttribute="height" constant="60" id="nwv-qt-fvN"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab2"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgd-EZ-MlY">
+                                        <rect key="frame" x="285" y="48" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="KrE-5N-HkY"/>
+                                            <constraint firstAttribute="width" constant="60" id="pFY-qg-8lJ"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab3"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-z6-usP">
+                                        <rect key="frame" x="70" y="139" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="XXF-Ky-lz5"/>
+                                            <constraint firstAttribute="width" constant="60" id="Z2O-fu-ecl"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab4"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gin-Ii-AYf">
+                                        <rect key="frame" x="177" y="139" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="O6d-WQ-1QW"/>
+                                            <constraint firstAttribute="height" constant="60" id="qJP-ar-gHh"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab5"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngi-iI-9St">
+                                        <rect key="frame" x="285" y="139" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="2Po-FY-qty"/>
+                                            <constraint firstAttribute="height" constant="60" id="wxn-gb-Fmb"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab6"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-2k-gOC">
+                                        <rect key="frame" x="70" y="230" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="ICC-OL-6LW"/>
+                                            <constraint firstAttribute="width" constant="60" id="k91-8h-1zS"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab7"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-lb-XQL">
+                                        <rect key="frame" x="177" y="230" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="2Qi-lJ-rap"/>
+                                            <constraint firstAttribute="width" constant="60" id="qDn-L9-c6X"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab8"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zT9-lk-NRa">
+                                        <rect key="frame" x="285" y="230" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="Kle-gP-AfY"/>
+                                            <constraint firstAttribute="width" constant="60" id="wKy-So-w79"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab9"/>
+                                    </button>
+                                </subviews>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="kLk-rh-sfn" firstAttribute="centerX" secondItem="h09-r7-Dgs" secondAttribute="centerX" id="4pG-kM-38z"/>
-                            <constraint firstItem="kLk-rh-sfn" firstAttribute="centerY" secondItem="h09-r7-Dgs" secondAttribute="centerY" id="Lp3-NY-Ynv"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="first" id="FsA-E3-i5l"/>
+                    <navigationItem key="navigationItem" id="a8D-YM-RvT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="map" destination="r6A-42-n8A" id="55F-9z-akC"/>
+                        <outlet property="userImage" destination="mbV-gY-ZX7" id="2Ll-Rz-suh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moa-z9-oIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="780" y="938"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="oYd-lA-hCO">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tcx-H5-VXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZKW-9d-ycR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="first" id="FsA-E3-i5l"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Nq-cw-7m9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T61-0W-SZC" kind="relationship" relationship="rootViewController" id="kbr-N9-ph5"/>
+                    </connections>
+                </navigationController>
             </objects>
             <point key="canvasLocation" x="-32" y="938"/>
         </scene>
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="george" width="604" height="595"/>
+        <image name="usertab1" width="125" height="125"/>
+        <image name="usertab2" width="125" height="125"/>
+        <image name="usertab3" width="125" height="125"/>
+        <image name="usertab4" width="125" height="125"/>
+        <image name="usertab5" width="125" height="125"/>
+        <image name="usertab6" width="125" height="125"/>
+        <image name="usertab7" width="125" height="125"/>
+        <image name="usertab8" width="125" height="125"/>
+        <image name="usertab9" width="125" height="125"/>
     </resources>
 </document>
