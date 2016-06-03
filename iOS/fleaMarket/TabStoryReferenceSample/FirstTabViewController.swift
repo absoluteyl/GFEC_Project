@@ -27,6 +27,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             return CGSize(width: 180, height: 180)
         }else{
             return CGSize(width: 200, height: 200)
+            
         }
     }
     

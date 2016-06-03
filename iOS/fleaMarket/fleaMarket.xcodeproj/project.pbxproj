@@ -119,7 +119,6 @@
 			children = (
 				7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */,
 				7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */,
-				7A751C3E1CF9BDBA0096BDE6 /* SecondViewController.swift */,
 				7A751C401CF9BDBA0096BDE6 /* Main.storyboard */,
 				7A751C6A1CF9BE990096BDE6 /* FirstTab.storyboard */,
 				C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */,
@@ -127,6 +126,7 @@
 				C98058771CFE8E8E00F8F629 /* itemDetail.storyboard */,
 				C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */,
 				7A751C6D1CF9BEAD0096BDE6 /* SecondTab.storyboard */,
+				7A751C3E1CF9BDBA0096BDE6 /* SecondViewController.swift */,
 				7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */,
 				7A751C721CF9BED00096BDE6 /* 4thTab.storyboard */,
 				7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */,
