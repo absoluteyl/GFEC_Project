@@ -10,12 +10,16 @@ import UIKit
 
 class FourthTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var imageView: UIView!
+    @IBOutlet weak var contactImage: UIImageView!
 
     let contacts = ["Amy","Bob","Caroline","Dandy","Elsa","Fergus","George","Harry","Issac"]
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //contactImage.layer.cornerRadius = 30
+        //contactImage.clipsToBounds = true
         
         // Beggining of adding logo to Navigation Bar
         let logo = UIImage(named: "logo_temp_small.png")
@@ -43,6 +47,18 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         cell.textLabel?.text = contacts[indexPath.row]
         cell.imageView!.image = UIImage(named: images[indexPath.row])
+        //cell.imageView!.bounds = CGRectMake(0.0, 0.0, 60.0, 60.0)
+        //cell.imageView!.frame = CGRectMake(0.0, 0.0, 60.0, 60.0)
+        cell.imageView!.layer.cornerRadius = 30 //cell.imageView!.layer.frame.height/2
+        cell.imageView!.clipsToBounds = true //round contact images
+        
+        var itemSize:CGSize = CGSizeMake(60, 60)
+        UIGraphicsBeginImageContextWithOptions(itemSize, false, UIScreen.mainScreen().scale)
+        var imageRect : CGRect = CGRectMake(0, 0, itemSize.width, itemSize.height)
+        cell.imageView!.image?.drawInRect(imageRect)
+        cell.imageView!.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
         return cell
     }
 

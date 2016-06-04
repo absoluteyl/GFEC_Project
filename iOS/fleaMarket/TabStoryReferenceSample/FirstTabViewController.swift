@@ -52,6 +52,9 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     //cell中顯示內容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
+        
+        getImageFromFlickr()
+        
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
@@ -62,14 +65,20 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     }
 
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // Beggining of adding logo to Navigation Bar
         let logo = UIImage(named: "logo_temp_small.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         // End of adding logo to Navigation Bar
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,14 +92,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     }
     
 
-    /*
-    // MARK: - Navigation
+    
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

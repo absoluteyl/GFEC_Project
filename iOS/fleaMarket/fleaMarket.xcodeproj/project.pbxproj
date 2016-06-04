@@ -23,6 +23,9 @@
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
 		C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */; };
 		C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */; };
+		C94EB6041D02DF0C0077EBC6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6031D02DF0C0077EBC6 /* Constants.swift */; };
+		C94EB6061D02E1F00077EBC6 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6051D02E1F00077EBC6 /* functions.swift */; };
+		C94EB6081D0302040077EBC6 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6071D0302040077EBC6 /* GCDBlackBox.swift */; };
 		C98058781CFE8E8E00F8F629 /* itemDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98058771CFE8E8E00F8F629 /* itemDetail.storyboard */; };
 		C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */; };
 		C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */; };
@@ -69,6 +72,9 @@
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
 		C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
+		C94EB6031D02DF0C0077EBC6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C94EB6051D02E1F00077EBC6 /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
+		C94EB6071D0302040077EBC6 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		C98058771CFE8E8E00F8F629 /* itemDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = itemDetail.storyboard; sourceTree = "<group>"; };
 		C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemDetailViewController.swift; sourceTree = "<group>"; };
 		C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 				7A751C431CF9BDBA0096BDE6 /* Assets.xcassets */,
 				7A751C451CF9BDBA0096BDE6 /* LaunchScreen.storyboard */,
 				7A751C481CF9BDBA0096BDE6 /* Info.plist */,
+				C94EB6031D02DF0C0077EBC6 /* Constants.swift */,
+				C94EB6051D02E1F00077EBC6 /* functions.swift */,
+				C94EB6071D0302040077EBC6 /* GCDBlackBox.swift */,
 			);
 			name = fleaMarket;
 			path = TabStoryReferenceSample;
@@ -308,8 +317,11 @@
 				C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */,
 				7A751C3B1CF9BDBA0096BDE6 /* AppDelegate.swift in Sources */,
 				C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */,
+				C94EB6081D0302040077EBC6 /* GCDBlackBox.swift in Sources */,
 				C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */,
+				C94EB6041D02DF0C0077EBC6 /* Constants.swift in Sources */,
 				C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */,
+				C94EB6061D02E1F00077EBC6 /* functions.swift in Sources */,
 				C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */,
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
