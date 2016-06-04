@@ -8,6 +8,9 @@
 
 import Foundation
 
+//define an array of merchandise title for later use
+var titleArray = [String]()
+
 public func escapedParameters(parameters: [String:AnyObject]) -> String {
     
     if parameters.isEmpty {
@@ -37,12 +40,12 @@ public func escapedParameters(parameters: [String:AnyObject]) -> String {
 
 public func getImageFromFlickr() {
     
-    let methodParameters = [
-        Constants.ParameterKeys.Merchandises: Constants.ParameterValues.Merchandises
-    ]
-    
-    //let urlString = Constants.Webpage.APIBaseURL + escapedParameters(methodParameters)
-    let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises?"
+//    let methodParameters = [
+//        Constants.Merchandises: Constants.ParameterValues.Merchandises
+//    ]
+//    
+    let urlString = Constants.Merchandises.APIBaseURL
+    //let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
     let url = NSURL(string: urlString)!
     let request = NSURLRequest(URL: url)
     
@@ -65,20 +68,23 @@ public func getImageFromFlickr() {
                     displayError("Could not parse the data as JSON: '\(data)'")
                     return
                 }
-                    let itemArray = parsedResult as? [[String:AnyObject]]
                 
-                let itemDictionary = itemArray![itemArray!.count] as [String:AnyObject]
+                //print(parsedResult)
                 
-                if let itemTitle = itemDictionary[Constants.itemResponseKeys.Title] as? String {
-//                        performUIUpdatesOnMain(){
-//                            cell.cellLabel.text = itemTitle
-//                        }
+                //convert parseResult into a Dictionary, so it becomes several dictionaries in an array
+                let itemDictionary = parsedResult as? [[String:AnyObject]]
+                //print(itemDictionary!)
+                
+                //grab every "title" in dictionaries by look into the array with for loop
+                for i in 0...itemDictionary!.count-1 {
+                    let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+                    
+                    titleArray.append(itemTitle!)
+                    
                 }
+                print(titleArray)
 
-                print (itemArray!)
-                
-                }
-            
+            }
         }
     }
     task.resume()
