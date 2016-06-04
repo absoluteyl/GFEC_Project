@@ -61,7 +61,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="UICollectionView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-Ib-p39">
                                 <rect key="frame" x="0.0" y="124" width="600" height="419"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="JdK-ie-ugt">
                                     <size key="itemSize" width="131" height="131"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
