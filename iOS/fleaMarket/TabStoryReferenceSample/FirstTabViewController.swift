@@ -8,6 +8,11 @@
 
 import UIKit
 
+//define an array of merchandise title for later use
+var titleArray = [String]()
+
+
+
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -15,7 +20,27 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
     let prices = ["1","2","3","4","5","6","7","8","9","100","110","120"]
- 
+    
+    override func viewWillAppear(animated: Bool) {
+        getImageFromFlickr()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("1.\(titleArray.count)")
+       // getImageFromFlickr()
+        
+        print("2.\(titleArray.count)")
+        
+        // Beggining of adding logo to Navigation Bar
+        let logo = UIImage(named: "logo_temp_small.png")
+        let imageView = UIImageView(image:logo)
+        self.navigationItem.titleView = imageView
+        // End of adding logo to Navigation Bar
+        
+        
+        
+    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -46,19 +71,18 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     //有幾個cell
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return titleArray.count
     }
+    
     
     //cell中顯示內容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
         
-        getImageFromFlickr()
-        
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
         cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
-        cell.cellLabel.text = "\(images[indexPath.row])" //顯示物件名稱
+        cell.cellLabel.text = "\(titleArray[indexPath.row])" //顯示物件名稱
         cell.cellPriceLabel.text = "$ \(prices[indexPath.row])"//顯示價格
         
         return cell
@@ -66,20 +90,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
 
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        
-        // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
-        // End of adding logo to Navigation Bar
-        
-        
-        
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -92,7 +103,65 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     }
     
 
-    
+    public func getImageFromFlickr() {
+        
+        //    let methodParameters = [
+        
+        //        Constants.Merchandises: Constants.ParameterValues.Merchandises
+        //    ]
+        //
+        let urlString = Constants.Merchandises.APIBaseURL
+        //let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    let itemDictionary = parsedResult as? [[String:AnyObject]]
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    for i in 0...itemDictionary!.count-1 {
+                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+                        //print (itemTitle!)
+                        titleArray.append(itemTitle!)
+                        
+                    }
+                    print(titleArray)
+                    print("3.\(titleArray.count)")
+                    
+                    performUIUpdatesOnMain(){
+                        self.collectionView.reloadData()
+                    }
+                    
+                    
+                }
+            }
+        }
+        
+        task.resume()
+        
+    }
     
 
     
