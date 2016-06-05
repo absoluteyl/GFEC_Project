@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public func escapedParameters(parameters: [String:AnyObject]) -> String {
     
@@ -37,14 +38,15 @@ public func escapedParameters(parameters: [String:AnyObject]) -> String {
 
 public func getImageFromFlickr() {
     
-    let methodParameters = [
-        Constants.ParameterKeys.Merchandises: Constants.ParameterValues.Merchandises
-    ]
+//    let methodParameters = [
+//        Constants.ParameterKeys.Merchandises: Constants.ParameterValues.Merchandises
+//    ]
     
     //let urlString = Constants.Webpage.APIBaseURL + escapedParameters(methodParameters)
-    let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises?"
+    let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
     let url = NSURL(string: urlString)!
     let request = NSURLRequest(URL: url)
+    var itemArray:NSArray?
     
     
     // if an error occur, print it
@@ -65,22 +67,31 @@ public func getImageFromFlickr() {
                     displayError("Could not parse the data as JSON: '\(data)'")
                     return
                 }
-                    let itemArray = parsedResult as? [[String:AnyObject]]
                 
-                let itemDictionary = itemArray![itemArray!.count] as [String:AnyObject]
+                let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                theDelegate.itemArray = parsedResult as? NSArray
                 
-                if let itemTitle = itemDictionary[Constants.itemResponseKeys.Title] as? String {
+
+                performUIUpdatesOnMain(){
+//                    self.itemArray = itemArray
+                        //reload table view
+                }
+                print (itemArray!)
+//                if let itemTitle = itemDictionary![Constants.itemResponseKeys.Title] as? String {
 //                        performUIUpdatesOnMain(){
 //                            cell.cellLabel.text = itemTitle
 //                        }
                 }
 
-                print (itemArray!)
+            
                 
                 }
             
         }
-    }
+    
     task.resume()
     
-}
+    }
+
+
+

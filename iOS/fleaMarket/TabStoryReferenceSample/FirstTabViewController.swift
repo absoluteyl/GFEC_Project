@@ -15,6 +15,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
     let prices = ["1","2","3","4","5","6","7","8","9","100","110","120"]
+    
  
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -49,11 +50,10 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         return images.count
     }
     
+    
     //cell中顯示內容
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
-        
-        getImageFromFlickr()
         
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
