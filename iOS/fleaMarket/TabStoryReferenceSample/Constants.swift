@@ -10,45 +10,48 @@ import Foundation
 
 struct Constants {
     
-    // MARK: Flickr
-    struct Webpage {
-        static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/"
+    // MARK: Get merchandise list or filter specific items
+    struct Merchandises {
+        static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
     }
     
-    // MARK: Item Parameter Keys
+    // MARK: Merchandises Parameter Keys
     struct ParameterKeys {
-        static let Merchandises = "merchandises"
-//        static let APIKey = "api_key"
-//        static let GalleryID = "id"
-//        static let Extras = "extras"
-//        static let Format = "format"
-//        static let NoJSONCallback = "nojsoncallback"
+        static let MerchandiseID = "id"
+        static let MerchandiseTitle = "title"
+        static let MerchandiseDescription = "description"
+        static let MerchandisePrice = "price"
+//        static let MerchandiseAmount = "amount"
+        static let UserID = "user_id"
+        
     }
     
-    // MARK: Flickr Parameter Values
+    // MARK: Merchandises Parameter Values
     struct ParameterValues {
-        static let Merchandises = "merchandises"
-//        static let ResponseFormat = "json"
-//        static let DisableJSONCallback = "1" /* 1 means "yes" */
-//        static let GalleryPhotosMethod = "flickr.galleries.getPhotos"
-//        static let GalleryID = "5704-72157622566655097"
-//        static let MediumURL = "url_m"
+        static let MerchandiseID = ""
+        static let MerchandiseTitle = ""
+        static let MerchandiseDescription = ""
+        static let MerchandisePrice = ""
+        static let MerchandiseAmount = ""
+        static let UserID = ""
+        
+     }
+    
+    // MARK: FleaMarket Response Keys
+    struct MerchandisesResponseKeys {
+        static let MerchandiseTitle = "title"
+        static let MerchandiseDescription = "description"
+        static let MerchandisePrice = "price"
+        static let MerchandiseAmount = "amount"
+        static let UserID = "user_id"
     }
     
-    // MARK: Flickr Response Keys
-    struct itemResponseKeys {
-        static let Id = "id"
-        static let Title = "title"
-        static let Description = "description"
-        static let Price = "price"
-        static let Amount = "amount"
-        static let CreatedAt = "created_at"
-        static let UpdatedAt = "updated_at"
-        static let UserId = "user_id"
+    // MARK: FleaMarket Response Values
+    struct MerchandisesResponseValues {
     }
     
-    // MARK: Flickr Response Values
-    struct FlickrResponseValues {
-        static let OKStatus = "ok"
+    // MARK: Get merchandise list or filter specific items
+    struct Merchandise {
+        static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/merchandises/"
     }
 }

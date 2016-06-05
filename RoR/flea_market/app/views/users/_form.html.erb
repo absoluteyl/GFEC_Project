@@ -1,0 +1,19 @@
+<%= form_for @user do |f| %>
+
+<%= f.label :username %>
+<%= f.text_field :username, placeholder: "Enter username", autofocus: true %>
+<br />
+<%= f.label :email %>
+<%= f.email_field :email, placeholder: "Enter email" %>
+<br />
+<%= f.label :mobile %>
+<%= f.text_field :mobile, placeholder: "Enter mobile" %>
+<br />
+<%= f.label :password %>
+<%= f.password_field :password, placeholder: "Enter password" %>
+<br />
+<%= f.submit(@user.new_record? ? "Sign up" : "Update account") %>
+
+<% end %>
+
+[ <%= link_to "Cancel request and return to home", root_path %> ]

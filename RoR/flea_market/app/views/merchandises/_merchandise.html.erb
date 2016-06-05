@@ -4,11 +4,22 @@
         </div>
         <div class="merchandise-body">
           <%= truncate(merchandise.description, length: 100) %>
+          <div class="merchandise-meta-details">
+            <small>
+              Seller: <%= merchandise.user.username if merchandise.user %>,
+              <%= time_ago_in_words(merchandise.created_at) %> ago,
+              last update: <%= time_ago_in_words(merchandise.updated_at) %> ago
+            </small>
+          </div>
         </div>
-        <div class="merchandise-actions">
-          <%= link_to "Edit this merchandise", edit_merchandise_path(merchandise) %>
-          <%= link_to "Delete this merchandise", merchandise_path(merchandise), method: :delete, 
-                                              data: { confirm: "Are you sure you want to delete the merchandise?"} %>
-        </div>
+        <% if logged_in? && (current_user==merchandise.user || current_user.admin?) %>
+          <div class="merchandise-actions">
+            <%= link_to "Edit this merchandise", edit_merchandise_path(merchandise) %>
+            <%= link_to "Delete this merchandise", merchandise_path(merchandise), method: :delete, 
+                                                data: { confirm: "Are you sure you want to delete the merchandise?"} %>
+          </div>
+        <% end %>
+
         <br />
 <% end %>
+<%= link_to 'Upload merchandise', new_merchandise_path %>

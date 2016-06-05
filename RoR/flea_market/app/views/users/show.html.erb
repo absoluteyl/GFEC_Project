@@ -1,0 +1,6 @@
+<h1 align="center">Welcome to <%= @user.username %>'s page</h1>
+
+<h4 align="center">
+<%= @user.username %>'s merchandises
+</h4>
+<%= render 'merchandises/merchandise', obj: @user.merchandises %>

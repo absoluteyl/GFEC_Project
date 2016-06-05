@@ -2,10 +2,23 @@
   <h4></h4>
   <hr>
   <%= simple_format(@merchandise.description) %>
+  <br />
+  <p>Price: <%= @merchandise.price%></p>
+  <p>Amount: <%= @merchandise.amount%></p>
+  <% if @merchandise.user %>
+    <ul class="listing">
+    <li class="merchandise-title">Uploaded by:
+      <%= link_to @merchandise.user.username, user_path(@merchandise.user) %>
+    </li>
+    <li><small><%= pluralize(@merchandise.user.merchandises.count, "merchandise") if @merchandise.user.merchandises %></small></li>
+    </ul>
+  <% end %>
   <div class="merchandise-actions">
-    <%= link_to "Edit this merchandise", edit_merchandise_path(@merchandise) %>
-    <%= link_to "Delete this merchandise", merchandise_path(@merchandise), method: :delete, 
+    <% if logged_in? && (current_user == @merchandise.user || current_user.admin?) %>
+      <%= link_to "Edit this merchandise", edit_merchandise_path(@merchandise) %>
+      <%= link_to "Delete this merchandise", merchandise_path(@merchandise), method: :delete, 
                                         data: { confirm: "Are you sure you want to delete the merchandise?"} %>
+    <% end %>
     <%= link_to "View all merchandises", merchandises_path %>
   </div>
 </div>
