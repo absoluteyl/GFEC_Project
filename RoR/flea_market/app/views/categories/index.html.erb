@@ -1,0 +1,8 @@
+<h1 align="center">Listing All Categories</h1>
+<% @categories.each do |category| %>
+    <ul class="listing">
+        <li class="merchandise-title">
+            <%= link_to "#{category.name}", category_path(category) %>
+        </li>
+    </ul>
+<% end %>

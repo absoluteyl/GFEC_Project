@@ -31,6 +31,19 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
  8. Create a pull request from the new branch into master. (absoluteyl/GFEC_Project)
  9. Resolve conflicts if any util your changes can be successfully merged into master.
 
+##API Usage:
+####Get Method:
+######General Index Request:
+GET /api/merchandises<br />
+GET /api/users<br />
+
+######Filtered Index Request:
+currently support query method of merchandise title and price in merchandises table.
+GET /api/merchandises?title=exactTitle<br />
+GET /api/merchandises?price=exactPrice<br />
+
+queries can be combined in one url like below:
+http://BaseURL/api/merchandises?title=exactTitle&price=exactPrice
 ##Contributors
 [Caroline Xie](https://github.com/kyujyokei) /
 [Elsa Lau](https://github.com/absoluteyl) /
