@@ -33,19 +33,27 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
 
 ##API Usage:
 ####Get Method:
-######General Index Request:
-GET /api/merchandises<br />
-GET /api/users<br />
+#####General Index Request:
+    GET /api/merchandises<br />
+    GET /api/merchandises/:id<br />
+    <br />
+    GET /api/users<br />
+    GET /api/users/:id<br />
+    <br />
+    GET /api/categories<br />
+    GET /api/categories/:id<br />
+    <br />
 
-######Filtered Index Request:
+#####Filtered Index Request:
 ######Merchandise: support title and price queries.
-GET /api/merchandises?title=exactTitle<br />
-GET /api/merchandises?price=exactPrice<br />
-<br />
-queries can also combine different items in one URL like below:<br />
-GET /api/merchandises?title=exactTitle&price=exactPrice<br />
+    GET /api/merchandises?title=exactTitle<br />
+    GET /api/merchandises?price=exactPrice<br />
+Queries can also combine different items in one URL like below:<br />
+    GET /api/merchandises?title=exactTitle&price=exactPrice<br />
 ######User: support username queries.
-GET /api/users?username=exactUsername<br />
+    GET /api/users?username=exactUsername<br />
+######Category: support category queries.
+    GET /api/categories?name=exactName<br />
 <br />
 
 ##Contributors
