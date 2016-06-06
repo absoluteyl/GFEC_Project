@@ -38,12 +38,16 @@ GET /api/merchandises<br />
 GET /api/users<br />
 
 ######Filtered Index Request:
-currently support query method of merchandise title and price in merchandises table.
+######Merchandise: support title and price queries.
 GET /api/merchandises?title=exactTitle<br />
 GET /api/merchandises?price=exactPrice<br />
+<br />
+queries can also combine different items in one URL like below:<br />
+GET /api/merchandises?title=exactTitle&price=exactPrice<br />
+######User: support username queries.
+GET /api/users?username=exactUsername<br />
+<br />
 
-queries can be combined in one url like below:
-http://BaseURL/api/merchandises?title=exactTitle&price=exactPrice
 ##Contributors
 [Caroline Xie](https://github.com/kyujyokei) /
 [Elsa Lau](https://github.com/absoluteyl) /
