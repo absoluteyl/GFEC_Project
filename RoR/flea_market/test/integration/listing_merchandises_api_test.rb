@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ListingMerchandisesTest < ActionDispatch::IntegrationTest
+class ListingMerchandisesApiTest < ActionDispatch::IntegrationTest
 
     test 'return list of all merchandises' do
         get '/api/merchandises'

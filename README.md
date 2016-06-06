@@ -34,13 +34,13 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
 ##API Usage:
 ####Get Method:
 ######General Index Request:
-http://BaseURL/api/merchandises
-http://BaseURL/api/users
+GET /api/merchandises<br />
+GET /api/users<br />
 
 ######Filtered Index Request:
 currently support query method of merchandise title and price in merchandises table.
-http://BaseURL/api/merchandises?title=exactTitle
-http://BaseURL/api/merchandises?price=exactPrice
+GET /api/merchandises?title=exactTitle<br />
+GET /api/merchandises?price=exactPrice<br />
 
 queries can be combined in one url like below:
 http://BaseURL/api/merchandises?title=exactTitle&price=exactPrice

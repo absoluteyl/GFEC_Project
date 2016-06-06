@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -12,13 +12,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  resources :merchandises
-  get 'signup', to: 'users#new'
-  resources :users, except: [:new]
-    
-  get 'login', to: 'sessions#new'
-  post 'login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  
   # Example resource route with options:
   #   resources :products do
   #     member do
@@ -58,8 +52,30 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  #Root Route
+  root 'welcome#index'
+  
+  #Merchandises Routes
+  resources :merchandises
+  
+  #Categories Routes
+  resources :categories, except: [:destroy]
+  
+  #Users Routes
+  resources :users, except: [:new]
+  #new user route
+  get 'signup', to: 'users#new'
+  
+  #Sessions Routes
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+  
+  #API Routes
   namespace :api do
     resources :merchandises
     resources :users
+    resources :categories
   end
 end

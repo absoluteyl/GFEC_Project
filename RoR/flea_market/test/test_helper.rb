@@ -10,4 +10,7 @@ class ActiveSupport::TestCase
   def json(body)
     JSON.parse(response.body, symbolize_names: true)
   end
+  def sign_in_as(user, password)
+    post login_path, session: {email: user.email, password: user.password}
+  end
 end
