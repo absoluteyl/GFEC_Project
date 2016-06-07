@@ -41,6 +41,9 @@
                                 <state key="normal" title="Edit Profile">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="EditProfileButton:" destination="T61-0W-SZC" eventType="touchUpInside" id="MmD-DK-mF7"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-ua-YPO">
                                 <rect key="frame" x="0.0" y="323" width="414" height="364"/>
@@ -52,6 +55,10 @@
                                             <constraint firstAttribute="height" constant="60" id="oyV-us-c2y"/>
                                         </constraints>
                                         <state key="normal" image="usertab1"/>
+                                        <connections>
+                                            <action selector="button01_Address:" destination="T61-0W-SZC" eventType="touchUpInside" id="mho-Vc-QNX"/>
+                                            <segue destination="eFx-XJ-9ka" kind="show" identifier="S01_Segue" id="Yfr-IG-R6a"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cFv-9b-ovP">
                                         <rect key="frame" x="177" y="48" width="60" height="60"/>
@@ -60,6 +67,10 @@
                                             <constraint firstAttribute="height" constant="60" id="nwv-qt-fvN"/>
                                         </constraints>
                                         <state key="normal" image="usertab2"/>
+                                        <connections>
+                                            <action selector="button02_Account:" destination="T61-0W-SZC" eventType="touchUpInside" id="yzd-1O-Bbd"/>
+                                            <segue destination="0Nq-Bq-EFT" kind="show" id="PYQ-Up-8Kd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xgd-EZ-MlY">
                                         <rect key="frame" x="285" y="48" width="60" height="60"/>
@@ -68,14 +79,10 @@
                                             <constraint firstAttribute="width" constant="60" id="pFY-qg-8lJ"/>
                                         </constraints>
                                         <state key="normal" image="usertab3"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-z6-usP">
-                                        <rect key="frame" x="70" y="139" width="60" height="60"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="60" id="XXF-Ky-lz5"/>
-                                            <constraint firstAttribute="width" constant="60" id="Z2O-fu-ecl"/>
-                                        </constraints>
-                                        <state key="normal" image="usertab4"/>
+                                        <connections>
+                                            <action selector="button03_Settings:" destination="T61-0W-SZC" eventType="touchUpInside" id="pyf-ka-vND"/>
+                                            <segue destination="6uB-2y-qbK" kind="show" id="FbH-k2-Jby"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gin-Ii-AYf">
                                         <rect key="frame" x="177" y="139" width="60" height="60"/>
@@ -84,6 +91,10 @@
                                             <constraint firstAttribute="height" constant="60" id="qJP-ar-gHh"/>
                                         </constraints>
                                         <state key="normal" image="usertab5"/>
+                                        <connections>
+                                            <action selector="button05_MySell:" destination="T61-0W-SZC" eventType="touchUpInside" id="Rjo-63-zfL"/>
+                                            <segue destination="rsN-nb-BQX" kind="show" id="pDw-oQ-21o"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngi-iI-9St">
                                         <rect key="frame" x="285" y="139" width="60" height="60"/>
@@ -92,6 +103,10 @@
                                             <constraint firstAttribute="height" constant="60" id="wxn-gb-Fmb"/>
                                         </constraints>
                                         <state key="normal" image="usertab6"/>
+                                        <connections>
+                                            <action selector="button06_Records:" destination="T61-0W-SZC" eventType="touchUpInside" id="FuS-uZ-V7a"/>
+                                            <segue destination="CPh-sU-pAI" kind="show" id="i9c-UM-Qus"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ors-2k-gOC">
                                         <rect key="frame" x="70" y="230" width="60" height="60"/>
@@ -100,6 +115,10 @@
                                             <constraint firstAttribute="width" constant="60" id="k91-8h-1zS"/>
                                         </constraints>
                                         <state key="normal" image="usertab7"/>
+                                        <connections>
+                                            <action selector="button07_QnA:" destination="T61-0W-SZC" eventType="touchUpInside" id="CQP-FU-s2R"/>
+                                            <segue destination="WDl-dc-Tps" kind="show" id="qIm-Gl-Muz"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-lb-XQL">
                                         <rect key="frame" x="177" y="230" width="60" height="60"/>
@@ -108,6 +127,10 @@
                                             <constraint firstAttribute="width" constant="60" id="qDn-L9-c6X"/>
                                         </constraints>
                                         <state key="normal" image="usertab8"/>
+                                        <connections>
+                                            <action selector="button08_About:" destination="T61-0W-SZC" eventType="touchUpInside" id="vFG-0h-FkY"/>
+                                            <segue destination="Dc1-Ug-6fr" kind="show" id="fBU-Px-jD2"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zT9-lk-NRa">
                                         <rect key="frame" x="285" y="230" width="60" height="60"/>
@@ -116,6 +139,22 @@
                                             <constraint firstAttribute="width" constant="60" id="wKy-So-w79"/>
                                         </constraints>
                                         <state key="normal" image="usertab9"/>
+                                        <connections>
+                                            <action selector="button09_ContactSupport:" destination="T61-0W-SZC" eventType="touchUpInside" id="gdW-7L-rmq"/>
+                                            <segue destination="I2N-kE-UjK" kind="show" id="Ire-eL-KQr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezz-z6-usP">
+                                        <rect key="frame" x="70" y="139" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="XXF-Ky-lz5"/>
+                                            <constraint firstAttribute="width" constant="60" id="Z2O-fu-ecl"/>
+                                        </constraints>
+                                        <state key="normal" image="usertab4"/>
+                                        <connections>
+                                            <action selector="button04_Favorites:" destination="T61-0W-SZC" eventType="touchUpInside" id="MkJ-mH-8y6"/>
+                                            <segue destination="u45-DK-5yf" kind="show" id="qCo-eW-89w"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </view>
@@ -133,6 +172,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moa-z9-oIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="938"/>
+        </scene>
+        <!--S01_Address-->
+        <scene sceneID="lLl-oh-fOM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S01_Address" id="eFx-XJ-9ka" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KeS-Tw-vUB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207" y="737"/>
+        </scene>
+        <!--S02_Account-->
+        <scene sceneID="kKr-gr-dLT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S02_Account" id="0Nq-Bq-EFT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlc-5V-POh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208" y="785"/>
+        </scene>
+        <!--S03_Settings-->
+        <scene sceneID="4ri-tz-iD6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S03_Settings" id="6uB-2y-qbK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LZh-X8-VuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208.5" y="836"/>
+        </scene>
+        <!--S04_Favorites-->
+        <scene sceneID="3dH-JZ-YTc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S04_Favorites" id="u45-DK-5yf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xGy-bm-dp5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1211" y="886"/>
+        </scene>
+        <!--S05_MySell-->
+        <scene sceneID="9FF-7V-oTV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S05_MySell" id="rsN-nb-BQX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2M-hu-7gp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1203" y="938"/>
+        </scene>
+        <!--S06_Records-->
+        <scene sceneID="Ik7-oE-Cxq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S06_Records" id="CPh-sU-pAI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8td-LW-B6C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1207.5" y="988"/>
+        </scene>
+        <!--S07_QnA-->
+        <scene sceneID="6eO-eF-1qv">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S07_QnA" id="WDl-dc-Tps" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDj-Yf-0MJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1194.5" y="1038"/>
+        </scene>
+        <!--S08_About-->
+        <scene sceneID="Asp-os-blN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S08_About" id="Dc1-Ug-6fr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnT-7H-UNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1201.5" y="1089"/>
+        </scene>
+        <!--S09_ContactSupport-->
+        <scene sceneID="1bg-Sa-jiz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="S09_ContactSupport" id="I2N-kE-UjK" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgI-P0-q3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1231" y="1137"/>
         </scene>
         <!--Item-->
         <scene sceneID="oYd-lA-hCO">

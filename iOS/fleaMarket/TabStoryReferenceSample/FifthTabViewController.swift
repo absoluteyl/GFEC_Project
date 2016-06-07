@@ -11,6 +11,39 @@ import MapKit
 
 class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBAction func EditProfileButton(sender: UIButton) {
+    }
+    
+    @IBAction func button01_Address(sender: UIButton) {
+        
+      //  performSegueWithIdentifier("S01_Segue", sender: nil)
+    }
+    
+    @IBAction func button02_Account(sender: UIButton) {
+    }
+    
+    @IBAction func button03_Settings(sender: UIButton) {
+    }
+    
+    @IBAction func button04_Favorites(sender: UIButton) {
+    }
+    
+    @IBAction func button05_MySell(sender: UIButton) {
+    }
+    
+    @IBAction func button06_Records(sender: UIButton) {
+    }
+    
+    @IBAction func button07_QnA(sender: UIButton) {
+    }
+    
+    @IBAction func button08_About(sender: UIButton) {
+    }
+    
+    @IBAction func button09_ContactSupport(sender: UIButton) {
+    }
+    
+    
     @IBOutlet weak var userImage: UIImageView!
     
     @IBOutlet weak var map: MKMapView!
