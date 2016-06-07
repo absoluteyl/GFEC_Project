@@ -10,6 +10,7 @@ import UIKit
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
+var priceArray = [Int]()
 
 
 
@@ -18,11 +19,17 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
-    let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
+    let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12","animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
     let prices = ["1","2","3","4","5","6","7","8","9","100","110","120"]
     
+    var hasGotAPIYet: Bool = false
+    
     override func viewWillAppear(animated: Bool) {
-        getImageFromFlickr()
+        
+        if hasGotAPIYet == false { // 如果不設置此項，getImageFromFlickr會重複執行並使collection view倍增，待解決
+            getImageFromFlickr()
+            hasGotAPIYet = true
+        }
     }
     
     override func viewDidLoad() {
@@ -83,7 +90,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         cell.layer.masksToBounds = true
         cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
         cell.cellLabel.text = "\(titleArray[indexPath.row])" //顯示物件名稱
-        cell.cellPriceLabel.text = "$ \(prices[indexPath.row])"//顯示價格
+        cell.cellPriceLabel.text = "$ \(priceArray[indexPath.row])"//顯示價格
         
         return cell
     }
@@ -144,9 +151,15 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                     for i in 0...itemDictionary!.count-1 {
                         let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
                         //print (itemTitle!)
+                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
+                        
+                        
+                        
+                        priceArray.append(itemPrice!)
                         titleArray.append(itemTitle!)
                         
                     }
+                    print(priceArray)
                     print(titleArray)
                     print("3.\(titleArray.count)")
                     
