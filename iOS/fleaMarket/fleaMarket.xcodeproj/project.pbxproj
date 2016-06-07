@@ -129,6 +129,7 @@
 		7A751C391CF9BDBA0096BDE6 /* fleaMarket */ = {
 			isa = PBXGroup;
 			children = (
+				C974EE191D06DDF7001002BE /* New Group */,
 				7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */,
 				7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */,
 				7A751C401CF9BDBA0096BDE6 /* Main.storyboard */,
@@ -174,6 +175,13 @@
 			);
 			name = fleaMarketUITests;
 			path = TabStoryReferenceSampleUITests;
+			sourceTree = "<group>";
+		};
+		C974EE191D06DDF7001002BE /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +252,7 @@
 				TargetAttributes = {
 					7A751C361CF9BDBA0096BDE6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = SWZBC9ZGLV;
 					};
 					7A751C4C1CF9BDBA0096BDE6 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -492,6 +501,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TabStoryReferenceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSample;
@@ -503,6 +513,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TabStoryReferenceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSample;
