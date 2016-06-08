@@ -16,6 +16,18 @@ class CreateCategoriesTest < ActionDispatch::IntegrationTest
     assert_match "sports", response.body
   end
   
+  test "Get new category form and create subcategory" do
+    sign_in_as(@user, "password")
+    get new_category_path                    
+    assert_template 'categories/new'
+    assert_difference 'Category.count', 2 do
+      post_via_redirect categories_path, category: {name: "sports"}
+      post_via_redirect categories_path, category: {name: "golf", parent_id: 1}
+    end
+    assert_template 'categories/index'
+    assert_match "golf", response.body
+  end
+  
   test "Invalid category submission results in failure" do
     sign_in_as(@user, "password")
     get new_category_path
