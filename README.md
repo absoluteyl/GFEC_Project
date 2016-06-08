@@ -36,13 +36,13 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
 #####General Index Request:
     GET /api/merchandises
     GET /api/merchandises/:id
-    <br />
+    
     GET /api/users
     GET /api/users/:id
-    <br />
+    
     GET /api/categories
-    GET /api/categories/:id<
-    <br />
+    GET /api/categories/:id
+
 
 #####Filtered Index Request:
 ######Merchandise: support title and price queries.
