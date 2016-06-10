@@ -35,16 +35,18 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
 ####Merchandise:
 #####GET:
 General Query:
+    
     GET /api/merchandises
     GET /api/merchandises/:id
 
 Filtered Query:
+    
     GET /api/merchandises?title=exactTitle
     GET /api/merchandises?price=exactPrice
     
     GET /api/merchandises?title=exactTitle&price=exactPrice
 #####POST:
-
+    
     POST /api/merchandises
     
     Accept: application/json
@@ -74,10 +76,12 @@ Filtered Query:
 ####User:
 #####GET:
 General Query:
+    
     GET /api/users
     GET /api/users/:id
 
 Filtered Query:
+    
     GET /api/users?username=exactUsername
     
 #####POST:
@@ -89,10 +93,12 @@ Filtered Query:
 ####User:
 #####GET:
 General Query:
+    
     GET /api/categories
     GET /api/categories/:id
 
 Filtered Query:
+    
     GET /api/categories?name=exactName
     
 #####POST:
