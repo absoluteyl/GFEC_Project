@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-2k-Ge9">
-                                <rect key="frame" x="23" y="194" width="332" height="406"/>
+                                <rect key="frame" x="23" y="173" width="332" height="313"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-sH-YSH">
                                 <rect key="frame" x="294" y="135" width="66" height="30"/>
@@ -32,6 +32,13 @@
                                 <state key="normal" title="Camera"/>
                                 <connections>
                                     <action selector="CameraAction:" destination="21j-ss-hip" eventType="touchUpInside" id="7QZ-u6-iDk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBG-yq-yS2">
+                                <rect key="frame" x="311" y="533" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="0IF-FQ-YeF" kind="show" id="OX6-KN-iJC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -49,6 +56,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IDL-KR-iyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1652.5" y="311.5"/>
+        </scene>
+        <!--addItemInfo-->
+        <scene sceneID="OHr-yw-Z79">
+            <objects>
+                <viewControllerPlaceholder storyboardName="addItemInfo" id="0IF-FQ-YeF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kph-Xh-72e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2034" y="311"/>
         </scene>
         <!--Camera-->
         <scene sceneID="ESr-bJ-CGz">

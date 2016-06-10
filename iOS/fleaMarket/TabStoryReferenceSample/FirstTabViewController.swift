@@ -11,7 +11,7 @@ import UIKit
 //define an array of merchandise title for later use
 var titleArray = [String]()
 var priceArray = [Int]()
-
+var itemIdArray = [Int]()
 
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -26,8 +26,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     override func viewWillAppear(animated: Bool) {
         
-        if hasGotAPIYet == false { // 如果不設置此項，getImageFromFlickr會重複執行並使collection view倍增，待解決
-            getImageFromFlickr()
+        if hasGotAPIYet == false { // 如果不設置此項，getDataFromDB會重複執行並使collection view倍增，待解決
+            getDataFromDB()
             hasGotAPIYet = true
         }
     }
@@ -35,7 +35,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         print("1.\(titleArray.count)")
-       // getImageFromFlickr()
+       // getDataFromDB()
         
         print("2.\(titleArray.count)")
         
@@ -48,6 +48,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
         
     }
+    
+    
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -92,6 +94,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         cell.cellLabel.text = "\(titleArray[indexPath.row])" //顯示物件名稱
         cell.cellPriceLabel.text = "$ \(priceArray[indexPath.row])"//顯示價格
         
+        var itemId = itemIdArray[indexPath.row] //給予每個cell item id，為了讓itemDetailView可以正確顯示
+        
         return cell
     }
 
@@ -104,20 +108,29 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController
+        let selectedNumber = sender as! Int
+        Destination.recentItemId = itemIdArray[selectedNumber]
+        // Sends the item id for itemDetailView to load the specific item details
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
          //self.navigationController?.pushViewController(v1, animated: true)//連接到商品頁面
         self.performSegueWithIdentifier("showItemDetail", sender: indexPath.row)
     }
     
 
-    public func getImageFromFlickr() {
+    private func getDataFromDB() {
         
         //    let methodParameters = [
         
         //        Constants.Merchandises: Constants.ParameterValues.Merchandises
         //    ]
         //
-        let urlString = Constants.Merchandises.APIBaseURL
+        let urlString = "https://flea-market-kyujyo.c9users.io/api/merchandises"
+        //let urlString = Constants.Merchandises.APIBaseURL
         //let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
@@ -152,15 +165,18 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
                         //print (itemTitle!)
                         let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-                        
+                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
                         
                         
                         priceArray.append(itemPrice!)
                         titleArray.append(itemTitle!)
+                        itemIdArray.append(itemId!)
                         
                     }
                     print(priceArray)
                     print(titleArray)
+                    print(itemIdArray)
+                    
                     print("3.\(titleArray.count)")
                     
                     performUIUpdatesOnMain(){

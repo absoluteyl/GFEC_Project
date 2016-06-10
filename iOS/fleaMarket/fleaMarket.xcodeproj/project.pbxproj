@@ -44,6 +44,8 @@
 		C974EE541D06F336001002BE /* S09_ContactSupport.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C974EE531D06F336001002BE /* S09_ContactSupport.storyboard */; };
 		C974EE561D06F417001002BE /* S07_QnATableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C974EE551D06F417001002BE /* S07_QnATableViewController.swift */; };
 		C974EE581D06F42B001002BE /* S07_QnA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C974EE571D06F42B001002BE /* S07_QnA.storyboard */; };
+		C974EE5A1D0A5320001002BE /* addItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C974EE591D0A5320001002BE /* addItemInfo.storyboard */; };
+		C974EE5C1D0A533A001002BE /* addItemInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C974EE5B1D0A533A001002BE /* addItemInfoViewController.swift */; };
 		C98058781CFE8E8E00F8F629 /* itemDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C98058771CFE8E8E00F8F629 /* itemDetail.storyboard */; };
 		C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */; };
 		C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */; };
@@ -111,6 +113,8 @@
 		C974EE531D06F336001002BE /* S09_ContactSupport.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = S09_ContactSupport.storyboard; sourceTree = "<group>"; };
 		C974EE551D06F417001002BE /* S07_QnATableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S07_QnATableViewController.swift; sourceTree = "<group>"; };
 		C974EE571D06F42B001002BE /* S07_QnA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = S07_QnA.storyboard; sourceTree = "<group>"; };
+		C974EE591D0A5320001002BE /* addItemInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = addItemInfo.storyboard; sourceTree = "<group>"; };
+		C974EE5B1D0A533A001002BE /* addItemInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addItemInfoViewController.swift; sourceTree = "<group>"; };
 		C98058771CFE8E8E00F8F629 /* itemDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = itemDetail.storyboard; sourceTree = "<group>"; };
 		C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemDetailViewController.swift; sourceTree = "<group>"; };
 		C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 			children = (
 				7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */,
 				C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */,
+				C974EE591D0A5320001002BE /* addItemInfo.storyboard */,
+				C974EE5B1D0A533A001002BE /* addItemInfoViewController.swift */,
 			);
 			name = Tab3;
 			sourceTree = "<group>";
@@ -455,6 +461,7 @@
 				7A751C6E1CF9BEAD0096BDE6 /* SecondTab.storyboard in Resources */,
 				C974EE2E1D06EE22001002BE /* S03_Settings.storyboard in Resources */,
 				C974EE1F1D06E3A4001002BE /* S01_Address.storyboard in Resources */,
+				C974EE5A1D0A5320001002BE /* addItemInfo.storyboard in Resources */,
 				7A751C441CF9BDBA0096BDE6 /* Assets.xcassets in Resources */,
 				C974EE581D06F42B001002BE /* S07_QnA.storyboard in Resources */,
 				C974EE401D06EFB3001002BE /* S05_MySell.storyboard in Resources */,
@@ -491,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C974EE3E1D06EF9E001002BE /* S05_MySellViewController.swift in Sources */,
+				C974EE5C1D0A533A001002BE /* addItemInfoViewController.swift in Sources */,
 				7A751C3F1CF9BDBA0096BDE6 /* SecondTabViewController.swift in Sources */,
 				C974EE2A1D06EDB1001002BE /* S02_AccountTableViewController.swift in Sources */,
 				C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */,
