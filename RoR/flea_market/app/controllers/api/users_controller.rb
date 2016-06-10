@@ -23,7 +23,7 @@ class Api::UsersController < Api::ApiController
   end
   
   def create
-    @user = User.new(user_params)
+    @user = User.new(create_user_params)
     if @user.save
         render status: 200, json: {
             status: "OK",
@@ -40,7 +40,7 @@ class Api::UsersController < Api::ApiController
   end
   
   def update
-    if @user.update(user_params)
+    if @user.update(update_user_params)
         render status: 200, json: {
             status: "OK",
             message: "User is been updated.",
@@ -64,8 +64,12 @@ class Api::UsersController < Api::ApiController
   end
   
   private
-  def user_params
+  def create_user_params
     params.require(:user).permit(:username, :email, :phone, :password) 
+  end
+  
+  def update_user_params
+    params.require(:user).permit(:phone, :password) 
   end
   
   def set_user

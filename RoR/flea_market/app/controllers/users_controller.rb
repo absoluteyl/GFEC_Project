@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
     
     def create
-        @user = User.new(user_params)
+        @user = User.new(create_user_params)
         if @user.save
             session[:user_id] = @user.id
       flash[:success] = "Welcome to the Flea Market, #{@user.username}"
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     end
     
     def update
-        if @user.update(user_params)
+        if @user.update(update_user_params)
             flash[:success] = "Your account is updated successfully"
             redirect_to merchandises_path
         else
@@ -46,8 +46,11 @@ class UsersController < ApplicationController
     end
 
     private
-        def user_params
+        def create_user_params
             params.require(:user).permit(:username, :email, :mobile, :password)
+        end
+        def update_user_params
+            params.require(:user).permit(:mobile, :password)
         end
 
         def set_user

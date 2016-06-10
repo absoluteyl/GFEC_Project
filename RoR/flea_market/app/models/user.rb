@@ -10,7 +10,6 @@ class User <ActiveRecord::Base
                 length: { maximum: 105 },
                 format: {with: VALID_EMAIL_REGEX }
     validates :mobile, presence: true,
-                uniqueness: { case_sensitive: false },
                 length: { is: 10 }
     has_secure_password
     

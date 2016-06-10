@@ -32,6 +32,8 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
  9. Resolve conflicts if any util your changes can be successfully merged into master.
 
 ##API Usage:
+####Authentication:
+To access API resources, you must have an user account registered, and uses username/password to login.
 ####Merchandise:
 #####GET:
 General Query:
