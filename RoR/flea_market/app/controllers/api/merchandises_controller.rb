@@ -70,7 +70,7 @@ module Api
       private
       def merchandise_params
         #need to add category_id after ready
-        params.require(:merchandise).permit(:title, :description, :price, :amount, :user_id)
+        params.require(:merchandise).permit(:title, :description, :price, :amount)
       end
       
       def set_merchandise
