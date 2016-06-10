@@ -13,4 +13,9 @@ class User <ActiveRecord::Base
                 uniqueness: { case_sensitive: false },
                 length: { is: 10 }
     has_secure_password
+    
+    #Override build-in as_json method to NOT return password_digest in API
+    def as_json(options = {})
+        super(options.merge({ except: [:password_digest] }))
+    end
 end
