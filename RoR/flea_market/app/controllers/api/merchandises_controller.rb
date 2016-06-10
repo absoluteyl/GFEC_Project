@@ -13,15 +13,15 @@ module Api
         if price = params[:price]
             @merchandises = @merchandises.where(price: price)
         end
-        render json: {
-            status: 200, 
+        render status: 200, json: {
+            status: "OK",
             merchandises: @merchandises
         }.to_json
       end
       
       def show
-          render json: {
-              status: 200,
+          render status: 200, json: {
+              status: "OK",
               merchandise: @merchandise
           }.to_json
       end
@@ -29,14 +29,14 @@ module Api
       def create
         @merchandise = Merchandise.new(merchandise_params)
         if @merchandise.save
-            render json: {
-                status: 200,
+            render status: 200, json: {
+                status: "OK",
                 message: "Merchandise is been successfully created.",
                 merchandise: @merchandise
             }.to_json
         else
-            render json: {
-                status: 500,
+            render status: 422, json: {
+                status: "Unprocessable Entity",
                 message: "Merchandise cannot be created.",
                 errors: @merchandise.errors
             }.to_json
@@ -45,14 +45,14 @@ module Api
       
       def update
         if @merchandise.update(merchandise_params)
-            render json: {
-                status: 200,
+            render status: 200, json: {
+                status: "OK",
                 message: "Merchandise is been updated.",
                 merchandise: @merchandise
             }.to_json
         else
-            render json: {
-                status: 500,
+            render status: 422, json: {
+                status: "Unprocessable Entity",
                 message: "Merchandise cannot be udpated.",
                 errors: @merchandise.errors
             }.to_json
@@ -61,8 +61,8 @@ module Api
       
       def destroy
         @merchandise.destroy
-        render json: {
-            status: 200,
+        render status: 200, json: {
+            status: "OK",
             message: "Merchandise is been deleted successfully."
         }.to_json
       end

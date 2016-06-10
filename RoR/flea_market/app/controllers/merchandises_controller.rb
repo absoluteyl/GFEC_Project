@@ -46,16 +46,17 @@ class MerchandisesController < ApplicationController
     
     private
     def merchandise_params
-        params.require(:merchandise).permit(:title, :description, :price, :amount, :user_id)
+        params.require(:merchandise).permit(:title, :description, :price, :amount)
     end
+    
     def set_merchandise
       @merchandise = Merchandise.find(params[:id])
     end
+    
     def require_same_user
       if current_user != @merchandise.user and !current_user.admin?
         flash[:danger] = "You can only edit or delete your own merchandise."
         redirect_to root_path
       end
     end
-
 end
