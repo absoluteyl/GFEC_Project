@@ -73,14 +73,11 @@ Filtered Query:
     Content-type: application/json
     
     {
-        #Mandatory Fields
+        #Available Fields
         "title": "string"
         "description": "string"
         "price": integer
         "amount": integer
-        "user_id": integer
-        
-        #Optional Fields
         "category_id": integer
     }
     
