@@ -20,7 +20,6 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12","animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
-    let prices = ["1","2","3","4","5","6","7","8","9","100","110","120"]
     
     var hasGotAPIYet: Bool = false
     
@@ -70,7 +69,6 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         collectionView.reloadData() //螢幕轉直or橫時會更新cell的大小
-        
     }
     
     //有幾個section
@@ -182,14 +180,10 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                     performUIUpdatesOnMain(){
                         self.collectionView.reloadData()
                     }
-                    
-                    
                 }
             }
         }
-        
         task.resume()
-        
     }
     
 

@@ -48,6 +48,13 @@ struct Constants {
         static let CreatedTime = "created_at"
     }
     
+    struct UsersResponseKeys {
+        static let UserId = "id"
+        static let UserEmail = "email"
+        static let UserMobile = "mobile"
+        static let UserName = "username"
+    }
+    
     // MARK: FleaMarket Response Values
     struct MerchandisesResponseValues {
     }
