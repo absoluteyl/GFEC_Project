@@ -2,6 +2,9 @@ module Api
    class MerchandisesController < ApplicationController
       #Temporary disable CSRF
       skip_before_filter :verify_authenticity_token
+      
+      before_action :set_merchandise, only: [:edit, :update, :show, :destroy]
+      
       def index
         @merchandises = Merchandise.all
         if title = params[:title]
@@ -17,7 +20,6 @@ module Api
       end
       
       def show
-          @merchandise = Merchandise.find(params[:id])
           render json: {
               status: 200,
               merchandise: @merchandise
@@ -35,13 +37,29 @@ module Api
         else
             render json: {
                 status: 500,
+                message: "Merchandise cannot be created.",
+                errors: @merchandise.errors
+            }.to_json
+        end
+      end
+      
+      def update
+        if @merchandise.update(merchandise_params)
+            render json: {
+                status: 200,
+                message: "Merchandise is been updated.",
+                merchandise: @merchandise
+            }.to_json
+        else
+            render json: {
+                status: 500,
+                message: "Merchandise cannot be udpated.",
                 errors: @merchandise.errors
             }.to_json
         end
       end
       
       def destroy
-        @merchandise = Merchandise.find(params[:id])
         @merchandise.destroy
         render json: {
             status: 200,
@@ -53,6 +71,10 @@ module Api
       def merchandise_params
         #need to add category_id after ready
         params.require(:merchandise).permit(:title, :description, :price, :amount, :user_id)
+      end
+      
+      def set_merchandise
+        @merchandise = Merchandise.find(params[:id])
       end
    end
 end

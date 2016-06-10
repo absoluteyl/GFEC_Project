@@ -19,14 +19,14 @@ class MerchandisesController < ApplicationController
     end
     
     def show
-      @merchandise = Merchandise.find(params[:id])
+
     end
     def index
       @merchandise = Merchandise.all
     end
     
     def edit
-        @merchandise = Merchandise.find(params[:id])
+      
     end
     def update
         if @merchandise.update(merchandise_params)
@@ -38,7 +38,6 @@ class MerchandisesController < ApplicationController
     end
     
     def destroy
-      @merchandise = Merchandise.find(params[:id])
       @merchandise.destroy
       flash[:danger] = "Merchandise was successfully deleted"
       redirect_to merchandises_path
@@ -47,7 +46,7 @@ class MerchandisesController < ApplicationController
     
     private
     def merchandise_params
-        params.require(:merchandise).permit(:title, :description, :price, :amount)
+        params.require(:merchandise).permit(:title, :description, :price, :amount, :user_id)
     end
     def set_merchandise
       @merchandise = Merchandise.find(params[:id])

@@ -66,6 +66,24 @@ Filtered Query:
     
 #####PUT/PATCH:
     
+    PUT /api/merchandises/:id
+    PATCH /api/merchandises/:id
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        #Mandatory Fields
+        "title": "string"
+        "description": "string"
+        "price": integer
+        "amount": integer
+        "user_id": integer
+        
+        #Optional Fields
+        "category_id": integer
+    }
+    
 #####DELETE:
     
     DELETE /api/merchandises/:id
