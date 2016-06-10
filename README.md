@@ -32,26 +32,78 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
  9. Resolve conflicts if any util your changes can be successfully merged into master.
 
 ##API Usage:
-####Get Method:
-#####General Index Request:
+####Merchandise:
+#####GET:
+General Query:
     GET /api/merchandises
     GET /api/merchandises/:id
+
+Filtered Query:
+    GET /api/merchandises?title=exactTitle
+    GET /api/merchandises?price=exactPrice
     
+    GET /api/merchandises?title=exactTitle&price=exactPrice
+#####POST:
+
+    POST /api/merchandises
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        #Mandatory Fields
+        "title": "string"
+        "description": "string"
+        "price": integer
+        "amount": integer
+        "user_id": integer
+        
+        #Optional Fields
+        "category_id": integer
+    }
+    
+#####PUT/PATCH:
+    
+#####DELETE:
+    
+    DELETE /api/merchandises/:id
+    
+    Accept: application/json
+    Content-type: application/json
+    
+####User:
+#####GET:
+General Query:
     GET /api/users
     GET /api/users/:id
+
+Filtered Query:
+    GET /api/users?username=exactUsername
     
+#####POST:
+
+#####PUT/PATCH:
+
+#####DELETE:
+
+####User:
+#####GET:
+General Query:
     GET /api/categories
     GET /api/categories/:id
 
+Filtered Query:
+    GET /api/categories?name=exactName
+    
+#####POST:
 
-#####Filtered Index Request:
-######Merchandise: support title and price queries.
-    GET /api/merchandises?title=exactTitle
-    GET /api/merchandises?price=exactPrice
-Queries can also combine different items in one URL like below:<br />
-    GET /api/merchandises?title=exactTitle&price=exactPrice
-######User: support username queries.
-    GET /api/users?username=exactUsername
+#####PUT/PATCH:
+
+#####DELETE:
+
+    
+    
+
 ######Category: support category queries.
     GET /api/categories?name=exactName
 <br />
