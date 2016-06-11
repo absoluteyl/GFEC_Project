@@ -20,6 +20,9 @@
 		7A751C711CF9BEBC0096BDE6 /* 3rdTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */; };
 		7A751C731CF9BED00096BDE6 /* 4thTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C721CF9BED00096BDE6 /* 4thTab.storyboard */; };
 		7A751C761CF9BEE20096BDE6 /* 5thTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */; };
+		C90273461D0BE9CB00EC081D /* TextInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273451D0BE9CB00EC081D /* TextInputTableViewCell.swift */; };
+		C90273481D0BEA0C00EC081D /* SelectFromListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273471D0BEA0C00EC081D /* SelectFromListTableViewCell.swift */; };
+		C902734A1D0BEA1900EC081D /* ShowDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273491D0BEA1900EC081D /* ShowDataTableViewCell.swift */; };
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
 		C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */; };
 		C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */; };
@@ -89,6 +92,9 @@
 		7A751C701CF9BEBC0096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/3rdTab.storyboard; sourceTree = "<group>"; };
 		7A751C721CF9BED00096BDE6 /* 4thTab.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = 4thTab.storyboard; sourceTree = "<group>"; };
 		7A751C751CF9BEE20096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/5thTab.storyboard; sourceTree = "<group>"; };
+		C90273451D0BE9CB00EC081D /* TextInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextInputTableViewCell.swift; sourceTree = "<group>"; };
+		C90273471D0BEA0C00EC081D /* SelectFromListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFromListTableViewCell.swift; sourceTree = "<group>"; };
+		C90273491D0BEA1900EC081D /* ShowDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataTableViewCell.swift; sourceTree = "<group>"; };
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
 		C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +214,16 @@
 			path = TabStoryReferenceSampleUITests;
 			sourceTree = "<group>";
 		};
+		C90273431D0BE9A100EC081D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C90273451D0BE9CB00EC081D /* TextInputTableViewCell.swift */,
+				C90273471D0BEA0C00EC081D /* SelectFromListTableViewCell.swift */,
+				C90273491D0BEA1900EC081D /* ShowDataTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		C974EE191D06DDF7001002BE /* Tab1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +253,8 @@
 				C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */,
 				C974EE591D0A5320001002BE /* addItemInfo.storyboard */,
 				C974EE5B1D0A533A001002BE /* addItemInfoViewController.swift */,
+				C90273431D0BE9A100EC081D /* Cells */,
+				C974EE5D1D0BCF64001002BE /* PopOvers */,
 			);
 			name = Tab3;
 			sourceTree = "<group>";
@@ -347,6 +365,13 @@
 				C974EE531D06F336001002BE /* S09_ContactSupport.storyboard */,
 			);
 			name = S09_ContactSupport;
+			sourceTree = "<group>";
+		};
+		C974EE5D1D0BCF64001002BE /* PopOvers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = PopOvers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -501,6 +526,7 @@
 				C974EE5C1D0A533A001002BE /* addItemInfoViewController.swift in Sources */,
 				7A751C3F1CF9BDBA0096BDE6 /* SecondTabViewController.swift in Sources */,
 				C974EE2A1D06EDB1001002BE /* S02_AccountTableViewController.swift in Sources */,
+				C90273461D0BE9CB00EC081D /* TextInputTableViewCell.swift in Sources */,
 				C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */,
 				7A751C3B1CF9BDBA0096BDE6 /* AppDelegate.swift in Sources */,
 				C974EE461D06F28C001002BE /* S06_RecordsCollectionViewController.swift in Sources */,
@@ -509,6 +535,7 @@
 				C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */,
 				C94EB6081D0302040077EBC6 /* GCDBlackBox.swift in Sources */,
 				C974EE561D06F417001002BE /* S07_QnATableViewController.swift in Sources */,
+				C90273481D0BEA0C00EC081D /* SelectFromListTableViewCell.swift in Sources */,
 				C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */,
 				C94EB6041D02DF0C0077EBC6 /* Constants.swift in Sources */,
 				C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */,
@@ -517,6 +544,7 @@
 				C94EB6061D02E1F00077EBC6 /* functions.swift in Sources */,
 				C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */,
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
+				C902734A1D0BEA1900EC081D /* ShowDataTableViewCell.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
 				C974EE2C1D06EE0C001002BE /* S03_SettingsTableViewController.swift in Sources */,
 			);

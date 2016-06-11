@@ -8,11 +8,57 @@
 
 import UIKit
 
-class addItemInfoViewController: UIViewController {
+class addItemInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var TableView: UITableView!
 
+    
+    var allCellsText = [String]()
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 3
+        } else if section == 1 {
+            return 5
+        } else {
+            return 2
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        // first section
+        if indexPath.section == 0 {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "TextInputCell")
+            let cell = tableView.dequeueReusableCellWithIdentifier("TextInputCell", forIndexPath: indexPath ) as! UITableViewCell
+            
+//          let cell = tableView.dequeueReusableCellWithIdentifier("Cell",forIndexPath: indexPath)
+//            
+            return cell
+            
+        // second section
+        } else if indexPath.section == 1 {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SelectFormCell")
+            cell.textLabel?.text = "Rice"
+            return cell
+        
+        
+        } else {
+            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ShowDataCell")
+            cell.textLabel?.text = "Vietnam Pho"
+            return cell
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
