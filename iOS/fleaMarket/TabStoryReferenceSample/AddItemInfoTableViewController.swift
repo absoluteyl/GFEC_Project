@@ -9,15 +9,22 @@
 import UIKit
 
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     @IBOutlet weak var addPhoto1: UIButton!
     @IBOutlet weak var addPhoto2: UIButton!
     @IBOutlet weak var addPhoto3: UIButton!
+    
+    @IBOutlet weak var itemNameTextField: UITextField!
+    @IBOutlet weak var itemPriceTextField: UITextField!
+    @IBOutlet weak var itemDescriptionTextField: UITextField!
+    
+    
     
     @IBAction func addPhoto1Action(sender: UIButton) {
         let picker = UIImagePickerController()
         
         picker.delegate = self
-        picker.sourceType = .PhotoLibrary
+        picker.sourceType = .Camera
         
         presentViewController(picker, animated: true, completion: nil)
         
@@ -34,22 +41,12 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     
-//    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-//        addPhoto1.setImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
-//    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        addPhoto1.setImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+    }
 
 
 }
