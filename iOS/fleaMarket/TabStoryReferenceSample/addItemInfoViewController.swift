@@ -8,6 +8,8 @@
 
 import UIKit
 
+let inputArray = ["Please put 1","PUT 2","PUT3"]
+
 class addItemInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var TableView: UITableView!
@@ -32,27 +34,33 @@ class addItemInfoViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         // first section
         if indexPath.section == 0 {
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "TextInputCell")
-            let cell = tableView.dequeueReusableCellWithIdentifier("TextInputCell", forIndexPath: indexPath ) as! UITableViewCell
+            let textInputCell = tableView.dequeueReusableCellWithIdentifier("TextInputCell", forIndexPath: indexPath ) as! TextInputTableViewCell
             
-//          let cell = tableView.dequeueReusableCellWithIdentifier("Cell",forIndexPath: indexPath)
-//            
-            return cell
+            textInputCell.InputTextField.placeholder = inputArray[indexPath.row]
+
             
-        // second section
+            
+            return textInputCell
+            
+            // second section
         } else if indexPath.section == 1 {
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "SelectFormCell")
-            cell.textLabel?.text = "Rice"
-            return cell
-        
-        
+            
+            let selectCell = tableView.dequeueReusableCellWithIdentifier("SelectFromListCell", forIndexPath: indexPath ) as! SelectFromListTableViewCell
+            //config the cell
+            //selectCell.XXX =
+            
+            return selectCell
+            
         } else {
-            let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ShowDataCell")
-            cell.textLabel?.text = "Vietnam Pho"
-            return cell
+            
+            let showDataCell = tableView.dequeueReusableCellWithIdentifier("ShowDataCell", forIndexPath: indexPath ) as! ShowDataTableViewCell
+            //config the cell
+            //showDataCell =
+            
+            return showDataCell
+            
         }
     }
     

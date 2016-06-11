@@ -24,7 +24,6 @@ class TextInputTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        InputTextField.placeholder = "AAA"
         
         
     }
