@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="1652.5" y="311.5"/>
         </scene>
-        <!--addItemInfo-->
+        <!--AddItemInfo-->
         <scene sceneID="OHr-yw-Z79">
             <objects>
-                <viewControllerPlaceholder storyboardName="addItemInfo" id="0IF-FQ-YeF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="AddItemInfo" id="0IF-FQ-YeF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kph-Xh-72e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2034" y="311"/>
