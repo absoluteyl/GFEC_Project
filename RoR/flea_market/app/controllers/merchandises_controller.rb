@@ -31,7 +31,7 @@ class MerchandisesController < ApplicationController
     def update
         if @merchandise.update(merchandise_params)
           flash[:success] = "You merchandise was successfully updated"
-          redirect_to article_path(@merchandise)
+          redirect_to merchandise_path(@merchandise)
         else
           render 'edit'
         end 
@@ -46,7 +46,7 @@ class MerchandisesController < ApplicationController
     
     private
     def merchandise_params
-        params.require(:merchandise).permit(:title, :description, :price, :amount)
+        params.require(:merchandise).permit(:title, :description, :price, :amount, :category_id, :image_1, :image_2, :image_3)
     end
     
     def set_merchandise

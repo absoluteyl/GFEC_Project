@@ -66,7 +66,7 @@ class Api::MerchandisesController < Api::ApiController
   private
   def merchandise_params
     #need to add category_id after ready
-    params.require(:merchandise).permit(:title, :description, :price, :amount)
+    params.require(:merchandise).permit(:title, :description, :price, :amount, :image_1, :image_2, :image_3)
   end
   
   def set_merchandise

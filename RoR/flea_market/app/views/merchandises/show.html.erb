@@ -1,6 +1,16 @@
 <h2 align="center">Title: <%= @merchandise.title %></h2>
   <h4></h4>
   <hr>
+  <% if @merchandise.image_1? %>
+    <%= image_tag @merchandise.image_1.url(:medium)%>
+  <% end %>
+  <% if @merchandise.image_2? %>
+    <%= image_tag @merchandise.image_2.url(:medium)%>
+  <% end %>
+  <% if @merchandise.image_3? %>
+    <%= image_tag @merchandise.image_3.url(:medium)%>
+  <% end %>
+  <br />
   <%= simple_format(@merchandise.description) %>
   <br />
   <p>Price: <%= @merchandise.price%></p>
