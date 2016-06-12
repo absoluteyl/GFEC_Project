@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var itemArray:NSArray?
-    
+    var UserID: Int?
 
 
 

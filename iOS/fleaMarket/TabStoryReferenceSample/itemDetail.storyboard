@@ -142,6 +142,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
+                        <outlet property="itemDescriptionLabel" destination="aE6-Qj-zKw" id="pGW-xT-rSx"/>
+                        <outlet property="itemSellerNameLabel" destination="yMx-un-vd9" id="sxP-yt-ofo"/>
+                        <outlet property="itemTitleLabel" destination="fMO-rQ-FXo" id="vnx-rt-wr1"/>
+                        <outlet property="itemValueLabel" destination="DLI-9Z-9si" id="SCh-z3-lUX"/>
                         <outlet property="map" destination="fgm-gm-fwD" id="Gtc-wP-SeD"/>
                         <outlet property="sellerImage" destination="6XI-kl-jhW" id="S6A-8R-9q7"/>
                         <segue destination="tOK-uY-2Q3" kind="show" identifier="goBack" id="zzf-mn-SPf"/>
