@@ -13,6 +13,14 @@ class User <ActiveRecord::Base
                 length: { is: 10 }
     has_secure_password
     
+    #Paperclip configurations
+    has_attached_file :avatar, styles: {
+        medium: '300x300>', 
+        small: '140x140>',
+        thumb: '64x64!'
+    }
+    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+    
     #Override build-in as_json method to NOT return password_digest in API
     def as_json(options = {})
         super(options.merge({ except: [:password_digest] }))
