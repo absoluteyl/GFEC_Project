@@ -19659,3 +19659,549 @@ Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 12
 
 Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 118.163.130.149 at 2016-06-13 03:25:39 +0000
 Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 118.163.130.149 at 2016-06-13 03:38:16 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (29.3ms)
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (24.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 212ms (Views: 207.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 03:38:21 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 18]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 19]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 20]]
+  Rendered categories/index.html.erb within layouts/application (8.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (11.7ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+Completed 200 OK in 184ms (Views: 173.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/categories/19" for 118.163.130.149 at 2016-06-13 03:38:24 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  Rendered categories/index.html.erb within layouts/application (1.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 192ms (Views: 185.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories/1/edit" for 118.163.130.149 at 2016-06-13 03:38:30 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (4.0ms)
+  Rendered categories/_form.html.erb (6.2ms)
+  Rendered categories/edit.html.erb within layouts/application (27.1ms)
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if obj.errors.any?%>
+    2: <div class="row">
+    3:   <div class="col-xs-8 col-xs-offset-2">
+    4:     <div class="panel panel-danger">
+  app/views/shared/_errors.html.erb:1:in `_app_views_shared__errors_html_erb___2928215429327444082_69991207571220'
+  app/views/categories/_form.html.erb:1:in `_app_views_categories__form_html_erb__1252218615847722178_69991213054320'
+  app/views/categories/edit.html.erb:2:in `_app_views_categories_edit_html_erb__3306778607419789213_69991212999500'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (15.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (127.2ms)
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mCategory Exists (0.3ms)[0m  SELECT  1 AS one FROM "categories" WHERE "categories"."name" = '12' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+
+
+Started GET "/" for 118.163.130.149 at 2016-06-13 03:41:14 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (2.8ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 249ms (Views: 246.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 03:41:17 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 18]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 19]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 20]]
+  Rendered categories/index.html.erb within layouts/application (3.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 148ms (Views: 144.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/categories/1/edit" for 118.163.130.149 at 2016-06-13 03:41:22 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (8.2ms)
+  Rendered categories/_form.html.erb (10.1ms)
+  Rendered categories/edit.html.erb within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if obj.errors.any?%>
+    2: <div class="row">
+    3:   <div class="col-xs-8 col-xs-offset-2">
+    4:     <div class="panel panel-danger">
+  app/views/shared/_errors.html.erb:1:in `_app_views_shared__errors_html_erb___2928215429327444082_69991207571220'
+  app/views/categories/_form.html.erb:1:in `_app_views_categories__form_html_erb__1252218615847722178_69991213054320'
+  app/views/categories/edit.html.erb:2:in `_app_views_categories_edit_html_erb__3306778607419789213_69991212999500'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (19.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (134.6ms)
+
+
+Started GET "/merchandises" for 118.163.130.149 at 2016-06-13 03:41:37 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.5ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (131.3ms)
+  Rendered merchandises/index.html.erb within layouts/application (134.9ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 287ms (Views: 272.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/merchandises/1/edit" for 118.163.130.149 at 2016-06-13 03:41:39 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchandise Load (0.4ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.6ms)
+  Rendered merchandises/_form.html.erb (25.8ms)
+  Rendered merchandises/edit.html.erb within layouts/application (28.6ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 147ms (Views: 143.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 118.163.130.149 at 2016-06-13 03:42:13 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (114.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (40.8ms)
+  Rendered layouts/_messages.html.erb (1.6ms)
+Completed 200 OK in 805ms (Views: 785.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/merchandises" for 118.163.130.149 at 2016-06-13 03:42:16 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.4ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (114.7ms)
+  Rendered merchandises/index.html.erb within layouts/application (117.2ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (10.5ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 278ms (Views: 261.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/merchandises/1/edit" for 118.163.130.149 at 2016-06-13 03:42:18 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchandise Load (0.8ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (5.8ms)
+  Rendered merchandises/_form.html.erb (63.8ms)
+  Rendered merchandises/edit.html.erb within layouts/application (67.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+Completed 200 OK in 189ms (Views: 180.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 03:42:21 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 18]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 20]]
+  Rendered categories/index.html.erb within layouts/application (7.0ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (7.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 227ms (Views: 195.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/categories/1/edit" for 118.163.130.149 at 2016-06-13 03:42:24 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (15.5ms)
+  Rendered categories/_form.html.erb (18.6ms)
+  Rendered categories/edit.html.erb within layouts/application (20.8ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    1: <% if obj.errors.any?%>
+    2: <div class="row">
+    3:   <div class="col-xs-8 col-xs-offset-2">
+    4:     <div class="panel panel-danger">
+  app/views/shared/_errors.html.erb:1:in `_app_views_shared__errors_html_erb___463339467555368028_70185389518460'
+  app/views/categories/_form.html.erb:1:in `_app_views_categories__form_html_erb___3870323380292496076_70185389559340'
+  app/views/categories/edit.html.erb:2:in `_app_views_categories_edit_html_erb__4566413373773443077_70185389688040'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (121.2ms)
+
+
+Started GET "/categories/1/edit" for 118.163.130.149 at 2016-06-13 03:44:51 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered categories/_form.html.erb (6.6ms)
+  Rendered categories/edit.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.7ms)
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%#= render 'shared/errors', obj: @category %>
+    2: 
+    3: <%= form_for @category do |f| %>
+    4:     <%= f.label :category %>
+    5:     <%= f.text_field :name, placeholder: "Enter category name", autofocus: true %>
+    6:     <br />
+  app/views/categories/_form.html.erb:3:in `_app_views_categories__form_html_erb___3870323380292496076_70185390980400'
+  app/views/categories/edit.html.erb:2:in `_app_views_categories_edit_html_erb__4566413373773443077_70185389688040'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (20.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (148.0ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-13 03:46:24 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 6]]
+  Rendered users/index.html.erb within layouts/application (20.7ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 153ms (Views: 146.0ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/edit" for 118.163.130.149 at 2016-06-13 03:46:27 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (41.1ms)
+  Rendered users/edit.html.erb within layouts/application (44.1ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (5.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 159ms (Views: 155.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-13 03:46:31 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered users/index.html.erb within layouts/application (58.7ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 174ms (Views: 170.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/3/edit" for 118.163.130.149 at 2016-06-13 03:46:33 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (7.1ms)
+  Rendered users/edit.html.erb within layouts/application (9.4ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.6ms)
+  Rendered layouts/_messages.html.erb (1.8ms)
+Completed 200 OK in 173ms (Views: 170.3ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/3" for 118.163.130.149 at 2016-06-13 03:46:38 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xjQXdeNcYqGAuLJJ0wJIwS/scWNwGK3hpcUHsHqxwALK8nVtANQxsIAb/lbyfKzrpJrvClaOR2EvIVN4M3D+kQ==", "user"=>{"username"=>"c2", "email"=>"chin2@example.com", "mobile"=>"0987653421", "password"=>"[FILTERED]", "admin"=>"0"}, "commit"=>"Update account", "id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: username, email
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('chin2') AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('chin2@example.com') AND "users"."id" != 3) LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to https://flea-market-absoluteyl.c9users.io/merchandises
+Completed 302 Found in 56ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/merchandises" for 118.163.130.149 at 2016-06-13 03:46:38 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.7ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (40.9ms)
+  Rendered merchandises/index.html.erb within layouts/application (43.6ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 216ms (Views: 213.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-13 03:46:41 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 2]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered users/index.html.erb within layouts/application (103.5ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 252ms (Views: 248.8ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/3/edit" for 118.163.130.149 at 2016-06-13 03:46:44 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (7.6ms)
+  Rendered users/edit.html.erb within layouts/application (10.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 140ms (Views: 136.8ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/users/3" for 118.163.130.149 at 2016-06-13 03:46:53 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"RyMnAi8UCDiyrezHpEj4FFNNpQV6C7jGREzd6jvzr6VL5UUazJxbKbIOoNiFNhw+2Ds7bFydUkbOqIkicjKRNg==", "user"=>{"username"=>"chin2", "email"=>"chin2@example.com", "mobile"=>"0987", "password"=>"[FILTERED]", "admin"=>"0"}, "commit"=>"Update account", "id"=>"3"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: username, email
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('chin2') AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('chin2@example.com') AND "users"."id" != 3) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_errors.html.erb (1.1ms)
+  Rendered users/_form.html.erb (10.3ms)
+  Rendered users/edit.html.erb within layouts/application (13.5ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (7.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 205ms (Views: 187.5ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 118.163.130.149 at 2016-06-13 03:46:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (3.2ms)
+  [1m[35mCategory Load (0.9ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (11.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 191ms (Views: 189.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-13 03:47:06 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 6]]
+  Rendered users/index.html.erb within layouts/application (105.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (4.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 236ms (Views: 233.0ms | ActiveRecord: 2.2ms)
+
+
+Started DELETE "/users/6" for 118.163.130.149 at 2016-06-13 03:47:08 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"O9+okN4wMeQzRvMOfDr3xs4r3RP67yzMqOufsRAoZZY3GcqIPbhi9TPlvxFdRBPsRV1Detx5xkwiD8t5WelbBQ==", "id"=>"6"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mMerchandise Load (0.5ms)[0m  SELECT "merchandises".* FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 6]]
+  [1m[36mSQL (2.4ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[35m (16.6ms)[0m  commit transaction
+Redirected to https://flea-market-absoluteyl.c9users.io/users
+Completed 302 Found in 28ms (ActiveRecord: 20.2ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-13 03:47:09 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 2]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 5]]
+  Rendered users/index.html.erb within layouts/application (16.7ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 139ms (Views: 136.2ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 03:50:06 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 18]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 20]]
+  Rendered categories/index.html.erb within layouts/application (10.0ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (41.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 263ms (Views: 228.7ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/categories/1/edit" for 118.163.130.149 at 2016-06-13 03:50:11 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered categories/_form.html.erb (21.3ms)
+  Rendered categories/edit.html.erb within layouts/application (25.2ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (6.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 198ms (Views: 191.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories/1/edit" for 118.163.130.149 at 2016-06-13 03:50:11 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered categories/_form.html.erb (31.0ms)
+  Rendered categories/edit.html.erb within layouts/application (33.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (7.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 208ms (Views: 200.2ms | ActiveRecord: 1.6ms)

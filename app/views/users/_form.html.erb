@@ -1,32 +1,34 @@
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username, placeholder: "Enter username", autofocus: true %>
-  <br />
-  <%= f.label :email %>
-  <%= f.email_field :email, placeholder: "Enter email" %>
-  <br />
-  <%= f.label :mobile %>
-  <%= f.text_field :mobile, placeholder: "Enter mobile" %>
-  <br />
-  <%= f.label :password %>
-  <%= f.password_field :password, placeholder: "Enter password" %>
-  <br />
-  <% if current_user.admin? %>
-    <%= f.label :admin %>
-    <%= f.check_box :admin %>
-  <% end %>
-  <br />
-  <%= f.label :avatar %>
-  <%= f.file_field :avatar %>
-  <% if f.object.avatar? %>
+<%= render 'shared/errors', obj: @user %>
+<div>
+  <%= form_for @user do |f| %>
+    <%= f.label :username %>
+    <%= f.text_field :username, placeholder: "Enter username", autofocus: true %>
     <br />
-    <em>Currently Uploaded Image</em><br />
-    <%= image_tag (f.object.avatar.url(:small)) %><br />
-    <p>
-      <%= f.object.avatar_file_name %>
-    </p>
+    <%= f.label :email %>
+    <%= f.email_field :email, placeholder: "Enter email" %>
+    <br />
+    <%= f.label :mobile %>
+    <%= f.text_field :mobile, placeholder: "Enter mobile" %>
+    <br />
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Enter password" %>
+    <br />
+    <% if current_user.admin? %>
+      <%= f.label :admin %>
+      <%= f.check_box :admin %>
+    <% end %>
+    <br />
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <% if f.object.avatar? %>
+      <br />
+      <em>Currently Uploaded Image</em><br />
+      <%= image_tag (f.object.avatar.url(:small)) %><br />
+      <p>
+        <%= f.object.avatar_file_name %>
+      </p>
+    <% end %>
+    <%= f.submit(@user.new_record? ? "Sign up" : "Update account") %>
   <% end %>
-  <%= f.submit(@user.new_record? ? "Sign up" : "Update account") %>
-<% end %>
-
+</div>
 [ <%= link_to "Cancel request and return to home", root_path %> ]

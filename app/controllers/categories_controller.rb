@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+    before_action :set_category, only: [:edit, :update, :show]
     before_action :require_admin, except: [:index, :show]
     
     def index
@@ -6,10 +7,7 @@ class CategoriesController < ApplicationController
         @categories = Category.where(:parent_id => nil)
 
     end
-    
-    # def show
-        
-    # end
+
     # Show subcategory
     def show
       # Find the category belonging to the given id
@@ -34,10 +32,27 @@ class CategoriesController < ApplicationController
         end
     end
     
+    def edit
+      
+    end
+    def update
+        if @category.update(category_params)
+          flash[:success] = "You merchandise was successfully updated"
+          redirect_to category_path(@category)
+        else
+          render 'edit'
+        end 
+    end
+    
     private
     def category_params
         params.require(:category).permit(:name, :parent_id)
     end
+    
+    def set_category
+            @category = Category.find(params[:id])
+    end
+    
     def require_admin
       if !logged_in? || (logged_in? && !current_user.admin?)
         flash[:danger] = "Only admins can perform that action"
