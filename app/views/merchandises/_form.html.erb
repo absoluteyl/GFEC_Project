@@ -14,9 +14,6 @@
         <%= f.label :amount %>
         <%= f.text_field :amount, placeholder: "Amount of merchandise" %>
         <br />
-        <%= f.label :category_id %>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, prompt: true) %>
-        
         <br />
         <div class="well">
         <%= f.label :image_1 %>
