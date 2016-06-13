@@ -10,12 +10,10 @@ class CategoriesController < ApplicationController
 
     # Show subcategory
     def show
-      # Find the category belonging to the given id
-      @category = Category.find(params[:id])
       # Grab all sub-categories
       @categories = @category.subcategories
       # We want to reuse the index renderer:
-      render :action => :index
+      render :action => :show
     end
     
     def new
@@ -50,7 +48,7 @@ class CategoriesController < ApplicationController
     end
     
     def set_category
-            @category = Category.find(params[:id])
+        @category = Category.find(params[:id])
     end
     
     def require_admin

@@ -20205,3 +20205,447 @@ Processing by CategoriesController#edit as HTML
   Rendered layouts/_navigation.html.erb (7.1ms)
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 208ms (Views: 200.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:36:16 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 18]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 19]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 20]]
+  Rendered categories/index.html.erb within layouts/application (5.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (29.6ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 266ms (Views: 238.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/categories/19" for 118.163.130.149 at 2016-06-13 05:36:18 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  Rendered categories/index.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 134ms (Views: 130.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:43:56 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (20.0ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 2.1ms)
+
+ActionView::Template::Error (undefined method `subcategories?' for #<Category::ActiveRecord_Associations_CollectionProxy:0x007faa9df7fba8>):
+    1: <h1 align="center">
+    2:     <% if @categories.subcategories? %>
+    3:         Listing All Categories
+    4:     <% else %>
+    5:         <%= @categories.subcategory.name %>
+  app/views/categories/index.html.erb:2:in `_app_views_categories_index_html_erb___207004701922439541_70185344566100'
+  app/controllers/categories_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (157.6ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:43:57 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (23.9ms)
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `subcategories?' for #<Category::ActiveRecord_Associations_CollectionProxy:0x007faa99aee4f8>):
+    1: <h1 align="center">
+    2:     <% if @categories.subcategories? %>
+    3:         Listing All Categories
+    4:     <% else %>
+    5:         <%= @categories.subcategory.name %>
+  app/views/categories/index.html.erb:2:in `_app_views_categories_index_html_erb___207004701922439541_70185379680760'
+  app/controllers/categories_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (21.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (143.2ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:44:08 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (10.5ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `subcategory?' for #<Category::ActiveRecord_Associations_CollectionProxy:0x007faa9a49ecc8>):
+    1: <h1 align="center">
+    2:     <% if @categories.subcategory? %>
+    3:         Listing All Categories
+    4:     <% else %>
+    5:         <%= @categories.subcategory.name %>
+  app/views/categories/index.html.erb:2:in `_app_views_categories_index_html_erb___207004701922439541_70185354862260'
+  app/controllers/categories_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (22.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (119.4ms)
+  [1m[35mCategory Load (1.0ms)[0m  SELECT  "categories".* FROM "categories"  ORDER BY "categories"."id" ASC LIMIT 1
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:45:30 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (14.1ms)
+Completed 500 Internal Server Error in 188ms (ActiveRecord: 0.6ms)
+
+ActionView::Template::Error (undefined method `subcategories' for #<Category::ActiveRecord_Associations_CollectionProxy:0x007faa9a2ea738>):
+    1: <h1 align="center">
+    2:     <% if @categories.subcategories.any? %>
+    3:         Listing All Categories
+    4:     <% else %>
+    5:         <%= @categories.subcategory.name %>
+  app/views/categories/index.html.erb:2:in `_app_views_categories_index_html_erb___207004701922439541_70185353886540'
+  app/controllers/categories_controller.rb:16:in `show'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (33.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (13.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (126.5ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:47:26 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (1.7ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (1.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 18]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 20]]
+  Rendered categories/index.html.erb within layouts/application (12.2ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.6ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (46.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 268ms (Views: 252.4ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.5ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered categories/show.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (48.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 226ms (Views: 195.4ms | ActiveRecord: 5.8ms)
+
+
+Started GET "/assets/custom.self-3b5b5f173eb23005c8e58ddf197e76159b64f3ec48125fd0696ad9f0fb65f0d8.css?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 118.163.130.149 at 2016-06-13 05:47:59 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:51:06 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 18]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  [1m[36mCategory Load (1.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 20]]
+  Rendered categories/show.html.erb within layouts/application (9.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (7.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 144ms (Views: 136.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/categories/1" for 118.163.130.149 at 2016-06-13 05:51:45 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mCategory Load (0.4ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 18]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 19]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 20]]
+  Rendered categories/show.html.erb within layouts/application (7.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (10.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 216ms (Views: 208.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/categories/18" for 118.163.130.149 at 2016-06-13 05:51:48 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 18]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 18]]
+  Rendered categories/show.html.erb within layouts/application (3.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 195ms (Views: 191.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/categories/19" for 118.163.130.149 at 2016-06-13 05:51:50 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  Rendered categories/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 148ms (Views: 144.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/categories/19" for 118.163.130.149 at 2016-06-13 05:52:09 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 19]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  Rendered categories/show.html.erb within layouts/application (14.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (19.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 285ms (Views: 278.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories/4" for 118.163.130.149 at 2016-06-13 05:52:11 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 4]]
+  Rendered categories/show.html.erb within layouts/application (2.3ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 215ms (Views: 209.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/categories/5" for 118.163.130.149 at 2016-06-13 05:52:18 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 5]]
+  Rendered categories/show.html.erb within layouts/application (3.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (10.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 218ms (Views: 214.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/categories/17" for 118.163.130.149 at 2016-06-13 05:52:20 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 17]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 17]]
+  Rendered categories/show.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 148ms (Views: 143.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categories/16" for 118.163.130.149 at 2016-06-13 05:52:24 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 16]]
+  Rendered categories/show.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (9.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 221ms (Views: 217.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/categories/6" for 118.163.130.149 at 2016-06-13 05:52:27 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 6]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 6]]
+  Rendered categories/show.html.erb within layouts/application (2.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (9.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 182ms (Views: 177.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/categories/2" for 118.163.130.149 at 2016-06-13 05:52:28 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 21]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 22]]
+  Rendered categories/show.html.erb within layouts/application (5.2ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 176ms (Views: 172.2ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/categories/21" for 118.163.130.149 at 2016-06-13 05:52:31 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"21"}
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 21]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 21]]
+  Rendered categories/show.html.erb within layouts/application (0.9ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 116ms (Views: 112.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/categories" for 118.163.130.149 at 2016-06-13 05:52:34 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 2]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 3]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 4]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 5]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 6]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 7]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 8]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 9]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 10]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 11]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 12]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 13]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 14]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 15]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 16]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 17]]
+  Rendered categories/index.html.erb within layouts/application (26.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.8ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 155ms (Views: 149.8ms | ActiveRecord: 4.2ms)
