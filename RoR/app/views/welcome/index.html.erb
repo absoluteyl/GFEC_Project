@@ -1,0 +1,13 @@
+<h1>Hello! This is flea market</h1>
+<ul>
+    <li><%= link_to 'Browse all the merchandise', merchandises_path %></li>
+    <% if logged_in? %>
+      <li><%= link_to "Upload merchandise", new_merchandise_path %></li>
+    <% end %>
+</ul>
+<ul>
+    <% if !logged_in? %>
+        <li><%= link_to 'Create your own acoount', signup_path %></li>
+    <% end %>
+    <li><%= link_to 'View all our members', users_path %></li>
+</ul>

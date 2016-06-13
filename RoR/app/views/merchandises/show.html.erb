@@ -1,0 +1,34 @@
+<h2 align="center">Title: <%= @merchandise.title %></h2>
+  <h4></h4>
+  <hr>
+  <% if @merchandise.image_1? %>
+    <%= image_tag @merchandise.image_1.url(:medium)%>
+  <% end %>
+  <% if @merchandise.image_2? %>
+    <%= image_tag @merchandise.image_2.url(:medium)%>
+  <% end %>
+  <% if @merchandise.image_3? %>
+    <%= image_tag @merchandise.image_3.url(:medium)%>
+  <% end %>
+  <br />
+  <%= simple_format(@merchandise.description) %>
+  <br />
+  <p>Price: <%= @merchandise.price%></p>
+  <p>Amount: <%= @merchandise.amount%></p>
+  <% if @merchandise.user %>
+    <ul class="listing">
+    <li class="merchandise-title">Uploaded by:
+      <%= link_to @merchandise.user.username, user_path(@merchandise.user) %>
+    </li>
+    <li><small><%= pluralize(@merchandise.user.merchandises.count, "merchandise") if @merchandise.user.merchandises %></small></li>
+    </ul>
+  <% end %>
+  <div class="merchandise-actions">
+    <% if logged_in? && (current_user == @merchandise.user || current_user.admin?) %>
+      <%= link_to "Edit this merchandise", edit_merchandise_path(@merchandise) %>
+      <%= link_to "Delete this merchandise", merchandise_path(@merchandise), method: :delete, 
+                                        data: { confirm: "Are you sure you want to delete the merchandise?"} %>
+    <% end %>
+    <%= link_to "View all merchandises", merchandises_path %>
+  </div>
+</div>
