@@ -25,7 +25,7 @@ class Merchandise < ActiveRecord::Base
     validates_attachment_content_type :image_1, content_type: /\Aimage\/.*\Z/
     validates_attachment_content_type :image_2, content_type: /\Aimage\/.*\Z/
     validates_attachment_content_type :image_3, content_type: /\Aimage\/.*\Z/
-    
+
   private
   #Forbid user_id to be changed
   def user_id_not_changed

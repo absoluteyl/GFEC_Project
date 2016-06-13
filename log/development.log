@@ -21361,3 +21361,554 @@ Migrating to EditMerchandiseAmountForDefaultValue1 (20160613073920)
   [1m[36mSQL (11.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160613073920"]]
   [1m[35m (23.8ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 61.228.185.216 at 2016-06-13 12:31:05 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (53.3ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (34.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 376ms (Views: 370.2ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 61.228.185.216 at 2016-06-13 12:58:39 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[36mUser Load (26.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (171.0ms)
+  [1m[35mCategory Load (18.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (178.8ms)
+  Rendered layouts/_messages.html.erb (4.6ms)
+Completed 200 OK in 3316ms (Views: 3230.3ms | ActiveRecord: 44.5ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 12:59:00 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (12.3ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.8ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (1650.8ms)
+  Rendered merchandises/index.html.erb within layouts/application (1668.3ms)
+  [1m[36mCategory Load (6.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (54.0ms)
+  Rendered layouts/_messages.html.erb (6.4ms)
+Completed 200 OK in 3795ms (Views: 3433.6ms | ActiveRecord: 38.0ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 12:59:04 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (1.5ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (1.6ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (191.2ms)
+  Rendered merchandises/index.html.erb within layouts/application (195.0ms)
+  [1m[35mCategory Load (3.9ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (190.8ms)
+  Rendered layouts/_messages.html.erb (5.6ms)
+Completed 200 OK in 1225ms (Views: 1212.6ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 12:59:05 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (2.1ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  [1m[35mUser Load (3.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (221.1ms)
+  Rendered merchandises/index.html.erb within layouts/application (558.6ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (26.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 1999ms (Views: 1987.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 12:59:09 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (4.1ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (121.8ms)
+  Rendered merchandises/index.html.erb within layouts/application (129.3ms)
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 2489ms (Views: 2482.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 12:59:11 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (22.6ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (247.3ms)
+  Rendered merchandises/index.html.erb within layouts/application (263.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (32.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 1166ms (Views: 1129.9ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/users" for 61.228.185.216 at 2016-06-13 12:59:13 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered users/index.html.erb within layouts/application (73.3ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (16.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 423ms (Views: 415.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for 61.228.185.216 at 2016-06-13 12:59:13 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (40.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 5]]
+  Rendered users/index.html.erb within layouts/application (116.4ms)
+  [1m[36mCategory Load (2.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (32.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 867ms (Views: 817.4ms | ActiveRecord: 44.9ms)
+
+
+Started GET "/categories" for 61.228.185.216 at 2016-06-13 12:59:14 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (2.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 2]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 3]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 4]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 5]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 6]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 7]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 8]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 9]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 10]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 11]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 12]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 13]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 14]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 15]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 16]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 17]]
+  Rendered categories/index.html.erb within layouts/application (57.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (6.2ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 297ms (Views: 288.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 12:59:17 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.5ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (35.1ms)
+  Rendered merchandises/index.html.erb within layouts/application (37.7ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (7.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 174ms (Views: 171.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/merchandises/1" for 61.228.185.216 at 2016-06-13 12:59:27 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchandise Load (0.9ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/show.html.erb within layouts/application (173.8ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (10.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 457ms (Views: 449.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for 61.228.185.216 at 2016-06-13 12:59:37 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered users/index.html.erb within layouts/application (18.7ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (7.6ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 173ms (Views: 169.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/1" for 61.228.185.216 at 2016-06-13 12:59:41 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMerchandise Load (1.9ms)[0m  SELECT "merchandises".* FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (35.1ms)
+  Rendered users/show.html.erb within layouts/application (45.5ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.4ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 344ms (Views: 337.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/categories/1" for 61.228.185.216 at 2016-06-13 12:59:54 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 18]]
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 19]]
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 20]]
+  Rendered categories/show.html.erb within layouts/application (8.3ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (7.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 251ms (Views: 244.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/categories/18" for 61.228.185.216 at 2016-06-13 13:00:00 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[35mCategory Load (0.2ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 18]]
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 18]]
+  Rendered categories/show.html.erb within layouts/application (1.3ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCategory Load (1.8ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (14.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 199ms (Views: 193.8ms | ActiveRecord: 2.8ms)
+
+
+Started DELETE "/logout" for 61.228.185.216 at 2016-06-13 13:00:11 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"0ch0Y8xS8U3sEuy7WDyNdC4JAxX1vUoWHDhExYEmTcPZfjP42/tfrUpJx75LKTETdP0i5KzTmnvaDiw0CY3rKQ=="}
+Redirected to https://flea-market-absoluteyl.c9users.io/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 61.228.185.216 at 2016-06-13 13:00:12 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (11.7ms)
+  [1m[35mCategory Load (2.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (17.7ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 428ms (Views: 420.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/login" for 61.228.185.216 at 2016-06-13 13:00:14 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (23.7ms)
+  [1m[36mCategory Load (1.9ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (13.5ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 760ms (Views: 754.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/signup" for 61.228.185.216 at 2016-06-13 13:00:16 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (0.5ms)
+  Rendered users/_form.html.erb (55.3ms)
+  Rendered users/new.html.erb within layouts/application (64.5ms)
+Completed 500 Internal Server Error in 77ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    13:     <%= f.label :password %>
+    14:     <%= f.password_field :password, placeholder: "Enter password" %>
+    15:     <br />
+    16:     <% if current_user.admin? %>
+    17:       <%= f.label :admin %>
+    18:       <%= f.check_box :admin %>
+    19:     <% end %>
+  app/views/users/_form.html.erb:16:in `block in _app_views_users__form_html_erb__780027543942677895_70185389198840'
+  app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb__780027543942677895_70185389198840'
+  app/views/users/new.html.erb:2:in `_app_views_users_new_html_erb__3790001025535107117_70185357337240'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (46.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (23.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (216.2ms)
+
+
+Started GET "/signup" for 61.228.185.216 at 2016-06-13 13:00:18 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (1.2ms)
+  Rendered users/_form.html.erb (31.9ms)
+  Rendered users/new.html.erb within layouts/application (36.6ms)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (undefined method `admin?' for nil:NilClass):
+    13:     <%= f.label :password %>
+    14:     <%= f.password_field :password, placeholder: "Enter password" %>
+    15:     <br />
+    16:     <% if current_user.admin? %>
+    17:       <%= f.label :admin %>
+    18:       <%= f.check_box :admin %>
+    19:     <% end %>
+  app/views/users/_form.html.erb:16:in `block in _app_views_users__form_html_erb__780027543942677895_70185383243440'
+  app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb__780027543942677895_70185383243440'
+  app/views/users/new.html.erb:2:in `_app_views_users_new_html_erb__3790001025535107117_70185392771960'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (32.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (182.3ms)
+
+
+Started GET "/signup" for 61.228.185.216 at 2016-06-13 13:02:15 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (14.8ms)
+  Rendered users/new.html.erb within layouts/application (17.5ms)
+  [1m[35mCategory Load (0.8ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.8ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 162ms (Views: 159.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 13:20:02 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 2.1ms)
+
+NameError (undefined local variable or method `s3' for #<Class:0x007faa9996ba18>):
+  app/models/merchandise.rb:14:in `<class:Merchandise>'
+  app/models/merchandise.rb:1:in `<top (required)>'
+  app/controllers/merchandises_controller.rb:25:in `index'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (23.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (201.5ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 13:20:03 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.0ms)
+
+NameError (undefined local variable or method `s3' for #<Class:0x007faa99e32150>):
+  app/models/merchandise.rb:14:in `<class:Merchandise>'
+  app/models/merchandise.rb:1:in `<top (required)>'
+  app/controllers/merchandises_controller.rb:25:in `index'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (17.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (21.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (8.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (152.5ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 13:20:45 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.9ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (56.8ms)
+  Rendered merchandises/index.html.erb within layouts/application (61.0ms)
+Completed 500 Internal Server Error in 81ms (ActiveRecord: 2.3ms)
+
+LoadError (cannot load such file -- aws-sdk (You may need to install the aws-sdk gem)):
+  app/views/merchandises/_merchandise.html.erb:6:in `block in _app_views_merchandises__merchandise_html_erb___1236226164385651248_70185378071040'
+  app/views/merchandises/_merchandise.html.erb:1:in `_app_views_merchandises__merchandise_html_erb___1236226164385651248_70185378071040'
+  app/views/merchandises/index.html.erb:2:in `_app_views_merchandises_index_html_erb__4219531821584702278_70185377911200'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (24.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (9.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (170.8ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 13:25:26 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.4ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  Rendered merchandises/_merchandise.html.erb (55.9ms)
+  Rendered merchandises/index.html.erb within layouts/application (71.9ms)
+Completed 500 Internal Server Error in 166ms (ActiveRecord: 1.2ms)
+
+ActionView::Template::Error (missing required :bucket option):
+    4:   </div>
+    5:   <div class="merchandise-image">
+    6:     <% if merchandise.image_1? %>
+    7:       <%= link_to image_tag(merchandise.image_1.url(:thumb)), merchandise_path(merchandise) %>
+    8:     <% end %>
+    9:     <% if merchandise.image_2? %>
+   10:       <%= link_to image_tag(merchandise.image_2.url(:thumb)), merchandise_path(merchandise) %>
+  app/views/merchandises/_merchandise.html.erb:7:in `block in _app_views_merchandises__merchandise_html_erb___4285633186845156642_17763400'
+  app/views/merchandises/_merchandise.html.erb:1:in `_app_views_merchandises__merchandise_html_erb___4285633186845156642_17763400'
+  app/views/merchandises/index.html.erb:2:in `_app_views_merchandises_index_html_erb__487731196277874695_19259640'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (29.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (130.2ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 13:26:12 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.8ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (13.6ms)
+  Rendered merchandises/index.html.erb within layouts/application (15.8ms)
+Completed 500 Internal Server Error in 23ms (ActiveRecord: 0.8ms)
+
+ActionView::Template::Error (missing required :bucket option):
+     5:   </div>
+     6:   <div class="merchandise-image">
+     7:     <% if merchandise.image_1? %>
+     8:       <%= link_to image_tag(merchandise.image_1.url(:thumb)), merchandise_path(merchandise) %>
+     9:     <% end %>
+    10:     <% if merchandise.image_2? %>
+    11:       <%= link_to image_tag(merchandise.image_2.url(:thumb)), merchandise_path(merchandise) %>
+  app/views/merchandises/_merchandise.html.erb:8:in `block in _app_views_merchandises__merchandise_html_erb___4285633186845156642_33663280'
+  app/views/merchandises/_merchandise.html.erb:2:in `_app_views_merchandises__merchandise_html_erb___4285633186845156642_33663280'
+  app/views/merchandises/index.html.erb:2:in `_app_views_merchandises_index_html_erb__487731196277874695_19259640'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (20.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (150.2ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 14:55:58 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (5.4ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  Rendered merchandises/_merchandise.html.erb (19.9ms)
+  Rendered merchandises/index.html.erb within layouts/application (24.9ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 5.4ms)
+
+ActionView::Template::Error (No such file or directory @ rb_sysopen - /home/ubuntu/workspace/config/s3.yml):
+     5:   </div>
+     6:   <div class="merchandise-image">
+     7:     <% if merchandise.image_1? %>
+     8:       <%= link_to image_tag(merchandise.image_1.url(:thumb)), merchandise_path(merchandise) %>
+     9:     <% end %>
+    10:     <% if merchandise.image_2? %>
+    11:       <%= link_to image_tag(merchandise.image_2.url(:thumb)), merchandise_path(merchandise) %>
+  app/views/merchandises/_merchandise.html.erb:8:in `block in _app_views_merchandises__merchandise_html_erb___4285633186845156642_33663280'
+  app/views/merchandises/_merchandise.html.erb:2:in `_app_views_merchandises__merchandise_html_erb___4285633186845156642_33663280'
+  app/views/merchandises/index.html.erb:2:in `_app_views_merchandises_index_html_erb__487731196277874695_19259640'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (16.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (157.0ms)
+
+
+Started GET "/merchandises" for 61.228.185.216 at 2016-06-13 14:57:00 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.8ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (220.9ms)
+  Rendered merchandises/index.html.erb within layouts/application (222.4ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (54.4ms)
+  Rendered layouts/_messages.html.erb (1.2ms)
+Completed 200 OK in 1150ms (Views: 1134.7ms | ActiveRecord: 4.5ms)
