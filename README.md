@@ -34,6 +34,9 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
 ##API Usage:
 ####Authentication:
 To access API resources, you must have an user account registered, and uses username/password to login.
+####Image Path Namine Rule:
+    :class/:attachment/000/000/:id_partition/:style/:filename
+    #=> users/avatar/000/000/013/small/my_pic.png
 ####Merchandise:
 #####GET:
 General Query:
