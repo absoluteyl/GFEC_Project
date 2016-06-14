@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="6hf-KP-UVP">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Third Tab View Controller-->
+        <scene sceneID="KYK-jR-n9E">
+            <objects>
+                <viewController id="21j-ss-hip" customClass="ThirdTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ih1-p3-POD"/>
+                        <viewControllerLayoutGuide type="bottom" id="KJq-H6-MSP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5QF-vb-6z5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-2k-Ge9">
+                                <rect key="frame" x="23" y="173" width="332" height="313"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-sH-YSH">
+                                <rect key="frame" x="294" y="135" width="66" height="30"/>
+                                <state key="normal" title="Photo Lib"/>
+                                <connections>
+                                    <action selector="PhotoLibraryAction:" destination="21j-ss-hip" eventType="touchUpInside" id="yfM-tw-ARW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxz-hK-nLQ">
+                                <rect key="frame" x="18" y="135" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="CameraAction:" destination="21j-ss-hip" eventType="touchUpInside" id="7QZ-u6-iDk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBG-yq-yS2">
+                                <rect key="frame" x="311" y="533" width="32" height="30"/>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <segue destination="0IF-FQ-YeF" kind="show" id="OX6-KN-iJC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0L2-SA-hQe"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="Camera" destination="lxz-hK-nLQ" id="neF-Pg-sxI"/>
+                        <outlet property="ImageDiaplay" destination="wZ2-2k-Ge9" id="VMz-il-gGB"/>
+                        <outlet property="PhotoLibrary" destination="Xap-sH-YSH" id="K7j-Df-c6O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDL-KR-iyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652.5" y="311.5"/>
+        </scene>
+        <!--AddItemInfo-->
+        <scene sceneID="OHr-yw-Z79">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddItemInfo" id="0IF-FQ-YeF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kph-Xh-72e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2034" y="311"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="ESr-bJ-CGz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6hf-KP-UVP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Camera" image="tab3camera" id="5s9-M4-1KP"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xJ9-S4-CPC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="21j-ss-hip" kind="relationship" relationship="rootViewController" id="U3A-sU-BLP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x41-Hw-Z3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840" y="311"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tab3camera" width="18" height="18"/>
+    </resources>
+</document>
