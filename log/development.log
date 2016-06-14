@@ -21912,3 +21912,164 @@ Processing by MerchandisesController#index as HTML
   Rendered layouts/_navigation.html.erb (54.4ms)
   Rendered layouts/_messages.html.erb (1.2ms)
 Completed 200 OK in 1150ms (Views: 1134.7ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/login" for 61.228.185.216 at 2016-06-13 14:59:49 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (68.7ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (6.4ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 221ms (Views: 220.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login" for 61.228.185.216 at 2016-06-13 14:59:56 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V74yteELl82cO+MrPx5DDELtVbL6FFzwZKgVVQgG/lFfCHUu9qI5LTpgyC4sC/9rGBl0Q6N6jJ2inn2kgK1Yuw==", "session"=>{"email"=>"chinbo@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Login"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "chinbo@gmail.com"]]
+Redirected to https://flea-market-absoluteyl.c9users.io/users/1
+Completed 302 Found in 77ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/1" for 61.228.185.216 at 2016-06-13 14:59:56 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mMerchandise Load (0.7ms)[0m  SELECT "merchandises".* FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (14.8ms)
+  Rendered users/show.html.erb within layouts/application (46.8ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.7ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 201ms (Views: 196.2ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/merchandises/3/edit" for 61.228.185.216 at 2016-06-13 14:59:59 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMerchandise Load (0.5ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (8.8ms)
+  Rendered merchandises/_form.html.erb (34.3ms)
+  Rendered merchandises/edit.html.erb within layouts/application (39.0ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (9.3ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 259ms (Views: 253.2ms | ActiveRecord: 1.1ms)
+
+
+Started PATCH "/merchandises/3" for 61.228.185.216 at 2016-06-13 15:00:06 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eQRfTGJhS1K51FLp8372WeI+DdHK/1NAiv2swKw6b31xshjXdcjlsh+Peezga0o+uMosIJORgy1My8QxJJHJlw==", "merchandise"=>{"title"=>"Blue Mountain Coffee Beans", "description"=>"Direct delivery from Italy, 500g each pack. Best before 2016 July 31.", "price"=>"900", "amount"=>"2", "image_1"=>#<ActionDispatch::Http::UploadedFile:0x000000043bde78 @tempfile=#<Tempfile:/tmp/RackMultipart20160613-9745-1hljshi.png>, @original_filename="hualingcao.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"merchandise[image_1]\"; filename=\"hualingcao.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update Merchandise", "id"=>"3"}
+  [1m[36mMerchandise Load (0.3ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-1fumm2v.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]'
+Command :: convert '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]' -auto-orient -resize "300x300>" '/tmp/80e939ae15dbb0e57a6bda8a6ac9f08c20160613-9745-ilvvqk'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]'
+Command :: convert '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]' -auto-orient -resize "140x140>" '/tmp/80e939ae15dbb0e57a6bda8a6ac9f08c20160613-9745-12pi7r9'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]'
+Command :: convert '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-wvgyvc.png[0]' -auto-orient -resize "64x64!" '/tmp/80e939ae15dbb0e57a6bda8a6ac9f08c20160613-9745-jaxl7c'
+Command :: file -b --mime '/tmp/0c86c52e76c5a27a51ddfd6320c55e6720160613-9745-1fximy1.png'
+  [1m[36mSQL (1.2ms)[0m  [1mUPDATE "merchandises" SET "image_1_file_name" = ?, "image_1_content_type" = ?, "image_1_file_size" = ?, "image_1_updated_at" = ?, "updated_at" = ? WHERE "merchandises"."id" = ?[0m  [["image_1_file_name", "hualingcao.png"], ["image_1_content_type", "image/png"], ["image_1_file_size", 32268], ["image_1_updated_at", "2016-06-13 15:00:06.752575"], ["updated_at", "2016-06-13 15:00:07.167409"], ["id", 3]]
+  [1m[35m (23.6ms)[0m  commit transaction
+Redirected to https://flea-market-absoluteyl.c9users.io/merchandises/3
+Completed 302 Found in 493ms (ActiveRecord: 25.4ms)
+
+
+Started GET "/merchandises/3" for 61.228.185.216 at 2016-06-13 15:00:07 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mMerchandise Load (0.2ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/show.html.erb within layouts/application (24.0ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (4.9ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 147ms (Views: 143.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/merchandises/3/edit" for 61.228.185.216 at 2016-06-13 15:03:01 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMerchandise Load (0.5ms)[0m  SELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.2ms)
+  Rendered merchandises/_form.html.erb (15.2ms)
+  Rendered merchandises/edit.html.erb within layouts/application (17.5ms)
+  [1m[36mCategory Load (0.5ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (6.7ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 214ms (Views: 205.1ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/merchandises/3" for 61.228.185.216 at 2016-06-13 15:03:16 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7xzo1u9eBGAbFTo6Ebd6NMhtxo9pd9TvJuopYU3p+x7nqq9N+PeqgL1OET8CosZTkpnnfjAZBILg3EGQxUJd9A==", "merchandise"=>{"title"=>"Blue Mountain Coffee Beans", "description"=>"Direct delivery from Italy, 500g each pack. Best before 2016 July 31.", "price"=>"900", "amount"=>"2", "image_1"=>#<ActionDispatch::Http::UploadedFile:0x000000047fc070 @tempfile=#<Tempfile:/tmp/RackMultipart20160613-9745-1dg9ag8.png>, @original_filename="suanxiangteng.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"merchandise[image_1]\"; filename=\"suanxiangteng.png\"\r\nContent-Type: image/png\r\n">, "image_2"=>#<ActionDispatch::Http::UploadedFile:0x000000047efe60 @tempfile=#<Tempfile:/tmp/RackMultipart20160613-9745-c946ca.png>, @original_filename="flower3.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"merchandise[image_2]\"; filename=\"flower3.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update Merchandise", "id"=>"3"}
+  [1m[35mMerchandise Load (0.3ms)[0m  SELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Command :: file -b --mime '/tmp/14755188849559f6459fa30c82409a5420160613-9745-kga3i3.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]'
+Command :: convert '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]' -auto-orient -resize "300x300>" '/tmp/930d0f358190a2dff09963013b6b76f220160613-9745-e27lfs'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]'
+Command :: convert '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]' -auto-orient -resize "140x140>" '/tmp/930d0f358190a2dff09963013b6b76f220160613-9745-14zpsnp'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]'
+Command :: convert '/tmp/14755188849559f6459fa30c82409a5420160613-9745-13n1von.png[0]' -auto-orient -resize "64x64!" '/tmp/930d0f358190a2dff09963013b6b76f220160613-9745-17b0pm5'
+Command :: file -b --mime '/tmp/3143605987e08466714663dbf014564020160613-9745-14qru7o.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]'
+Command :: convert '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]' -auto-orient -resize "300x300>" '/tmp/7e9a0c9ec41d3ad69727dce9f093311d20160613-9745-t3vgyt'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]'
+Command :: convert '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]' -auto-orient -resize "140x140>" '/tmp/7e9a0c9ec41d3ad69727dce9f093311d20160613-9745-mwjfwg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]'
+Command :: convert '/tmp/3143605987e08466714663dbf014564020160613-9745-mvmfd1.png[0]' -auto-orient -resize "64x64!" '/tmp/7e9a0c9ec41d3ad69727dce9f093311d20160613-9745-1v9z2su'
+Command :: file -b --mime '/tmp/14755188849559f6459fa30c82409a5420160613-9745-1vm2f5g.png'
+Command :: file -b --mime '/tmp/3143605987e08466714663dbf014564020160613-9745-1fonoc.png'
+  [1m[35mSQL (0.5ms)[0m  UPDATE "merchandises" SET "image_1_file_name" = ?, "image_1_file_size" = ?, "image_1_updated_at" = ?, "image_2_file_name" = ?, "image_2_content_type" = ?, "image_2_file_size" = ?, "image_2_updated_at" = ?, "updated_at" = ? WHERE "merchandises"."id" = ?  [["image_1_file_name", "suanxiangteng.png"], ["image_1_file_size", 35532], ["image_1_updated_at", "2016-06-13 15:03:16.596435"], ["image_2_file_name", "flower3.png"], ["image_2_content_type", "image/png"], ["image_2_file_size", 106268], ["image_2_updated_at", "2016-06-13 15:03:16.816870"], ["updated_at", "2016-06-13 15:03:17.125311"], ["id", 3]]
+[paperclip] deleting /home/ubuntu/workspace/public/system/merchandises/image_1s/000/000/003/original/hualingcao.png
+[paperclip] deleting /home/ubuntu/workspace/public/system/merchandises/image_1s/000/000/003/medium/hualingcao.png
+[paperclip] deleting /home/ubuntu/workspace/public/system/merchandises/image_1s/000/000/003/small/hualingcao.png
+[paperclip] deleting /home/ubuntu/workspace/public/system/merchandises/image_1s/000/000/003/thumb/hualingcao.png
+  [1m[36m (20.6ms)[0m  [1mcommit transaction[0m
+Redirected to https://flea-market-absoluteyl.c9users.io/merchandises/3
+Completed 302 Found in 666ms (ActiveRecord: 21.7ms)
+
+
+Started GET "/merchandises/3" for 61.228.185.216 at 2016-06-13 15:03:17 +0000
+Cannot render console from 61.228.185.216! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mMerchandise Load (0.5ms)[0m  SELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered merchandises/show.html.erb within layouts/application (8.2ms)
+  [1m[35mCategory Load (1.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 137ms (Views: 132.7ms | ActiveRecord: 2.3ms)
