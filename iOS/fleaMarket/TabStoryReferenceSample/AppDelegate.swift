@@ -12,9 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var itemArray:NSArray?
+    var itemArray: NSArray?
     var UserID: Int?
 
+    
+    
+    
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -46,4 +49,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+
+
+
+// MARK: Create URL from Parameters
+
+
+
 

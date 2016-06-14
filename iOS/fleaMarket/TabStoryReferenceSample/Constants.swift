@@ -12,7 +12,7 @@ struct Constants {
     
     // MARK: Get merchandise list or filter specific items
     struct Merchandises {
-        static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
+        static let APIBaseURL = "https://flea-market.herokuapp.com/api/merchandises"
     }
     
     // MARK: Merchandises Parameter Keys
@@ -22,7 +22,9 @@ struct Constants {
         static let MerchandiseDescription = "description"
         static let MerchandisePrice = "price"
 //        static let MerchandiseAmount = "amount"
-        static let UserID = "user_id"
+        static let UserID = "user_id" // this is a int number generated as users create their id
+        static let Username = "username" // this is a string users set as user name
+        static let Password = "password"
         
     }
     

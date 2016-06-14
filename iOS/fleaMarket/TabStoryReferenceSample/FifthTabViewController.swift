@@ -11,6 +11,11 @@ import MapKit
 
 class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationManagerDelegate {
     
+    @IBAction func loginButton(sender: UIButton) {
+        
+    }
+    
+    
     @IBAction func EditProfileButton(sender: UIButton) {
     }
     

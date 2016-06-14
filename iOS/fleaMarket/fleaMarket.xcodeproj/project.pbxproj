@@ -22,6 +22,8 @@
 		7A751C761CF9BEE20096BDE6 /* 5thTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */; };
 		C902734C1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C902734B1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift */; };
 		C902734E1D0C1B7C00EC081D /* AddItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */; };
+		C90273501D0FB88100EC081D /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734F1D0FB88100EC081D /* LoginPage.storyboard */; };
+		C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273511D0FB89700EC081D /* LoginPageViewController.swift */; };
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
 		C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */; };
 		C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */; };
@@ -91,6 +93,8 @@
 		7A751C751CF9BEE20096BDE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/5thTab.storyboard; sourceTree = "<group>"; };
 		C902734B1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemInfoTableViewController.swift; sourceTree = "<group>"; };
 		C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddItemInfo.storyboard; sourceTree = "<group>"; };
+		C902734F1D0FB88100EC081D /* LoginPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
+		C90273511D0FB89700EC081D /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
 		C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 			children = (
 				7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */,
 				C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */,
+				C902734F1D0FB88100EC081D /* LoginPage.storyboard */,
+				C90273511D0FB89700EC081D /* LoginPageViewController.swift */,
 				C974EE2F1D06EE5C001002BE /* S01_Account */,
 				C974EE301D06EE6C001002BE /* S02_Account */,
 				C974EE311D06EE7C001002BE /* S03_Settings */,
@@ -471,6 +477,7 @@
 				C974EE4E1D06F2EB001002BE /* S08_About.storyboard in Resources */,
 				C974EE231D06ECF1001002BE /* S02_Account.storyboard in Resources */,
 				C974EE421D06EFE3001002BE /* S06_Records.storyboard in Resources */,
+				C90273501D0FB88100EC081D /* LoginPage.storyboard in Resources */,
 				C98058781CFE8E8E00F8F629 /* itemDetail.storyboard in Resources */,
 				7A751C421CF9BDBA0096BDE6 /* Main.storyboard in Resources */,
 			);
@@ -518,6 +525,7 @@
 				C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */,
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
+				C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */,
 				C974EE2C1D06EE0C001002BE /* S03_SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

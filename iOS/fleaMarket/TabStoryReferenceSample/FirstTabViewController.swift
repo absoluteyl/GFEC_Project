@@ -12,6 +12,9 @@ import UIKit
 var titleArray = [String]()
 var priceArray = [Int]()
 var itemIdArray = [Int]()
+let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
+
+
 
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -122,11 +125,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
 
     private func getDataFromDB() {
         
-        //    let methodParameters = [
-        
-        //        Constants.Merchandises: Constants.ParameterValues.Merchandises
-        //    ]
-        //
+
         let urlString = "https://flea-market-kyujyo.c9users.io/api/merchandises"
         //let urlString = Constants.Merchandises.APIBaseURL
         //let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"

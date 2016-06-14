@@ -158,6 +158,14 @@
                                     </button>
                                 </subviews>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yz-Rb-Rly">
+                                <rect key="frame" x="287" y="223" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButton:" destination="T61-0W-SZC" eventType="touchUpInside" id="ggA-8V-slS"/>
+                                    <segue destination="10l-ia-FNL" kind="show" id="r6J-6r-wJf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -244,6 +252,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgI-P0-q3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1231" y="1137"/>
+        </scene>
+        <!--LoginPage-->
+        <scene sceneID="uqp-Cb-OqY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginPage" id="10l-ia-FNL" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yhO-fZ-N0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1128.5" y="1215"/>
         </scene>
         <!--Item-->
         <scene sceneID="oYd-lA-hCO">
