@@ -22073,3 +22073,286 @@ Processing by MerchandisesController#show as HTML
   Rendered layouts/_navigation.html.erb (6.1ms)
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 137ms (Views: 132.7ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for 118.163.130.149 at 2016-06-14 02:15:37 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (92.4ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (52.0ms)
+  Rendered layouts/_messages.html.erb (3.2ms)
+Completed 200 OK in 1028ms (Views: 1005.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-14 02:15:41 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered users/index.html.erb within layouts/application (72.7ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (7.6ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 194ms (Views: 189.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users/1/edit" for 118.163.130.149 at 2016-06-14 02:15:45 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (7.1ms)
+  Rendered users/_form.html.erb (109.1ms)
+  Rendered users/edit.html.erb within layouts/application (113.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.5ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 232ms (Views: 228.2ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/users/1" for 118.163.130.149 at 2016-06-14 02:15:54 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sXvpyjzzaECfjPdBctynDPPBGi++QwOXAWbowYkWEL+9vYvS33s7UZ8vu15TokMmeLeERpjV6ReLgrwJwNcuLA==", "user"=>{"username"=>"absoluteyl", "email"=>"chinbo@gmail.com", "mobile"=>"0987654321", "password"=>"[FILTERED]", "admin"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007f5bb7119e68 @tempfile=#<Tempfile:/tmp/RackMultipart20160614-1778-uzarxs.png>, @original_filename="Minion_Buzz.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Minion_Buzz.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update account", "id"=>"1"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: username, email
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.7ms)
+
+NameError (uninitialized constant Paperclip::Storage::S3::AWS):
+  app/controllers/users_controller.rb:27:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (121.8ms)
+
+
+Started PATCH "/users/1" for 118.163.130.149 at 2016-06-14 02:27:17 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jGgXbZisGYLVoJ6T1vuJUF2601OKRGO3gtPKexblnvaArnV1eyRKk9UD0oz3hW161sxNOqzSiTcIN56zXySgZQ==", "user"=>{"username"=>"absoluteyl", "email"=>"chinbo@gmail.com", "mobile"=>"0987654321", "password"=>"[FILTERED]", "admin"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x000000054ab370 @tempfile=#<Tempfile:/tmp/RackMultipart20160614-2265-1iran4k.png>, @original_filename="Minion_Buzz.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Minion_Buzz.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update account", "id"=>"1"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: username, email
+  [1m[35m (0.2ms)[0m  begin transaction
+[AWS S3 301 0.76306 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/original/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+[AWS S3 301 0.13848 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/medium/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+[AWS S3 301 0.136783 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/small/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+[AWS S3 301 0.136495 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/thumb/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+Command :: file -b --mime '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1i183hl.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]' -auto-orient -resize "300x300>" '/tmp/cb35bc4280bfe2fd7276388cecd0422e20160614-2265-1mt39rl'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]' -auto-orient -resize "140x140>" '/tmp/cb35bc4280bfe2fd7276388cecd0422e20160614-2265-106q3ug'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1ej7h99.png[0]' -auto-orient -resize "64x64!" '/tmp/cb35bc4280bfe2fd7276388cecd0422e20160614-2265-17mkyh9'
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('absoluteyl') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('chinbo@gmail.com') AND "users"."id" != 1) LIMIT 1
+Command :: file -b --mime '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1uhdxh0.png'
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "users" SET "avatar_file_name" = ?, "avatar_content_type" = ?, "avatar_file_size" = ?, "avatar_updated_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar_file_name", "Minion_Buzz.png"], ["avatar_content_type", "image/png"], ["avatar_file_size", 486595], ["avatar_updated_at", "2016-06-14 02:27:20.995175"], ["updated_at", "2016-06-14 02:27:21.823321"], ["id", 1]]
+[paperclip] saving /users/avatars/000/000/001/original/Minion_Buzz.png
+[AWS S3 301 0.152889 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market",:content_length=>486595,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Minion_Buzz.png,:key=>"users/avatars/000/000/001/original/Minion_Buzz.png") AWS::S3::Errors::PermanentRedirect The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.
+
+  [1m[35m (0.3ms)[0m  rollback transaction
+Completed 500 Internal Server Error in 2926ms (ActiveRecord: 4.0ms)
+
+AWS::S3::Errors::PermanentRedirect (The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.):
+  app/controllers/users_controller.rb:27:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (38.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (34.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (177.7ms)
+
+
+Started PATCH "/users/1" for 118.163.130.149 at 2016-06-14 02:28:07 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jGgXbZisGYLVoJ6T1vuJUF2601OKRGO3gtPKexblnvaArnV1eyRKk9UD0oz3hW161sxNOqzSiTcIN56zXySgZQ==", "user"=>{"username"=>"absoluteyl", "email"=>"chinbo@gmail.com", "mobile"=>"0987654321", "password"=>"[FILTERED]", "admin"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x007fd3b42fb3b0 @tempfile=#<Tempfile:/tmp/RackMultipart20160614-2265-c1cudy.png>, @original_filename="Minion_Buzz.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Minion_Buzz.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update account", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Unpermitted parameters: username, email
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+[AWS S3 301 0.595556 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/original/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+[AWS S3 301 0.128884 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/medium/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+[AWS S3 301 0.127466 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/small/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+[AWS S3 301 0.126867 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/thumb/IMG_1694.JPG") AWS::Errors::Base AWS::Errors::Base
+
+Command :: file -b --mime '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-1f74ocg.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]' -auto-orient -resize "300x300>" '/tmp/e89e737bdb21778bb2353903430dda4720160614-2265-2jlf7s'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]' -auto-orient -resize "140x140>" '/tmp/e89e737bdb21778bb2353903430dda4720160614-2265-12rat22'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-n9i1m.png[0]' -auto-orient -resize "64x64!" '/tmp/e89e737bdb21778bb2353903430dda4720160614-2265-qpd0mg'
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('absoluteyl') AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('chinbo@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+Command :: file -b --mime '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2265-hu71y.png'
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "avatar_file_name" = ?, "avatar_content_type" = ?, "avatar_file_size" = ?, "avatar_updated_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["avatar_file_name", "Minion_Buzz.png"], ["avatar_content_type", "image/png"], ["avatar_file_size", 486595], ["avatar_updated_at", "2016-06-14 02:28:08.726640"], ["updated_at", "2016-06-14 02:28:09.090149"], ["id", 1]]
+[paperclip] saving /users/avatars/000/000/001/original/Minion_Buzz.png
+[AWS S3 301 0.133827 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market",:content_length=>486595,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Minion_Buzz.png,:key=>"users/avatars/000/000/001/original/Minion_Buzz.png") AWS::S3::Errors::PermanentRedirect The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.
+
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+Completed 500 Internal Server Error in 1497ms (ActiveRecord: 1.5ms)
+
+AWS::S3::Errors::PermanentRedirect (The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.):
+  app/controllers/users_controller.rb:27:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (9.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (90.4ms)
+
+
+Started PATCH "/users/1" for 118.163.130.149 at 2016-06-14 02:30:20 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jGgXbZisGYLVoJ6T1vuJUF2601OKRGO3gtPKexblnvaArnV1eyRKk9UD0oz3hW161sxNOqzSiTcIN56zXySgZQ==", "user"=>{"username"=>"absoluteyl", "email"=>"chinbo@gmail.com", "mobile"=>"0987654321", "password"=>"[FILTERED]", "admin"=>"1", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x0000000536e0e8 @tempfile=#<Tempfile:/tmp/RackMultipart20160614-2394-1a0axu7.png>, @original_filename="Minion_Buzz.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"Minion_Buzz.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Update account", "id"=>"1"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Unpermitted parameters: username, email
+  [1m[35m (0.2ms)[0m  begin transaction
+[AWS S3 404 0.292958 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/original/IMG_1694.JPG") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.050449 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/medium/IMG_1694.JPG") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.053838 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/small/IMG_1694.JPG") AWS::S3::Errors::NoSuchKey No Such Key
+
+[AWS S3 404 0.053218 0 retries] head_object(:bucket_name=>"flea-market",:key=>"users/avatars/000/000/001/thumb/IMG_1694.JPG") AWS::S3::Errors::NoSuchKey No Such Key
+
+Command :: file -b --mime '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-1178kg1.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]' -auto-orient -resize "300x300>" '/tmp/5e6d687e607677546aefdde43d8c224220160614-2394-1klv9ke'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]' -auto-orient -resize "140x140>" '/tmp/5e6d687e607677546aefdde43d8c224220160614-2394-1tkxwr'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]'
+Command :: convert '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-17z13lo.png[0]' -auto-orient -resize "64x64!" '/tmp/5e6d687e607677546aefdde43d8c224220160614-2394-1voc37e'
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE (LOWER("users"."username") = LOWER('absoluteyl') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE (LOWER("users"."email") = LOWER('chinbo@gmail.com') AND "users"."id" != 1) LIMIT 1
+Command :: file -b --mime '/tmp/aeb320614a7ff3c7654f1e1d3288939120160614-2394-1i6l302.png'
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "users" SET "avatar_file_name" = ?, "avatar_content_type" = ?, "avatar_file_size" = ?, "avatar_updated_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["avatar_file_name", "Minion_Buzz.png"], ["avatar_content_type", "image/png"], ["avatar_file_size", 486595], ["avatar_updated_at", "2016-06-14 02:30:21.881961"], ["updated_at", "2016-06-14 02:30:22.313112"], ["id", 1]]
+[paperclip] saving /users/avatars/000/000/001/original/Minion_Buzz.png
+[AWS S3 200 0.935423 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market",:content_length=>486595,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: Minion_Buzz.png,:key=>"users/avatars/000/000/001/original/Minion_Buzz.png")  
+
+[paperclip] saving /users/avatars/000/000/001/medium/Minion_Buzz.png
+[AWS S3 200 0.448367 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market",:content_length=>140713,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 5e6d687e607677546aefdde43d8c224220160614-2394-1klv9ke,:key=>"users/avatars/000/000/001/medium/Minion_Buzz.png")  
+
+[paperclip] saving /users/avatars/000/000/001/small/Minion_Buzz.png
+[AWS S3 200 0.185792 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market",:content_length=>36194,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 5e6d687e607677546aefdde43d8c224220160614-2394-1tkxwr,:key=>"users/avatars/000/000/001/small/Minion_Buzz.png")  
+
+[paperclip] saving /users/avatars/000/000/001/thumb/Minion_Buzz.png
+[AWS S3 200 0.126582 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market",:content_length=>8898,:content_type=>"image/png",:data=>Paperclip::FileAdapter: 5e6d687e607677546aefdde43d8c224220160614-2394-1voc37e,:key=>"users/avatars/000/000/001/thumb/Minion_Buzz.png")  
+
+  [1m[35m (17.3ms)[0m  commit transaction
+Redirected to https://flea-market-absoluteyl.c9users.io/merchandises
+Completed 302 Found in 3077ms (ActiveRecord: 20.0ms)
+
+
+Started GET "/merchandises" for 118.163.130.149 at 2016-06-14 02:30:24 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.9ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (137.5ms)
+  Rendered merchandises/index.html.erb within layouts/application (157.2ms)
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (14.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 653ms (Views: 630.9ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users" for 118.163.130.149 at 2016-06-14 02:30:28 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 2]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  Rendered users/index.html.erb within layouts/application (23.5ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (8.8ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 207ms (Views: 204.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/merchandises" for 118.163.130.149 at 2016-06-14 02:30:32 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.4ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (67.2ms)
+  Rendered merchandises/index.html.erb within layouts/application (69.9ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (4.6ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 218ms (Views: 215.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/merchandises/1/edit" for 118.163.130.149 at 2016-06-14 02:30:34 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mMerchandise Load (0.4ms)[0m  SELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.7ms)
+  Rendered merchandises/_form.html.erb (48.2ms)
+  Rendered merchandises/edit.html.erb within layouts/application (53.6ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (7.4ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 241ms (Views: 237.0ms | ActiveRecord: 1.0ms)

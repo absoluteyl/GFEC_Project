@@ -31,7 +31,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'paperclip', '~> 4.1'
 # Use AWS gems with Paperclip so images can be stored even in Heroku
 #gem 'aws-s3', '~> 0.6.3'
-gem 'aws-sdk', '~> 2.3', '>= 2.3.13'
+gem 'aws-sdk', '< 2.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
