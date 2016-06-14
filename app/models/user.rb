@@ -29,12 +29,18 @@ class User <ActiveRecord::Base
         }))
     end
     def avatar_url_o
-        avatar.url
+        if avatar?
+            avatar.url
+        end
     end
     def avatar_url_m
-        avatar.url(:medium)
+        if avatar?
+            avatar.url(:medium)
+        end
     end
     def avatar_url_s
-        avatar.url(:small)
+        if avatar?
+            avatar.url(:small)
+        end
     end
 end

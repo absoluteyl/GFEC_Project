@@ -57,22 +57,34 @@ class Merchandise < ActiveRecord::Base
         end
     end
     def image2_url_o
-        image_2.url
+        if image_2?
+            image_2.url
+        end
     end
     def image2_url_m
-        image_2.url(:medium)
+        if image_2?
+            image_2.url(:medium)
+        end
     end
     def image2_url_s
-        image_2.url(:small)
+        if image_2?
+            image_2.url(:small)
+        end
     end
     def image3_url_o
-        image_3.url
+        if image_3?
+            image_3.url
+        end
     end
     def image3_url_m
-        image_3.url(:medium)
+        if image_3?
+            image_3.url(:medium)
+        end
     end
     def image3_url_s
-        image_3.url(:small)
+        if image_3?
+            image_3.url(:small)
+        end
     end
   private
   #Forbid user_id to be changed
