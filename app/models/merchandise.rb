@@ -8,24 +8,72 @@ class Merchandise < ActiveRecord::Base
     validates :amount, presence: true, numericality: { only_integer: true }
     # Paperclip configurations
     has_attached_file :image_1, styles: {
-        medium: '300x300>', 
-        small: '140x140>',
-        thumb: '64x64!'
+        medium: '375x300>', 
+        small: '180x145>',
+        thumb: '64x64#'
     }
     has_attached_file :image_2, styles: {
-        medium: '300x300>', 
-        small: '140x140>',
-        thumb: '64x64!'
+        medium: '375x300>', 
+        small: '180x145>',
+        thumb: '64x64#'
     }
     has_attached_file :image_3, styles: {
-        medium: '300x300>', 
-        small: '140x140>',
-        thumb: '64x64!'
+        medium: '375x300>', 
+        small: '180x145>',
+        thumb: '64x64#'
     }
     validates_attachment_content_type :image_1, content_type: /\Aimage\/.*\Z/
     validates_attachment_content_type :image_2, content_type: /\Aimage\/.*\Z/
     validates_attachment_content_type :image_3, content_type: /\Aimage\/.*\Z/
 
+
+    def as_json(options = {})
+        super(options.merge({ 
+            except: [
+                :image_1_file_name, :image_1_content_type, :image_1_file_size, :image_1_updated_at,
+                :image_2_file_name, :image_2_content_type, :image_2_file_size, :image_2_updated_at,
+                :image_3_file_name, :image_3_content_type, :image_3_file_size, :image_3_updated_at,
+            ],
+            methods: [
+                :image1_url_o, :image1_url_m, :image1_url_s,
+                :image2_url_o, :image2_url_m, :image2_url_s,
+                :image3_url_o, :image3_url_m, :image3_url_s,
+            ]
+        }))
+    end
+    def image1_url_o
+        if image_1?
+            image_1.url
+        end
+    end
+    def image1_url_m
+        if image_1?
+            image_1.url(:medium)
+        end
+    end
+    def image1_url_s
+        if image_1?
+            image_1.url(:small)
+        end
+    end
+    def image2_url_o
+        image_2.url
+    end
+    def image2_url_m
+        image_2.url(:medium)
+    end
+    def image2_url_s
+        image_2.url(:small)
+    end
+    def image3_url_o
+        image_3.url
+    end
+    def image3_url_m
+        image_3.url(:medium)
+    end
+    def image3_url_s
+        image_3.url(:small)
+    end
   private
   #Forbid user_id to be changed
   def user_id_not_changed
@@ -33,4 +81,5 @@ class Merchandise < ActiveRecord::Base
       errors.add(:user_id, "Change of user_id not allowed!")
     end
   end
+  
 end

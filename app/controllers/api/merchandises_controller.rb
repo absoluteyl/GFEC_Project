@@ -11,14 +11,14 @@ class Api::MerchandisesController < Api::ApiController
     end
     render status: 200, json: {
         status: "OK",
-        merchandises: @merchandises
+        merchandises: @merchandises.as_json
     }.to_json
   end
   
   def show
       render status: 200, json: {
           status: "OK",
-          merchandise: @merchandise
+          merchandise: @merchandise.as_json
       }.to_json
   end
   
@@ -28,7 +28,7 @@ class Api::MerchandisesController < Api::ApiController
         render status: 200, json: {
             status: "OK",
             message: "Merchandise is been successfully created.",
-            merchandise: @merchandise
+            merchandise: @merchandise.as_json
         }.to_json
     else
         render status: 422, json: {
@@ -44,7 +44,7 @@ class Api::MerchandisesController < Api::ApiController
         render status: 200, json: {
             status: "OK",
             message: "Merchandise is been updated.",
-            merchandise: @merchandise
+            merchandise: @merchandise.as_json
         }.to_json
     else
         render status: 422, json: {
