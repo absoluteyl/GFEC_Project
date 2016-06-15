@@ -11,6 +11,10 @@ import Foundation
 
 class LoginPageViewController: UIViewController {
     
+    var appDelegate: AppDelegate!
+    
+    let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -19,14 +23,17 @@ class LoginPageViewController: UIViewController {
         if idTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
             print("Username or Password Empty.")
         } else {
-            logIn()
+            login()
         }
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //for testing
+        idTextField.text = "keroxie"
+        passwordTextField.text = "effort"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +43,8 @@ class LoginPageViewController: UIViewController {
     
    
     
-    private func logIn() {
+    private func login() {
+        
         
         
 //        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -77,7 +85,7 @@ class LoginPageViewController: UIViewController {
         
         print(methodParameters)
         
-        let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
+        let urlString = Constants.Users.APIBaseURL + escapedParameters(methodParameters)
         
         print(urlString)
         
@@ -121,7 +129,30 @@ class LoginPageViewController: UIViewController {
                         return
                     }
                     
-                    print(parsedResult)
+                    //print(parsedResult)
+                    
+//                    /* GUARD: Is the "id" key in parsedResult? */
+//                    guard let userID = parsedResult![Constants.TMDBResponseKeys.UserID] as? Int else {
+//                        displayError("Cannot find key '\(Constants.TMDBResponseKeys.UserID)' in \(parsedResult)")
+//                        return
+//                    }
+//                    
+//                    /* 6. Use the data! */
+//                    self.appDelegate.userID = userID
+//                    self.completeLogin()
+                    
+                    let userDictionary = parsedResult![Constants.UsersResponseKeys.Users] as? [[String:AnyObject]]
+                    
+                    //print("DIC:\(userDictionary)")
+                    
+                    let userDoc = userDictionary![0] as? [String:AnyObject]
+                    print("USER DOC:\(userDoc)")
+                    
+                    let userID = userDoc![Constants.UsersResponseKeys.UserId] as! Int
+                    
+                    print("ID:\(userID)")
+                    
+                    self.theDelegate.userID = userID
                     
                     
                 }

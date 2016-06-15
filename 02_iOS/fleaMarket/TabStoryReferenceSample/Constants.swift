@@ -59,6 +59,7 @@ struct Constants {
         static let UserEmail = "email"
         static let UserMobile = "mobile"
         static let UserName = "username"
+        static let Users = "users"
     }
     
     // MARK: FleaMarket Response Values
