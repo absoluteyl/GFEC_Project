@@ -117,11 +117,12 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // Sends the item id for itemDetailView to load the specific item details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController
         let selectedNumber = sender as! Int
         Destination.recentItemId = itemIdArray[selectedNumber]
-        // Sends the item id for itemDetailView to load the specific item details
     }
     
     
@@ -170,12 +171,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                     
                     //print(parsedResult)
                     
-                    let itemOutline = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
-                    
-                    let itemDictionary = itemOutline
-                    
-//
-                    print("OUT:\(itemOutline)")
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
+                   
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...itemDictionary!.count-1 {

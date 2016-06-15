@@ -25,6 +25,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var itemTitleLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UITextView!
     @IBOutlet weak var itemSellerNameLabel: UILabel!
+    @IBOutlet weak var itemImage: UIImageView!
     
     var recentItemId:Int!
     
@@ -98,9 +99,19 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     
     private func getSpecificItem() {
-        
-        let urlString = "https://flea-market-kyujyo.c9users.io/api/merchandises/\(recentItemId)/"
 
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        print(methodParameters)
+        
+        let urlString = Constants.Merchandises.APIBaseURL + "/" + String(recentItemId) + escapedParameters(methodParameters)
+    
+        
+        print("URL:\(urlString)")
+
+        
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         //var itemArray:NSArray?
@@ -125,9 +136,9 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    //print(parsedResult)
+                    print(parsedResult)
                     
-                    let itemDictionary = parsedResult as? [String:AnyObject]
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandise] as? [String:AnyObject]
                     
                     //grab every "title" in dictionaries by look into the array with for loop
 
@@ -135,6 +146,21 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
                         itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
                         itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
+                    
+                    
+                    guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
+                        displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")
+                        return
+                    }
+                    let imageURL = NSURL(string: imageUrlString)
+                    if let imageData = NSData(contentsOfURL: imageURL!) {
+                        performUIUpdatesOnMain {
+                            self.itemImage.image = UIImage(data: imageData)
+                        }
+                    } else {
+                        displayError("Image does not exist at \(imageURL)")
+                    }
+
                     
                     performUIUpdatesOnMain(){
                         
@@ -207,5 +233,29 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
         task.resume()
     }
+    
+    func escapedParameters(parameters: [String:AnyObject]) -> String {
+        if parameters.isEmpty {
+            return ""
+        } else {
+            var keyValurPairs = [String]()
+            
+            for (key, value) in parameters {
+                
+                // make sure it is a string value (convert the ones aren't)
+                let stringValue = "\(value)"
+                
+                //escape it
+                let escapeValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) //convert string to ASCII compliant version of a string, returns characters considered safe ASCIIs only
+                
+                //append it
+                keyValurPairs.append(key + "=" + "\(escapeValue!)")
+                
+            }
+            return "?\(keyValurPairs.joinWithSeparator("&"))"
+        }
+        
+    }
 
+    
 }

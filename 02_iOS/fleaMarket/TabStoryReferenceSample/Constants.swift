@@ -47,6 +47,7 @@ struct Constants {
     
     // MARK: FleaMarket Response Keys
     struct MerchandisesResponseKeys {
+        static let Merchandise = "merchandise"
         static let Merchandises = "merchandises"
         static let MerchandiseId = "id"
         static let MerchandiseTitle = "title"
@@ -56,6 +57,7 @@ struct Constants {
         static let UserID = "user_id"
         static let CreatedTime = "created_at"
         static let image_1_s = "image1_url_s"
+        static let image_1_o = "image1_url_o"
     }
     
     struct UsersResponseKeys {
