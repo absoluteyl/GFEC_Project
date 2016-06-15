@@ -237,7 +237,6 @@
 		C974EE1B1D06DE85001002BE /* Tab3 */ = {
 			isa = PBXGroup;
 			children = (
-				C902734F1D0FB88100EC081D /* LoginPage.storyboard */,
 				7A751C6F1CF9BEBC0096BDE6 /* 3rdTab.storyboard */,
 				C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */,
 				C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */,
@@ -260,6 +259,7 @@
 			children = (
 				7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */,
 				C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */,
+				C902734F1D0FB88100EC081D /* LoginPage.storyboard */,
 				C90273511D0FB89700EC081D /* LoginPageViewController.swift */,
 				C974EE2F1D06EE5C001002BE /* S01_Account */,
 				C974EE301D06EE6C001002BE /* S02_Account */,
