@@ -67,6 +67,9 @@ Filtered Query:
         
         #Optional Fields
         "category_id": integer
+        "image_1": attachment
+        "image_2": attachment
+        "image_3": attachment
     }
     
 #####PUT/PATCH:
@@ -84,6 +87,9 @@ Filtered Query:
         "price": integer
         "amount": integer
         "category_id": integer
+        "image_1": attachment
+        "image_2": attachment
+        "image_3": attachment
     }
     
 #####DELETE:
@@ -105,12 +111,49 @@ Filtered Query:
     GET /api/users?username=exactUsername
     
 #####POST:
-
+    
+    POST /api/users
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        #Mandatory Fields
+        "username": "string"
+        "email": "string"
+        "mobile": "string"
+        "password": "string"
+        
+        #Optional Fields
+        "admin": boolean
+        "avatar": attachment
+        
+    }
+    
 #####PUT/PATCH:
-
+    
+    PUT /api/users/:id
+    PATCH /api/users/:id
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        #Available Fields
+        "email": "string"
+        "mobile": "string"
+        "password": "string"
+        "avatar": attachment
+    }
+    
 #####DELETE:
-
-####User:
+    
+    DELETE /api/users/:id
+    
+    Accept: application/json
+    Content-type: application/json
+    
+####Category:
 #####GET:
 General Query:
     

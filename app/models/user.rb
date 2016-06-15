@@ -4,6 +4,7 @@ class User <ActiveRecord::Base
     validates :username, presence: true,
                         uniqueness: { case_sensitive: false },
                         length: {minimum: 3, maximum: 25 }
+    validate :username_not_changed
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true,
                 uniqueness: { case_sensitive: false },
@@ -41,6 +42,14 @@ class User <ActiveRecord::Base
     def avatar_url_s
         if avatar?
             avatar.url(:small)
+        end
+    end
+    
+    private
+    #Forbid username to be changed
+    def username_not_changed
+        if username_changed? && self.persisted?
+          errors.add(:username, "Change of username not allowed!")
         end
     end
 end
