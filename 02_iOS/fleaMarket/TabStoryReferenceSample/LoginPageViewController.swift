@@ -123,30 +123,7 @@ class LoginPageViewController: UIViewController {
                     
                     print(parsedResult)
                     
-                    let itemDictionary = parsedResult as? [[String:AnyObject]]
                     
-                    //grab every "title" in dictionaries by look into the array with for loop
-                    for i in 0...itemDictionary!.count-1 {
-                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-                        //print (itemTitle!)
-                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
-                        
-                        
-                        priceArray.append(itemPrice!)
-                        titleArray.append(itemTitle!)
-                        itemIdArray.append(itemId!)
-                        
-                    }
-                    print(priceArray)
-                    print(titleArray)
-                    print(itemIdArray)
-                    
-                    print("3.\(titleArray.count)")
-                    
-                    performUIUpdatesOnMain(){
-                      //  self.reloadData()
-                    }
                 }
             }
         }
