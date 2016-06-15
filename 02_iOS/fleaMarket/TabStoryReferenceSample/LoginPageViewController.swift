@@ -11,6 +11,10 @@ import Foundation
 
 class LoginPageViewController: UIViewController {
     
+    var appDelegate: AppDelegate!
+    
+    let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -19,14 +23,17 @@ class LoginPageViewController: UIViewController {
         if idTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
             print("Username or Password Empty.")
         } else {
-            logIn()
+            login()
         }
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        //for testing
+        idTextField.text = "keroxie"
+        passwordTextField.text = "effort"
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,7 +43,8 @@ class LoginPageViewController: UIViewController {
     
    
     
-    private func logIn() {
+    private func login() {
+        
         
         
 //        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -69,15 +77,14 @@ class LoginPageViewController: UIViewController {
         //--------------------------------------------
         
         let methodParameters: [String: String!] = [
-//            Constants.TMDBParameterKeys.ApiKey: Constants.TMDBParameterValues.ApiKey,
-//            Constants.TMDBParameterKeys.RequestToken: requestToken,
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
             Constants.ParameterKeys.Username: idTextField.text,
             Constants.ParameterKeys.Password: passwordTextField.text
         ]
         
         print(methodParameters)
         
-        let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
+        let urlString = Constants.Users.APIBaseURL + escapedParameters(methodParameters)
         
         print(urlString)
         
@@ -121,32 +128,32 @@ class LoginPageViewController: UIViewController {
                         return
                     }
                     
-                    print(parsedResult)
+                    //print(parsedResult)
                     
-                    let itemDictionary = parsedResult as? [[String:AnyObject]]
+//                    /* GUARD: Is the "id" key in parsedResult? */
+//                    guard let userID = parsedResult![Constants.TMDBResponseKeys.UserID] as? Int else {
+//                        displayError("Cannot find key '\(Constants.TMDBResponseKeys.UserID)' in \(parsedResult)")
+//                        return
+//                    }
+//                    
+//                    /* 6. Use the data! */
+//                    self.appDelegate.userID = userID
+//                    self.completeLogin()
                     
-                    //grab every "title" in dictionaries by look into the array with for loop
-                    for i in 0...itemDictionary!.count-1 {
-                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-                        //print (itemTitle!)
-                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
-                        
-                        
-                        priceArray.append(itemPrice!)
-                        titleArray.append(itemTitle!)
-                        itemIdArray.append(itemId!)
-                        
-                    }
-                    print(priceArray)
-                    print(titleArray)
-                    print(itemIdArray)
+                    let userDictionary = parsedResult![Constants.UsersResponseKeys.Users] as? [[String:AnyObject]]
                     
-                    print("3.\(titleArray.count)")
+                    //print("DIC:\(userDictionary)")
                     
-                    performUIUpdatesOnMain(){
-                      //  self.reloadData()
-                    }
+                    let userDoc = userDictionary![0] as? [String:AnyObject]
+                    print("USER DOC:\(userDoc)")
+                    
+                    let userID = userDoc![Constants.UsersResponseKeys.UserId] as! Int
+                    
+                    print("ID:\(userID)")
+                    
+                    self.theDelegate.userID = userID
+                    
+                    
                 }
             }
         }

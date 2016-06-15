@@ -12,6 +12,7 @@ import UIKit
 var titleArray = [String]()
 var priceArray = [Int]()
 var itemIdArray = [Int]()
+var imageArray = [String]()
 let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
 
 
@@ -89,9 +90,16 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
         
+        let imageURL = NSURL(string: imageArray[indexPath.row])
+        if let imageData = NSData(contentsOfURL: imageURL!) {
+            cell.imageView.image = UIImage(data: imageData)!
+        } else {
+            print("Image does not exist at \(imageURL)")
+        }
+        
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
-        cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
+       // cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
         cell.cellLabel.text = "\(titleArray[indexPath.row])" //顯示物件名稱
         cell.cellPriceLabel.text = "$ \(priceArray[indexPath.row])"//顯示價格
         
@@ -109,11 +117,12 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // Sends the item id for itemDetailView to load the specific item details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController
         let selectedNumber = sender as! Int
         Destination.recentItemId = itemIdArray[selectedNumber]
-        // Sends the item id for itemDetailView to load the specific item details
     }
     
     
@@ -126,9 +135,16 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     private func getDataFromDB() {
         
 
-        let urlString = "https://flea-market-kyujyo.c9users.io/api/merchandises"
-        //let urlString = Constants.Merchandises.APIBaseURL
-        //let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+        ]
+        
+        print(methodParameters)
+        
+        let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
+        
+        print("URL:\(urlString)")
+
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         var itemArray:NSArray?
@@ -155,7 +171,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                     
                     //print(parsedResult)
                     
-                    let itemDictionary = parsedResult as? [[String:AnyObject]]
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
+                   
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...itemDictionary!.count-1 {
@@ -163,12 +180,14 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         //print (itemTitle!)
                         let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
                         let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
+                        let itemImage = itemDictionary![i][Constants.MerchandisesResponseKeys.image_1_s] as? String
                         
                         
                         priceArray.append(itemPrice!)
                         titleArray.append(itemTitle!)
                         itemIdArray.append(itemId!)
-                        
+                        imageArray.append(itemImage!)
+                    
                     }
                     print(priceArray)
                     print(titleArray)
@@ -185,6 +204,28 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         task.resume()
     }
     
+    func escapedParameters(parameters: [String:AnyObject]) -> String {
+        if parameters.isEmpty {
+            return ""
+        } else {
+            var keyValurPairs = [String]()
+            
+            for (key, value) in parameters {
+                
+                // make sure it is a string value (convert the ones aren't)
+                let stringValue = "\(value)"
+                
+                //escape it
+                let escapeValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) //convert string to ASCII compliant version of a string, returns characters considered safe ASCIIs only
+                
+                //append it
+                keyValurPairs.append(key + "=" + "\(escapeValue!)")
+                
+            }
+            return "?\(keyValurPairs.joinWithSeparator("&"))"
+        }
+        
+    }
 
     
 }
