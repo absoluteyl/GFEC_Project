@@ -35,7 +35,9 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
 ####Authentication:
 To access API resources, you must contact with administrator for applying an API key,
 every HTTP(S) request should add this API key in URL to pass authentication.
-    http://flea-market.herokuapp.com/api/users?api_key=your-api-key
+
+    /api/users?api_key=your-api-key
+    
 ####Image Path Namine Rule:
     :class/:attachment/000/000/:id_partition/:style/:filename
     #=> users/avatar/000/000/013/small/my_pic.png

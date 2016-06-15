@@ -25062,3 +25062,76 @@ Processing by Api::MerchandisesController#index as HTML
   [1m[35mApiKey Load (0.6ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
   [1m[36mMerchandise Load (0.5ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
 Completed 200 OK in 78ms (Views: 0.7ms | ActiveRecord: 7.6ms)
+  [1m[36mApiKey Load (7.1ms)[0m  [1mSELECT "api_keys".* FROM "api_keys"[0m
+
+
+Started POST "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 130.211.250.203 at 2016-06-15 14:58:34 +0000
+Cannot render console from 130.211.250.203! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::MerchandisesController#create as JSON
+  Parameters: {"title"=>"test post", "description"=>"testtest post api", "price"=>100, "amount"=>2, "user_id"=>1, "api_key"=>"4484c065f013c7ff144f5c618fa8f341", "merchandise"=>{"title"=>"test post", "description"=>"testtest post api", "price"=>100, "amount"=>2, "user_id"=>1}}
+Can't verify CSRF token authenticity
+  [1m[35mApiKey Load (0.4ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+Unpermitted parameter: user_id
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+Completed 422 Unprocessable Entity in 108ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 130.211.250.203 at 2016-06-15 15:00:01 +0000
+Cannot render console from 130.211.250.203! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::MerchandisesController#create as JSON
+  Parameters: {"title"=>"test post", "description"=>"testtest post api", "price"=>100, "user_id"=>"1", "api_key"=>"4484c065f013c7ff144f5c618fa8f341", "merchandise"=>{"title"=>"test post", "description"=>"testtest post api", "price"=>100, "user_id"=>"1"}}
+Can't verify CSRF token authenticity
+  [1m[36mApiKey Load (0.4ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1[0m  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+Unpermitted parameter: user_id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+Completed 422 Unprocessable Entity in 20ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 130.211.250.203 at 2016-06-15 15:01:31 +0000
+Cannot render console from 130.211.250.203! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::MerchandisesController#create as JSON
+  Parameters: {"title"=>"test post", "description"=>"testtest post api", "price"=>100, "amount"=>2, "user_id"=>1, "api_key"=>"4484c065f013c7ff144f5c618fa8f341", "merchandise"=>{"title"=>"test post", "description"=>"testtest post api", "price"=>100, "amount"=>2, "user_id"=>1}}
+Can't verify CSRF token authenticity
+  [1m[35mApiKey Load (0.2ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  INSERT INTO "merchandises" ("title", "description", "price", "amount", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["title", "test post"], ["description", "testtest post api"], ["price", 100], ["amount", 2], ["user_id", 1], ["created_at", "2016-06-15 15:01:31.720199"], ["updated_at", "2016-06-15 15:01:31.720199"]]
+  [1m[36m (19.6ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 77ms (Views: 0.5ms | ActiveRecord: 24.8ms)
+
+
+Started GET "/" for 61.228.185.221 at 2016-06-15 15:01:50 +0000
+Cannot render console from 61.228.185.221! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered welcome/index.html.erb within layouts/application (57.0ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (40.3ms)
+  Rendered layouts/_messages.html.erb (1.1ms)
+Completed 200 OK in 1209ms (Views: 1181.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/merchandises" for 61.228.185.221 at 2016-06-15 15:01:53 +0000
+Cannot render console from 61.228.185.221! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.7ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/_merchandise.html.erb (96.4ms)
+  Rendered merchandises/index.html.erb within layouts/application (105.1ms)
+  [1m[36mCategory Load (0.7ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (11.0ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 260ms (Views: 255.2ms | ActiveRecord: 2.2ms)
