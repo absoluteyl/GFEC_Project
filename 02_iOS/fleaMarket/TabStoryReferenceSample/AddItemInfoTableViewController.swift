@@ -67,9 +67,11 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         print(methodParameters)
         
-        let url = NSURL(string: Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters))!
+        //let url = NSURL(string: Constants.Merchandises.APIBaseURL)!
+        let url = NSURL(string: Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters))
         
-        let request = NSMutableURLRequest(URL: url)
+        
+        let request = NSMutableURLRequest(URL: url!)
         
         print(request)
         
@@ -80,16 +82,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         //print(self.theDelegate.userID)
         
         request.HTTPBody = "{\n\"title\": \"\(itemNameTextField.text)\"\n \"description\": \"\(itemDescriptionTextField.text)\"\n \"price\": \(itemPriceTextField.text)\n\"amount\": \(itemAmount.text)\n\"user_id\": \(self.theDelegate.userID)\n}".dataUsingEncoding(NSUTF8StringEncoding);
-
-//        let testing: AnyObject!
-//        do {
-//        testing = try NSJSONSerialization.JSONObjectWithData(request.HTTPBody!, options: .AllowFragments)
-//        } catch {
-//            print ("it didn't work")
-//            return
-//        }
         
-        print ("REQUEST BODY: \(String(request.HTTPBody)) ***")
+
+        
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
