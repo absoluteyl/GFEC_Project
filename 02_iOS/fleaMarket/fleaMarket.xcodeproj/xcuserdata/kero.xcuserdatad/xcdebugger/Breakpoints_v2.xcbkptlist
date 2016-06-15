@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/LoginPageViewController.swift"
-            timestampString = "487664491.880492"
+            timestampString = "487667873.137038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
-            landmarkName = "logIn()"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "login()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

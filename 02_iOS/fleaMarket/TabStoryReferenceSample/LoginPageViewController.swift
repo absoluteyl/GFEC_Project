@@ -77,8 +77,7 @@ class LoginPageViewController: UIViewController {
         //--------------------------------------------
         
         let methodParameters: [String: String!] = [
-//            Constants.TMDBParameterKeys.ApiKey: Constants.TMDBParameterValues.ApiKey,
-//            Constants.TMDBParameterKeys.RequestToken: requestToken,
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
             Constants.ParameterKeys.Username: idTextField.text,
             Constants.ParameterKeys.Password: passwordTextField.text
         ]
