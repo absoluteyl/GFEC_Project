@@ -6,6 +6,7 @@ module Api
   		# For APIs, you may want to use :null_session instead.
   		protect_from_forgery with: :null_session
   		#before_filter :authenticate
+		before_filter :restrict_access
 		
 		def current_user
 			@current_user
@@ -25,5 +26,10 @@ module Api
   	# 			end
 			# end
   	# 	end
+	  	private
+	  	def restrict_access
+		    api_key = ApiKey.find_by_api_key(params[:api_key])
+		    head :unauthorized unless api_key
+		end
 	end
 end

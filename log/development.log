@@ -24896,3 +24896,169 @@ Processing by MerchandisesController#index as HTML
   Rendered layouts/_navigation.html.erb (3.9ms)
   Rendered layouts/_messages.html.erb (0.1ms)
 Completed 200 OK in 150ms (Views: 145.3ms | ActiveRecord: 3.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateApiKeys (20160615055553)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "api_keys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "access_token" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160615055553"]]
+  [1m[36m (21.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mApiKey Exists (11.9ms)[0m  SELECT  1 AS one FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "api_keys" ("created_at", "updated_at", "access_token") VALUES (?, ?, ?)[0m  [["created_at", "2016-06-15 06:00:00.069543"], ["updated_at", "2016-06-15 06:00:00.069543"], ["access_token", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[35m (27.2ms)[0m  commit transaction
+  [1m[36mApiKey Load (0.5ms)[0m  [1mSELECT "api_keys".* FROM "api_keys"[0m
+
+
+Started GET "/" for 118.163.130.149 at 2016-06-15 06:05:10 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (9.7ms)
+  [1m[35mCategory Load (0.5ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (95.2ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 335ms (Views: 331.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/users" for 118.163.130.149 at 2016-06-15 06:05:20 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as HTML
+  [1m[36mApiKey Load (0.3ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1[0m
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 243ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/api/users" for 118.163.130.149 at 2016-06-15 06:05:25 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as HTML
+  [1m[35mApiKey Load (0.3ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users" for 130.211.250.203 at 2016-06-15 06:06:14 +0000
+Cannot render console from 130.211.250.203! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as */*
+  [1m[36mApiKey Load (0.3ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1[0m
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users" for 130.211.250.203 at 2016-06-15 06:06:25 +0000
+Cannot render console from 130.211.250.203! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as */*
+  [1m[35mApiKey Load (0.4ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users" for 118.163.130.149 at 2016-06-15 06:09:33 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as HTML
+  [1m[36mApiKey Load (0.4ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1[0m
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users?access_token=4484c065f013c7ff144f5c618fa8f341" for 130.211.250.203 at 2016-06-15 06:10:53 +0000
+Cannot render console from 130.211.250.203! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as */*
+  Parameters: {"access_token"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (1.3ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 117ms (Views: 0.6ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/users?access_token=4484c065f013c7ff144f5c618fa8f341" for 118.163.130.149 at 2016-06-15 06:16:58 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as HTML
+  Parameters: {"access_token"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (0.3ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 11ms (Views: 0.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/users?access_token=4484c065f013c7ff144f5c618fa8f341" for 118.163.130.149 at 2016-06-15 06:20:00 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as HTML
+  Parameters: {"access_token"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (0.6ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 43ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/users" for 118.163.130.149 at 2016-06-15 06:20:06 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::UsersController#index as HTML
+  [1m[35mApiKey Load (0.3ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/api/merchandises" for 118.163.130.149 at 2016-06-15 06:20:24 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::MerchandisesController#index as HTML
+  [1m[36mApiKey Load (0.4ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1[0m
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api/merchandises?access_token=4484c065f013c7ff144f5c618fa8f341" for 118.163.130.149 at 2016-06-15 06:20:28 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::MerchandisesController#index as HTML
+  Parameters: {"access_token"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (0.2ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" = ? LIMIT 1  [["access_token", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mMerchandise Load (0.5ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+Completed 200 OK in 375ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 118.163.130.149 at 2016-06-15 06:21:40 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::MerchandisesController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (0.4ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."access_token" IS NULL LIMIT 1
+Filter chain halted as :restrict_access rendered or redirected
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RenameAccessToken (20160615062222)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (4.4ms)[0m  [1mCREATE TEMPORARY TABLE "aapi_keys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "api_key" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "api_keys"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "aapi_keys" ("id","api_key","created_at","updated_at") VALUES (1, '4484c065f013c7ff144f5c618fa8f341', '2016-06-15 06:00:00.069543', '2016-06-15 06:00:00.069543')[0m
+  [1m[35m (0.7ms)[0m  DROP TABLE "api_keys"
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "api_keys" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "api_key" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  SELECT * FROM "aapi_keys"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "api_keys" ("id","api_key","created_at","updated_at") VALUES (1, '4484c065f013c7ff144f5c618fa8f341', '2016-06-15 06:00:00.069543', '2016-06-15 06:00:00.069543')[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "aapi_keys"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160615062222"]]
+  [1m[35m (12.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mApiKey Load (0.9ms)[0m  SELECT "api_keys".* FROM "api_keys"
+
+
+Started GET "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 118.163.130.149 at 2016-06-15 06:23:52 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::MerchandisesController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341"}
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 0.4ms)
+
+NoMethodError (undefined method `find_by_access_token' for #<Class:0x007fca280ec500>
+Did you mean?  find_by_statement_cache):
+  app/controllers/api/api_controller.rb:31:in `restrict_access'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (11.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.0/gems/actionpack-4.2.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (134.0ms)
+
+
+Started GET "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 118.163.130.149 at 2016-06-15 06:25:37 +0000
+Cannot render console from 118.163.130.149! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Api::MerchandisesController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (0.6ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mMerchandise Load (0.5ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+Completed 200 OK in 78ms (Views: 0.7ms | ActiveRecord: 7.6ms)
