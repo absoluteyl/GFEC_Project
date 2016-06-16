@@ -25135,3 +25135,92 @@ Processing by MerchandisesController#index as HTML
   Rendered layouts/_navigation.html.erb (11.0ms)
   Rendered layouts/_messages.html.erb (0.9ms)
 Completed 200 OK in 260ms (Views: 255.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/" for 66.249.84.180 at 2016-06-16 00:20:05 +0000
+Cannot render console from 66.249.84.180! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (4.1ms)
+  [1m[35mCategory Load (3.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (14.3ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 337ms (Views: 331.4ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/merchandises/new" for 61.228.185.221 at 2016-06-16 14:16:34 +0000
+Cannot render console from 61.228.185.221! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (1.1ms)
+  Rendered merchandises/_form.html.erb (91.3ms)
+  Rendered merchandises/new.html.erb within layouts/application (97.3ms)
+  [1m[35mCategory Load (0.7ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (27.7ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 437ms (Views: 336.0ms | ActiveRecord: 4.0ms)
+
+
+Started POST "/merchandises" for 61.228.185.221 at 2016-06-16 14:16:56 +0000
+Cannot render console from 61.228.185.221! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+InNaTexFI4YttlI4MWwOE7DoktTkSfg1uYF1RNPd5vwP4ryIBi6br7t8k3z0AxfFDeDugr/940Q0G0km+TRcQ==", "merchandise"=>{"title"=>"test", "description"=>"test image 1 mandotary", "price"=>"999", "amount"=>"1"}, "commit"=>"Create Merchandise"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered shared/_errors.html.erb (2.8ms)
+  Rendered merchandises/_form.html.erb (9.8ms)
+  Rendered merchandises/new.html.erb within layouts/application (11.9ms)
+  [1m[35mCategory Load (0.4ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 108ms (Views: 97.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/merchandises" for 61.228.185.221 at 2016-06-16 14:17:05 +0000
+Cannot render console from 61.228.185.221! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OhOS+WjkRKzrmHeyRJEcF3ZBtHWt5WkhlwJSnwlxOVAypdVif03qTE3DXLdXhKBwLLWVhPSLuUxRNDpugdqfug==", "merchandise"=>{"title"=>"test", "description"=>"test image 1 mandotary", "price"=>"999", "amount"=>"1", "image_1"=>#<ActionDispatch::Http::UploadedFile:0x007fda0b0a7570 @tempfile=#<Tempfile:/tmp/RackMultipart20160616-9034-88iqxy.png>, @original_filename="jinhonghua.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"merchandise[image_1]\"; filename=\"jinhonghua.png\"\r\nContent-Type: image/png\r\n">}, "commit"=>"Create Merchandise"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+Command :: file -b --mime '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-1nhenxg.png'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]'
+Command :: convert '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]' -auto-orient -resize "375x300>" '/tmp/b8794ae078baebf90d0f44280bbefda520160616-9034-1ucu5ow'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]'
+Command :: convert '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]' -auto-orient -resize "180x145>" '/tmp/b8794ae078baebf90d0f44280bbefda520160616-9034-1waerp6'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]' 2>/dev/null
+Command :: identify -format %m '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]'
+Command :: convert '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-15pvn0o.png[0]' -auto-orient -resize "x64" -crop "64x64+5+0" +repage '/tmp/b8794ae078baebf90d0f44280bbefda520160616-9034-1w46ivl'
+  [1m[35m (0.1ms)[0m  begin transaction
+Command :: file -b --mime '/tmp/b0c06c328ea010cd568b647a7b3f022020160616-9034-1macovu.png'
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "merchandises" ("title", "description", "price", "image_1_file_name", "image_1_content_type", "image_1_file_size", "image_1_updated_at", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "test"], ["description", "test image 1 mandotary"], ["price", 999], ["image_1_file_name", "jinhonghua.png"], ["image_1_content_type", "image/png"], ["image_1_file_size", 32862], ["image_1_updated_at", "2016-06-16 14:17:05.834160"], ["user_id", 1], ["created_at", "2016-06-16 14:17:06.194279"], ["updated_at", "2016-06-16 14:17:06.194279"]]
+[paperclip] saving /merchandises/image_1s/000/000/016/original/jinhonghua.png
+[AWS S3 200 0.628241 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market-test",:content_length=>32862,:content_type=>"image/png",:data=>Paperclip::UploadedFileAdapter: jinhonghua.png,:key=>"merchandises/image_1s/000/000/016/original/jinhonghua.png")  
+
+[paperclip] saving /merchandises/image_1s/000/000/016/medium/jinhonghua.png
+[AWS S3 200 0.165234 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market-test",:content_length=>33084,:content_type=>"image/png",:data=>Paperclip::FileAdapter: b8794ae078baebf90d0f44280bbefda520160616-9034-1ucu5ow,:key=>"merchandises/image_1s/000/000/016/medium/jinhonghua.png")  
+
+[paperclip] saving /merchandises/image_1s/000/000/016/small/jinhonghua.png
+[AWS S3 200 0.196514 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market-test",:content_length=>33084,:content_type=>"image/png",:data=>Paperclip::FileAdapter: b8794ae078baebf90d0f44280bbefda520160616-9034-1waerp6,:key=>"merchandises/image_1s/000/000/016/small/jinhonghua.png")  
+
+[paperclip] saving /merchandises/image_1s/000/000/016/thumb/jinhonghua.png
+[AWS S3 200 0.145308 0 retries] put_object(:acl=>:public_read,:bucket_name=>"flea-market-test",:content_length=>9640,:content_type=>"image/png",:data=>Paperclip::FileAdapter: b8794ae078baebf90d0f44280bbefda520160616-9034-1w46ivl,:key=>"merchandises/image_1s/000/000/016/thumb/jinhonghua.png")  
+
+  [1m[35m (15.4ms)[0m  commit transaction
+Redirected to https://flea-market-absoluteyl.c9users.io/merchandises/16
+Completed 302 Found in 1961ms (ActiveRecord: 19.6ms)
+
+
+Started GET "/merchandises/16" for 61.228.185.221 at 2016-06-16 14:17:07 +0000
+Cannot render console from 61.228.185.221! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mMerchandise Load (0.4ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 16]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered merchandises/show.html.erb within layouts/application (41.2ms)
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 149ms (Views: 144.7ms | ActiveRecord: 1.5ms)

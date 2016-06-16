@@ -25,7 +25,9 @@ class Merchandise < ActiveRecord::Base
     validates_attachment_content_type :image_1, content_type: /\Aimage\/.*\Z/
     validates_attachment_content_type :image_2, content_type: /\Aimage\/.*\Z/
     validates_attachment_content_type :image_3, content_type: /\Aimage\/.*\Z/
-
+    
+    #temporary set image_1 as mandotory for iOS app testing
+    validates :image_1, presence: true
 
     def as_json(options = {})
         super(options.merge({ 
