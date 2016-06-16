@@ -35,8 +35,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yBG-yq-yS2">
-                                <rect key="frame" x="311" y="533" width="32" height="30"/>
-                                <state key="normal" title="Next"/>
+                                <rect key="frame" x="145" y="518" width="84" height="43"/>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.42352941179999998" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="0IF-FQ-YeF" kind="show" id="OX6-KN-iJC"/>
                                 </connections>

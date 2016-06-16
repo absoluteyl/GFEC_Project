@@ -12,8 +12,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    @IBOutlet weak var tempImageView: UIImageView!
     var appDelegate: AppDelegate!
     
+    @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var addPhoto1: UIButton!
     @IBOutlet weak var addPhoto2: UIButton!
     @IBOutlet weak var addPhoto3: UIButton!
@@ -25,18 +27,33 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     @IBAction func postButtonAction(sender: UIButton) {
         post()
+        
     }
-    
     
     @IBAction func addPhoto1Action(sender: UIButton) {
         let picker = UIImagePickerController()
         
         picker.delegate = self
-        picker.sourceType = .Camera
+        picker.sourceType = .PhotoLibrary
         
         presentViewController(picker, animated: true, completion: nil)
         
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {        
+
+          // setting the buuton image to selected image
+//        let selectedImage = info[UIImagePickerControllerOriginalImage]! as! UIImage
+//        addPhoto1.imageView?.backgroundColor = UIColor.clearColor()
+//        addPhoto1.setImage(selectedImage, forState: UIControlState.Normal)
+//        addPhoto1.imageView?.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+    
+        self.dismissViewControllerAnimated(true, completion: nil)
+       
+        
+    }
+    
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,9 +74,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 
 
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        addPhoto1.setImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
-    }
 
     private func post () {
         
@@ -119,5 +133,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         }
         
     }
+    
+    
     
 }
