@@ -12,7 +12,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-    @IBOutlet weak var tempImageView: UIImageView!
+
+    @IBOutlet weak var tempImageVIew: UIImageView!
     var appDelegate: AppDelegate!
     
     @IBOutlet weak var postButton: UIButton!
@@ -40,6 +41,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
     }
     
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {        
 
           // setting the buuton image to selected image
@@ -47,9 +49,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //        addPhoto1.imageView?.backgroundColor = UIColor.clearColor()
 //        addPhoto1.setImage(selectedImage, forState: UIControlState.Normal)
 //        addPhoto1.imageView?.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
-    
+        tempImageVIew.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         self.dismissViewControllerAnimated(true, completion: nil)
-       
+
         
     }
     
@@ -72,10 +74,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     }
 
 
-
-    
-
     private func post () {
+        
+        postButton.enabled = false
         
         let methodParameters: [String: String!] = [Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,]
         
@@ -95,7 +96,18 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         //print(self.theDelegate.userID)
         
-        request.HTTPBody = "{\n\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID!)}".dataUsingEncoding(NSUTF8StringEncoding);
+        var imageT : UIImage = tempImageVIew.image!
+        
+        var imageData1 = UIImageJPEGRepresentation(imageT, 1.0)
+        
+        var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        //print("DATA1:\(imageData1)")
+        
+        //print("64STRING:\(base64String1)")
+        
+        request.HTTPBody = "{\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID),\"image_1\": \(imageData1)}".dataUsingEncoding(NSUTF8StringEncoding);
+        //,\"image_1\": \"\(imageData1)\"
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in

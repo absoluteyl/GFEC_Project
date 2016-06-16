@@ -52,7 +52,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VIw-QM-S5y">
-                                                    <rect key="frame" x="8" y="-14" width="171" height="91"/>
+                                                    <rect key="frame" x="8" y="4" width="171" height="91"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -325,6 +325,7 @@
                         <outlet property="itemNameTextField" destination="wou-UA-wBB" id="TEl-Ox-OEs"/>
                         <outlet property="itemPriceTextField" destination="BID-An-IF6" id="KPp-Sy-ZY6"/>
                         <outlet property="postButton" destination="amx-4i-E0p" id="H4P-DJ-2Jn"/>
+                        <outlet property="tempImageVIew" destination="VIw-QM-S5y" id="A0L-Tm-aX3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deb-ZX-0Zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
