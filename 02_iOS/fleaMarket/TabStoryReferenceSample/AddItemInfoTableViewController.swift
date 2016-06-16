@@ -81,10 +81,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         //print(self.theDelegate.userID)
         
-        request.HTTPBody = "{\n\"title\": \"\(itemNameTextField.text)\"\n \"description\": \"\(itemDescriptionTextField.text)\"\n \"price\": \(itemPriceTextField.text)\n\"amount\": \(itemAmount.text)\n\"user_id\": \(self.theDelegate.userID)\n}".dataUsingEncoding(NSUTF8StringEncoding);
-        
-
-        
+        request.HTTPBody = "{\n\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID!)}".dataUsingEncoding(NSUTF8StringEncoding);
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in

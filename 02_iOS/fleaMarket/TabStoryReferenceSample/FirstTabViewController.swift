@@ -38,7 +38,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         print("1.\(titleArray.count)")
-       // getDataFromDB()
+        //getDataFromDB()
         
         print("2.\(titleArray.count)")
         
