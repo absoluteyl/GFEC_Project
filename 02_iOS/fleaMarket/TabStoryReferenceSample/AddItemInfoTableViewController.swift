@@ -17,7 +17,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     var appDelegate: AppDelegate!
     
     @IBOutlet weak var postButton: UIButton!
-    @IBOutlet weak var addPhoto1: UIButton!
+    @IBOutlet weak var addPhoto1: UIButton?
     @IBOutlet weak var addPhoto2: UIButton!
     @IBOutlet weak var addPhoto3: UIButton!
     
@@ -27,6 +27,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     @IBOutlet weak var itemAmount: UITextField!
     
     @IBAction func postButtonAction(sender: UIButton) {
+        
+        addPhoto1 = sender
         post()
         
     }
@@ -49,8 +51,25 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //        addPhoto1.imageView?.backgroundColor = UIColor.clearColor()
 //        addPhoto1.setImage(selectedImage, forState: UIControlState.Normal)
 //        addPhoto1.imageView?.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
-        tempImageVIew.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        
+        guard let addPhoto1 = addPhoto1 else {
+            print("Error! action button is nil")
+            return
+        }
+        
+        // setting the buuton image to selected image
+        let selectedImage = info[UIImagePickerControllerOriginalImage]! as! UIImage
+        
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            addPhoto1.setTitle("", forState: .Normal)
+            addPhoto1.setImage(selectedImage, forState: .Normal)
+        }
+        
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+//        tempImageVIew.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        self.dismissViewControllerAnimated(true, completion: nil)
 
         
     }
@@ -97,6 +116,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         //print(self.theDelegate.userID)
         
         var imageT : UIImage = tempImageVIew.image!
+        
+        print("IMAGE:\(imageT)")
         
         var imageData1 = UIImageJPEGRepresentation(imageT, 1.0)
         
