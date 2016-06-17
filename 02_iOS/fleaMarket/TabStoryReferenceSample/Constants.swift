@@ -12,7 +12,8 @@ struct Constants {
     
     // MARK: Get merchandise list or filter specific items
     struct Merchandises {
-        static let APIBaseURL = "https://flea-market.herokuapp.com/api/merchandises"
+        //static let APIBaseURL = "https://flea-market.herokuapp.com/api/merchandises"
+        static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
     }
     
     struct Users {
@@ -41,7 +42,8 @@ struct Constants {
         static let MerchandisePrice = ""
         static let MerchandiseAmount = ""
         static let UserID = ""
-        static let API_Key = "e813852b6d35e706f776c74434b001f9"
+        //static let API_Key = "e813852b6d35e706f776c74434b001f9" //heroku
+        static let API_Key = "4484c065f013c7ff144f5c618fa8f341" //c9
         
      }
     

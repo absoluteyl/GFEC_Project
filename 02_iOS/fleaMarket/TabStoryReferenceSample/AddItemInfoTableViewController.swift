@@ -10,9 +10,11 @@ import UIKit
 
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet var StaticTableView: UITableView!
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
-
+    var imageSelected: UIImage!
+    
     @IBOutlet weak var tempImageVIew: UIImageView!
     var appDelegate: AppDelegate!
     
@@ -60,20 +62,30 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         // setting the buuton image to selected image
         let selectedImage = info[UIImagePickerControllerOriginalImage]! as! UIImage
         
+        imageSelected = selectedImage
+        
         dispatch_async(dispatch_get_main_queue()) {
             
             addPhoto1.setTitle("", forState: .Normal)
             addPhoto1.setImage(selectedImage, forState: .Normal)
         }
         
+        
         self.dismissViewControllerAnimated(true, completion: nil)
-        
-//        tempImageVIew.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-//        self.dismissViewControllerAnimated(true, completion: nil)
-
-        
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 2 {
+            if indexPath.row == 0 {
+                self.performSegueWithIdentifier("showCategory", sender: indexPath.row)
+            } else if indexPath.row == 1 {
+            
+            } else {
+            
+            }
+            
+        }
+    }
    
 
     override func viewDidLoad() {
@@ -115,20 +127,47 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         //print(self.theDelegate.userID)
         
-        var imageT : UIImage = tempImageVIew.image!
-        
-        print("IMAGE:\(imageT)")
+        var imageT : UIImage = (imageSelected)!
         
         var imageData1 = UIImageJPEGRepresentation(imageT, 1.0)
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        //print("DATA1:\(imageData1)")
+        if imageData1 == nil {
+            print("DATA1: NIL ")
+        } else {
+            print("DATA 1 OK")
+        }
+        
+        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+            print("You selected cell number: \(indexPath.row)!")
+            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
+        }
         
         //print("64STRING:\(base64String1)")
         
-        request.HTTPBody = "{\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID),\"image_1\": \(imageData1)}".dataUsingEncoding(NSUTF8StringEncoding);
-        //,\"image_1\": \"\(imageData1)\"
+//        request.HTTPBody = "{\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID),\"image_1\": \(base64String1)}".dataUsingEncoding(NSUTF8StringEncoding);
+        
+        
+        let params:[String: AnyObject] = [
+            "title" : itemNameTextField.text!,
+            "description" : itemDescriptionTextField.text!,
+            "price" : itemPriceTextField.text!,
+            "amount" : itemAmount.text!,
+            "user_id" : self.theDelegate.userID,
+            "image_1" : "data:image/jpeg;base64,/\(base64String1)" ]
+        
+        do{
+            if NSJSONSerialization.isValidJSONObject(params) {
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options:.PrettyPrinted)
+            }else{
+                print("Not Valid")
+            }
+            
+        }catch {
+            print("Error!  dataWithJSONObject \(error)")
+            return
+        }
         
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
@@ -139,7 +178,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 print(error)
             }
         }
-        
+
         task.resume()
     
     }
