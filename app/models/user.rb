@@ -1,10 +1,12 @@
 class User <ActiveRecord::Base
     has_many :merchandises, dependent: :destroy
+    # attr_accessor :avatar_data, :content_type, :original_filename
+    # before_save :decode_base64_avatar
     before_save { self.email = email.downcase }
     validates :username, presence: true,
                         uniqueness: { case_sensitive: false },
                         length: {minimum: 3, maximum: 25 }
-    validate :username_not_changed
+    # validate :username_not_changed
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true,
                 uniqueness: { case_sensitive: false },
@@ -25,7 +27,7 @@ class User <ActiveRecord::Base
     #Override build-in as_json method to NOT return password_digest in API
     def as_json(options = {})
         super(options.merge({ 
-            except: [:password_digest, :avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at],
+            except: [:avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at],
             methods: [:avatar_url_o, :avatar_url_m, :avatar_url_s]
         }))
     end
@@ -45,11 +47,26 @@ class User <ActiveRecord::Base
         end
     end
     
+    # def decode_base64_avatar
+    #   if avatar_data && content_type && original_filename
+    #     decoded_data = Base64.decode64(avatar_data)
+
+    #     data = StringIO.new(decoded_data)
+    #     data.class_eval do
+    #       attr_accessor :content_type, :original_filename
+    #     end
+
+    #     data.content_type = content_type
+    #     data.original_filename = File.basename(original_filename)
+
+    #     self.avatar = data
+    #   end
+    # end
     private
     #Forbid username to be changed
-    def username_not_changed
-        if username_changed? && self.persisted?
-          errors.add(:username, "Change of username not allowed!")
-        end
-    end
+    # def username_not_changed
+    #     if username_changed? && self.persisted?
+    #       errors.add(:username, "Change of username not allowed!")
+    #     end
+    # end
 end

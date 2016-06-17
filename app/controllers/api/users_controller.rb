@@ -1,7 +1,8 @@
 module Api
     class UsersController < Api::ApiController
+      skip_before_filter :verify_authenticity_token
       before_action :set_user, only: [:edit, :update, :show, :destroy]
-     
+      
       def index
         @users = User.all
         if username = params[:username]
@@ -41,13 +42,16 @@ module Api
       end
       
       def update
+
         if @user.update(update_user_params)
+
             render status: 200, json: {
                 status: "OK",
                 message: "User is been updated.",
-                user: @user.as_json
+                user: @user
             }.to_json
         else
+
             render status: 422, json: {
                 status: "Unprocessable Entity",
                 message: "User cannot be udpated.",
@@ -65,12 +69,13 @@ module Api
       end
       
       private
+      
       def create_user_params
-        params.require(:user).permit(:username, :email, :phone, :password, :avatar) 
+        params.require(:user).permit(:username, :email, :mobile, :password, :avatar) 
       end
       
       def update_user_params
-        params.require(:user).permit(:phone, :password, :avatar) 
+        params.require(:user).permit(:mobile, :password, :avatar) 
       end
       
       def set_user

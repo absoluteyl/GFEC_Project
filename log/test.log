@@ -22391,3 +22391,427 @@ Processing by CategoriesController#index as HTML
   Rendered layouts/_messages.html.erb (0.2ms)
 Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.6ms)
   [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (6.4ms)[0m  [1mDELETE FROM "api_keys"[0m
+  [1m[35mFixture Insert (0.5ms)[0m  INSERT INTO "api_keys" ("api_key", "created_at", "updated_at", "id") VALUES ('4484c065f013c7ff144f5c618fa8f341', '2016-06-17 07:44:01', '2016-06-17 07:44:01', 980190962)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "api_keys" ("api_key", "created_at", "updated_at", "id") VALUES ('MyString', '2016-06-17 07:44:01', '2016-06-17 07:44:01', 298486374)[0m
+  [1m[35m (20.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+-----------------------------------------
+CategoryTest: test_name_should_be_present
+-----------------------------------------
+  [1m[35m (2.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------
+CategoryTest: test_name_should_not_be_too_short
+-----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-------------------------------------------
+CategoryTest: test_category_should_be_valid
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+CategoryTest: test_name_should_not_be_too_long
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+----------------------------------------------
+CategoryTest: test_subcategory_should_be_valid
+----------------------------------------------
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------
+ListingUsersApiTest: test_return_list_of_all_users
+--------------------------------------------------
+Started GET "/api/users?api_key=4484c065f013c7ff144f5c618fa8f341" for 127.0.0.1 at 2016-06-17 07:44:02 +0000
+Processing by Api::UsersController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[35mApiKey Load (10.7ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mUser Load (3.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 85ms (Views: 0.2ms | ActiveRecord: 13.8ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+--------------------------------------------
+ListingUsersApiTest: test_returns_user_by_id
+--------------------------------------------
+  [1m[35m (3.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("username", "email", "mobile", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$PAvGhbW3utszyFozm9XETeCStgrMw4bdg7GGNEhL0qpKTOvGa3lQu"], ["created_at", "2016-06-17 07:44:02.411480"], ["updated_at", "2016-06-17 07:44:02.411480"]]
+  [1m[35m (39.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/api/users/1?api_key=4484c065f013c7ff144f5c618fa8f341" for 127.0.0.1 at 2016-06-17 07:44:02 +0000
+Processing by Api::UsersController#show as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341", "id"=>"1"}
+  [1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1[0m  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[35mUser Load (1.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------------
+ListingUsersApiTest: test_returns_users_filtered_by_username
+------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "email", "mobile", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$QQ3r4CThDlfnxKTH4ChrwOj7M7K5UnHMqq7aeeFIQgeuK6m02hxYW"], ["created_at", "2016-06-17 07:44:02.736190"], ["updated_at", "2016-06-17 07:44:02.736190"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('mary') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('mary@example.com') LIMIT 1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "users" ("username", "email", "mobile", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["username", "mary"], ["email", "mary@example.com"], ["mobile", "0987654123"], ["password_digest", "$2a$04$Vrauzo0mz3LMmXVdWILD0uxaLhsypQWXsszkGA6CoTDyeBIUGR44."], ["created_at", "2016-06-17 07:44:02.748363"], ["updated_at", "2016-06-17 07:44:02.748363"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/api/users?api_key=4484c065f013c7ff144f5c618fa8f341&username=john" for 127.0.0.1 at 2016-06-17 07:44:02 +0000
+Processing by Api::UsersController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341", "username"=>"john"}
+  [1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1[0m  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."username" = ?  [["username", "john"]]
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------
+ListingCategoriesTest: test_should_show_categories_listing
+----------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "books"], ["created_at", "2016-06-17 07:44:02.766487"], ["updated_at", "2016-06-17 07:44:02.766487"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "programming"], ["created_at", "2016-06-17 07:44:02.771116"], ["updated_at", "2016-06-17 07:44:02.771116"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/categories" for 127.0.0.1 at 2016-06-17 07:44:02 +0000
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 2]]
+  Rendered categories/index.html.erb within layouts/application (55.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (7.7ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 521ms (Views: 519.4ms | ActiveRecord: 0.6ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------
+CategoriesControllerTest: test_should_get_categories_index
+----------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$ZyCFlBaK2XIl5fkz6NbtWuipBMGOnz5mUmVruJWNHhSqBbFcwRxL2"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.375800"], ["updated_at", "2016-06-17 07:44:03.375800"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.379095"], ["updated_at", "2016-06-17 07:44:03.379095"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("name", "parent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "golf"], ["parent_id", 1], ["created_at", "2016-06-17 07:44:03.381568"], ["updated_at", "2016-06-17 07:44:03.381568"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (1.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+--------------------------------------------------------------------------
+CategoriesControllerTest: test_should_redirect_create_when_admin_not_login
+--------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$k7/ZoLbgeDEempzdF8ESTu4pafy7XJ0pYlYAkWfdOl5mtPbx4Jn.a"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.406770"], ["updated_at", "2016-06-17 07:44:03.406770"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.409454"], ["updated_at", "2016-06-17 07:44:03.409454"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("name", "parent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "golf"], ["parent_id", 1], ["created_at", "2016-06-17 07:44:03.411391"], ["updated_at", "2016-06-17 07:44:03.411391"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"sports"}}
+Redirected to http://test.host/categories
+Filter chain halted as :require_admin rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+---------------------------------------------
+CategoriesControllerTest: test_should_get_new
+---------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$ocLyNUxHXbfTc1HY92hW/e1hMrP3DETEZMbITxz9Yrbv2azuHv1A2"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.422978"], ["updated_at", "2016-06-17 07:44:03.422978"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.425499"], ["updated_at", "2016-06-17 07:44:03.425499"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "parent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "golf"], ["parent_id", 1], ["created_at", "2016-06-17 07:44:03.427698"], ["updated_at", "2016-06-17 07:44:03.427698"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.8ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered categories/_form.html.erb (55.4ms)
+  Rendered categories/new.html.erb within layouts/application (58.5ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (5.9ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 71ms (Views: 69.4ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+--------------------------------------------------------------
+CategoriesControllerTest: test_should_get_show_for_subcategory
+--------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$YHxOC76OnmopyfWvKJ45jOwDknrDln5qW34WZ8HUJGiVty4UFcl4u"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.508125"], ["updated_at", "2016-06-17 07:44:03.508125"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.513427"], ["updated_at", "2016-06-17 07:44:03.513427"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "categories" ("name", "parent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "golf"], ["parent_id", 1], ["created_at", "2016-06-17 07:44:03.516821"], ["updated_at", "2016-06-17 07:44:03.516821"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.4ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 2]]
+  Rendered categories/show.html.erb within layouts/application (1.3ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 11ms (Views: 8.0ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------
+CategoriesControllerTest: test_should_get_show_for_category
+-----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$qS9sylbCvteN3d8SWpcpp.APDr1Aj8i.dcqCeexAydoYK8KDysJrS"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.537219"], ["updated_at", "2016-06-17 07:44:03.537219"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.541408"], ["updated_at", "2016-06-17 07:44:03.541408"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "categories" ("name", "parent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "golf"], ["parent_id", 1], ["created_at", "2016-06-17 07:44:03.544789"], ["updated_at", "2016-06-17 07:44:03.544789"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 2]]
+  Rendered categories/show.html.erb within layouts/application (1.5ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (2.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 5.4ms | ActiveRecord: 0.4ms)
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+--------------------------------------------------------------------
+CreateCategoriesTest: test_Get_new_category_form_and_create_category
+--------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$i4UUCRQIAdqH8zggqBilUenRLzSYPhdYwXg/DL9cT4jXoimcm4Ntq"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.562827"], ["updated_at", "2016-06-17 07:44:03.562827"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"john@example.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "john@example.com"]]
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+Started GET "/categories/new" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered categories/_form.html.erb (3.4ms)
+  Rendered categories/new.html.erb within layouts/application (3.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+Started POST "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"sports"}}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.615977"], ["updated_at", "2016-06-17 07:44:03.615977"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://www.example.com/categories
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+Started GET "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  [1m[35mCategory Load (0.1ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------------------
+CreateCategoriesTest: test_Get_new_category_form_and_create_subcategory
+-----------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$6WaSadwSe5SRrIymoX.wXuYuJk1d7AcotE/wahczGlt/QI1PrQgKq"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.635756"], ["updated_at", "2016-06-17 07:44:03.635756"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started POST "/login" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"john@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1[0m  [["email", "john@example.com"]]
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+Started GET "/categories/new" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[36mCategory Load (0.2ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered categories/_form.html.erb (3.7ms)
+  Rendered categories/new.html.erb within layouts/application (4.0ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered layouts/_navigation.html.erb (1.4ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "categories"[0m
+Started POST "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"sports"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "categories" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "sports"], ["created_at", "2016-06-17 07:44:03.668272"], ["updated_at", "2016-06-17 07:44:03.668272"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/categories
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+Started GET "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (1.6ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (2.3ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.4ms)
+Started POST "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>"golf", "parent_id"=>"1"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "categories" ("name", "parent_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "golf"], ["parent_id", 1], ["created_at", "2016-06-17 07:44:03.685530"], ["updated_at", "2016-06-17 07:44:03.685530"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/categories
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+Started GET "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#index as HTML
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  [1m[36mCategory Load (0.1ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" = ?[0m  [["parent_id", 1]]
+  Rendered categories/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (1.8ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-------------------------------------------------------------------------
+CreateCategoriesTest: test_Invalid_category_submission_results_in_failure
+-------------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('john') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('john@example.com') LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("username", "email", "mobile", "password_digest", "admin", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["username", "john"], ["email", "john@example.com"], ["mobile", "0987654321"], ["password_digest", "$2a$04$cVOHo34IxJnTajdKT.OigO9Bih4.UJBajjBI9hg.swhEsVBFf5EuK"], ["admin", "t"], ["created_at", "2016-06-17 07:44:03.705079"], ["updated_at", "2016-06-17 07:44:03.705079"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/login" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"email"=>"john@example.com", "password"=>"[FILTERED]"}}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT 1  [["email", "john@example.com"]]
+Redirected to http://www.example.com/users/1
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+Started GET "/categories/new" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered categories/_form.html.erb (3.4ms)
+  Rendered categories/new.html.erb within layouts/application (3.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (37.3ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 45ms (Views: 43.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "categories"
+Started POST "/categories" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by CategoriesController#create as HTML
+  Parameters: {"category"=>{"name"=>" "}}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendered shared/_errors.html.erb (2.2ms)
+  [1m[35mCategory Load (0.2ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered categories/_form.html.erb (6.3ms)
+  Rendered categories/new.html.erb within layouts/application (6.7ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL[0m
+  Rendered layouts/_navigation.html.erb (1.7ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+Completed 200 OK in 15ms (Views: 10.9ms | ActiveRecord: 0.6ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "categories"
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------------
+ListingMerchandisesApiTest: test_return_list_of_all_merchandises
+----------------------------------------------------------------
+Started GET "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by Api::MerchandisesController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341"}
+  [1m[36mApiKey Load (0.2ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1[0m  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[35mMerchandise Load (0.3ms)[0m  SELECT "merchandises".* FROM "merchandises"
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+  [1m[36m (1.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------------------
+ListingMerchandisesApiTest: test_returns_merchandises_filtered_by_price
+-----------------------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "merchandises" ("title", "description", "price", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "iPhone6s"], ["description", "silver, 64g"], ["price", 20000], ["user_id", 1], ["created_at", "2016-06-17 07:44:03.861556"], ["updated_at", "2016-06-17 07:44:03.861556"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "merchandises" ("title", "description", "price", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "coffeebean"], ["description", "500g/pack, blue mountain"], ["price", 680], ["user_id", 1], ["created_at", "2016-06-17 07:44:03.867121"], ["updated_at", "2016-06-17 07:44:03.867121"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Started GET "/api/merchandises?api_key=4484c065f013c7ff144f5c618fa8f341&price=20000" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by Api::MerchandisesController#index as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341", "price"=>"20000"}
+  [1m[36mApiKey Load (0.1ms)[0m  [1mSELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1[0m  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[35mMerchandise Load (0.2ms)[0m  SELECT "merchandises".* FROM "merchandises" WHERE "merchandises"."price" = ?  [["price", 20000]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------------------
+ListingMerchandisesApiTest: test_returns_merchandise_by_id
+----------------------------------------------------------
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "merchandises" ("title", "description", "price", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["title", "iPhone6s"], ["description", "silver, 64g"], ["price", 20000], ["user_id", 1], ["created_at", "2016-06-17 07:44:03.885310"], ["updated_at", "2016-06-17 07:44:03.885310"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/merchandises/1?api_key=4484c065f013c7ff144f5c618fa8f341" for 127.0.0.1 at 2016-06-17 07:44:03 +0000
+Processing by Api::MerchandisesController#show as HTML
+  Parameters: {"api_key"=>"4484c065f013c7ff144f5c618fa8f341", "id"=>"1"}
+  [1m[35mApiKey Load (0.1ms)[0m  SELECT  "api_keys".* FROM "api_keys" WHERE "api_keys"."api_key" = ? LIMIT 1  [["api_key", "4484c065f013c7ff144f5c618fa8f341"]]
+  [1m[36mMerchandise Load (0.3ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  rollback transaction
