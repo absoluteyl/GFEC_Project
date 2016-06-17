@@ -1,7 +1,7 @@
 module Api
     class UsersController < Api::ApiController
       before_action :set_user, only: [:edit, :update, :show, :destroy]
-
+     
       def index
         @users = User.all
         if username = params[:username]

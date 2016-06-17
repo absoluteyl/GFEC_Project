@@ -1,10 +1,6 @@
 class Merchandise < ActiveRecord::Base
     belongs_to :user
-    
-    attr_accessor :image_1_data
-    
-    before_save :decode_image_1_data
-    
+
     validates :user_id, presence: true
     validate :user_id_not_changed
     validates :title, presence: true, length: { minimum: 3, maximum: 50}
@@ -32,21 +28,8 @@ class Merchandise < ActiveRecord::Base
     validates_attachment_content_type :image_3, content_type: /\Aimage\/.*\Z/
     
     #temporary set image_1 as mandotory for iOS app testing
-    validates :image_1, presence: true
+    #validates :image_1, presence: true
     
-    def decode_image_1_data
-        # If image_data is present, it means that we were sent an image over
-        # JSON and it needs to be decoded.  After decoding, the image is processed
-        # normally via Paperclip.
-        if self.image_1_data.present?
-            data = StringIO.new(Base64.decode64(self.image_1_data))
-            data.class.class_eval {attr_accessor :original_filename, :content_type}
-            data.original_filename = self.id.to_s + ".png"
-            data.content_type = "image/png"
-    
-            self.image = data
-        end
-    end
     
     def as_json(options = {})
         super(options.merge({ 

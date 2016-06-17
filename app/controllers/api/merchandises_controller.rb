@@ -1,7 +1,7 @@
 module Api
     class MerchandisesController < Api::ApiController
       before_action :set_merchandise, only: [:edit, :update, :show, :destroy]
-      
+  
       def index
         @merchandises = Merchandise.all
         if title = params[:title]
