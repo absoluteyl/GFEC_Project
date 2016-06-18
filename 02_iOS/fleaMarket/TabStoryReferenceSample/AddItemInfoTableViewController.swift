@@ -153,10 +153,11 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
+        
         if imageData1 == nil {
             print("DATA1: NIL ")
         } else {
-            print("DATA 1 OK")
+            print(base64String1)
         }
         
         func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
@@ -176,7 +177,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
                 "user_id" : self.theDelegate.userID,
-                "image_1" : "data:image/jpeg;base64,/\(base64String1)"]
+                "image_1" : "data:image/jpeg;base64,\(base64String1)"]
         ]
         
         do{

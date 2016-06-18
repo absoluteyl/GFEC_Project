@@ -13,14 +13,17 @@ class FillInAddressViewController: UIViewController {
     @IBOutlet weak var addressTextField: UITextField!
     
     @IBAction func submitAddressButtonAction(sender: UIButton) {
-        let storyboard = UIStoryboard(name: "S01_Address", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("S01_AddressTable") as! S01_AddressTableViewController
-        
-        if addressTextField.text != "" {
-            controller.addressArray.append(addressTextField!.text!)
-            navigationController?.popViewControllerAnimated(true)
-        }
-        controller.self.tableView.reloadData()
+//        let storyboard = UIStoryboard(name: "S01_Address", bundle: nil)
+//        let controller = storyboard.instantiateViewControllerWithIdentifier("S01_AddressTable") as! S01_AddressTableViewController
+//        
+//        if addressTextField.text != "" {
+//            controller.addressArray.append(addressTextField!.text!)
+//            navigationController?.popViewControllerAnimated(true)
+//        }
+
+        addressArray.append(addressTextField.text!)
+        NSUserDefaults.standardUserDefaults().setObject(addressArray, forKey: "tasks")
+        navigationController?.popViewControllerAnimated(true)
         
     }
 

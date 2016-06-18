@@ -8,18 +8,33 @@
 
 import UIKit
 
+var addressArray = [String]()
+
 class S01_AddressTableViewController: UITableViewController {
     
-    var addressArray = [String]()
+    
 
     override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
         print(addressArray.count)
+        
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "buttonMethod")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonMethod")
+        navigationItem.rightBarButtonItem = addButton
+        
     }
+    
+    func addButtonMethod () {
+        self.performSegueWithIdentifier("showFillAddress", sender: "addButton")
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,7 +50,11 @@ class S01_AddressTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        if addressArray.count == 0 {
+            return 1
+        } else {
+            return addressArray.count
+        }
     }
 
     
@@ -43,10 +62,10 @@ class S01_AddressTableViewController: UITableViewController {
         let cell = UITableViewCell()
         
         if addressArray.count != 0 {
-            cell.textLabel!.text = addressArray[indexPath.row]
-        }
             
-        if indexPath.row == addressArray.count {
+            cell.textLabel!.text = addressArray[indexPath.row]
+            
+        } else {
             cell.textLabel!.text = "Tap to add address"
         }
 
