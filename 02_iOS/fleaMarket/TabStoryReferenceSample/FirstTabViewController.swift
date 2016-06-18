@@ -23,16 +23,17 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
-    let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12","animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
+    
     
     var hasGotAPIYet: Bool = false
     
     override func viewWillAppear(animated: Bool) {
-        
-        if hasGotAPIYet == false { // 如果不設置此項，getDataFromDB會重複執行並使collection view倍增，待解決
+        titleArray = []
+        priceArray = []
+        itemIdArray = []
+        imageArray = []
             getDataFromDB()
-            hasGotAPIYet = true
-        }
+           
     }
     
     override func viewDidLoad() {

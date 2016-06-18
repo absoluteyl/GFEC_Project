@@ -8,17 +8,33 @@
 
 import UIKit
 
-class S01_AddressTableViewController: UITableViewController {
+var addressArray = [String]()
 
+class S01_AddressTableViewController: UITableViewController {
+    
+    
+
+    override func viewWillAppear(animated: Bool) {
+        self.tableView.reloadData()
+        print(addressArray.count)
+        
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //let refreshButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "buttonMethod")
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addButtonMethod")
+        navigationItem.rightBarButtonItem = addButton
+        
     }
+    
+    func addButtonMethod () {
+        self.performSegueWithIdentifier("showFillAddress", sender: "addButton")
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -29,23 +45,38 @@ class S01_AddressTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        if addressArray.count == 0 {
+            return 1
+        } else {
+            return addressArray.count
+        }
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = UITableViewCell()
+        
+        if addressArray.count != 0 {
+            
+            cell.textLabel!.text = addressArray[indexPath.row]
+            
+        } else {
+            cell.textLabel!.text = "Tap to add address"
+        }
 
         return cell
     }
-    */
+ 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == addressArray.count {
+            self.performSegueWithIdentifier("showFillAddress", sender: indexPath.row)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

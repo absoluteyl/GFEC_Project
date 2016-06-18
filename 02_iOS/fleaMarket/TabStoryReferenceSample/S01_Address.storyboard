@@ -8,13 +8,13 @@
         <!--Address Table View Controller-->
         <scene sceneID="Qqq-Cw-Lj4">
             <objects>
-                <tableViewController id="cfG-Hr-jWn" customClass="S01_AddressTableViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="S01_AddressTable" id="cfG-Hr-jWn" customClass="S01_AddressTableViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iHf-X7-K7h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tZJ-WK-ljT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="tZJ-WK-ljT" userLabel="cell">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tZJ-WK-ljT" id="9Hf-AU-8Z9">
@@ -28,10 +28,21 @@
                             <outlet property="delegate" destination="cfG-Hr-jWn" id="5oD-tw-BeR"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="uVv-zc-jbs" kind="show" identifier="showFillAddress" id="2Ga-I5-Vac"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NMu-fI-dXE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="262" y="346"/>
+        </scene>
+        <!--FillInAddress-->
+        <scene sceneID="LAq-Ze-YjY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FillInAddress" id="uVv-zc-jbs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCm-zq-TRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="702.5" y="264"/>
         </scene>
     </scenes>
 </document>
