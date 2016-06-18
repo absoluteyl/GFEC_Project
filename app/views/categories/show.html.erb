@@ -1,17 +1,20 @@
 <h1 align="center">
     <%= @category.name %>
 </h1>
-<% @categories.each do |category| %>
-    <ul class="listing">
-        <li class="merchandise-title">
-            <%= link_to "#{category.name}", category_path(category) %>
-            <% category.subcategories.each do |subcategory| %>
-            <ul>
-                <li class="merchandise-title">
-                <%= link_to "#{subcategory.name}", category_path(subcategory) %>
-                </li>
-            </ul>
-            <% end %>
-        </li>
-    </ul>
-<% end %>
+<%= render 'merchandises/merchandise', obj: @category.merchandises %>
+
+<!-- Remove subcategories display temporary -->
+<!--<%# @categories.each do |category| %>-->
+<!--    <ul class="listing">-->
+<!--        <li class="merchandise-title">-->
+<!--            <%#= link_to "#{category.name}", category_path(category) %>-->
+            <!--<%# category.subcategories.each do |subcategory| %>-->
+            <!--<ul>-->
+            <!--    <li class="merchandise-title">-->
+            <!--    <%#= link_to "#{subcategory.name}", category_path(subcategory) %>-->
+            <!--    </li>-->
+            <!--</ul>-->
+            <!--<%# end %>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--<%# end %>-->

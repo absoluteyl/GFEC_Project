@@ -13,8 +13,11 @@
   <br />
   <%= simple_format(@merchandise.description) %>
   <br />
-  <p>Price: <%= @merchandise.price%></p>
-  <p>Amount: <%= @merchandise.amount%></p>
+  <p>Price: <%= @merchandise.price %></p>
+  <p>Amount: <%= @merchandise.amount %></p>
+  <% if @merchandise.category %>
+    <p>Category: <%= render @merchandise.category %></p>
+  <% end %>
   <% if @merchandise.user %>
     <ul class="listing">
     <li class="merchandise-title">Uploaded by:

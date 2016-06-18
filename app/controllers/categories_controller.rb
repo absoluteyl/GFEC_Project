@@ -11,9 +11,10 @@ class CategoriesController < ApplicationController
     # Show subcategory
     def show
       # Grab all sub-categories
-      @categories = @category.subcategories
+      # Remove show subcategories temporary
+      #@categories = @category.subcategories
       # We want to reuse the index renderer:
-      render :action => :show
+      # render :action => :show
     end
     
     def new

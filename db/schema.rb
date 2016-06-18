@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615062222) do
+ActiveRecord::Schema.define(version: 20160618141933) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20160615062222) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "category_id"
     t.string   "image_1_file_name"
     t.string   "image_1_content_type"
     t.integer  "image_1_file_size"
@@ -47,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160615062222) do
     t.string   "image_3_content_type"
     t.integer  "image_3_file_size"
     t.datetime "image_3_updated_at"
+    t.integer  "category_id"
   end
 
   create_table "subcategories", force: :cascade do |t|

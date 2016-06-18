@@ -1,5 +1,6 @@
 class Merchandise < ActiveRecord::Base
     belongs_to :user
+    belongs_to :category
     validates :user_id, presence: true
     validate :user_id_not_changed
     validates :title, presence: true, length: { minimum: 3, maximum: 50}
