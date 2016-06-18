@@ -62,18 +62,20 @@ Filtered Query:
     Content-type: application/json
     
     {
-        #Mandatory Fields
-        "title": "string"
-        "description": "string"
-        "price": integer
-        "amount": integer
-        "user_id": integer
-        
-        #Optional Fields
-        "category_id": integer
-        "image_1": attachment
-        "image_2": attachment
-        "image_3": attachment
+        "merchandise":{
+            #Mandatory Fields
+            "title": "string",
+            "description": "string",
+            "price": integer,
+            "amount": integer,
+            "user_id": integer,
+            
+            #Optional Fields
+            "category_id": integer,
+            "image_1": attachment,
+            "image_2": attachment,
+            "image_3": attachment
+        }
     }
     
 #####PUT/PATCH:
@@ -85,15 +87,17 @@ Filtered Query:
     Content-type: application/json
     
     {
-        #Available Fields
-        "title": "string"
-        "description": "string"
-        "price": integer
-        "amount": integer
-        "category_id": integer
-        "image_1": attachment
-        "image_2": attachment
-        "image_3": attachment
+        "merchandise":{
+            #Available Fields
+            "title": "string",
+            "description": "string",
+            "price": integer,
+            "amount": integer,
+            "category_id": integer,
+            "image_1": attachment,
+            "image_2": attachment,
+            "image_3": attachment
+        }
     }
     
 #####DELETE:
@@ -122,16 +126,17 @@ Filtered Query:
     Content-type: application/json
     
     {
-        #Mandatory Fields
-        "username": "string"
-        "email": "string"
-        "mobile": "string"
-        "password": "string"
-        
-        #Optional Fields
-        "admin": boolean
-        "avatar": attachment
-        
+        "user":{
+            #Mandatory Fields
+            "username": "string",
+            "email": "string",
+            "mobile": "string",
+            "password": "string",
+            
+            #Optional Fields
+            "admin": boolean,
+            "avatar": attachment
+        }
     }
     
 #####PUT/PATCH:
@@ -143,11 +148,13 @@ Filtered Query:
     Content-type: application/json
     
     {
-        #Available Fields
-        "email": "string"
-        "mobile": "string"
-        "password": "string"
-        "avatar": attachment
+        "user":{
+            #Available Fields
+            "email": "string",
+            "mobile": "string",
+            "password": "string",
+            "avatar": attachment
+        }
     }
     
 #####DELETE:
@@ -169,16 +176,12 @@ Filtered Query:
     GET /api/categories?name=exactName
     
 #####POST:
-
+Not support
 #####PUT/PATCH:
-
+Not support
 #####DELETE:
+Not support
 
-    
-    
-
-######Category: support category queries.
-    GET /api/categories?name=exactName
 <br />
 
 ##Contributors
