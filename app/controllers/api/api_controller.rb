@@ -12,6 +12,7 @@ module Api
 			@current_user
 		end
 
+		# HTTP Basic authentication
   	# 	def authenticate
   	# 		authenticate_or_request_with_http_basic do |username, password|
   	# 			Rails.logger.info "API authentication:#{username} #{password}"
