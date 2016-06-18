@@ -27,9 +27,8 @@ class Merchandise < ActiveRecord::Base
     validates_attachment_content_type :image_3, content_type: /\Aimage\/.*\Z/
     
     #temporary set image_1 as mandotory for iOS app testing
-    #validates :image_1, presence: true
-    
-    
+    validates :image_1, attachment_presence: true
+
     def as_json(options = {})
         super(options.merge({ 
             except: [
@@ -92,8 +91,8 @@ class Merchandise < ActiveRecord::Base
     
     
     private
-      #Forbid user_id to be changed
-      def user_id_not_changed
+    #Forbid user_id to be changed
+    def user_id_not_changed
         if user_id_changed? && self.persisted?
           errors.add(:user_id, "Change of user_id not allowed!")
         end
