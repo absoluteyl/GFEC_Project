@@ -9,15 +9,16 @@
 import UIKit
 
 class S01_AddressTableViewController: UITableViewController {
+    
+    var addressArray = [String]()
 
+    override func viewWillAppear(animated: Bool) {
+        print(addressArray.count)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +30,34 @@ class S01_AddressTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
+        let cell = UITableViewCell()
+        
+        if addressArray.count != 0 {
+            cell.textLabel!.text = addressArray[indexPath.row]
+        }
+            
+        if indexPath.row == addressArray.count {
+            cell.textLabel!.text = "Tap to add address"
+        }
 
         return cell
     }
-    */
+ 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == addressArray.count {
+            self.performSegueWithIdentifier("showFillAddress", sender: indexPath.row)
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

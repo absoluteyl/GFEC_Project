@@ -48,6 +48,19 @@ class CategoryTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let storyboard = UIStoryboard(name: "AddItemInfo", bundle: nil)
+        let controller = storyboard.instantiateViewControllerWithIdentifier("AddItemInfoTableViewController") as! AddItemInfoTableViewController
+        
+        controller.categoryNumber = indexPath.row
+        controller.hasSelectedCategory = true
+
+        //controller.categorySelectedName.text = categoriesArray[indexPath.row]
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
  
 
     /*

@@ -8,7 +8,14 @@
 
 import UIKit
 
+
+
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    
+    var categoryNumber:Int!
+    var hasSelectedCategory:Bool = false
     
     @IBOutlet var StaticTableView: UITableView!
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -28,12 +35,15 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     @IBOutlet weak var itemDescriptionTextField: UITextField!
     @IBOutlet weak var itemAmount: UITextField!
     
+    @IBOutlet weak var categoryCell: UITableViewCell!
+    
     @IBAction func postButtonAction(sender: UIButton) {
         
         addPhoto1 = sender
         post()
         
     }
+    @IBOutlet weak var categorySelectedName: UILabel!
     
     @IBAction func addPhoto1Action(sender: UIButton) {
         let picker = UIImagePickerController()
@@ -76,14 +86,24 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 {
-            if indexPath.row == 0 {
+            if indexPath.row == 1 {
                 self.performSegueWithIdentifier("showCategory", sender: indexPath.row)
-            } else if indexPath.row == 1 {
-            
-            } else {
-            
+            } else if indexPath.row == 0 {
+                self.performSegueWithIdentifier("showItemStatus", sender: indexPath.row)
+            } else if indexPath.row == 2 {
+                self.performSegueWithIdentifier("showDelivery", sender: indexPath.row)
             }
             
+        }
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+//        if categoryNumber != nil {
+//            categorySelectedName.text = categoriesArray[categoryNumber]
+//        }
+        if categoryNumber != nil {
+            categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
         }
     }
    
@@ -150,12 +170,14 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         
         let params:[String: AnyObject] = [
-            "title" : itemNameTextField.text!,
-            "description" : itemDescriptionTextField.text!,
-            "price" : itemPriceTextField.text!,
-            "amount" : itemAmount.text!,
-            "user_id" : self.theDelegate.userID,
-            "image_1" : "data:image/jpeg;base64,/\(base64String1)" ]
+            "merchandise":[
+                "title" : itemNameTextField.text!,
+                "description" : itemDescriptionTextField.text!,
+                "price" : itemPriceTextField.text!,
+                "amount" : itemAmount.text!,
+                "user_id" : self.theDelegate.userID,
+                "image_1" : "data:image/jpeg;base64,/\(base64String1)"]
+        ]
         
         do{
             if NSJSONSerialization.isValidJSONObject(params) {

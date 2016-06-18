@@ -58,6 +58,8 @@
 		C9FFA3821D142A060057E439 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FFA3811D142A060057E439 /* Category.storyboard */; };
 		C9FFA3841D142A150057E439 /* ItemStatus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FFA3831D142A150057E439 /* ItemStatus.storyboard */; };
 		C9FFA3861D142A270057E439 /* Delivery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FFA3851D142A270057E439 /* Delivery.storyboard */; };
+		C9FFA3881D14D02F0057E439 /* FillInAddress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FFA3871D14D02F0057E439 /* FillInAddress.storyboard */; };
+		C9FFA38C1D14D14B0057E439 /* FillInAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA38B1D14D14B0057E439 /* FillInAddressViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		C9FFA3811D142A060057E439 /* Category.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		C9FFA3831D142A150057E439 /* ItemStatus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ItemStatus.storyboard; sourceTree = "<group>"; };
 		C9FFA3851D142A270057E439 /* Delivery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Delivery.storyboard; sourceTree = "<group>"; };
+		C9FFA3871D14D02F0057E439 /* FillInAddress.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FillInAddress.storyboard; sourceTree = "<group>"; };
+		C9FFA38B1D14D14B0057E439 /* FillInAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FillInAddressViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,7 +278,7 @@
 				C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */,
 				C902734F1D0FB88100EC081D /* LoginPage.storyboard */,
 				C90273511D0FB89700EC081D /* LoginPageViewController.swift */,
-				C974EE2F1D06EE5C001002BE /* S01_Account */,
+				C974EE2F1D06EE5C001002BE /* S01_Address */,
 				C974EE301D06EE6C001002BE /* S02_Account */,
 				C974EE311D06EE7C001002BE /* S03_Settings */,
 				C974EE321D06EEA1001002BE /* S04_Favorites */,
@@ -287,13 +291,15 @@
 			name = Tab5;
 			sourceTree = "<group>";
 		};
-		C974EE2F1D06EE5C001002BE /* S01_Account */ = {
+		C974EE2F1D06EE5C001002BE /* S01_Address */ = {
 			isa = PBXGroup;
 			children = (
 				C974EE1E1D06E3A4001002BE /* S01_Address.storyboard */,
 				C974EE271D06ED60001002BE /* S01_AddressTableViewController.swift */,
+				C9FFA3871D14D02F0057E439 /* FillInAddress.storyboard */,
+				C9FFA38B1D14D14B0057E439 /* FillInAddressViewController.swift */,
 			);
-			name = S01_Account;
+			name = S01_Address;
 			sourceTree = "<group>";
 		};
 		C974EE301D06EE6C001002BE /* S02_Account */ = {
@@ -489,6 +495,7 @@
 				C974EE541D06F336001002BE /* S09_ContactSupport.storyboard in Resources */,
 				7A751C761CF9BEE20096BDE6 /* 5thTab.storyboard in Resources */,
 				7A751C471CF9BDBA0096BDE6 /* LaunchScreen.storyboard in Resources */,
+				C9FFA3881D14D02F0057E439 /* FillInAddress.storyboard in Resources */,
 				C9FFA3821D142A060057E439 /* Category.storyboard in Resources */,
 				7A751C6C1CF9BE990096BDE6 /* FirstTab.storyboard in Resources */,
 				C9FFA3841D142A150057E439 /* ItemStatus.storyboard in Resources */,
@@ -558,6 +565,7 @@
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
 				C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */,
+				C9FFA38C1D14D14B0057E439 /* FillInAddressViewController.swift in Sources */,
 				C974EE2C1D06EE0C001002BE /* S03_SettingsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
