@@ -13,7 +13,7 @@ struct Constants {
     // MARK: Get merchandise list or filter specific items
     struct Merchandises {
         //static let APIBaseURL = "https://flea-market.herokuapp.com/api/merchandises"
-        static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
+        static let APIBaseURL = "http://flea-market-absoluteyl.c9users.io/api/merchandises"
     }
     
     struct Users {

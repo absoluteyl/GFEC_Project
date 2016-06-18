@@ -51,11 +51,15 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let storyboard = UIStoryboard(name: "AddItemInfo", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("AddItemInfoTableViewController") as! AddItemInfoTableViewController
+        //let storyboard = UIStoryboard(name: "AddItemInfo", bundle: nil)
+            //storyboard.instantiateViewControllerWithIdentifier("AddItemInfoTableViewController") as! AddItemInfoTableViewController
         
-        controller.categoryNumber = indexPath.row
-        controller.hasSelectedCategory = true
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.dataItem = indexPath.row
+        
+        
+        //controller.categorySelectedName.text = categoriesArray[indexPath.row]
+        //controller.hasSelectedCategory = true
 
         //controller.categorySelectedName.text = categoriesArray[indexPath.row]
         

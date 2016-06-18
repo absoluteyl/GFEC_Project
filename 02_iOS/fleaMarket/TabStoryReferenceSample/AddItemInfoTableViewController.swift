@@ -13,6 +13,7 @@ import UIKit
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
+    let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
     
     var categoryNumber:Int!
     var hasSelectedCategory:Bool = false
@@ -99,12 +100,20 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     
     override func viewWillAppear(animated: Bool) {
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        if appDelegate.dataItem != -1 {
+            categorySelectedName.text = categoriesArray[appDelegate.dataItem]
+        }
+        
 //        if categoryNumber != nil {
 //            categorySelectedName.text = categoriesArray[categoryNumber]
 //        }
         if categoryNumber != nil {
             categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
         }
+        
+        
     }
    
 
@@ -116,6 +125,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         itemDescriptionTextField.text = "This is a pudding I made. It's very good."
         itemAmount.text = "1"
         itemPriceTextField.text = "100"
+        
+
      
     }
 
