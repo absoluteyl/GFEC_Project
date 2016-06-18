@@ -7,6 +7,7 @@ class Merchandise < ActiveRecord::Base
     validates :description, presence: true, length: { minimum: 10, maximum: 300}
     validates :price, presence: true, numericality: { only_integer: true }
     validates :amount, presence: true, numericality: { only_integer: true }
+    validates :category_id, presence: true
     # Paperclip configurations
     has_attached_file :image_1, styles: {
         medium: '375x300>', 
