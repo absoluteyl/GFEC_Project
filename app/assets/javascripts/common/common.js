@@ -1,10 +1,12 @@
-(function() {
-	$(function($) {
+(function($) {
+
+	$(function() {
 		setHamburger();
 		setButton();
 		categoryBarFixed();
 	});
 	function setButton() {
+		console.log('common');
 		$('.nav-btn').on('click', function() {
 			$(this).toggleClass('active');
 			$('.nav').slideToggle();
@@ -13,6 +15,14 @@
 			$('html, body').animate({
 				scrollTop: 0
 			}, 1000, 'easeOutQuart');
+		});
+		$('.category .title').on('click', function() {
+			$('.sub').slideUp(function() {
+				$(this).css({'display': ''});
+			});
+			if ( $( '+ .sub', $(this) ).css('display') === 'none' ) {
+				$( '+ .sub', $(this) ).slideDown();
+			}
 		});
 	}
 	function setHamburger() {

@@ -20,4 +20,3 @@
 //= require ./common/common
 //= require ./index
 //= require ./merchandise
-//= require turbolinks
