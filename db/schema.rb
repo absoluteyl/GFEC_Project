@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160619023715) do
+ActiveRecord::Schema.define(version: 20160620102846) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20160619023715) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer "postcode_id"
+    t.string  "city"
+    t.string  "address"
+    t.string  "recipient"
+    t.integer "user_id"
   end
 
   create_table "merchandises", force: :cascade do |t|
@@ -53,14 +61,6 @@ ActiveRecord::Schema.define(version: 20160619023715) do
     t.string  "postcode"
     t.string  "name"
     t.integer "city_id"
-  end
-
-  create_table "shippings", force: :cascade do |t|
-    t.integer "postcode_id"
-    t.string  "city"
-    t.string  "address"
-    t.string  "recipient"
-    t.integer "user_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
