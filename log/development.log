@@ -3583,3 +3583,692 @@ Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.
 
 Started GET "/assets/fonts/fontawesome-webfont.woff2?v=4.6.3" for 61.227.235.65 at 2016-06-20 07:57:33 +0000
 Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises/new" for 61.227.235.65 at 2016-06-20 08:01:31 +0000
+Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#new as HTML
+  [1m[36mUser Load (3.9ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered shared/_errors.html.erb (0.1ms)
+  [1m[35mCategory Load (0.6ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."parent_id" IS NULL
+  Rendered merchandises/_form.html.erb (24.4ms)
+  Rendered merchandises/new.html.erb within layouts/application (27.8ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_nav.html.erb (0.6ms)
+  Rendered layouts/_categoryarea.html.erb (0.2ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 184ms (Views: 173.9ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/assets/fonts/fontawesome-webfont.woff2?v=4.6.3" for 61.227.235.65 at 2016-06-20 08:01:32 +0000
+Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/users" for 61.227.235.65 at 2016-06-20 08:01:33 +0000
+Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (15.9ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_nav.html.erb (0.6ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 176ms (Views: 173.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/merchandises" for 61.227.235.65 at 2016-06-20 08:01:39 +0000
+Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.5ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (74.2ms)
+  Rendered merchandises/index.html.erb within layouts/application (76.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_nav.html.erb (0.4ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 195ms (Views: 193.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users" for 61.227.235.65 at 2016-06-20 08:01:40 +0000
+Cannot render console from 61.227.235.65! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 3]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 5]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (16.2ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 130ms (Views: 126.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/merchandises" for 203.104.145.39 at 2016-06-20 08:07:22 +0000
+Cannot render console from 203.104.145.39! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as */*
+  [1m[36mMerchandise Load (0.7ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (52.8ms)
+  Rendered merchandises/index.html.erb within layouts/application (68.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_nav.html.erb (0.4ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 278ms (Views: 276.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/logo-59965451aadb047490b264b71334d30e2055c3cb0264ef8691216a85a813c3a0.png" for 203.104.145.59 at 2016-06-20 08:07:22 +0000
+Cannot render console from 203.104.145.59! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises" for 118.163.130.147 at 2016-06-20 08:07:52 +0000
+Cannot render console from 118.163.130.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.7ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  Rendered merchandises/_merchandise.html.erb (45.9ms)
+  Rendered merchandises/index.html.erb within layouts/application (47.6ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_nav.html.erb (0.4ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 152ms (Views: 150.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 118.163.130.147 at 2016-06-20 08:07:54 +0000
+Cannot render console from 118.163.130.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 3]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 5]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?[0m  [["user_id", 7]]
+  Rendered users/index.html.erb within layouts/application (13.9ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 138ms (Views: 135.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/signup" for 118.163.130.147 at 2016-06-20 08:08:04 +0000
+Cannot render console from 118.163.130.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered shared/_errors.html.erb (0.1ms)
+  Rendered users/_form.html.erb (10.4ms)
+  Rendered users/new.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_header.html.erb (2.8ms)
+  Rendered layouts/_nav.html.erb (0.8ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 189ms (Views: 187.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 118.163.130.147 at 2016-06-20 08:08:08 +0000
+Cannot render console from 118.163.130.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 118ms (Views: 117.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 118.163.130.147 at 2016-06-20 08:08:25 +0000
+Cannot render console from 118.163.130.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (27.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_nav.html.erb (0.4ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 247ms (Views: 246.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/merchandises" for 118.163.130.147 at 2016-06-20 08:13:31 +0000
+Cannot render console from 118.163.130.147! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (4.6ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  Rendered merchandises/_merchandise.html.erb (178.7ms)
+  Rendered merchandises/index.html.erb within layouts/application (182.4ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 589ms (Views: 509.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/merchandises" for 140.110.200.43 at 2016-06-20 08:14:58 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.9ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (50.7ms)
+  Rendered merchandises/index.html.erb within layouts/application (54.5ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_nav.html.erb (0.7ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 226ms (Views: 223.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/common/normalize.self-45276a4294af35271a38d1c1e17e370c8058f2855ded5ab62cf586b86abdda33.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:58 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/merchandise.self-f746de094300481863c42acd23de8a828e600a5f25724633b8a41081f23b2a43.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:58 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/font-awesome.min.self-5391e7e97438dab52be4903558476abc77fb96d82e3a6b52673286b5454b9844.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/isotope.self-1d0cf401186f6fdd6a54bcad7cc554d8c8945f082baa17ea37a4871a5f2551e4.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/hamburgers.self-df5bc1e2153b2503cb03f5881b8708e3fd329ea330d9adcf252a041d7a9469f1.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/index.self-d8a8c0fbc243bc3f6490d49ef4ee844cb1653783228825b50b828bd3dd56de2b.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/common.self-93b26c62075185ed1879a8bece1c0285d5fd555fb644b4981bfaee2f554899ed.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-373a8c46449c8945d5f568717121199071937453b95a71fc07004e7d01dc1f4e.css?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.easing.self-c85028b4485f3b7e91508aa9891cfeb41a8884efd87672715de3fa1ae2173948.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.isotope.self-9faccc188fab2b04afc350768225d3aa567421fc23b9f01082bf98eb1352ff99.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fastclick.self-1aa08cb3c7aa70d268d24d59c374c14af7bd08e0af8c85f8e4f60a2651f4bab5.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fun.self-7ea65007dbb970d5d38fa5911014c833cdaa676245ff90a2732237c85df6b983.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/common.self-b5a9d8bb01d41cb35ef64be8090026c9238437f63b487196bb042dc24ba48a87.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/index.self-c91f334f92fd6a8bd198c0dfe37b546cd0a6cbbde401b3dd66dfb843b3ea6be6.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/merchandise.self-8d57e53a90316fbad41cf92ad68abbf1e4be5c8a505750975d369c6996028005.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/logo-59965451aadb047490b264b71334d30e2055c3cb0264ef8691216a85a813c3a0.png" for 140.110.200.43 at 2016-06-20 08:14:59 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.6.3" for 140.110.200.43 at 2016-06-20 08:15:00 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises" for 1.161.220.165 at 2016-06-20 08:15:02 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.6ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  Rendered merchandises/_merchandise.html.erb (30.8ms)
+  Rendered merchandises/index.html.erb within layouts/application (32.8ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 148ms (Views: 146.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/index.self-d8a8c0fbc243bc3f6490d49ef4ee844cb1653783228825b50b828bd3dd56de2b.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/merchandise.self-f746de094300481863c42acd23de8a828e600a5f25724633b8a41081f23b2a43.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-373a8c46449c8945d5f568717121199071937453b95a71fc07004e7d01dc1f4e.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/hamburgers.self-df5bc1e2153b2503cb03f5881b8708e3fd329ea330d9adcf252a041d7a9469f1.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/isotope.self-1d0cf401186f6fdd6a54bcad7cc554d8c8945f082baa17ea37a4871a5f2551e4.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/normalize.self-45276a4294af35271a38d1c1e17e370c8058f2855ded5ab62cf586b86abdda33.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/font-awesome.min.self-5391e7e97438dab52be4903558476abc77fb96d82e3a6b52673286b5454b9844.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/common.self-93b26c62075185ed1879a8bece1c0285d5fd555fb644b4981bfaee2f554899ed.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:03 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.isotope.self-9faccc188fab2b04afc350768225d3aa567421fc23b9f01082bf98eb1352ff99.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fastclick.self-1aa08cb3c7aa70d268d24d59c374c14af7bd08e0af8c85f8e4f60a2651f4bab5.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.easing.self-c85028b4485f3b7e91508aa9891cfeb41a8884efd87672715de3fa1ae2173948.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/index.self-c91f334f92fd6a8bd198c0dfe37b546cd0a6cbbde401b3dd66dfb843b3ea6be6.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fun.self-7ea65007dbb970d5d38fa5911014c833cdaa676245ff90a2732237c85df6b983.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:04 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises/1" for 140.110.200.43 at 2016-06-20 08:15:07 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMerchandise Load (0.4ms)[0m  [1mSELECT  "merchandises".* FROM "merchandises" WHERE "merchandises"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCategory Load (0.3ms)[0m  SELECT  "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", 7]]
+  Rendered categories/_category.html.erb (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "merchandises" WHERE "merchandises"."user_id" = ?  [["user_id", 1]]
+  Rendered merchandises/show.html.erb within layouts/application (46.5ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_nav.html.erb (0.5ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 171ms (Views: 167.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/common/common.self-b5a9d8bb01d41cb35ef64be8090026c9238437f63b487196bb042dc24ba48a87.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:07 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.6.3" for 140.110.200.43 at 2016-06-20 08:15:07 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-16c207b3ca1b52afcfc7f4b662487caf1bbe084a6656bb15f693ab9de2d11be7.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:10 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.isotope.self-9faccc188fab2b04afc350768225d3aa567421fc23b9f01082bf98eb1352ff99.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:11 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises" for 1.161.220.165 at 2016-06-20 08:15:13 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (0.9ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (55.9ms)
+  Rendered merchandises/index.html.erb within layouts/application (58.5ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_nav.html.erb (0.5ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 193ms (Views: 190.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/bootstrap/alert.self-d8b7bd612b3dcfdefb7b5539b9d5848d66ccbd3e7af8bb8d48bfb3288aaa7be8.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/font-awesome.min.self-5391e7e97438dab52be4903558476abc77fb96d82e3a6b52673286b5454b9844.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.easing.self-c85028b4485f3b7e91508aa9891cfeb41a8884efd87672715de3fa1ae2173948.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.isotope.self-9faccc188fab2b04afc350768225d3aa567421fc23b9f01082bf98eb1352ff99.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fastclick.self-1aa08cb3c7aa70d268d24d59c374c14af7bd08e0af8c85f8e4f60a2651f4bab5.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fun.self-7ea65007dbb970d5d38fa5911014c833cdaa676245ff90a2732237c85df6b983.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:14 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises" for 1.161.220.165 at 2016-06-20 08:15:50 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[35mMerchandise Load (0.5ms)[0m  SELECT "merchandises".* FROM "merchandises"
+  Rendered merchandises/_merchandise.html.erb (31.0ms)
+  Rendered merchandises/index.html.erb within layouts/application (32.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.0ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.0ms)
+  Rendered layouts/_gotopbtn.html.erb (0.0ms)
+Completed 200 OK in 173ms (Views: 170.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/bootstrap/affix.self-3555752f8a930795ee9e56751a52e6871104ae85d01b3ab8363da3802a5ecc78.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/button.self-e74d33ba39500940a78d6fa4d2d64f6ca7fd86d60a2149641f7fde7ba711d8a1.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/carousel.self-35d204878d906298e55bc24553e11fd89b980fc4ffe5792fe36af8c0da289c54.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/collapse.self-056c40532d9f0f126ec17e839f60c942f573fbd61a086e7f156306e3fc5e8c1f.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/dropdown.self-e56c2ffee4618411d43ecf15c89273f6223847ad756e1cd17545d04afa732ed4.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:52 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/modal.self-62463080dba6b9d024ff0a3192da0e76eacbc683194f3395047c6f5cfa0acb59.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/hamburgers.self-df5bc1e2153b2503cb03f5881b8708e3fd329ea330d9adcf252a041d7a9469f1.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tooltip.self-facdc69246a072acb927ded77ff655f7c27a518b9357fddd45d119fbc8a0ab9f.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/font-awesome.min.self-5391e7e97438dab52be4903558476abc77fb96d82e3a6b52673286b5454b9844.css?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/scrollspy.self-52afd90e8ba97d9f08617a13986e8869d6c4a45751c0bff59a6f91241e722aca.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/popover.self-210cff1fb4b72b71a29b5122180cb5937c8145cd13a934dc838280f1d9607a3e.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.easing.self-c85028b4485f3b7e91508aa9891cfeb41a8884efd87672715de3fa1ae2173948.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tab.self-dad0d5c377f9fae26394484535ebb23ccf68afae084f896af6ea4cdf8c9f6ae0.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/jquery.isotope.self-9faccc188fab2b04afc350768225d3aa567421fc23b9f01082bf98eb1352ff99.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/transition.self-3b268d4cd8c79e46ded7392885f72f64ffb5b0d49948a12b8cf9779f6163e13a.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fastclick.self-1aa08cb3c7aa70d268d24d59c374c14af7bd08e0af8c85f8e4f60a2651f4bab5.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:53 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/common.self-b5a9d8bb01d41cb35ef64be8090026c9238437f63b487196bb042dc24ba48a87.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:56 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/common/fun.self-7ea65007dbb970d5d38fa5911014c833cdaa676245ff90a2732237c85df6b983.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:58 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/index.self-c91f334f92fd6a8bd198c0dfe37b546cd0a6cbbde401b3dd66dfb843b3ea6be6.js?body=1" for 1.161.220.165 at 2016-06-20 08:15:59 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/logo-59965451aadb047490b264b71334d30e2055c3cb0264ef8691216a85a813c3a0.png" for 1.161.220.165 at 2016-06-20 08:15:59 +0000
+Cannot render console from 1.161.220.165! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/merchandises" for 140.110.200.43 at 2016-06-20 08:16:57 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MerchandisesController#index as HTML
+  [1m[36mMerchandise Load (1.5ms)[0m  [1mSELECT "merchandises".* FROM "merchandises"[0m
+  Rendered merchandises/_merchandise.html.erb (44.0ms)
+  Rendered merchandises/index.html.erb within layouts/application (45.7ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_nav.html.erb (0.3ms)
+  Rendered layouts/_categoryarea.html.erb (0.1ms)
+  Rendered layouts/_messages.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered layouts/_gotopbtn.html.erb (0.1ms)
+Completed 200 OK in 163ms (Views: 160.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/fonts/fontawesome-webfont.woff?v=4.6.3" for 140.110.200.43 at 2016-06-20 08:16:58 +0000
+Cannot render console from 140.110.200.43! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
