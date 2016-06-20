@@ -7,6 +7,7 @@
       </div>
       <ul class="filter-item">
         <li data-filter="*" class="active">全部</li>
+        <!-- Need to add association with category -->
         <li data-filter=".aa">氣墊襪</li>
         <li data-filter=".bb">機能襪</li>
         <li data-filter=".cc">船型襪</li>
@@ -15,167 +16,183 @@
     </div>
   </div>
   <div id="products">
-      <ul class="content">
-          <li class="product-list aa" data-index="氣墊襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/1.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">氣墊襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
+    <ul class="content">
+      <% obj.each do |merchandise| %>
+        <li class="product-list">
+          <%= link_to merchandise_path(merchandise) do %>
+            <%= image_tag merchandise.image_1.url(:medium), class: "product-img" %>
+            <div class="product-info">
+              <%= content_tag :p, merchandise.title , :class => "name" %>
+              <%= content_tag :p, "$#{merchandise.price}", :class => "price" %>
+            </div>
+          <% end %>
+          <div class="mask">
+              <div class="addToCart">
+                  <a href="javascrpt:;">view</a>
               </div>
-          </li>
-          <li class="product-list aa" data-index="氣墊襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/2.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">氣墊襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list aa" data-index="氣墊襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/3.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">氣墊襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list bb" data-index="機能襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/4.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">機能襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list bb" data-index="機能襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/5.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">機能襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list bb" data-index="機能襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/6.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">機能襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list cc" data-index="船型襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/7.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">船型襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list cc" data-index="船型襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/8.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">船型襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list cc" data-index="船型襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/9.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">船型襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-          <li class="product-list dd" data-index="休閒襪">
-              <a href="detail.htm">
-                  <div class="product-img">
-                    <%= image_tag "merchandise/10.jpg" %>
-                  </div>
-                  <div class="product-info">
-                      <p class="name">休閒襪</p>
-                      <p class="price">$168</p>
-                  </div>
-              </a>
-              <div class="mask">
-                  <div class="addToCart">
-                      <a href="javascrpt:;">view</a>
-                  </div>
-              </div>
-          </li>
-      </ul>
+          </div>
+        </li>
+      <% end %>
+<!--          <li class="product-list aa" data-index="氣墊襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/1.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">氣墊襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list aa" data-index="氣墊襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/2.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">氣墊襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list aa" data-index="氣墊襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/3.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">氣墊襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list bb" data-index="機能襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/4.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">機能襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list bb" data-index="機能襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/5.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">機能襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list bb" data-index="機能襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/6.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">機能襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list cc" data-index="船型襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/7.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">船型襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list cc" data-index="船型襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/8.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">船型襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list cc" data-index="船型襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/9.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">船型襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+<!--          <li class="product-list dd" data-index="休閒襪">-->
+<!--              <a href="detail.htm">-->
+<!--                  <div class="product-img">-->
+<!--                    <%= image_tag "merchandise/10.jpg" %>-->
+<!--                  </div>-->
+<!--                  <div class="product-info">-->
+<!--                      <p class="name">休閒襪</p>-->
+<!--                      <p class="price">$168</p>-->
+<!--                  </div>-->
+<!--              </a>-->
+<!--              <div class="mask">-->
+<!--                  <div class="addToCart">-->
+<!--                      <a href="javascrpt:;">view</a>-->
+<!--                  </div>-->
+<!--              </div>-->
+<!--          </li>-->
+    </ul>
   </div>
 </div>
