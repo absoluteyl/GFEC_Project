@@ -7,15 +7,15 @@ class MerchandisesController < ApplicationController
        @merchandise = Merchandise.new 
     end
     def create
-        @merchandise = Merchandise.new(merchandise_params)
-        @merchandise.user = current_user
-        if @merchandise.save
-          flash[:success] = "Your merchandise was successfully uploaded"
-          redirect_to merchandise_path(@merchandise)
-        else
-          render 'new'
-          #"render :new"  does the same thing
-        end
+      @merchandise = Merchandise.new(merchandise_params)
+      @merchandise.user = current_user
+      if @merchandise.save
+        flash[:success] = "Your merchandise was successfully uploaded"
+        redirect_to merchandise_path(@merchandise)
+      else
+        render 'new'
+        #"render :new"  does the same thing
+      end
     end
     
     def show

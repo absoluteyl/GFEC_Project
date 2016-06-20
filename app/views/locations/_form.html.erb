@@ -1,0 +1,19 @@
+<%= render 'shared/errors', obj: @location %>
+    <div>
+    <%= form_for @location do |f| %>
+        <%= f.label :recipient %>
+        <%= f.text_field :recipient, placeholder: "Enter recipient name", autofocus: true %>
+        <br />
+        <%= f.label :city %>
+        <%= f.text_field :city, placeholder: "Enter city in chinese" %>
+        <br />
+        <%= f.label :address %>
+        <%= f.text_field :address, rows: 10, placeholder: "Description the status and spec of your location" %>
+        <br />
+        <%= f.label :phone %>
+        <%= f.text_field :phone, placeholder: "Enter recipient phone number" %>
+        <br />
+        <%= f.submit %>
+    <% end %>
+    </div>
+    <%= link_to "Cancel request and return to location listing", locations_path %>

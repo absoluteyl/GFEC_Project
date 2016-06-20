@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620102846) do
+ActiveRecord::Schema.define(version: 20160620113750) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20160620102846) do
     t.string  "address"
     t.string  "recipient"
     t.integer "user_id"
+    t.string  "phone"
   end
 
   create_table "merchandises", force: :cascade do |t|
