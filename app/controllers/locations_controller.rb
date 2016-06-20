@@ -1,9 +1,8 @@
 class LocationsController < ApplicationController
-    before_action :set_user
-    before_action :set_location, only: [:edit, :update, :show, :destroy]
+    before_action :set_location, only: [:edit, :update, :destroy]
     
     def index
-        @locations = Location.where(user_id = @user.id)
+        @locations = Location.where(user_id: current_user.id)
     end
     
     def new
@@ -40,11 +39,9 @@ class LocationsController < ApplicationController
     end
     
     private
-    def set_user
-        @user = User.find(params[:id])
-    end
     def set_location
         @location = Location.find(params[:id])
+        puts @location.id
     end
     def location_params
         params.require(:location).permit(:city, :address, :recipient, :phone)
