@@ -1,0 +1,443 @@
+a {
+  display: block;
+  color: #000;
+}
+a:focus {
+  outline: none;
+}
+
+.wrap {
+  text-transform: uppercase;
+  font-family: 'Proxima Nova Regular','Lucida Sans Unicode','Lucida Grande',Arial,sans-serif;
+}
+
+.header {
+  position: relative;
+  height: 132px;
+}
+.header .header-content {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+  height: 100%;
+}
+.header .nav-btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  left: 15px;
+}
+.header .nav-btn .hamburger {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+.header .nav-btn .hamburger-box {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 28px;
+}
+.header .nav-btn .hamburger-inner, .header .nav-btn .hamburger-inner::before, .header .nav-btn .hamburger-inner::after {
+  width: 28px;
+  height: 4px;
+}
+.header .logo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: 20px;
+  font-size: 0;
+  width: 235px;
+}
+.header .logo img {
+  width: 100%;
+}
+.header .cart {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  right: 15px;
+}
+.header .cart i {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 28px;
+  height: 30px;
+  font-size: 30px;
+  color: #00aeff;
+  transition: .3s;
+}
+.header .cart .name {
+  display: none;
+}
+.header .cart a {
+  width: 100%;
+  height: 100%;
+}
+.header .cart:hover i {
+  color: #89e4ac;
+}
+
+.pc-nav {
+  display: none;
+}
+
+.nav {
+  display: none;
+  font-size: 0;
+}
+.nav li {
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  border-top: 1px solid #CCC;
+}
+.nav li a {
+  transition: .3s;
+}
+.nav li a:hover {
+  color: #00aeff;
+}
+.nav .search input {
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #00aeff;
+}
+
+.category-area {
+  width: 100%;
+  font-size: 20px;
+  z-index: 10;
+  top: 0;
+  background: #00aeff;
+}
+
+.category-content {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.category {
+  position: relative;
+  font-size: 20px;
+}
+.category li {
+  height: 40px;
+  line-height: 40px;
+}
+.category a {
+  color: #FFF;
+  background: #00aeff;
+  text-align: center;
+  transition: .3s;
+}
+.category a:hover {
+  background: #008bcc;
+}
+.category .sub {
+  display: none;
+}
+.category .category-sub a {
+  background: #3e3e3e;
+}
+.category .category-sub a:hover {
+  color: #00aeff;
+}
+
+.footer {
+  background-color: #333;
+  width: 100%;
+  color: #aaa;
+  padding-top: 64px;
+  padding-bottom: 80px;
+  margin-top: 70px;
+}
+.footer .share {
+  text-align: center;
+  font-family: "Apercu Bold",Calibri,sans-serif;
+}
+.footer .share a {
+  display: inline-block;
+  width: 395px;
+  height: 73px;
+  font-size: 22px;
+  text-align: center;
+  line-height: 73px;
+  color: #fff;
+  border: 3px solid #00aeff;
+  transition: .3s;
+}
+.footer .share a:hover {
+  background: #00aeff;
+}
+.footer .copyright {
+  text-align: center;
+  font-size: 10px;
+  margin-top: 50px;
+}
+
+.goTop-btn {
+  position: fixed;
+  bottom: 8px;
+  right: 16px;
+  width: 46px;
+  height: 46px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: #848484;
+  cursor: pointer;
+  text-align: center;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #848484;
+  font-size: 18px;
+  line-height: 42px;
+  transition: .3s;
+}
+.goTop-btn i {
+  color: #848484;
+  transition: .3s;
+}
+.goTop-btn:hover {
+  border: 2px solid #00aeff;
+}
+.goTop-btn:hover i {
+  color: #00aeff;
+}
+
+.inputbox {
+  display: none;
+  height: 20px;
+  width: 200px;
+  position: absolute;
+  top: 12px;
+  right: 2px;
+  font-size: 0;
+}
+.inputbox input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 1.5px 0;
+  border: 0;
+  background: none;
+  width: 20px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 100%;
+  transition: width 0.3s ease-in-out, border-radius 0.3s ease-in-out, padding 0.15s;
+  transition-delay: 0s, 0.3s, 0s;
+  box-shadow: 0 0 0 2px currentColor;
+  color: #FFF;
+  cursor: pointer;
+  padding: 1.5px 0;
+  padding-right: 20px;
+  font-weight: lighter;
+  font-family: 'Roboto';
+}
+.inputbox input:focus, .inputbox input:valid {
+  width: 100%;
+  transition-delay: 0.3s, 0s, 0.3s;
+  outline: 0;
+  border-radius: 0;
+  cursor: text;
+  padding-left: 1.5px;
+}
+.inputbox input:focus + .del, .inputbox input:valid + .del {
+  pointer-events: all;
+  left: calc(100% - 10px);
+  transition-delay: 0.3s;
+}
+.inputbox input:focus + .del:focus, .inputbox input:valid + .del:focus {
+  box-shadow: 0 0 0 1px currentColor;
+  height: 15px;
+  width: 15px;
+}
+.inputbox input:focus + .del:before, .inputbox input:valid + .del:before {
+  transform: translate(-50%, -50%) rotate(-45deg) scaleY(0.7);
+  transition-delay: 0s;
+}
+.inputbox input:focus + .del:after, .inputbox input:valid + .del:after {
+  transform: translate(-50%, -50%) rotate(45deg) scaleY(0.7);
+  transition-delay: 0.15s;
+}
+.inputbox .del {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  width: 20px;
+  padding: 0;
+  background: none;
+  border-radius: 100%;
+  border: 0;
+  pointer-events: none;
+  transition: left 0.3s ease-in-out;
+  transition-delay: 0s;
+  color: #FFF;
+  cursor: pointer;
+}
+.inputbox .del:focus {
+  outline: none;
+}
+.inputbox .del:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  width: 2px;
+  height: 15px;
+  transform: translate(13.5px, 13.5px) translate(-50%, -50%) rotate(-45deg) scaleY(1);
+  transition: transform 0.15s ease-in-out;
+  transition-delay: 0.45s;
+}
+.inputbox .del:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  width: 2px;
+  height: 15px;
+  transform: translate(-50%, -50%) rotate(45deg) scaleY(0);
+  transition: transform 0.15s ease-in-out;
+  transition-delay: 0.3s;
+}
+
+@media screen and (min-width: 1115px) {
+  .header .nav-btn {
+    display: none;
+  }
+  .header .logo {
+    position: relative;
+    display: inline-block;
+    left: 25px;
+    top: 20px;
+    margin: 0;
+  }
+  .header .cart {
+    width: 160px;
+    height: 54px;
+    background-color: #e2e2e2;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 54px;
+    margin: 0;
+    right: 25px;
+    font-size: 13px;
+    transition: .3s;
+  }
+  .header .cart .name {
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
+  .header .cart i {
+    position: relative;
+    font-size: 15px;
+  }
+  .header .cart i:hover {
+    color: #00aeff;
+  }
+  .header .cart a {
+    color: #848484;
+  }
+  .header .cart:hover {
+    background-color: #cbcbcb;
+  }
+  .header .cart:hover a {
+    color: #484848;
+  }
+  .header .cart:hover i {
+    color: #00aeff;
+  }
+
+  .pc-nav {
+    display: none;
+    display: inline-block;
+    margin-left: 104px;
+    margin-top: 32px;
+    font-size: 18px;
+    font-family: "Apercu Bold",Calibri,sans-serif;
+    vertical-align: top;
+  }
+  .pc-nav li {
+    display: inline-block;
+    width: 110px;
+    height: 50px;
+    line-height: 50px;
+    font-weight: 700;
+    text-align: center;
+    transition: .3s;
+  }
+  .pc-nav li a {
+    display: inline-block;
+    border-top: 7px solid transparent;
+    transition: .3s;
+  }
+  .pc-nav li a:hover {
+    border-top: 7px solid #00aeff;
+  }
+
+  .inputbox {
+    display: block;
+  }
+
+  .category .title {
+    display: none;
+    font-size: 0;
+  }
+  .category > li {
+    height: 45px;
+    line-height: 45px;
+  }
+  .category .sub {
+    display: block;
+    font-size: 0;
+  }
+  .category .sub li {
+    display: inline-block;
+    width: 150px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 18px;
+    vertical-align: top;
+  }
+  .category .sub li a {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 1320px) {
+  .category {
+    text-align: center;
+  }
+}

@@ -2,16 +2,21 @@
 <html>
 <head>
   <title>Flea Market</title>
+  <meta name="viewport" content="width=device-width; maximum-scale=1.0; user-scalable=1;">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!--[if lte IE 8]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js">
+  </script><![endif]-->
 </head>
-<body>
-  <%= render 'layouts/navigation' %>
+<body class="<%= params[:controller] + '-' + params[:action] %>">
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/category-area' %>
   <%= render 'layouts/messages' %>
-  <div class="container">
-    <%= yield %>
-  </div>
-  <%= debug(params) if Rails.env.development? %>
+  <%= yield %>
+  <%= render 'layouts/footer' %>
+  <%= render 'layouts/goTop-btn' %>
 </body>
 </html>
