@@ -72,6 +72,9 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
+  #Shipping Routes
+  resources :shippings
+  
   #API Routes
   namespace :api do
     resources :merchandises
