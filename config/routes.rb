@@ -63,7 +63,12 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy]
   
   #Users Routes
-  resources :users, except: [:new]
+  resources :users, except: [:new] do
+    member do
+      get :location
+      
+    end
+  end
   #new user route
   get 'signup', to: 'users#new'
   
