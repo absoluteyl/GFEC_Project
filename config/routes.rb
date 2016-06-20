@@ -63,7 +63,12 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy]
   
   #Users Routes
-  resources :users, except: [:new]
+  resources :users, except: [:new] do
+    member do
+      get :location
+      
+    end
+  end
   #new user route
   get 'signup', to: 'users#new'
   
@@ -71,9 +76,6 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-  
-  #Shipping Routes
-  resources :shippings
   
   #API Routes
   namespace :api do
