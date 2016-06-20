@@ -13,5 +13,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require turbolinks
-//= require_tree .
+//= require ./common/jquery.easing
+//= require ./common/jquery.isotope
+//= require ./common/fastclick
+//= require ./common/fun
+//= require ./common/common
+//= require ./index
+//= require ./merchandise

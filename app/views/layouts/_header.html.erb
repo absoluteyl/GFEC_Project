@@ -1,0 +1,41 @@
+<div class="header">
+  <div class="header-content">
+    <div class="nav-btn">
+      <div class="hamburger hamburger--elastic">
+        <div class="hamburger-box">
+          <div class="hamburger-inner"></div>
+        </div>
+      </div>
+    </div>
+    <div class="logo">
+      <a href="/">
+        <%= image_tag "logo.png" %>
+      </a>
+    </div>
+    <div class="pc-nav">
+      <ul>
+        <li class="shop">
+          <%= link_to '商品', merchandises_path %>
+        </li>
+        <% if logged_in? %>
+          <li><%= link_to "上傳", new_merchandise_path %></li>
+        <% end %>
+        <li class="members">
+          <%= link_to '會員', users_path %>
+        </li>
+        <li class="about">
+          <a href="javascript:;">關於</a>
+        </li>
+        <% if !logged_in? %>
+          <li><%= link_to '註冊', signup_path %></li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="cart">
+      <a href="javascript:;">
+        <i class="fa fa-shopping-cart"></i>
+        <span class="name">購物車</span>
+      </a>
+    </div>
+  </div>
+</div>

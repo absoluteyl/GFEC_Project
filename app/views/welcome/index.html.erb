@@ -1,13 +1,530 @@
-<h1>Hello! This is flea market</h1>
-<ul>
-    <li><%= link_to 'Browse all the merchandise', merchandises_path %></li>
-    <% if logged_in? %>
-      <li><%= link_to "Upload merchandise", new_merchandise_path %></li>
-    <% end %>
-</ul>
-<ul>
-    <% if !logged_in? %>
-        <li><%= link_to 'Create your own acoount', signup_path %></li>
-    <% end %>
-    <li><%= link_to 'View all our members', users_path %></li>
-</ul>
+<div class="slider">
+	<div class="slider-content">
+		<ul>
+			<li>
+				<a href="javascript:;">
+				  <%= image_tag "slider/slider1.jpg" %>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<%= image_tag "slider/slider2.jpg" %>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:;">
+					<%= image_tag "slider/slider3.jpg" %>
+				</a>
+			</li>
+		</ul>
+		<div class="btn prev">
+			<a href="javascript:;">
+				<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+			</a>
+		</div>
+		<div class="btn next">
+			<a href="javascript:;">
+				<i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="main">
+	<ul class="banner">
+		<li>
+			<a href="javascript:;">
+			  <%= image_tag "banner1.png" %>
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">
+				<%= image_tag "banner2.jpg" %>
+			</a>
+		</li>
+	</ul>
+	<div class="section featured">
+		<div class="section-title">
+			<h2>
+				<a href="javascript:;">
+					Featured Items
+				</a>
+			</h2>
+		</div>
+		<ul class="product-area">
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			      <%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+		</ul>
+		<div class="view-all-btn">
+			<a href="javascript:;">
+				view all
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+	<div class="section clothing">
+		<div class="section-title">
+			<h2>
+				<a href="javascript:;">
+					clothing
+				</a>
+			</h2>
+		</div>
+		<ul class="product-area">
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+		</ul>
+		<div class="view-all-btn">
+			<a href="javascript:;">
+				view all
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+	<div class="section lifestyle">
+		<div class="section-title">
+			<h2>
+				<a href="javascript:;">
+					lifestyle
+				</a>
+			</h2>
+		</div>
+		<ul class="product-area">
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+		</ul>
+		<div class="view-all-btn">
+			<a href="javascript:;">
+				view all
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+	<div class="section prints">
+		<div class="section-title">
+			<h2>
+				<a href="javascript:;">
+					prints
+				</a>
+			</h2>
+		</div>
+		<ul class="product-area">
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+		</ul>
+		<div class="view-all-btn">
+			<a href="javascript:;">
+				view all
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+	<div class="section sale">
+		<div class="section-title">
+			<h2>
+				<a href="javascript:;">
+					sale
+				</a>
+			</h2>
+		</div>
+		<ul class="product-area">
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+			<li class="product">
+			  <a href="javascript:;">
+			    	<%= image_tag "http://cdn.shopify.com/s/files/1/0167/4484/products/endless-v2000_large.jpg?v=1447968916" %>
+			    <div class="info">
+			      <span class="name">SPRING TEE SET (3 TEES)</span>
+			      <span class="spacer"></span>
+			      <span class="price">$75</span>
+			    </div>
+			  </a>
+			</li>
+		</ul>
+		<div class="view-all-btn">
+			<a href="javascript:;">
+				view all
+				<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+			</a>
+		</div>
+	</div>
+</div>

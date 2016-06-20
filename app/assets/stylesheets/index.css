@@ -1,0 +1,190 @@
+.main {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+.main .banner {
+  width: 102%;
+  margin-left: -1%;
+  font-size: 0;
+  margin-top: 50px;
+}
+.main .banner li {
+  display: inline-block;
+  width: 50%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 1%;
+}
+.main .banner img {
+  width: 100%;
+}
+.main .section-title {
+  position: relative;
+  overflow: hidden;
+}
+.main .section-title h2 {
+  position: relative;
+  display: table;
+  margin: 60px auto 30px;
+}
+.main .section-title h2:before {
+  content: '';
+  display: block;
+  width: 1000px;
+  height: 1px;
+  background: #CCC;
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-right: 15px;
+}
+.main .section-title h2:after {
+  content: '';
+  display: block;
+  width: 1000px;
+  height: 1px;
+  background: #CCC;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-left: 15px;
+}
+.main .section-title h2 a {
+  color: #00aeff;
+  font-size: 32px;
+  text-transform: uppercase;
+  transition: .3s;
+}
+.main .section-title h2 a:hover {
+  color: #000;
+}
+.main .product-area {
+  font-size: 0;
+  width: 102%;
+  margin-left: -1%;
+}
+.main .product {
+  display: inline-block;
+  width: 50%;
+  font-size: 14px;
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 1%;
+}
+.main .product img {
+  width: 100%;
+}
+.main .product .spacer {
+  display: block;
+  width: 36px;
+  height: 6px;
+  margin: 3px auto;
+  background: #b5b5b5;
+}
+.main .product span {
+  transition: .3s;
+}
+.main .product .info {
+  height: 80px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.main .product:hover span {
+  color: #00aeff;
+}
+.main .product:hover .spacer {
+  background: #00aeff;
+}
+.main .view-all-btn {
+  max-width: 400px;
+  height: 53px;
+  background: #3e3e3e;
+  font-size: 16px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 53px;
+  letter-spacing: 2px;
+  transition: .3s;
+}
+.main .view-all-btn a {
+  color: #fff;
+}
+.main .view-all-btn:hover {
+  background-color: #89e4ac;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  font-size: 0;
+  padding-bottom: 30px;
+}
+.slider .slider-content {
+  position: relative;
+  overflow: hidden;
+}
+.slider ul {
+  position: relative;
+  width: 99999px;
+}
+.slider li {
+  display: inline-block;
+  cursor: pointer;
+}
+.slider img {
+  width: 100%;
+}
+.slider .btn {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  width: 43px;
+  height: 50px;
+  font-size: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.slider .btn i {
+  color: #848484;
+}
+.slider .btn.next {
+  right: 10px;
+  left: auto;
+}
+.slider .sliderBar {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+}
+.slider .sliderBar li {
+  background-color: #848484;
+  margin-left: 6px;
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transition: .3s;
+}
+.slider .sliderBar .active {
+  background-color: #00aeff;
+}
+
+@media screen and (min-width: 1020px) {
+  .main .product {
+    width: 33.333333%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main .product {
+    width: 25%;
+  }
+}

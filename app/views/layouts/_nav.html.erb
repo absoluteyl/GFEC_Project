@@ -1,0 +1,25 @@
+<div class="nav">
+  <ul>
+    <li class="shop">
+      <%= link_to '商品', merchandises_path %>
+    </li>
+    <% if logged_in? %>
+      <li><%= link_to "上傳", new_merchandise_path %></li>
+    <% end %>
+    <li class="members">
+      <%= link_to '會員', users_path %>
+    </li>
+    <li class="about">
+      <a href="javascript:;">關於</a>
+    </li>
+    <% if !logged_in? %>
+      <li><%= link_to '註冊', signup_path %></li>
+    <% end %>
+    <li class="contact">
+      <a href="javascript:;">聯絡我們</a>
+    </li>
+    <li class="search">
+      <input type="text" placeholder="搜尋">
+    </li>
+  </ul>
+</div>
