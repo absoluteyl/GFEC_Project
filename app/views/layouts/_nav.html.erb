@@ -12,8 +12,11 @@
     <li class="about">
       <a href="javascript:;">關於</a>
     </li>
-    <% if !logged_in? %>
+    <% if logged_in? %>
+      <li><%= link_to '登出', logout_path, method: :delete %></li>
+    <% else %>
       <li><%= link_to '註冊', signup_path %></li>
+      <li><%= link_to '登入', login_path %></li>
     <% end %>
     <li class="contact">
       <a href="javascript:;">聯絡我們</a>
