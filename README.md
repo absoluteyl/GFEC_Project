@@ -107,6 +107,24 @@ Filtered Query:
     Accept: application/json
     Content-type: application/json
     
+####Category:
+#####GET:
+General Query:
+    
+    GET /api/categories
+    GET /api/categories/:id
+
+Filtered Query:
+    
+    GET /api/categories?name=exactName
+    
+#####POST:
+Not support
+#####PUT/PATCH:
+Not support
+#####DELETE:
+Not support
+
 ####User:
 #####GET:
 General Query:
@@ -164,23 +182,64 @@ Filtered Query:
     Accept: application/json
     Content-type: application/json
     
-####Category:
+####Location:
 #####GET:
 General Query:
     
-    GET /api/categories
-    GET /api/categories/:id
+    GET /api/locations?user=[user_id]
 
-Filtered Query:
-    
-    GET /api/categories?name=exactName
-    
 #####POST:
-Not support
+    
+    POST /api/locations
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        "location":{
+            #Mandatory Fields
+            "user_id": "integer",
+            
+            #Optional Fields
+            "postcode": integer,
+            "city": "string",
+            "address": "string",
+            "recipient": "string",
+            "phone": "string",
+            "lat": float,
+            "long": float
+        }
+    }
+    
 #####PUT/PATCH:
-Not support
+    
+    PUT /api/locations/:id
+    PATCH /api/locations/:id
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        "location":{
+            #Available Fields
+            "postcode": integer,
+            "city": "string",
+            "address": "string",
+            "recipient": "string",
+            "phone": "string",
+            "lat": float,
+            "long": float
+        }
+    }
+    
 #####DELETE:
-Not support
+    
+    DELETE /api/locations/:id
+    
+    Accept: application/json
+    Content-type: application/json
+    
+
 <br />
 
 ##Contributors
