@@ -58,12 +58,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {        
-
-          // setting the buuton image to selected image
-//        let selectedImage = info[UIImagePickerControllerOriginalImage]! as! UIImage
-//        addPhoto1.imageView?.backgroundColor = UIColor.clearColor()
-//        addPhoto1.setImage(selectedImage, forState: UIControlState.Normal)
-//        addPhoto1.imageView?.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
         
         guard let addPhoto1 = addPhoto1 else {
             print("Error! action button is nil")
@@ -102,8 +96,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     override func viewWillAppear(animated: Bool) {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if appDelegate.dataItem != -1 {
-            categorySelectedName.text = categoriesArray[appDelegate.dataItem]
+        if appDelegate.itemCategoryNumber != -1 {
+            categorySelectedName.text = categoriesArray[appDelegate.itemCategoryNumber]
         }
         
 //        if categoryNumber != nil {
@@ -178,7 +172,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         //print("64STRING:\(base64String1)")
         
-//        request.HTTPBody = "{\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID),\"image_1\": \(base64String1)}".dataUsingEncoding(NSUTF8StringEncoding);
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         
         let params:[String: AnyObject] = [
@@ -188,7 +182,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
                 "user_id" : self.theDelegate.userID,
-                "image_1" : "data:image/jpeg;base64,\(base64String1)"]
+                "image_1" : "data:image/jpeg;base64,\(base64String1)"],
+                "category_id" : appDelegate.itemCategoryNumber
         ]
         
         do{
@@ -207,13 +202,15 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if let response = response, data = data {
                 print(response)
-                print(String(data: data, encoding: NSUTF8StringEncoding))
+                //print(String(data: data, encoding: NSUTF8StringEncoding))
             } else {
                 print(error)
             }
+            
         }
 
         task.resume()
+        self.performSegueWithIdentifier("backToTab1Segue", sender: postButton)
     
     }
     

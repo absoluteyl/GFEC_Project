@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/AddItemInfoTableViewController.swift"
-            timestampString = "487932241.736878"
+            timestampString = "488356672.143723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "post()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,13 +42,61 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/AddItemInfoTableViewController.swift"
-            timestampString = "487932241.736878"
+            timestampString = "488357627.509318"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "post()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TabStoryReferenceSample/AddItemInfoTableViewController.swift"
+            timestampString = "488357627.509318"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "post()"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "fleaMarket.AddItemInfoTableViewController.(post in _B0F521A3838D674CA0F2CCA9F312D2BD) () -&gt; ()"
+                  moduleName = "fleaMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kero/Desktop/LearniOS/GFEC_Project/02_iOS/fleaMarket/TabStoryReferenceSample/AddItemInfoTableViewController.swift"
+                  timestampString = "488356623.417774"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "7044">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "fleaMarket.AddItemInfoTableViewController.((post in _B0F521A3838D674CA0F2CCA9F312D2BD) () -&gt; ()).(closure #1)"
+                  moduleName = "fleaMarket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/kero/Desktop/LearniOS/GFEC_Project/02_iOS/fleaMarket/TabStoryReferenceSample/AddItemInfoTableViewController.swift"
+                  timestampString = "488356623.42578"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "214"
+                  endingLineNumber = "214"
+                  offsetFromSymbolStart = "806">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

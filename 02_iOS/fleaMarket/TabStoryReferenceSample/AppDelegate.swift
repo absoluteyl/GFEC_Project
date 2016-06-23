@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemArray: NSArray?
     var userID: Int = 7 //for testing
     
-    var dataItem = -1
+    var itemCategoryNumber = -1
+    var itemStatusNumber = -1
+    var itemDeliveryNumber = -1
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

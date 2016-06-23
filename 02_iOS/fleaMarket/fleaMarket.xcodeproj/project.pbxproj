@@ -338,8 +338,8 @@
 		C974EE331D06EEB4001002BE /* S05_MySell */ = {
 			isa = PBXGroup;
 			children = (
-				C974EE3D1D06EF9E001002BE /* S05_MySellViewController.swift */,
 				C974EE3F1D06EFB3001002BE /* S05_MySell.storyboard */,
+				C974EE3D1D06EF9E001002BE /* S05_MySellViewController.swift */,
 			);
 			name = S05_MySell;
 			sourceTree = "<group>";
