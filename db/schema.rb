@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623080418) do
+ActiveRecord::Schema.define(version: 20160623081829) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20160623080418) do
     t.string  "recipient"
     t.integer "user_id"
     t.string  "phone"
-    t.float   "lat"
-    t.float   "long"
+    t.decimal "lat",         precision: 15, scale: 13
+    t.decimal "long",        precision: 15, scale: 13
   end
 
   create_table "merchandises", force: :cascade do |t|
