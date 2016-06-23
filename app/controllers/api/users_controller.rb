@@ -43,17 +43,17 @@ class Api::UsersController < Api::ApiController
   def update
       puts :avatar_data
     if @user.update(update_user_params)
-        render status: 200, json: {
-            status: "OK",
-            message: "User is been updated.",
-            user: @user.as_json
-        }.to_json
+      render status: 200, json: {
+          status: "OK",
+          message: "User is been updated.",
+          user: @user.as_json
+      }.to_json
     else
-        render status: 422, json: {
-            status: "Unprocessable Entity",
-            message: "User cannot be udpated.",
-            errors: @user.errors
-        }.to_json
+      render status: 422, json: {
+          status: "Unprocessable Entity",
+          message: "User cannot be udpated.",
+          errors: @user.errors
+      }.to_json
     end
   end
   

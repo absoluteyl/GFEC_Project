@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :merchandises
     resources :users
+    resources :locations, except: [:show]
     resources :categories, except: [:destroy]
   end
 end
