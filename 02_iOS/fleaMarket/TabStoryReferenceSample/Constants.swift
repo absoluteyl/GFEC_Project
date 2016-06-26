@@ -17,7 +17,7 @@ struct Constants {
     }
     
     struct Users {
-        static let APIBaseURL = "https://flea-market.herokuapp.com/api/users"
+        static let APIBaseURL = "https://ririkoko.herokuapp.com/api/users"
     }
     
     
@@ -32,6 +32,7 @@ struct Constants {
         static let Username = "username" // this is a string users set as user name
         static let Password = "password"
         static let API_Key = "api_key"
+        static let user = "user"
     }
     
     // MARK: Merchandises Parameter Values

@@ -1,61 +1,70 @@
 //
-//  FirstTabViewController.swift
-//  TabStoryReferenceSample
+//  UserDetailViewController.swift
+//  fleaMarket
 //
-//  Created by Kero on 2016/5/29.
+//  Created by Kero on 2016/6/25.
 //  Copyright © 2016年 ColorKit. All rights reserved.
 //
 
 import UIKit
 
-//define an array of merchandise title for later use
-var titleArray = [String]()
-var priceArray = [Int]()
-var itemIdArray = [Int]()
-var imageArray = [String]()
-let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
 
+var titleArray_1 = [String]()
+var priceArray_1 = [Int]()
+var itemIdArray_1 = [Int]()
+var imageArray_1 = [String]()
 
-
-
-class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class UserDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
+    var userId:Int!
+
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
-    
-    
-    var hasGotAPIYet: Bool = false
-    
     override func viewWillAppear(animated: Bool) {
-        titleArray = []
-        priceArray = []
-        itemIdArray = []
-        imageArray = []
-            getDataFromDB()
-        
-        activityIndicator.startAnimating()
-           
+        getItemFromDB()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1.\(titleArray.count)")
-        //getDataFromDB()
-        
-        print("2.\(titleArray.count)")
-        
-        // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
-        // End of adding logo to Navigation Bar
-        
+
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
     
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return titleArray_1.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
+        
+        let imageURL = NSURL(string: imageArray_1[indexPath.row])
+        if let imageData = NSData(contentsOfURL: imageURL!) {
+            cell.imageView.image = UIImage(data: imageData)!
+        } else {
+            print("Image does not exist at \(imageURL)")
+        }
+        
+        cell.layer.cornerRadius = 10
+        cell.layer.masksToBounds = true
+        // cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
+        cell.cellLabel.text = "\(titleArray_1[indexPath.row])" //顯示物件名稱
+        cell.cellPriceLabel.text = "$ \(priceArray_1[indexPath.row])"//顯示價格
+        
+        var itemId = itemIdArray_1[indexPath.row] //給予每個cell item id，為了讓itemDetailView可以正確顯示
+        
+        return cell
+        
+        return cell
+    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -67,61 +76,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             return CGSize(width: 200, height: 200)
             
         }
-        
-
     }
     
-
-
-    
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        collectionView.reloadData() //螢幕轉直or橫時會更新cell的大小
-    }
-    
-    //有幾個section
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    //有幾個cell
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titleArray.count
-    }
-    
-    
-    //cell中顯示內容
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
-        
-        let imageURL = NSURL(string: imageArray[indexPath.row])
-        if let imageData = NSData(contentsOfURL: imageURL!) {
-            cell.imageView.image = UIImage(data: imageData)!
-        } else {
-            print("Image does not exist at \(imageURL)")
-        }
-        
-        cell.layer.cornerRadius = 10
-        cell.layer.masksToBounds = true
-       // cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
-        cell.cellLabel.text = "\(titleArray[indexPath.row])" //顯示物件名稱
-        cell.cellPriceLabel.text = "$ \(priceArray[indexPath.row])"//顯示價格
-        
-        var itemId = itemIdArray[indexPath.row] //給予每個cell item id，為了讓itemDetailView可以正確顯示
-        
-        return cell
-    }
-
-
-    
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    // Sends the item id for itemDetailView to load the specific item details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController
         let selectedNumber = sender as! Int
@@ -129,25 +85,84 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     }
     
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-         //self.navigationController?.pushViewController(v1, animated: true)//連接到商品頁面
-        self.performSegueWithIdentifier("showItemDetail", sender: indexPath.row)
-    }
+    //https://ririkoko.herokuapp.com/api/merchandises?api_key=e813852b6d35e706f776c74434b001f9&user=1
+
     
-
-    private func getDataFromDB() {
-        
-
+    //api/users/1?api_key=xxx
+    
+    
+    private func getUserFromDB(){
+    
         let methodParameters: [String: String!] = [
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
-        ]
+            ]
+        
+        print(methodParameters)
+        
+        let urlString = Constants.Users.APIBaseURL + "/\(userId)" + escapedParameters(methodParameters)
+        
+        print("URL:\(urlString)")
+        
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [String:AnyObject]
+                    
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    
+                        let itemTitle = itemDictionary![Constants.UsersResponseKeys.UserName]
+                        
+                
+                    performUIUpdatesOnMain(){
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+        }
+        task.resume()
+    
+    }
+    
+    
+    private func getItemFromDB() {
+        
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            Constants.ParameterKeys.user: "\(userId)"
+            ]
         
         print(methodParameters)
         
         let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
         
         print("URL:\(urlString)")
-
+        
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         var itemArray:NSArray?
@@ -175,7 +190,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                     //print(parsedResult)
                     
                     let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
-                   
+                    
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...itemDictionary!.count-1 {
@@ -186,21 +201,20 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         let itemImage = itemDictionary![i][Constants.MerchandisesResponseKeys.image_1_s] as? String
                         
                         
-                        priceArray.append(itemPrice!)
-                        titleArray.append(itemTitle!)
-                        itemIdArray.append(itemId!)
-                        imageArray.append(itemImage!)
-                    
+                        priceArray_1.append(itemPrice!)
+                        titleArray_1.append(itemTitle!)
+                        itemIdArray_1.append(itemId!)
+                        imageArray_1.append(itemImage!)
+                        
                     }
-                    print(priceArray)
-                    print(titleArray)
-                    print(itemIdArray)
+                    print(priceArray_1)
+                    print(titleArray_1)
+                    print(itemIdArray_1)
                     
-                    print("3.\(titleArray.count)")
+                    print("3.\(titleArray_1.count)")
                     
                     performUIUpdatesOnMain(){
                         self.collectionView.reloadData()
-                        self.activityIndicator.stopAnimating()
                     }
                 }
             }
@@ -231,5 +245,4 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
     }
 
-    
 }

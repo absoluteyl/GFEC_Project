@@ -13,6 +13,14 @@
             </objects>
             <point key="canvasLocation" x="639" y="-47"/>
         </scene>
+        <!--UserDetail-->
+        <scene sceneID="gdq-cd-Wp7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserDetail" id="SCi-z8-ZhE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RgS-kk-iJV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="596" y="309"/>
+        </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="cKg-xB-nq6">
             <objects>
@@ -92,6 +100,13 @@
                                                     <constraint firstAttribute="height" constant="128" id="mhV-xX-97K"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gfi-dL-6UF">
+                                                <rect key="frame" x="104" y="258" width="166" height="30"/>
+                                                <state key="normal" title="See More from This Guy"/>
+                                                <connections>
+                                                    <action selector="seeUserButtonAction:" destination="1LD-cq-aO6" eventType="touchUpInside" id="gfq-ar-Cs9"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -151,8 +166,10 @@
                         <outlet property="itemTitleLabel" destination="fMO-rQ-FXo" id="vnx-rt-wr1"/>
                         <outlet property="itemValueLabel" destination="DLI-9Z-9si" id="SCh-z3-lUX"/>
                         <outlet property="map" destination="fgm-gm-fwD" id="Gtc-wP-SeD"/>
+                        <outlet property="seeUserButton" destination="Gfi-dL-6UF" id="RS9-Ed-SIi"/>
                         <outlet property="sellerImage" destination="6XI-kl-jhW" id="S6A-8R-9q7"/>
                         <segue destination="tOK-uY-2Q3" kind="show" identifier="goBack" id="zzf-mn-SPf"/>
+                        <segue destination="SCi-z8-ZhE" kind="show" identifier="showUserDetail" id="BuP-Pw-szy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4VU-cP-6zY" userLabel="First Responder" sceneMemberID="firstResponder"/>

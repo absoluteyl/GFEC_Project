@@ -14,6 +14,7 @@ var itemTitle:String!
 var itemDescription:String!
 var itemSellerId:Int!
 var itemSellerName:String!
+var idOfUser:Int!
 
 class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -26,6 +27,13 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var itemDescriptionLabel: UITextView!
     @IBOutlet weak var itemSellerNameLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
+    
+    @IBOutlet weak var seeUserButton: UIButton!
+    @IBAction func seeUserButtonAction(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("showUserDetail", sender:  seeUserButton)
+        
+    }
     
     var recentItemId:Int!
     
@@ -80,6 +88,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last // get the last location
@@ -96,6 +105,11 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let Destination : UserDetailViewController = segue.destinationViewController as! UserDetailViewController
+        //let selectedNumber = sender as! Int
+        Destination.userId = itemSellerId
+    }
     
     
     private func getSpecificItem() {
@@ -172,6 +186,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         self.itemDescriptionLabel.hidden = false
                         self.itemValueLabel.hidden = false
                         
+                        self
                     }
                     
                     
