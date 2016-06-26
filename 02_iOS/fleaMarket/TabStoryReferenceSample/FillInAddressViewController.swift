@@ -24,7 +24,6 @@ class FillInAddressViewController: UIViewController {
             
             var address = "\(addressTextField.text)"
             var geocoder = CLGeocoder()
-//            geocoder.geocodeAddressString(address, completionHandler: CLGeocodeCompletionHandler)
             
             geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
                 
@@ -49,7 +48,7 @@ class FillInAddressViewController: UIViewController {
                     print(placemark.location?.coordinate.latitude)
                     print(placemark.location?.coordinate.longitude)
 
-                    region.span = MKCoordinateSpanMake(0.5, 0.5)
+                    region.span = MKCoordinateSpanMake(0.1, 0.1)
 
                     self.mapView.setRegion(region, animated: true)
                     
