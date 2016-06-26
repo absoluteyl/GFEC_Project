@@ -243,7 +243,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZn-qn-BGu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ppH-fr-Fcx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="BUI" image="animal1" selectedImage="tab1home" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="BUI" selectedImage="tab1home" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OvV-Zf-y3o">
@@ -264,7 +264,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="animal1" width="204" height="204"/>
         <image name="tab1home" width="18" height="18"/>
     </resources>
 </document>

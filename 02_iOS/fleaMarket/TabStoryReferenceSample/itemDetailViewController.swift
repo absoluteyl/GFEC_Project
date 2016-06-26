@@ -186,7 +186,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         self.itemDescriptionLabel.hidden = false
                         self.itemValueLabel.hidden = false
                         
-                        self
+                        self.getSpecificUser()
+                        
                     }
                     
                     
@@ -201,7 +202,13 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     private func getSpecificUser() {
         
-        let urlString = "https://flea-market-kyujyo.c9users.io/api/users/\(itemSellerId)/"
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        //api/users/1?api_key=xxx
+        let urlString = Constants.Users.APIBaseURL + "/\(itemSellerId)" + escapedParameters(methodParameters)
+        
         
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)

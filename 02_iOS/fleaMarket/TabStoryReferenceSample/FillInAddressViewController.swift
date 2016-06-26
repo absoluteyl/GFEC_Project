@@ -7,23 +7,60 @@
 //
 
 import UIKit
+import MapKit
 
 class FillInAddressViewController: UIViewController {
+    
+    var initialLocation: CLPlacemark?
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var addressTextField: UITextField!
     
     @IBAction func submitAddressButtonAction(sender: UIButton) {
-//        let storyboard = UIStoryboard(name: "S01_Address", bundle: nil)
-//        let controller = storyboard.instantiateViewControllerWithIdentifier("S01_AddressTable") as! S01_AddressTableViewController
-//        
-//        if addressTextField.text != "" {
-//            controller.addressArray.append(addressTextField!.text!)
-//            navigationController?.popViewControllerAnimated(true)
-//        }
 
-        addressArray.append(addressTextField.text!)
-        NSUserDefaults.standardUserDefaults().setObject(addressArray, forKey: "tasks")
-        navigationController?.popViewControllerAnimated(true)
+        if addressTextField.text != "" {
+            
+            
+            var address = "\(addressTextField.text)"
+            var geocoder = CLGeocoder()
+//            geocoder.geocodeAddressString(address, completionHandler: CLGeocodeCompletionHandler)
+            
+            geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                
+                guard error == nil else{
+                    print("Error! geocodeAddressString error=\(error)")
+                    return
+                }
+                
+                guard let marks = placemarks else{
+                    print("Error! geocodeAddressString placemark is nil.")
+                    return
+                }
+                
+                if placemarks != nil && placemarks!.count > 0{
+                    let placemark = placemarks![0] as CLPlacemark
+                    //placemark.location.coordinate 取得經緯度的參數
+                    var region: MKCoordinateRegion = self.mapView.region
+
+                    region.center.latitude = (placemark.location?.coordinate.latitude)!
+                    region.center.longitude = (placemark.location?.coordinate.longitude)!
+                    
+                    print(placemark.location?.coordinate.latitude)
+                    print(placemark.location?.coordinate.longitude)
+
+                    region.span = MKCoordinateSpanMake(0.5, 0.5)
+
+                    self.mapView.setRegion(region, animated: true)
+                    
+                }
+            })
+           
+           
+//            addressArray.append(addressTextField.text!)
+//            NSUserDefaults.standardUserDefaults().setObject(addressArray, forKey: "tasks")
+//            navigationController?.popViewControllerAnimated(true)
+        }
         
     }
 
@@ -39,14 +76,15 @@ class FillInAddressViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func centerMapOnLocation(location: CLLocation)
+    {
+        
+        let regionRadius: CLLocationDistance = 1000
+        
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
     }
-    */
+    
 
 }
