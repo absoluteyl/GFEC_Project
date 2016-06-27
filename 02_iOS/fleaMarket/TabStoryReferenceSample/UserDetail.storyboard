@@ -23,14 +23,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uBe-LZ-3hq">
                                 <rect key="frame" x="20" y="170" width="150" height="150"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-dU-shp">
-                                <rect key="frame" x="273" y="185" width="264" height="64"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7n2-Fo-qjJ">
-                                <rect key="frame" x="20" y="334" width="560" height="266"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7n2-Fo-qjJ">
+                                <rect key="frame" x="0.0" y="334" width="600" height="266"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Qn9-U6-DXy">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -63,6 +58,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="customSize" width="180" height="180"/>
                                         <connections>
                                             <outlet property="cellLabel" destination="nfw-8w-Qyh" id="dRw-AR-6Sw"/>
@@ -76,8 +72,19 @@
                                     <outlet property="delegate" destination="f93-cu-Sza" id="c9j-sR-JE0"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oi1-dU-shp">
+                                <rect key="frame" x="197" y="170" width="264" height="64"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OvJ-WR-aGD" firstAttribute="top" secondItem="7n2-Fo-qjJ" secondAttribute="bottom" id="LMN-xN-YFG"/>
+                            <constraint firstItem="7n2-Fo-qjJ" firstAttribute="leading" secondItem="hKW-if-tnh" secondAttribute="leading" id="dyN-Hh-4I4"/>
+                            <constraint firstAttribute="trailing" secondItem="7n2-Fo-qjJ" secondAttribute="trailing" id="ksV-aG-dQm"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="7n2-Fo-qjJ" id="ImH-r0-gYm"/>

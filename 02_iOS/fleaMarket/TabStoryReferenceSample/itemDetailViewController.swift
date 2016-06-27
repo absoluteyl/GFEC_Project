@@ -50,6 +50,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
     
+    override func viewWillAppear(animated: Bool) {
+        getSpecificItem()
+    }
+    
     override func viewDidLoad() {
         
         itemTitleLabel.hidden = true
@@ -59,7 +63,6 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         super.viewDidLoad()
         
-        getSpecificItem()
         //getSpecificUser()
         
         print ("\(itemSellerId)")
@@ -150,7 +153,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    print(parsedResult)
+//                    print(parsedResult)
                     
                     let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandise] as? [String:AnyObject]
                     
@@ -234,20 +237,30 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    //print(parsedResult)
+                    print(parsedResult)
                     
-                    let itemDictionary = parsedResult as? [String:AnyObject]
+                    let itemDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
                     itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
                     
-                    
+                    guard let imageUrlString = itemDictionary![Constants.UsersResponseKeys.Avatar_M] as? String else {
+                        displayError("Cannot find key '\(Constants.UsersResponseKeys.Avatar_M)' in itemDictionary")
+                        return
+                    }
+                    let imageURL = NSURL(string: imageUrlString)
+                    if let imageData = NSData(contentsOfURL: imageURL!) {
+                        performUIUpdatesOnMain {
+                            self.sellerImage.image = UIImage(data: imageData)
+                        }
+                    } else {
+                        displayError("Image does not exist at \(imageURL)")
+                    }
                     
                     performUIUpdatesOnMain(){
                         
                         self.itemSellerNameLabel.text = "\(itemSellerName)"
-                        
                         self.itemSellerNameLabel.hidden = false
                     }
                 }

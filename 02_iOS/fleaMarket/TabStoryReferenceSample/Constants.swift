@@ -69,6 +69,10 @@ struct Constants {
         static let UserMobile = "mobile"
         static let UserName = "username"
         static let Users = "users"
+        static let User = "user"
+        static let Avatar_O = "avatar_url_o"
+        static let Avatar_M = "avatar_url_m"
+        static let Avatar_S = "avatar_url_s"
     }
     
     // MARK: FleaMarket Response Values

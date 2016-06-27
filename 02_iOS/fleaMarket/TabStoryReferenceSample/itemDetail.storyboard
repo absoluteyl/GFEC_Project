@@ -117,9 +117,11 @@
                                             <constraint firstItem="QDx-wW-fh0" firstAttribute="leading" secondItem="6XI-kl-jhW" secondAttribute="trailing" constant="21" id="Pku-wf-P5H"/>
                                             <constraint firstItem="yMx-un-vd9" firstAttribute="leading" secondItem="QDx-wW-fh0" secondAttribute="leading" id="QmK-Zo-ySg"/>
                                             <constraint firstAttribute="height" constant="379" id="Tyi-8k-8kN"/>
+                                            <constraint firstItem="fgm-gm-fwD" firstAttribute="leading" secondItem="zKq-d6-3PQ" secondAttribute="leading" id="fL6-bN-DaZ"/>
                                             <constraint firstItem="6XI-kl-jhW" firstAttribute="top" secondItem="zKq-d6-3PQ" secondAttribute="top" constant="105" id="fjW-7l-blw"/>
                                             <constraint firstItem="fgm-gm-fwD" firstAttribute="leading" secondItem="zKq-d6-3PQ" secondAttribute="leading" id="gbI-2A-iOf"/>
                                             <constraint firstItem="fgm-gm-fwD" firstAttribute="top" secondItem="zKq-d6-3PQ" secondAttribute="top" constant="1" id="iwB-GH-lwz"/>
+                                            <constraint firstAttribute="trailing" secondItem="fgm-gm-fwD" secondAttribute="trailing" id="nKc-35-fFb"/>
                                             <constraint firstItem="6XI-kl-jhW" firstAttribute="leading" secondItem="zKq-d6-3PQ" secondAttribute="leading" constant="8" id="s1K-O3-VQX"/>
                                         </constraints>
                                     </view>
