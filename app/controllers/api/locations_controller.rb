@@ -65,6 +65,6 @@ class Api::LocationsController < Api::ApiController
       puts @location.id
   end
   def location_params
-      params.require(:location).permit(:city, :address, :recipient, :phone, :user_id)
+      params.require(:location).permit(:city, :address, :recipient, :phone, :user_id, :lat, :long)
   end
 end
