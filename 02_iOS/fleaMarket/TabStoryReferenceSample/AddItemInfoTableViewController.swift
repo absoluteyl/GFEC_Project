@@ -24,6 +24,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     var imageSelected: UIImage!
     
     @IBOutlet weak var tempImageVIew: UIImageView!
+    
     var appDelegate: AppDelegate!
     
     @IBOutlet weak var postButton: UIButton!
@@ -159,11 +160,11 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
         
-        if imageData1 == nil {
-            print("DATA1: NIL ")
-        } else {
-            print(base64String1)
-        }
+//        if imageData1 == nil {
+//            print("DATA1: NIL ")
+//        } else {
+//            print(base64String1)
+//        }
         
         func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
             print("You selected cell number: \(indexPath.row)!")

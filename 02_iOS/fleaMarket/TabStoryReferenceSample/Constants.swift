@@ -20,6 +20,9 @@ struct Constants {
         static let APIBaseURL = "https://ririkoko.herokuapp.com/api/users"
     }
     
+    struct Locations {
+        static let APIBaseURL = "https://ririkoko.herokuapp.com/api/locations"
+    }
     
     // MARK: Merchandises Parameter Keys
     struct ParameterKeys {
@@ -74,6 +77,19 @@ struct Constants {
         static let Avatar_M = "avatar_url_m"
         static let Avatar_S = "avatar_url_s"
     }
+    
+    struct  LocationRespondKeys {
+        static let Location = "location"
+        static let UserId = "user_id"
+        static let PostCode = "postcode"
+        static let City = "city"
+        static let Address = "address"
+        static let Recipient = "recipient"
+        static let Phone = "phone"
+        static let Latitude = "lat"
+        static let Longtitude = "long"
+    }
+    
     
     // MARK: FleaMarket Response Values
     struct MerchandisesResponseValues {
