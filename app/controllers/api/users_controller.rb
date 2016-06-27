@@ -19,7 +19,8 @@ class Api::UsersController < Api::ApiController
   def show
       render status: 200, json: {
           status: "OK", 
-          user: @user.as_json
+          user: @user.as_json,
+          merchandises: @user.merchandises
       }.to_json
   end
   
