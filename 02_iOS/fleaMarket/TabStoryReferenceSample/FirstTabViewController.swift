@@ -42,10 +42,10 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1.\(titleArray.count)")
+        //print("1.\(titleArray.count)")
         //getDataFromDB()
         
-        print("2.\(titleArray.count)")
+        //print("2.\(titleArray.count)")
         
         // Beggining of adding logo to Navigation Bar
         let logo = UIImage(named: "logo_temp_small.png")
@@ -142,7 +142,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
         ]
         
-        print(methodParameters)
+        //print(methodParameters)
         
         let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
         
@@ -192,11 +192,11 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         imageArray.append(itemImage!)
                     
                     }
-                    print(priceArray)
-                    print(titleArray)
-                    print(itemIdArray)
+                    //print(priceArray)
+                    //print(titleArray)
+                    //print(itemIdArray)
                     
-                    print("3.\(titleArray.count)")
+                    //print("3.\(titleArray.count)")
                     
                     performUIUpdatesOnMain(){
                         self.collectionView.reloadData()

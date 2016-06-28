@@ -12,16 +12,16 @@ struct Constants {
     
     // MARK: Get merchandise list or filter specific items
     struct Merchandises {
-        static let APIBaseURL = "https://ririkoko.herokuapp.com/api/merchandises"
+        static let APIBaseURL = "http://ririkoko.herokuapp.com/api/merchandises"
         //static let APIBaseURL = "http://flea-market-absoluteyl.c9users.io/api/merchandises"
     }
     
     struct Users {
-        static let APIBaseURL = "https://ririkoko.herokuapp.com/api/users"
+        static let APIBaseURL = "http://ririkoko.herokuapp.com/api/users"
     }
     
     struct Locations {
-        static let APIBaseURL = "https://ririkoko.herokuapp.com/api/locations"
+        static let APIBaseURL = "http://ririkoko.herokuapp.com/api/locations"
     }
     
     // MARK: Merchandises Parameter Keys

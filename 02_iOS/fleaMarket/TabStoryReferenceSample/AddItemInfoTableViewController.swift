@@ -183,9 +183,12 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
                 "user_id" : self.theDelegate.userID,
+                "category_id" : appDelegate.itemCategoryNumber,
                 "image_1" : "data:image/jpeg;base64,\(base64String1)"],
-                "category_id" : appDelegate.itemCategoryNumber
+            
         ]
+        
+        print("CATEGORY:\(appDelegate.itemCategoryNumber)")
         
         do{
             if NSJSONSerialization.isValidJSONObject(params) {
