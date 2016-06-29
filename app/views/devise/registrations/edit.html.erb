@@ -2,10 +2,16 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-
+  
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -26,7 +32,20 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-
+  
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.file_field :avatar %>
+    <% if @user.avatar? %>
+      <br />
+      <em>Currently Uploaded Image</em><br />
+      <%= image_tag (f.object.avatar.url(:small)) %><br />
+      <p>
+        <%= @user.avatar_file_name %>
+      </p>
+    <% end %>
+  </div>
+  
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

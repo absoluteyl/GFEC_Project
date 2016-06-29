@@ -1,16 +1,18 @@
 <h1 align="center"><%= @user.username%>'s Profile</h1>
 
 <h4 align="center">
-<!--<%# if @user.avatar? %>-->
-<!--    <%#= image_tag @user.avatar.url(:medium) %>-->
-<!--<%# end %>-->
-<br />
-<%= @user.username %>'s merchandises
-</h4>
+<% if @user.avatar? %>
+    <%= image_tag @user.avatar.url(:medium) %>
+<% end %>
+
 <p align="center">
     <% if user_signed_in? && current_user==@user %>
+        <%= link_to "Edit my profile", edit_user_registration_path %>
         <%= link_to "Edit my location", locations_path %>
     <% end %>
 </p>
+<%= @user.username %>'s merchandises
+</h4>
+
 
 <%= render 'merchandises/merchandise', obj: @user.merchandises %>

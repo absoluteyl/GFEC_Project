@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy]
   
   #Users Routes
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
 
   resources :users, only: [:show] do
     member do
