@@ -14,28 +14,7 @@
     </div>
     <div class="pc-nav">
       <ul>
-        <li class="shop">
-          <%= link_to '商品', merchandises_path %>
-        </li>
-        <% if logged_in? %>
-          <li><%= link_to "上傳", new_merchandise_path %></li>
-        <% end %>
-        <li class="members">
-          <%= link_to '會員', users_path %>
-        </li>
-        <li class="about">
-          <%= link_to "關於", about_path %>
-        </li>
-        <li class="contact">
-          <%= link_to "聯絡我們", contact_path %>
-        </li>
-        <% if logged_in? %>
-          <li><%= link_to '登出', logout_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to '註冊', signup_path %></li>
-          <li><%= link_to '登入', login_path %></li>
-        <% end %>
-        
+        <%= render 'layouts/menu' %>
       </ul>
     </div>
     <div class="cart">

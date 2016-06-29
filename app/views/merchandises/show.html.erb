@@ -27,7 +27,7 @@
     </ul>
   <% end %>
   <div class="merchandise-actions">
-    <% if logged_in? && (current_user == @merchandise.user || current_user.admin?) %>
+    <% if user_signed_in? && (current_user == @merchandise.user || current_user.admin?) %>
       <%= link_to "Edit this merchandise", edit_merchandise_path(@merchandise) %>
       <%= link_to "Delete this merchandise", merchandise_path(@merchandise), method: :delete, 
                                         data: { confirm: "Are you sure you want to delete the merchandise?"} %>

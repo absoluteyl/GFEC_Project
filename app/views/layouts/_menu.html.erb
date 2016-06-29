@@ -1,0 +1,21 @@
+<li class="shop">
+  <%= link_to '商品', merchandises_path %>
+</li>
+<% if user_signed_in? %>
+  <li><%= link_to "上傳", new_merchandise_path %></li>
+  <li class="members">
+    <%= link_to '會員', users_path %>
+  </li>
+<% end %>
+<li class="about">
+  <%= link_to "關於", about_path %>
+</li>
+<li class="contact">
+  <%= link_to "聯絡我們", contact_path %>
+</li>
+<% if user_signed_in? %>
+  <li><%= link_to '登出', destroy_user_session_path, method: :delete %></li>
+<% else %>
+  <li><%= link_to '註冊', new_user_registration_path %></li>
+  <li><%= link_to '登入', new_user_session_path %></li>
+<% end %>
