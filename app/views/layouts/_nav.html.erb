@@ -10,7 +10,10 @@
       <%= link_to '會員', users_path %>
     </li>
     <li class="about">
-      <a href="javascript:;">關於</a>
+      <%= link_to "關於", about_path %>
+    </li>
+    <li class="contact">
+      <%= link_to "聯絡我們", contact_path %>
     </li>
     <% if logged_in? %>
       <li><%= link_to '登出', logout_path, method: :delete %></li>
@@ -18,9 +21,6 @@
       <li><%= link_to '註冊', signup_path %></li>
       <li><%= link_to '登入', login_path %></li>
     <% end %>
-    <li class="contact">
-      <a href="javascript:;">聯絡我們</a>
-    </li>
     <li class="search">
       <input type="text" placeholder="搜尋">
     </li>

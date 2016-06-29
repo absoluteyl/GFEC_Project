@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   #Root Route
   root 'welcome#index'
-  
+  get 'about' => 'welcome#about'
+  get 'contact' => 'welcome#contact'
   #Merchandises Routes
   resources :merchandises
   
