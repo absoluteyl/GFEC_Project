@@ -64,6 +64,8 @@ class FillInAddressViewController: UIViewController {
                     
                     print(placemark.location?.coordinate.latitude)
                     print(placemark.location?.coordinate.longitude)
+                    
+                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(region.center.latitude, region.center.longitude)
 
                     region.span = MKCoordinateSpanMake(0.1, 0.1)
                     
@@ -71,6 +73,10 @@ class FillInAddressViewController: UIViewController {
                     //self.testLong.text =  ("LONG:\(region.center.longitude)")
 
                     self.mapView.setRegion(region, animated: true)
+                    
+                    let annotation = MKPointAnnotation()
+                    annotation.coordinate = location
+                    
                     
                     self.addAddressButton.enabled = true
                 }

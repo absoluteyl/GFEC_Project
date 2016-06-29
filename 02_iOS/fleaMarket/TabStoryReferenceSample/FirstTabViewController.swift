@@ -37,6 +37,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             getDataFromDB()
         
         activityIndicator.startAnimating()
+        
+    
            
     }
     

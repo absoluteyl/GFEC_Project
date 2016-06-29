@@ -101,9 +101,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             categorySelectedName.text = categoriesArray[appDelegate.itemCategoryNumber]
         }
         
-//        if categoryNumber != nil {
-//            categorySelectedName.text = categoriesArray[categoryNumber]
-//        }
         if categoryNumber != nil {
             categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
         }
@@ -139,7 +136,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         print(methodParameters)
         
-        //let url = NSURL(string: Constants.Merchandises.APIBaseURL)!
         let url = NSURL(string: Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters))
         
         
@@ -159,17 +155,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        
-//        if imageData1 == nil {
-//            print("DATA1: NIL ")
-//        } else {
-//            print(base64String1)
+//        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+//            print("You selected cell number: \(indexPath.row)!")
+//            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
 //        }
-        
-        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-            print("You selected cell number: \(indexPath.row)!")
-            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
-        }
         
         //print("64STRING:\(base64String1)")
         
@@ -212,9 +201,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             }
             
         }
-
-        task.resume()
         self.performSegueWithIdentifier("backToTab1Segue", sender: postButton)
+        task.resume()
+        
     
     }
     
