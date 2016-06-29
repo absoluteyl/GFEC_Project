@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   #API Routes
   namespace :api do
     resources :merchandises
-    # resources :users
+    resources :users
     resources :locations, except: [:show]
     resources :categories, except: [:destroy]
   end
