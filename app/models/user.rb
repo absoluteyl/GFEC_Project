@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true,
                         uniqueness: { case_sensitive: false },
                         length: {minimum: 3, maximum: 25 }
-  validates :mobile, length: { is: 10 }
+  validates :mobile, presence: true, length: { is: 10 }
                 
   #Paperclip configurations
     has_attached_file :avatar, styles: {
