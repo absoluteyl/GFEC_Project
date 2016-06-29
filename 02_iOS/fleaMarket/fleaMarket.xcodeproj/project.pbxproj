@@ -64,6 +64,8 @@
 		C9FFA3901D181A7F0057E439 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA38F1D181A7F0057E439 /* SearchViewController.swift */; };
 		C9FFA3921D1E99040057E439 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA3911D1E99040057E439 /* UserDetailViewController.swift */; };
 		C9FFA3941D1E99110057E439 /* UserDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9FFA3931D1E99110057E439 /* UserDetail.storyboard */; };
+		C9FFA3961D2411A80057E439 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA3951D2411A80057E439 /* LoginViewController.swift */; };
+		C9FFA3981D241A090057E439 /* LoggingInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA3971D241A090057E439 /* LoggingInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		C9FFA38F1D181A7F0057E439 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C9FFA3911D1E99040057E439 /* UserDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 		C9FFA3931D1E99110057E439 /* UserDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserDetail.storyboard; sourceTree = "<group>"; };
+		C9FFA3951D2411A80057E439 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C9FFA3971D241A090057E439 /* LoggingInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggingInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +204,8 @@
 				7A751C401CF9BDBA0096BDE6 /* Main.storyboard */,
 				7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */,
 				7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */,
+				C9FFA3951D2411A80057E439 /* LoginViewController.swift */,
+				C9FFA3971D241A090057E439 /* LoggingInViewController.swift */,
 				C974EE191D06DDF7001002BE /* Tab1 */,
 				C974EE1A1D06DE6B001002BE /* Tab2 */,
 				C974EE1B1D06DE85001002BE /* Tab3 */,
@@ -558,6 +564,7 @@
 				7A751C3F1CF9BDBA0096BDE6 /* SecondTabViewController.swift in Sources */,
 				C974EE2A1D06EDB1001002BE /* S02_AccountTableViewController.swift in Sources */,
 				C9FFA3801D1429F70057E439 /* DeliveryTableViewController.swift in Sources */,
+				C9FFA3981D241A090057E439 /* LoggingInViewController.swift in Sources */,
 				C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */,
 				7A751C3B1CF9BDBA0096BDE6 /* AppDelegate.swift in Sources */,
 				C9FFA37E1D1429840057E439 /* ItemStatusTableViewController.swift in Sources */,
@@ -572,6 +579,7 @@
 				C974EE561D06F417001002BE /* S07_QnATableViewController.swift in Sources */,
 				C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */,
 				C94EB6041D02DF0C0077EBC6 /* Constants.swift in Sources */,
+				C9FFA3961D2411A80057E439 /* LoginViewController.swift in Sources */,
 				C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */,
 				C974EE3C1D06EF66001002BE /* S04_FavoritesCollectionViewController.swift in Sources */,
 				C974EE521D06F328001002BE /* S09_ContactSupportViewController.swift in Sources */,

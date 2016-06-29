@@ -10,11 +10,27 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
+    let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    override func viewWillAppear(animated: Bool) {
+        
+        if theDelegate.hasLoggedIn == false {
+        let timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "goNext", userInfo: nil, repeats: false)
+            
+        }
+        
+    }
+    
+    func goToLoginPage() {
+        self.performSegueWithIdentifier("loginSegue", sender: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+
+        
+       
     }
 
     override func didReceiveMemoryWarning() {

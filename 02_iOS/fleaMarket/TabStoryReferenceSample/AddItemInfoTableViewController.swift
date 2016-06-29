@@ -12,7 +12,6 @@ import UIKit
 
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
     
     var categoryNumber:Int!
@@ -41,8 +40,22 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     @IBAction func postButtonAction(sender: UIButton) {
         
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if appDelegate.itemCategoryNumber == -1 {
+            let alert = UIAlertController(title: "Oops!", message: "Please select item category before uploading!", preferredStyle:.Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: {
+                (action:UIAlertAction) -> () in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
         addPhoto1 = sender
         post()
+        }
         
     }
     @IBOutlet weak var categorySelectedName: UILabel!
@@ -202,6 +215,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             
         }
         self.performSegueWithIdentifier("backToTab1Segue", sender: postButton)
+        
         task.resume()
         
     

@@ -64,6 +64,7 @@ struct Constants {
         static let CreatedTime = "created_at"
         static let image_1_s = "image1_url_s"
         static let image_1_o = "image1_url_o"
+        static let Status = "status"
     }
     
     struct UsersResponseKeys {
@@ -76,6 +77,7 @@ struct Constants {
         static let Avatar_O = "avatar_url_o"
         static let Avatar_M = "avatar_url_m"
         static let Avatar_S = "avatar_url_s"
+        static let Status = "status"
     }
     
     struct  LocationRespondKeys {
@@ -88,6 +90,7 @@ struct Constants {
         static let Phone = "phone"
         static let Latitude = "lat"
         static let Longtitude = "long"
+        static let Status = "status"
     }
     
     

@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var itemArray: NSArray?
     var userID: Int = 7 //for testing
+    var hasLoggedIn: Bool = true
     
     var itemCategoryNumber = -1
     var itemStatusNumber = -1
