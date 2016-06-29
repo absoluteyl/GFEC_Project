@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resource :users, only: [:show]
+  
   #Root Route
   root 'welcome#index'
   get 'about' => 'welcome#about'
@@ -13,11 +12,13 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy]
   
   #Users Routes
-  # resources :users, except: [:new] do
-  #   member do
-  #     resources :locations, except: [:show]
-  #   end
-  # end
+  devise_for :users
+
+  resources :users, only: [:show] do
+    member do
+      resources :locations, except: [:show]
+    end
+  end
   # #new user route
   # get 'signup', to: 'users#new'
   

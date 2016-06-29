@@ -5,30 +5,6 @@ class ApplicationController < ActionController::Base
   # rescue_from ActiveRecord::RecordNotFound, with: :render_404
   # rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
 
-  # helper_method :current_user, :logged_in?
-  # def current_user
-  #   if session[:user_id]
-  #     @current_user ||= User.find(session[:user_id]) 
-  #   elsif cookies.permanent.signed[:remember_me_token]
-  #     verification = Rails.application.message_verifier(:remember_me).verify(cookies.permanent.signed[:remember_me_token])
-  #     if verification
-  #       Rails.logger.info "Logging in by cookie."
-  #       @current_user ||= User.find(verification)
-  #     end
-  #   end
-  # end
-  
-  # def logged_in?
-  #   !!current_user
-  # end
-  
-  # def require_user
-  #   if !logged_in?
-  #     flash[:danger] = "You must be logged in to perform this action"
-  #     redirect_to root_path
-  #   end
-  # end
-  
   # private
   # def render_404
   #   respond_to do |format|
