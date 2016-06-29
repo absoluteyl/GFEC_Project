@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Use devise for user management
+gem 'devise'
+
 # Use Paperclip for image upload function
 gem 'paperclip', '~> 4.1'
 # Use AWS gems with Paperclip so images can be stored even in Heroku
