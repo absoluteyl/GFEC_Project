@@ -40,6 +40,7 @@ every HTTP(S) request should add this API key in URL to pass authentication.
 
 ####User Autnentication
 User Login:
+
     POST /api/login
     
     Accept: application/json
@@ -54,6 +55,7 @@ User Login:
     }
     
 User Logout:
+
     DELETE /api/logout
     
     Accept: application/json
