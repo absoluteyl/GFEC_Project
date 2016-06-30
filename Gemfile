@@ -29,7 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use devise for user management
 gem 'devise'
-
+gem 'simple_token_authentication', '~> 1.0'
 # Use Paperclip for image upload function
 gem 'paperclip', '~> 4.1'
 # Use AWS gems with Paperclip so images can be stored even in Heroku

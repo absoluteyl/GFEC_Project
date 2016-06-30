@@ -5,12 +5,14 @@ module Api
         if name = params[:name]
             @categories = @categories.where(name: name)
         end
-        render json: @categories, status: 200
-      end
-      
-      def show
-          @category = Category.find(params[:id])
-          render json: @category, status: 200
+        if id = params[:id]
+          @categories = @categories.where(id: id)
+        end
+        
+        render status: 200, json: {
+        status: "OK", 
+        categories: @categories
+    }.to_json
       end
    end
 end

@@ -29,9 +29,11 @@ Rails.application.routes.draw do
   
   #API Routes
   namespace :api do
-    resources :merchandises
+    resources :merchandises, only: [:index, :create, :update, :destroy]
     resources :users
-    resources :locations, except: [:show]
-    resources :categories, except: [:destroy]
+    post 'login', to: 'sessions#create'
+    delete 'logout', to: 'sessions#destroy'
+    resources :locations, only: [:index, :create, :update, :destroy]
+    resources :categories, only: [:index]
   end
 end

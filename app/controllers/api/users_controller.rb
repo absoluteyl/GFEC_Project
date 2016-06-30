@@ -1,6 +1,4 @@
 class Api::UsersController < Api::ApiController
-  #Diable CSRF temporary
-  skip_before_filter :verify_authenticity_token
   before_action :set_user, only: [:edit, :update, :show, :destroy]
   def index
     @users = User.all

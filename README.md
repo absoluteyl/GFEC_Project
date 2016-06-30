@@ -32,15 +32,44 @@ If you're using Cloud9 IDE, follow steps below to start your workspace, and make
  9. Resolve conflicts if any util your changes can be successfully merged into master.
 
 ##API Usage:
-####Authentication:
+####API Authentication:
 To access API resources, you must contact with administrator for applying an API key,
 every HTTP(S) request should add this API key in URL to pass authentication.
 
     api/users?api_key=your-api-key
+
+####User Autnentication
+User Login:
+    POST /api/login
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        "user_login":{
+            #Mandatory Fields
+            "email": "string",
+            "password": "string"
+        }
+    }
+    
+User Logout:
+    DELETE /api/logout
+    
+    Accept: application/json
+    Content-type: application/json
+    
+    {
+        "user_login":{
+            #Mandatory Fields
+            "email": "string"
+        }
+    }
     
 ####Image Path Namine Rule:
     :class/:attachment/000/000/:id_partition/:style/:filename
     #=> users/avatar/000/000/013/small/my_pic.png
+    
 ####Merchandise:
 #####GET:
 General Query:
@@ -112,10 +141,10 @@ Filtered Query:
 General Query:
     
     GET /api/categories
-    GET /api/categories/:id
 
 Filtered Query:
     
+    GET /api/categories?id=id
     GET /api/categories?name=exactName
     
 #####POST:
