@@ -55,7 +55,7 @@ class CategoryTableViewController: UITableViewController {
             //storyboard.instantiateViewControllerWithIdentifier("AddItemInfoTableViewController") as! AddItemInfoTableViewController
         
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.dataItem = indexPath.row
+        appDelegate.itemCategoryNumber = indexPath.row + 1
         
         
         //controller.categorySelectedName.text = categoriesArray[indexPath.row]
