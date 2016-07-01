@@ -17,7 +17,7 @@ class Api::SessionsController < Api::ApiController
         "username": resource.username,
         "email": resource.email,
         "authentication_token": resource.authentication_token,
-        "avatar": resource.avatar.url
+        "avatar": resource.avatar.url(:small)
       }.to_json
       return
     end
