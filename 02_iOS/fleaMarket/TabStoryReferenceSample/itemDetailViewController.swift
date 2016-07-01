@@ -15,8 +15,8 @@ var itemDescription:String!
 var itemSellerId:Int!
 var itemSellerName:String!
 var idOfUser:Int!
-var userLatitude:Double!
-var userLongtitude:Double!
+var userLatitude:String!
+var userLongtitude:String!
 
 class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -67,7 +67,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         //getSpecificUser()
         
-        print ("\(itemSellerId)")
+        print ("itemSeller id = \(itemSellerId)")
 
         
         sellerImage.layer.cornerRadius = sellerImage.frame.size.width/2
@@ -123,7 +123,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
             ]
         
-        print(methodParameters)
+        //print(methodParameters)
         
         let urlString = Constants.Merchandises.APIBaseURL + "/" + String(recentItemId) + escapedParameters(methodParameters)
     
@@ -239,7 +239,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    print(parsedResult)
+//                    print(parsedResult)
                     
                     let itemDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
                     
@@ -264,6 +264,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         
                         self.itemSellerNameLabel.text = "\(itemSellerName)"
                         self.itemSellerNameLabel.hidden = false
+                        self.getUserLocation()
                     }
                 }
             }
@@ -274,7 +275,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     private func getUserLocation() {
         
         let methodParameters: [String: String!] = [
-            Constants.ParameterKeys.UserID: "\(itemSellerId)",
+            Constants.ParameterKeys.User: "\(itemSellerId)",
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key
             ]
         
@@ -284,6 +285,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
+        
+        print(request)
         
         // if an error occur, print it
         func displayError(error: String) {
@@ -308,13 +311,33 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
-                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Location] as? [[String:AnyObject]]
+                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Locations] as? [[String:AnyObject]]
                     
-                    userLatitude = locationDictionary![0][Constants.LocationRespondKeys.Latitude] as? Double
-                    userLongtitude = locationDictionary![0][Constants.LocationRespondKeys.Longtitude] as? Double
+                    print(locationDictionary)
+                    
+                    userLatitude = locationDictionary![0][Constants.LocationRespondKeys.Latitude] as? String!
+                    userLongtitude = locationDictionary![0][Constants.LocationRespondKeys.Longtitude] as? String!
+                    
+                    let latitude: CLLocationDegrees = Double(userLatitude)!
+                    let longtitude: CLLocationDegrees = Double(userLongtitude)!
+//                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
+//                    let xScale: CLLocationDegrees = 0.01
+//                    let yScale: CLLocationDegrees = 0.01
+//                    let span: MKCoordinateSpan = MKCoordinateSpanMake(xScale, yScale)
+//                    let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+//                    
+                    var region: MKCoordinateRegion = self.map.region
+                   
+                    
+                    region.center.latitude = latitude
+                    region.center.longitude = longtitude
+                    
+                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(region.center.latitude, region.center.longitude)
+                    
+                    region.span = MKCoordinateSpanMake(0.01, 0.01)
                     
                     performUIUpdatesOnMain(){
-                        
+                        self.map.setRegion(region, animated: true)
                     }
                 }
             }

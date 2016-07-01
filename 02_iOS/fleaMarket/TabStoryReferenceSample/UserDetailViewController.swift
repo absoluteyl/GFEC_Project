@@ -154,7 +154,7 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         
         let methodParameters: [String: String!] = [
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
-            Constants.ParameterKeys.user: "\(userId)"
+            Constants.ParameterKeys.User: "\(userId)"
             ]
         
         print(methodParameters)
