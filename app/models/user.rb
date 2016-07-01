@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   #Override build-in as_json method to NOT return password_digest in API
   def as_json(options = {})
       super(options.merge({ 
-          except: [:avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at],
+          except: [:avatar_file_name, :avatar_content_type, :avatar_file_size, :avatar_updated_at, :authentication_token],
           methods: [:avatar_url_o, :avatar_url_m, :avatar_url_s]
       }))
   end
