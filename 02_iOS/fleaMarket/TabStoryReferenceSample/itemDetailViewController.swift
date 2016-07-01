@@ -155,13 +155,43 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    print(parsedResult)
+                   // print(parsedResult)
                     
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandise] as? [String:AnyObject]
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    
+                    itemTitle = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+                    itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
+                    itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
+                    itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
+                    
+                    
+                    guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
+                        displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")
+                        return
+                    }
+                    let imageURL = NSURL(string: imageUrlString)
+                    if let imageData = NSData(contentsOfURL: imageURL!) {
+                        performUIUpdatesOnMain {
+                            self.itemImage.image = UIImage(data: imageData)
+                        }
+                    } else {
+                        displayError("Image does not exist at \(imageURL)")
+                    }
                     
                     
                     performUIUpdatesOnMain(){
                         
-                        // 這裡需要讓地圖向抓到的座標置中
+                        self.itemTitleLabel.text = itemTitle
+                        self.itemValueLabel.text = "NT$\(itemValue)"
+                        self.itemDescriptionLabel.text = itemDescription
+                        
+                        self.itemTitleLabel.hidden = false
+                        self.itemDescriptionLabel.hidden = false
+                        self.itemValueLabel.hidden = false
+                        
+                        self.getSpecificUser()
                         
                     }
                     
