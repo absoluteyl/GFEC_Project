@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'cart/index'
+
   #Root Route
   root 'welcome#index'
   get 'about' => 'welcome#about'
@@ -10,6 +12,11 @@ Rails.application.routes.draw do
   
   #Categories Routes
   resources :categories, except: [:destroy]
+  
+  #Cart Routes
+  get 'cart' => 'cart#index'
+  get 'buynow' => 'cart#buy_now'
+  get 'nexttime' => 'cart#next_time'
   
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
@@ -29,7 +36,7 @@ Rails.application.routes.draw do
   
   #API Routes
   namespace :api do
-    resources :merchandises, only: [:index, :create, :update, :destroy]
+    resources :merchandises, only: [:index, :show, :create, :update, :destroy]
     resources :users
     post 'login', to: 'sessions#create'
     delete 'logout', to: 'sessions#destroy'
