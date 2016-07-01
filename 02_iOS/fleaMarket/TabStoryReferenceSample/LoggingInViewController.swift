@@ -18,8 +18,8 @@ class LoggingInViewController: UIViewController {
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    var username: String?
-    var password: String?
+    var username: String!
+    var password: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,22 +37,43 @@ class LoggingInViewController: UIViewController {
     private func login() {
         
         let methodParameters: [String: String!] = [
-            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
-            Constants.ParameterKeys.Username: username,
-            Constants.ParameterKeys.Password: password
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key
         ]
         
         //print(methodParameters)
         
-        let urlString = Constants.Users.APIBaseURL + escapedParameters(methodParameters)
+        let urlString = Constants.Users.APIBaseURL_login + escapedParameters(methodParameters)
         
         //print(urlString)
         
         let url = NSURL(string: urlString)!
-        let request = NSURLRequest(URL: url)
+        let request = NSMutableURLRequest(URL: url)
+        
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         
-        print(request)
+        let params:[String: AnyObject] = [
+                "user_login":[
+                    "email": "\(username)",
+                    "password": "\(password)"
+                ]
+            ]
+        
+        
+        
+        do{
+            if NSJSONSerialization.isValidJSONObject(params) {
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options:.PrettyPrinted)
+            }else{
+                print("Not Valid")
+            }
+            
+        }catch {
+            print("Error!  dataWithJSONObject \(error)")
+            return
+        }
         
         func displayError(error: String) {
             print(error)
@@ -79,6 +100,7 @@ class LoggingInViewController: UIViewController {
                 return
             }
             
+            print(response)
             
             if error == nil {
                 if let data = data {
@@ -92,19 +114,23 @@ class LoggingInViewController: UIViewController {
                     }
                     
                     
-                    let userDictionary = parsedResult![Constants.UsersResponseKeys.Users] as? [[String:AnyObject]]
+                    let userDictionary = parsedResult! as? [String:AnyObject]
                     
                     let statusReply = parsedResult![Constants.UsersResponseKeys.Status] as? String
                     
                     
                     //print("DIC:\(userDictionary)")
                     
-                    let userDoc = userDictionary![0] as? [String:AnyObject]
+                    /*
+                     {"status":"OK","message":"You're successfully signed in.","id":1,"email":"chinbo@gmail.com","authentication_token":"RxxXWabraXoVTA5Cz5rQ"}
+                     */
+                    
+                    let userDoc = userDictionary! as? [String:AnyObject]
                     //print("USER DOC:\(userDoc)")
                     
                     let userID = userDoc![Constants.UsersResponseKeys.UserId] as! Int
-                    let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
-                    let userImage = userDoc![Constants.UsersResponseKeys.Avatar_S] as? String
+                    //let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
+                    //let userImage = userDoc![Constants.UsersResponseKeys.Avatar_S] as? String
                     
                     //print("ID:\(userID)")
                     
@@ -112,14 +138,14 @@ class LoggingInViewController: UIViewController {
                     
                     if statusReply! == "OK" {
                         performUIUpdatesOnMain(){
-                            self.resultLabel.text = "Welcome!\(userName)!"
+                            //self.resultLabel.text = "Welcome!\(userName)!"
                             
-                            let imageURL = NSURL(string: userImage!)
-                            if let imageData = NSData(contentsOfURL: imageURL!) {
-                                self.userImage.image = UIImage(data: imageData)!
-                            } else {
-                                print("Image does not exist at \(imageURL)")
-                            }
+//                            let imageURL = NSURL(string: userImage!)
+//                            if let imageData = NSData(contentsOfURL: imageURL!) {
+//                                self.userImage.image = UIImage(data: imageData)!
+//                            } else {
+//                                print("Image does not exist at \(imageURL)")
+//                            }
                             self.activityIndicator.stopAnimating()
                             
                             let seconds = 1.2

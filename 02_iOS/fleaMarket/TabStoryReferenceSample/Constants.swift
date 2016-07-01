@@ -18,6 +18,8 @@ struct Constants {
     
     struct Users {
         static let APIBaseURL = "http://ririkoko.herokuapp.com/api/users"
+        static let APIBaseURL_login = "http://ririkoko.herokuapp.com/api/login"
+        static let APIBaseURL_logout = "http://ririkoko.herokuapp.com/api/logout"
     }
     
     struct Locations {
@@ -82,6 +84,7 @@ struct Constants {
     
     struct  LocationRespondKeys {
         static let Location = "location"
+        static let Locations = "locations"
         static let UserId = "user_id"
         static let PostCode = "postcode"
         static let City = "city"

@@ -14,8 +14,8 @@ class FirstViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        if theDelegate.hasLoggedIn == false {
-        let timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "goNext", userInfo: nil, repeats: false)
+        if theDelegate.hasLoggedIn == true {
+        self.performSegueWithIdentifier("directlyToMain", sender: self)
             
         }
         

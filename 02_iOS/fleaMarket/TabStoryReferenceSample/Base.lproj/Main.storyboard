@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c8V-bB-HYd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -67,6 +67,7 @@
                         <outlet property="topLabel" destination="mEW-UR-2qe" id="EvI-Ci-d3m"/>
                         <outlet property="userNameTextField" destination="6BT-rY-Huy" id="4ML-cP-x4Y"/>
                         <segue destination="Wbx-e2-Kls" kind="show" identifier="goNext" id="ZTI-G6-hJh"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="directlyToMain" id="ghv-EI-qkH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BGC-x1-GKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -136,7 +137,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="-8"/>
+            <point key="canvasLocation" x="-1077" y="856"/>
         </scene>
         <!--FirstTab-->
         <scene sceneID="4en-te-2ae">
@@ -146,7 +147,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLK-r0-9w0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460" y="-557"/>
+            <point key="canvasLocation" x="-416" y="466"/>
         </scene>
         <!--SecondTab-->
         <scene sceneID="eaA-pw-hqJ">
@@ -156,7 +157,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2z-wA-pfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856" y="-444"/>
+            <point key="canvasLocation" x="-416" y="560"/>
         </scene>
         <!--3rdTab-->
         <scene sceneID="N0M-WL-uoY">
@@ -166,7 +167,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL6-Z8-dmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682.5" y="158"/>
+            <point key="canvasLocation" x="-415.5" y="638"/>
         </scene>
         <!--4thTab-->
         <scene sceneID="aMm-BP-EXV">
@@ -176,7 +177,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEv-xN-s36" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="466"/>
+            <point key="canvasLocation" x="-416" y="714"/>
         </scene>
         <!--5thTab-->
         <scene sceneID="Cby-Gk-LXs">
@@ -186,7 +187,10 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpp-bY-L3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="766"/>
+            <point key="canvasLocation" x="-420" y="786"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ghv-EI-qkH"/>
+    </inferredMetricsTieBreakers>
 </document>

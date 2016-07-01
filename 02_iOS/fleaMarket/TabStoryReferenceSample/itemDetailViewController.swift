@@ -155,14 +155,9 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-//                    print(parsedResult)
+                    print(parsedResult)
                     
-                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Location] as? [String:AnyObject]
                     
-                    //grab every "title" in dictionaries by look into the array with for loop
-
-                        userLatitude = locationDictionary![Constants.LocationRespondKeys.Latitude] as? Double
-                        userLongtitude = locationDictionary![Constants.LocationRespondKeys.Longtitude] as? Double
                     
                     performUIUpdatesOnMain(){
                         
@@ -259,8 +254,6 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
-        //var itemArray:NSArray?
-        
         
         // if an error occur, print it
         func displayError(error: String) {
@@ -281,31 +274,17 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    print(parsedResult)
-                    
-                    let itemDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
+                    //print(parsedResult)
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
-                    itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
+                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Location] as? [[String:AnyObject]]
                     
-                    guard let imageUrlString = itemDictionary![Constants.UsersResponseKeys.Avatar_M] as? String else {
-                        displayError("Cannot find key '\(Constants.UsersResponseKeys.Avatar_M)' in itemDictionary")
-                        return
-                    }
-                    let imageURL = NSURL(string: imageUrlString)
-                    if let imageData = NSData(contentsOfURL: imageURL!) {
-                        performUIUpdatesOnMain {
-                            self.sellerImage.image = UIImage(data: imageData)
-                        }
-                    } else {
-                        displayError("Image does not exist at \(imageURL)")
-                    }
+                    userLatitude = locationDictionary![0][Constants.LocationRespondKeys.Latitude] as? Double
+                    userLongtitude = locationDictionary![0][Constants.LocationRespondKeys.Longtitude] as? Double
                     
                     performUIUpdatesOnMain(){
                         
-                        self.itemSellerNameLabel.text = "\(itemSellerName)"
-                        self.itemSellerNameLabel.hidden = false
                     }
                 }
             }
