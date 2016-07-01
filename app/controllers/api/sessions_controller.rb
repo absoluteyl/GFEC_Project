@@ -14,8 +14,10 @@ class Api::SessionsController < Api::ApiController
         status: "OK",
         message: "You're successfully signed in.",
         "id": resource.id,
+        "username": resource.username,
         "email": resource.email,
-        "authentication_token": resource.authentication_token
+        "authentication_token": resource.authentication_token,
+        "avatar": resource.avatar.url
       }.to_json
       return
     end
