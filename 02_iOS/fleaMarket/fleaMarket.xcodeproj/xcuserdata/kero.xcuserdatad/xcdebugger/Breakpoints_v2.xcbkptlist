@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/LoginPageViewController.swift"
-            timestampString = "487667873.137038"
+            timestampString = "489169747.410217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
             landmarkName = "login()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/AddItemInfoTableViewController.swift"
-            timestampString = "489140510.45304"
+            timestampString = "489169747.410217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "post()"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/LoggingInViewController.swift"
-            timestampString = "489138077.472129"
+            timestampString = "489169747.410217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "login()"
             landmarkType = "5">
          </BreakpointContent>
@@ -160,6 +160,22 @@
             startingLineNumber = "318"
             endingLineNumber = "318"
             landmarkName = "getUserLocation()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TabStoryReferenceSample/FifthTabViewController.swift"
+            timestampString = "489170205.644346"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "logout()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

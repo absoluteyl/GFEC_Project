@@ -14,11 +14,6 @@ class FirstViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        if theDelegate.hasLoggedIn == true {
-        self.performSegueWithIdentifier("directlyToMain", sender: self)
-            
-        }
-        
     }
     
     func goToLoginPage() {

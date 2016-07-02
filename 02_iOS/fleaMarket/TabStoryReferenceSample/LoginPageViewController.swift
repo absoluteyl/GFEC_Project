@@ -11,6 +11,8 @@ import Foundation
 
 class LoginPageViewController: UIViewController {
     
+    let userDefault = NSUserDefaults.standardUserDefaults()
+    
     var appDelegate: AppDelegate!
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -151,7 +153,7 @@ class LoginPageViewController: UIViewController {
                     
                     print("ID:\(userID)")
                     
-                    self.theDelegate.userID = userID
+                    self.userDefault.setInteger(userID, forKey: "userID")
                     
                     
                 }

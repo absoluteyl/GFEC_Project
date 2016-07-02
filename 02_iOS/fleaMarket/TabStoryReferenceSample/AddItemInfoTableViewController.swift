@@ -194,7 +194,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         //print("64STRING:\(base64String1)")
         
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
+       
+        var userDefault = NSUserDefaults.standardUserDefaults()
         
         let params:[String: AnyObject] = [
             "merchandise":[
@@ -202,7 +203,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "description" : itemDescriptionTextField.text!,
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
-                "user_id" : self.theDelegate.userID,
+                "user_id" : userDefault.integerForKey("userID"),
                 "category_id" : Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber],
                 "image_1" : "data:image/jpeg;base64,\(base64String1)"],
         ]
@@ -285,7 +286,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                             
                             alert.dismissWithClickedButtonIndex(-1, animated: true)
-                            
+                            self.tabBarController?.selectedIndex = 0
+                            self.postButton.enabled = true
                         })
                     }
                 }
@@ -295,7 +297,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             }
             
         }
-         //self.tabBarController?.selectedIndex = 0
         
         task.resume()
         

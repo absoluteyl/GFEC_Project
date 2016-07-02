@@ -35,16 +35,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="george" translatesAutoresizingMaskIntoConstraints="NO" id="mbV-gY-ZX7">
                                 <rect key="frame" x="5" y="174" width="128" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH9-ZP-mJo">
-                                <rect key="frame" x="302" y="272" width="99" height="30"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Edit Profile">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="EditProfileButton:" destination="T61-0W-SZC" eventType="touchUpInside" id="MmD-DK-mF7"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pVc-ua-YPO">
                                 <rect key="frame" x="0.0" y="323" width="414" height="364"/>
                                 <subviews>
@@ -166,6 +156,23 @@
                                     <segue destination="10l-ia-FNL" kind="show" id="r6J-6r-wJf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH9-ZP-mJo">
+                                <rect key="frame" x="287" y="272" width="99" height="30"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Edit Profile">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="EditProfileButton:" destination="T61-0W-SZC" eventType="touchUpInside" id="MmD-DK-mF7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMk-n4-b6d">
+                                <rect key="frame" x="149" y="272" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="logoutButtonActions:" destination="T61-0W-SZC" eventType="touchUpInside" id="xjt-fW-5ib"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -175,11 +182,20 @@
                     <connections>
                         <outlet property="map" destination="r6A-42-n8A" id="55F-9z-akC"/>
                         <outlet property="userImage" destination="mbV-gY-ZX7" id="2Ll-Rz-suh"/>
+                        <segue destination="uhJ-DN-hB3" kind="show" identifier="logoutSegue" id="8ZP-8U-vZP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="moa-z9-oIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="780" y="938"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="knj-Gw-G3i">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="uhJ-DN-hB3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c48-x5-Ll8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115.5" y="596"/>
         </scene>
         <!--S01_Address-->
         <scene sceneID="lLl-oh-fOM">

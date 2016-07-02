@@ -20,7 +20,7 @@ class LoggingInViewController: UIViewController {
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    var username: String!
+    var useremail: String!
     var password: String!
     
     override func viewDidLoad() {
@@ -58,7 +58,7 @@ class LoggingInViewController: UIViewController {
         
         let params:[String: AnyObject] = [
                 "user_login":[
-                    "email": "\(username)",
+                    "email": "\(useremail)",
                     "password": "\(password)"
                 ]
             ]
@@ -136,11 +136,17 @@ class LoggingInViewController: UIViewController {
                     
                     print("ID:\(userID)")
                     
-                    self.theDelegate.userID = userID
-                    self.userDefault.setInteger(userID , forKey: "userID")
+                    
                     
                     if statusReply! == "OK" {
                         performUIUpdatesOnMain(){
+                            
+                            var userDefault = NSUserDefaults.standardUserDefaults()
+                            
+                            userDefault.setBool(true, forKey: "hasLoggedIn")
+                            userDefault.setObject(self.useremail, forKey: "userEmail")
+                            userDefault.setInteger(userID , forKey: "userID")
+                            
                             self.resultLabel.text = "Welcome!\(userName)!"
                             
                             let imageURL = NSURL(string: userImage!)
@@ -160,8 +166,6 @@ class LoggingInViewController: UIViewController {
                                 self.performSegueWithIdentifier("goMain", sender: self)
                                 
                             })
-                           
-                            
                         }
                     } else {
                     
@@ -169,10 +173,7 @@ class LoggingInViewController: UIViewController {
                         {
                             navigationController.popViewControllerAnimated(true)
                         }
-                        
                     }
-                    
-                    
                 }
             }
         }
