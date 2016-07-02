@@ -1,17 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create, :destroy]
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:update, :destroy]
   
-  def index
-    
-  end
-  def show
-    
-  end
-  def new
-    
-  end
   def create
     merchandise = Merchandise.find(params[:merchandise_id])
     @line_item = @cart.add_merchandise(merchandise.id)
@@ -33,12 +24,11 @@ class LineItemsController < ApplicationController
     #   end
     # end
   end
-  def edit
-    
-  end
+  
   def update
     
   end
+  
   def destroy
     @line_item.destroy
     flash[:danger] = "Item was removed from cart successfully."
