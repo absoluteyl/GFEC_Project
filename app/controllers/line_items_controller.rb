@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :destroy]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -40,7 +40,9 @@ class LineItemsController < ApplicationController
     
   end
   def destroy
-    
+    @line_item.destroy
+    flash[:danger] = "Item was removed from cart successfully."
+      redirect_to cart_path(@cart)
   end
   
   
