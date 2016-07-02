@@ -1,18 +1,23 @@
 class LineItemsController < ApplicationController
   include CurrentCart
   before_action :set_cart, only: [:create, :destroy]
+  before_action :set_merchandise, only: [:create]
   before_action :set_line_item, only: [:update, :destroy]
   
   def create
-    merchandise = Merchandise.find(params[:merchandise_id])
-    @line_item = @cart.add_merchandise(merchandise.id)
-    @line_item.unit_price = merchandise.price
-    if @line_item.save
-      flash[:success] = "Merchandise is been added to cart successfully."
-      redirect_to @line_item.cart
+    if @cart.line_items.any?
+      redirect_to cart_path(@cart), notice: 'xxxYou need to checkout or remove existing items first' 
     else
-      render 'new'
+      @line_item = @cart.add_merchandise(@merchandise.id)
+      @line_item.unit_price = @merchandise.price
+      if @line_item.save
+        flash[:success] = "Merchandise is been added to cart successfully."
+        redirect_to @line_item.cart
+      else
+        render 'new'
+      end
     end
+    
     
     # respond_to do |format| 
     #   if @line_item.save
@@ -37,6 +42,9 @@ class LineItemsController < ApplicationController
   
   
   private
+  def set_merchandise
+    @merchandise = Merchandise.find(params[:merchandise_id])
+  end
   def set_line_item
     @line_item = LineItem.find(params[:id])
   end
@@ -44,4 +52,5 @@ class LineItemsController < ApplicationController
   def line_item_params
     params.require(:line_item).permit(:merchandise_id) 
   end
+  
 end
