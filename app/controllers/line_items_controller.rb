@@ -14,7 +14,7 @@ class LineItemsController < ApplicationController
   end
   def create
     merchandise = Merchandise.find(params[:merchandise_id])
-    @line_item = @cart.line_items.build(merchandise: merchandise)
+    @line_item = @cart.add_merchandise(merchandise.id)
     @line_item.unit_price = merchandise.price
     if @line_item.save
       flash[:success] = "Merchandise is been added to cart successfully."
@@ -47,5 +47,9 @@ class LineItemsController < ApplicationController
   private
   def set_line_item
     @line_item = LineItem.find(params[:id])
+  end
+  
+  def line_item_params
+    params.require(:line_item).permit(:merchandise_id) 
   end
 end

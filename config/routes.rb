@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy]
   
   #Cart Routes
-  resource :cart, only: :show
+  resources :carts, only: [:show, :destroy]
   resources :line_items
   
   #Users Routes
