@@ -10,6 +10,8 @@ import UIKit
 
 class LoggingInViewController: UIViewController {
     
+    var userDefault = NSUserDefaults.standardUserDefaults()
+    
     @IBOutlet weak var userImage: UIImageView!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -126,26 +128,27 @@ class LoggingInViewController: UIViewController {
                      */
                     
                     let userDoc = userDictionary! as? [String:AnyObject]
-                    //print("USER DOC:\(userDoc)")
+                    print("USER DOC:\(userDoc)")
                     
                     let userID = userDoc![Constants.UsersResponseKeys.UserId] as! Int
-                    //let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
-                    //let userImage = userDoc![Constants.UsersResponseKeys.Avatar_S] as? String
+                    let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
+                    let userImage = userDoc![Constants.UsersResponseKeys.Avatar] as? String
                     
-                    //print("ID:\(userID)")
+                    print("ID:\(userID)")
                     
                     self.theDelegate.userID = userID
+                    self.userDefault.setInteger(userID , forKey: "userID")
                     
                     if statusReply! == "OK" {
                         performUIUpdatesOnMain(){
-                            //self.resultLabel.text = "Welcome!\(userName)!"
+                            self.resultLabel.text = "Welcome!\(userName)!"
                             
-//                            let imageURL = NSURL(string: userImage!)
-//                            if let imageData = NSData(contentsOfURL: imageURL!) {
-//                                self.userImage.image = UIImage(data: imageData)!
-//                            } else {
-//                                print("Image does not exist at \(imageURL)")
-//                            }
+                            let imageURL = NSURL(string: userImage!)
+                            if let imageData = NSData(contentsOfURL: imageURL!) {
+                                self.userImage.image = UIImage(data: imageData)!
+                            } else {
+                                print("Image does not exist at \(imageURL)")
+                            }
                             self.activityIndicator.stopAnimating()
                             
                             let seconds = 1.2

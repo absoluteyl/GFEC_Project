@@ -13,12 +13,10 @@ var titleArray = [String]()
 var priceArray = [Int]()
 var itemIdArray = [Int]()
 var imageArray = [String]()
-let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
-
-
-
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    var refreshControl:UIRefreshControl!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -55,9 +53,19 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         self.navigationItem.titleView = imageView
         // End of adding logo to Navigation Bar
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:",   forControlEvents: UIControlEvents.ValueChanged)
+        collectionView!.addSubview(refreshControl)
+        
     }
     
-    
+    func refresh(sender:AnyObject)
+    {
+        getDataFromDB()
+        print("bubi")
+        self.refreshControl.endRefreshing()
+    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         

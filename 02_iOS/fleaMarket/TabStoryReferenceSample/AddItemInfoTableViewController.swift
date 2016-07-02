@@ -111,12 +111,12 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.itemCategoryNumber != -1 {
-            categorySelectedName.text = categoriesArray[appDelegate.itemCategoryNumber]
+            categorySelectedName.text = Constants.CategoryArrays.CategoryTitleArray[appDelegate.itemCategoryNumber]
         }
         
-        if categoryNumber != nil {
-            categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
-        }
+//        if categoryNumber != nil {
+//            categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
+//        }
         
         
     }
@@ -185,12 +185,12 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
                 "user_id" : self.theDelegate.userID,
-                "category_id" : appDelegate.itemCategoryNumber,
+                "category_id" : Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber],
                 "image_1" : "data:image/jpeg;base64,\(base64String1)"],
-            
         ]
         
-        print("CATEGORY:\(appDelegate.itemCategoryNumber)")
+        print("CATEGORY ARRAY NO.:\(appDelegate.itemCategoryNumber)")
+        print("CATEGORY DB NO.:\(Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber])")
         
         do{
             if NSJSONSerialization.isValidJSONObject(params) {
@@ -214,7 +214,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             }
             
         }
-        self.performSegueWithIdentifier("backToTab1Segue", sender: postButton)
+         self.tabBarController?.selectedIndex = 0
         
         task.resume()
         
