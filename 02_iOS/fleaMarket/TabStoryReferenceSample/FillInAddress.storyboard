@@ -18,28 +18,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="809-OE-S1q">
-                                <rect key="frame" x="277" y="240" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hMR-q7-t99">
+                                <rect key="frame" x="60" y="28" width="480" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="aGc-GX-49I">
+                                <rect key="frame" x="100" y="98" width="400" height="400"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="400" id="Y76-jD-nFj"/>
+                                    <constraint firstAttribute="height" constant="400" id="ZI0-nk-HCU"/>
+                                </constraints>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="809-OE-S1q">
+                                <rect key="frame" x="540" y="28" width="57" height="34"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="submitAddressButtonAction:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="ynI-ae-I5T"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hMR-q7-t99">
-                                <rect key="frame" x="60" y="178" width="480" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4L-kX-wQn">
+                                <rect key="frame" x="239.5" y="522" width="121" height="30"/>
+                                <state key="normal" title="Add This Address"/>
+                                <connections>
+                                    <action selector="addAddressButtonAction:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="FtA-26-LfY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aap-Nt-ghH">
+                                <rect key="frame" x="100" y="66" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PM-Zf-D2L">
+                                <rect key="frame" x="310" y="66" width="190" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="809-OE-S1q" firstAttribute="centerX" secondItem="M5t-Mc-Ikx" secondAttribute="centerX" id="3Jv-rA-XGo"/>
+                            <constraint firstItem="aGc-GX-49I" firstAttribute="centerX" secondItem="M5t-Mc-Ikx" secondAttribute="centerX" id="1Wh-v9-iCq"/>
+                            <constraint firstItem="aGc-GX-49I" firstAttribute="top" secondItem="2PM-Zf-D2L" secondAttribute="bottom" constant="2" id="3v5-h4-dDA"/>
+                            <constraint firstItem="809-OE-S1q" firstAttribute="leading" secondItem="hMR-q7-t99" secondAttribute="trailing" id="Ard-fF-3dO"/>
+                            <constraint firstItem="P4L-kX-wQn" firstAttribute="top" secondItem="aGc-GX-49I" secondAttribute="bottom" constant="24" id="Dks-37-faZ"/>
+                            <constraint firstItem="aGc-GX-49I" firstAttribute="top" secondItem="aap-Nt-ghH" secondAttribute="bottom" constant="2" id="Fb0-Qj-iCU"/>
                             <constraint firstItem="hMR-q7-t99" firstAttribute="width" secondItem="M5t-Mc-Ikx" secondAttribute="width" multiplier="0.8" id="NMi-W4-7rs"/>
+                            <constraint firstItem="aGc-GX-49I" firstAttribute="top" secondItem="hMR-q7-t99" secondAttribute="bottom" constant="40" id="PgG-dR-PTd"/>
                             <constraint firstItem="hMR-q7-t99" firstAttribute="centerX" secondItem="M5t-Mc-Ikx" secondAttribute="centerX" id="Q7u-6P-wgE"/>
+                            <constraint firstItem="hMR-q7-t99" firstAttribute="top" secondItem="zvD-L1-ko1" secondAttribute="bottom" constant="8" id="Yb6-Go-BpL"/>
+                            <constraint firstItem="809-OE-S1q" firstAttribute="top" secondItem="hMR-q7-t99" secondAttribute="top" id="c4w-o0-N0D"/>
+                            <constraint firstItem="P4L-kX-wQn" firstAttribute="centerX" secondItem="M5t-Mc-Ikx" secondAttribute="centerX" id="dlf-ho-maE"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addAddressButton" destination="P4L-kX-wQn" id="CQ1-Mr-QPv"/>
                         <outlet property="addressTextField" destination="hMR-q7-t99" id="JIv-H0-uiL"/>
+                        <outlet property="mapView" destination="aGc-GX-49I" id="g2H-Ir-cto"/>
+                        <outlet property="testLat" destination="aap-Nt-ghH" id="SBd-iL-K1M"/>
+                        <outlet property="testLong" destination="2PM-Zf-D2L" id="oK9-nI-OgY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kki-g7-g9A" userLabel="First Responder" sceneMemberID="firstResponder"/>

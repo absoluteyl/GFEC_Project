@@ -20,6 +20,8 @@ let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sport
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
@@ -33,23 +35,25 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         itemIdArray = []
         imageArray = []
             getDataFromDB()
+        
+        activityIndicator.startAnimating()
+        
+    
            
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1.\(titleArray.count)")
+        //print("1.\(titleArray.count)")
         //getDataFromDB()
         
-        print("2.\(titleArray.count)")
+        //print("2.\(titleArray.count)")
         
         // Beggining of adding logo to Navigation Bar
         let logo = UIImage(named: "logo_temp_small.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
         // End of adding logo to Navigation Bar
-        
-        
         
     }
     
@@ -140,7 +144,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
         ]
         
-        print(methodParameters)
+        //print(methodParameters)
         
         let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
         
@@ -190,14 +194,15 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         imageArray.append(itemImage!)
                     
                     }
-                    print(priceArray)
-                    print(titleArray)
-                    print(itemIdArray)
+                    //print(priceArray)
+                    //print(titleArray)
+                    //print(itemIdArray)
                     
-                    print("3.\(titleArray.count)")
+                    //print("3.\(titleArray.count)")
                     
                     performUIUpdatesOnMain(){
                         self.collectionView.reloadData()
+                        self.activityIndicator.stopAnimating()
                     }
                 }
             }

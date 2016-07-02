@@ -12,7 +12,6 @@ import UIKit
 
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
     let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
     
     var categoryNumber:Int!
@@ -24,6 +23,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     var imageSelected: UIImage!
     
     @IBOutlet weak var tempImageVIew: UIImageView!
+    
     var appDelegate: AppDelegate!
     
     @IBOutlet weak var postButton: UIButton!
@@ -40,8 +40,22 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     @IBAction func postButtonAction(sender: UIButton) {
         
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if appDelegate.itemCategoryNumber == -1 {
+            let alert = UIAlertController(title: "Oops!", message: "Please select item category before uploading!", preferredStyle:.Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: {
+                (action:UIAlertAction) -> () in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
         addPhoto1 = sender
         post()
+        }
         
     }
     @IBOutlet weak var categorySelectedName: UILabel!
@@ -58,12 +72,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {        
-
-          // setting the buuton image to selected image
-//        let selectedImage = info[UIImagePickerControllerOriginalImage]! as! UIImage
-//        addPhoto1.imageView?.backgroundColor = UIColor.clearColor()
-//        addPhoto1.setImage(selectedImage, forState: UIControlState.Normal)
-//        addPhoto1.imageView?.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
         
         guard let addPhoto1 = addPhoto1 else {
             print("Error! action button is nil")
@@ -102,13 +110,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     override func viewWillAppear(animated: Bool) {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if appDelegate.dataItem != -1 {
-            categorySelectedName.text = categoriesArray[appDelegate.dataItem]
+        if appDelegate.itemCategoryNumber != -1 {
+            categorySelectedName.text = categoriesArray[appDelegate.itemCategoryNumber]
         }
         
-//        if categoryNumber != nil {
-//            categorySelectedName.text = categoriesArray[categoryNumber]
-//        }
         if categoryNumber != nil {
             categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
         }
@@ -144,7 +149,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         print(methodParameters)
         
-        //let url = NSURL(string: Constants.Merchandises.APIBaseURL)!
         let url = NSURL(string: Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters))
         
         
@@ -164,21 +168,14 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        
-        if imageData1 == nil {
-            print("DATA1: NIL ")
-        } else {
-            print(base64String1)
-        }
-        
-        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-            print("You selected cell number: \(indexPath.row)!")
-            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
-        }
+//        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+//            print("You selected cell number: \(indexPath.row)!")
+//            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
+//        }
         
         //print("64STRING:\(base64String1)")
         
-//        request.HTTPBody = "{\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID),\"image_1\": \(base64String1)}".dataUsingEncoding(NSUTF8StringEncoding);
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         
         let params:[String: AnyObject] = [
@@ -188,8 +185,12 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
                 "user_id" : self.theDelegate.userID,
-                "image_1" : "data:image/jpeg;base64,\(base64String1)"]
+                "category_id" : appDelegate.itemCategoryNumber,
+                "image_1" : "data:image/jpeg;base64,\(base64String1)"],
+            
         ]
+        
+        print("CATEGORY:\(appDelegate.itemCategoryNumber)")
         
         do{
             if NSJSONSerialization.isValidJSONObject(params) {
@@ -207,13 +208,16 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         let task = session.dataTaskWithRequest(request) { data, response, error in
             if let response = response, data = data {
                 print(response)
-                print(String(data: data, encoding: NSUTF8StringEncoding))
+                //print(String(data: data, encoding: NSUTF8StringEncoding))
             } else {
                 print(error)
             }
+            
         }
-
+        self.performSegueWithIdentifier("backToTab1Segue", sender: postButton)
+        
         task.resume()
+        
     
     }
     

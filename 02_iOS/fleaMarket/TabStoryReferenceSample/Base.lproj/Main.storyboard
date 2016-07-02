@@ -1,14 +1,126 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="c8V-bB-HYd">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="1eC-P0-kgB">
+            <objects>
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c8V-bB-HYd" customClass="LoginViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="umO-2j-2AY"/>
+                        <viewControllerLayoutGuide type="bottom" id="dXN-Hz-cxn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8RO-yZ-Rw0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6BT-rY-Huy">
+                                <rect key="frame" x="143" y="191" width="314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fT0-h5-spD">
+                                <rect key="frame" x="261" y="162" width="79" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2n-8g-CKq">
+                                <rect key="frame" x="263" y="256" width="74" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Welcome! Please login." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mEW-UR-2qe">
+                                <rect key="frame" x="212" y="96" width="177" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nm6-ZY-Pvg">
+                                <rect key="frame" x="281" y="339" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonAction:" destination="c8V-bB-HYd" eventType="touchUpInside" id="dpN-v3-wqw"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-GC-hBZ">
+                                <rect key="frame" x="143" y="285" width="314" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c2n-8g-CKq" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="HOn-rM-KFW"/>
+                            <constraint firstItem="g2f-GC-hBZ" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="LqC-Zd-Ysg"/>
+                            <constraint firstItem="fT0-h5-spD" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="Osy-ZU-Z5T"/>
+                            <constraint firstItem="mEW-UR-2qe" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="gpM-3Z-UYc"/>
+                            <constraint firstItem="6BT-rY-Huy" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="zjk-T1-kBz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="g2f-GC-hBZ" id="zAg-Sa-ybG"/>
+                        <outlet property="topLabel" destination="mEW-UR-2qe" id="EvI-Ci-d3m"/>
+                        <outlet property="userNameTextField" destination="6BT-rY-Huy" id="4ML-cP-x4Y"/>
+                        <segue destination="Wbx-e2-Kls" kind="show" identifier="goNext" id="ZTI-G6-hJh"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="directlyToMain" id="ghv-EI-qkH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGC-x1-GKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1414" y="-8"/>
+        </scene>
+        <!--Logging In View Controller-->
+        <scene sceneID="eDg-WQ-b2f">
+            <objects>
+                <viewController id="Wbx-e2-Kls" customClass="LoggingInViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lgM-Ki-Yxy"/>
+                        <viewControllerLayoutGuide type="bottom" id="WP3-eG-Fg3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bhv-tD-8Ed">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zko-uZ-YIc">
+                                <rect key="frame" x="110" y="289" width="385" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="03X-FT-XaK">
+                                <rect key="frame" x="290" y="365" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-Xd-31V">
+                                <rect key="frame" x="180" y="99" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zko-uZ-YIc" firstAttribute="centerX" secondItem="Bhv-tD-8Ed" secondAttribute="centerX" id="IkG-hH-wp8"/>
+                            <constraint firstItem="03X-FT-XaK" firstAttribute="centerX" secondItem="Bhv-tD-8Ed" secondAttribute="centerX" id="Mpw-oR-MX0"/>
+                            <constraint firstItem="Zkp-Xd-31V" firstAttribute="centerX" secondItem="Bhv-tD-8Ed" secondAttribute="centerX" id="fdY-d8-fxA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="03X-FT-XaK" id="SVP-Tf-CN5"/>
+                        <outlet property="resultLabel" destination="Zko-uZ-YIc" id="XxP-4j-0qy"/>
+                        <outlet property="userImage" destination="Zkp-Xd-31V" id="4z0-Ne-2eu"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="goMain" id="InB-k5-c4J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gim-Cz-WVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-700" y="-8"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -25,7 +137,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-8" y="-8"/>
+            <point key="canvasLocation" x="-1077" y="856"/>
         </scene>
         <!--FirstTab-->
         <scene sceneID="4en-te-2ae">
@@ -35,7 +147,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLK-r0-9w0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="460" y="-557"/>
+            <point key="canvasLocation" x="-416" y="466"/>
         </scene>
         <!--SecondTab-->
         <scene sceneID="eaA-pw-hqJ">
@@ -45,7 +157,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2z-wA-pfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856" y="-444"/>
+            <point key="canvasLocation" x="-416" y="560"/>
         </scene>
         <!--3rdTab-->
         <scene sceneID="N0M-WL-uoY">
@@ -55,7 +167,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AL6-Z8-dmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="682.5" y="158"/>
+            <point key="canvasLocation" x="-415.5" y="638"/>
         </scene>
         <!--4thTab-->
         <scene sceneID="aMm-BP-EXV">
@@ -65,7 +177,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zEv-xN-s36" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="466"/>
+            <point key="canvasLocation" x="-416" y="714"/>
         </scene>
         <!--5thTab-->
         <scene sceneID="Cby-Gk-LXs">
@@ -75,7 +187,10 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpp-bY-L3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536" y="766"/>
+            <point key="canvasLocation" x="-420" y="786"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ghv-EI-qkH"/>
+    </inferredMetricsTieBreakers>
 </document>

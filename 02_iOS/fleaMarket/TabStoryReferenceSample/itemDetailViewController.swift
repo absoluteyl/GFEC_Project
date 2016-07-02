@@ -14,6 +14,9 @@ var itemTitle:String!
 var itemDescription:String!
 var itemSellerId:Int!
 var itemSellerName:String!
+var idOfUser:Int!
+var userLatitude:String!
+var userLongtitude:String!
 
 class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -26,6 +29,13 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var itemDescriptionLabel: UITextView!
     @IBOutlet weak var itemSellerNameLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
+    
+    @IBOutlet weak var seeUserButton: UIButton!
+    @IBAction func seeUserButtonAction(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("showUserDetail", sender:  seeUserButton)
+        
+    }
     
     var recentItemId:Int!
     
@@ -42,6 +52,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
     
+    override func viewWillAppear(animated: Bool) {
+        getSpecificItem()
+    }
+    
     override func viewDidLoad() {
         
         itemTitleLabel.hidden = true
@@ -51,10 +65,9 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         super.viewDidLoad()
         
-        getSpecificItem()
         //getSpecificUser()
         
-        print ("\(itemSellerId)")
+        print ("itemSeller id = \(itemSellerId)")
 
         
         sellerImage.layer.cornerRadius = sellerImage.frame.size.width/2
@@ -80,6 +93,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last // get the last location
@@ -96,6 +110,11 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let Destination : UserDetailViewController = segue.destinationViewController as! UserDetailViewController
+        //let selectedNumber = sender as! Int
+        Destination.userId = itemSellerId
+    }
     
     
     private func getSpecificItem() {
@@ -104,7 +123,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
             ]
         
-        print(methodParameters)
+        //print(methodParameters)
         
         let urlString = Constants.Merchandises.APIBaseURL + "/" + String(recentItemId) + escapedParameters(methodParameters)
     
@@ -136,16 +155,16 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    print(parsedResult)
+                   // print(parsedResult)
                     
                     let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandise] as? [String:AnyObject]
                     
                     //grab every "title" in dictionaries by look into the array with for loop
-
-                        itemTitle = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-                        itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-                        itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
-                        itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
+                    
+                    itemTitle = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+                    itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
+                    itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
+                    itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
                     
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
@@ -160,7 +179,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     } else {
                         displayError("Image does not exist at \(imageURL)")
                     }
-
+                    
                     
                     performUIUpdatesOnMain(){
                         
@@ -171,6 +190,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         self.itemTitleLabel.hidden = false
                         self.itemDescriptionLabel.hidden = false
                         self.itemValueLabel.hidden = false
+                        
+                        self.getSpecificUser()
                         
                     }
                     
@@ -186,7 +207,13 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     private func getSpecificUser() {
         
-        let urlString = "https://flea-market-kyujyo.c9users.io/api/users/\(itemSellerId)/"
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        //api/users/1?api_key=xxx
+        let urlString = Constants.Users.APIBaseURL + "/\(itemSellerId)" + escapedParameters(methodParameters)
+        
         
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
@@ -212,21 +239,105 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         return
                     }
                     
-                    //print(parsedResult)
+//                    print(parsedResult)
                     
-                    let itemDictionary = parsedResult as? [String:AnyObject]
+                    let itemDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
                     itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
                     
-                    
+                    guard let imageUrlString = itemDictionary![Constants.UsersResponseKeys.Avatar_M] as? String else {
+                        displayError("Cannot find key '\(Constants.UsersResponseKeys.Avatar_M)' in itemDictionary")
+                        return
+                    }
+                    let imageURL = NSURL(string: imageUrlString)
+                    if let imageData = NSData(contentsOfURL: imageURL!) {
+                        performUIUpdatesOnMain {
+                            self.sellerImage.image = UIImage(data: imageData)
+                        }
+                    } else {
+                        displayError("Image does not exist at \(imageURL)")
+                    }
                     
                     performUIUpdatesOnMain(){
                         
                         self.itemSellerNameLabel.text = "\(itemSellerName)"
-                        
                         self.itemSellerNameLabel.hidden = false
+                        self.getUserLocation()
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    private func getUserLocation() {
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.User: "\(itemSellerId)",
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key
+            ]
+        
+        //https://ririkoko.herokuapp.com/api/locations?user=7&api_key=e813852b6d35e706f776c74434b001f9
+        let urlString = Constants.Locations.APIBaseURL + escapedParameters(methodParameters)
+        
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        
+        print(request)
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    
+                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Locations] as? [[String:AnyObject]]
+                    
+                    print(locationDictionary)
+                    
+                    userLatitude = locationDictionary![0][Constants.LocationRespondKeys.Latitude] as? String!
+                    userLongtitude = locationDictionary![0][Constants.LocationRespondKeys.Longtitude] as? String!
+                    
+                    let latitude: CLLocationDegrees = Double(userLatitude)!
+                    let longtitude: CLLocationDegrees = Double(userLongtitude)!
+//                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
+//                    let xScale: CLLocationDegrees = 0.01
+//                    let yScale: CLLocationDegrees = 0.01
+//                    let span: MKCoordinateSpan = MKCoordinateSpanMake(xScale, yScale)
+//                    let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+//                    
+                    var region: MKCoordinateRegion = self.map.region
+                   
+                    
+                    region.center.latitude = latitude
+                    region.center.longitude = longtitude
+                    
+                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(region.center.latitude, region.center.longitude)
+                    
+                    region.span = MKCoordinateSpanMake(0.01, 0.01)
+                    
+                    performUIUpdatesOnMain(){
+                        self.map.setRegion(region, animated: true)
                     }
                 }
             }

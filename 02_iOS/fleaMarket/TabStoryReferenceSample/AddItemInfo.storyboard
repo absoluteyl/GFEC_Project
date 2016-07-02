@@ -10,7 +10,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AddItemInfoTableViewController" id="znx-RW-K34" customClass="AddItemInfoTableViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Snu-Ni-DxS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -267,7 +267,7 @@
                         </connections>
                     </tableView>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="800"/>
+                    <size key="freeformSize" width="600" height="1200"/>
                     <connections>
                         <outlet property="StaticTableView" destination="Snu-Ni-DxS" id="yhu-dc-4lM"/>
                         <outlet property="addPhoto1" destination="ili-0W-aU1" id="Hck-jG-HRp"/>
@@ -284,6 +284,7 @@
                         <segue destination="A25-UG-er3" kind="show" identifier="showCategory" id="ePb-FI-AJf"/>
                         <segue destination="MTR-3i-FL8" kind="show" identifier="showItemStatus" id="Zl9-MD-Lx2"/>
                         <segue destination="9vi-ib-F2C" kind="show" identifier="showDelivery" id="n5O-gT-DzP"/>
+                        <segue destination="YyN-C4-Is3" kind="show" identifier="backToTab1Segue" id="wtl-dr-efY"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deb-ZX-0Zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -313,6 +314,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mAN-bz-Mt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="790" y="333"/>
+        </scene>
+        <!--FirstTab-->
+        <scene sceneID="l7W-p4-oJg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FirstTab" id="YyN-C4-Is3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M69-a9-plm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="831.5" y="506"/>
         </scene>
     </scenes>
 </document>
