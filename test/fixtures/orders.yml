@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer: MyString
+  seller: MyString
+  address: MyString
+  status: MyString
+  payment_method: MyString
+
+two:
+  buyer: MyString
+  seller: MyString
+  address: MyString
+  status: MyString
+  payment_method: MyString

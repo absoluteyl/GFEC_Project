@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630072434) do
+ActiveRecord::Schema.define(version: 20160702025104) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.string   "status",     default: "new order", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -25,6 +31,20 @@ ActiveRecord::Schema.define(version: 20160630072434) do
     t.datetime "updated_at"
     t.integer  "parent_id"
   end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "cart_id"
+    t.integer  "merchandise_id"
+    t.decimal  "unit_price",                 null: false
+    t.integer  "quantity",       default: 1, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["merchandise_id"], name: "index_line_items_on_merchandise_id"
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
 
   create_table "locations", force: :cascade do |t|
     t.integer "postcode_id"
@@ -38,10 +58,10 @@ ActiveRecord::Schema.define(version: 20160630072434) do
   end
 
   create_table "merchandises", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "price"
-    t.integer  "amount",               default: 1
+    t.string   "title",                              null: false
+    t.text     "description",                        null: false
+    t.decimal  "price",                default: 0.0, null: false
+    t.integer  "amount",               default: 1,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -58,6 +78,16 @@ ActiveRecord::Schema.define(version: 20160630072434) do
     t.integer  "image_3_file_size"
     t.datetime "image_3_updated_at"
     t.integer  "category_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "buyer"
+    t.string   "seller"
+    t.string   "address"
+    t.string   "status"
+    t.string   "payment_method"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "postcodes", force: :cascade do |t|

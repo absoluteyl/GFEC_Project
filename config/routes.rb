@@ -14,9 +14,7 @@ Rails.application.routes.draw do
   resources :categories, except: [:destroy]
   
   #Cart Routes
-  get 'cart' => 'cart#index'
-  get 'buynow' => 'cart#buy_now'
-  get 'nexttime' => 'cart#next_time'
+  resource :cart, only: :show
   
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
