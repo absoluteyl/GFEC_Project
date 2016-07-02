@@ -6,7 +6,7 @@ class LineItemsController < ApplicationController
   
   def create
     if @cart.line_items.any?
-      redirect_to cart_path(@cart), notice: 'xxxYou need to checkout or remove existing items first' 
+      redirect_to cart_path(@cart), notice: 'You need to checkout or remove existing items first' 
     else
       @line_item = @cart.add_merchandise(@merchandise.id)
       @line_item.unit_price = @merchandise.price
@@ -37,7 +37,7 @@ class LineItemsController < ApplicationController
   def destroy
     @line_item.destroy
     flash[:danger] = "Item was removed from cart successfully."
-      redirect_to cart_path(@cart)
+    redirect_to merchandises_path
   end
   
   

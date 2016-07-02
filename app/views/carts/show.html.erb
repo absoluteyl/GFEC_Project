@@ -3,10 +3,10 @@
 <table>
   <% @cart.line_items.each do |item| %> 
     <tr>
-      <td><%= item.quantity %>&times;</td>
+      <td><%= image_tag item.merchandise.image_1.url(:thumb) %></td>
       <td><%= item.merchandise.title %></td>
       <td class="item_price"><%= number_to_currency(item.total_price) %></td>
-      <td><%= button_to 'Remove Item', item, method: :delete %></td>
+      <td><%#= button_to 'Buy Next Time', item, method: :delete %></td>
     </tr> 
   <% end %>
     <tr class="total_line">
@@ -14,4 +14,4 @@
       <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
     </tr>
 </table>
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Buy Next Time', @cart.line_items.first, method: :delete, data: { confirm: 'Are you sure?' } %>
