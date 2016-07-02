@@ -26,6 +26,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     var appDelegate: AppDelegate!
     
+    var statusReply:String!
+    
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var addPhoto1: UIButton?
     @IBOutlet weak var addPhoto2: UIButton!
@@ -37,11 +39,27 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     @IBOutlet weak var itemAmount: UITextField!
     
     @IBOutlet weak var categoryCell: UITableViewCell!
+
+    let uploadAlert = UIAlertView()
     
     @IBAction func postButtonAction(sender: UIButton) {
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        uploadAlert.title = "Uploading"
+        uploadAlert.message = "Please wait"
+        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
         
+        uploadAlert.setValue(loadingIndicator, forKey: "accessoryView")
+        loadingIndicator.startAnimating()
+        
+        uploadAlert.show()
+
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
         if appDelegate.itemCategoryNumber == -1 {
             let alert = UIAlertController(title: "Oops!", message: "Please select item category before uploading!", preferredStyle:.Alert)
             
@@ -204,17 +222,80 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             return
         }
         
+        
+        
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
             if let response = response, data = data {
-                print(response)
+                print("RESPONSE:\(response)")
                 //print(String(data: data, encoding: NSUTF8StringEncoding))
+                
+                let parsedResult: AnyObject!
+                do {
+                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                } catch {
+                    displayError("Could not parse the data as JSON: '\(data)'")
+                    return
+                }
+                
+                self.statusReply = parsedResult![Constants.UsersResponseKeys.Status] as? String
+                
+                performUIUpdatesOnMain(){
+                    if self.statusReply == "OK" {
+                        self.uploadAlert.dismissWithClickedButtonIndex(-1, animated: true)
+                        let alert = UIAlertView()
+                        alert.title = "Upload Sucess!"
+                        alert.message = ""
+                        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+                        loadingIndicator.center = self.view.center;
+                        loadingIndicator.hidesWhenStopped = true
+                        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+                        loadingIndicator.startAnimating();
+                        
+                        alert.setValue(loadingIndicator, forKey: "accessoryView")
+                        loadingIndicator.startAnimating()
+                        
+                        alert.show()
+                        
+                        // Delay the dismissal by 5 seconds
+                        
+                        let seconds = 1.2
+                        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        
+                        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                            
+                            alert.dismissWithClickedButtonIndex(-1, animated: true)
+                            
+                        })
+                    }
+                }
+                
             } else {
                 print(error)
             }
             
         }
-         self.tabBarController?.selectedIndex = 0
+         //self.tabBarController?.selectedIndex = 0
         
         task.resume()
         
