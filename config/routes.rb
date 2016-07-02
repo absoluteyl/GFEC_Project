@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'cart/index'
-
   #Root Route
   root 'welcome#index'
   get 'about' => 'welcome#about'
@@ -15,6 +13,7 @@ Rails.application.routes.draw do
   
   #Cart Routes
   resource :cart, only: :show
+  resources :line_items
   
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }

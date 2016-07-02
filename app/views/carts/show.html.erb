@@ -1,0 +1,7 @@
+<%= render 'shared/errors', obj: @cart %>
+<h2>Your Cart</h2>
+<ul>
+  <% @cart.line_items.each do |item| %> 
+    <li><%= item.merchandise.title %></li>
+  <% end %>
+</ul>

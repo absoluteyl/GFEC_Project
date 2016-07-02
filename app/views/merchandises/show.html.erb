@@ -27,10 +27,12 @@
     </ul>
   <% end %>
   <div class="merchandise-actions">
-    <% if user_signed_in? && (current_user == @merchandise.user || current_user.admin?) %>
+    <% if user_signed_in? && (current_user == @merchandise.user) %>
       <%= link_to "Edit this merchandise", edit_merchandise_path(@merchandise) %>
       <%= link_to "Delete this merchandise", merchandise_path(@merchandise), method: :delete, 
                                         data: { confirm: "Are you sure you want to delete the merchandise?"} %>
+    <% else%>
+      <%= button_to 'Add to Cart', line_items_path(merchandise_id: @merchandise) %>
     <% end %>
     <%= link_to "View all merchandises", merchandises_path %>
   </div>
