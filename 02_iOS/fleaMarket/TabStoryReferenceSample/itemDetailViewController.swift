@@ -9,14 +9,7 @@
 import UIKit
 import MapKit
 
-var itemValue:Int!
-var itemTitle:String!
-var itemDescription:String!
-var itemSellerId:Int!
-var itemSellerName:String!
-var idOfUser:Int!
-var userLatitude:String!
-var userLongtitude:String!
+
 
 class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
@@ -24,12 +17,29 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
 //    @IBOutlet weak var itemDescription: UITextView!
 //    @IBOutlet weak var itemName: UILabel!
 //    @IBOutlet weak var itemPrice: UILabel!
+    
+    var userDefault = NSUserDefaults.standardUserDefaults()
+    var recentItemId:Int!
+    
+    var itemValue:Int!
+    var itemTitle:String!
+    var itemDescription:String!
+    var itemSellerId:Int!
+    var itemSellerName:String!
+    var idOfUser:Int!
+    var userLatitude:String!
+    var userLongtitude:String!
+
+    
+    @IBOutlet weak var editItemButton: UIButton!
+    @IBOutlet weak var deleteItemButton: UIButton!
+    
     @IBOutlet weak var itemValueLabel: UILabel!
     @IBOutlet weak var itemTitleLabel: UILabel!
     @IBOutlet weak var itemDescriptionLabel: UITextView!
     @IBOutlet weak var itemSellerNameLabel: UILabel!
+    @IBOutlet weak var itemCategoryLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
-    
     @IBOutlet weak var seeUserButton: UIButton!
     @IBAction func seeUserButtonAction(sender: AnyObject) {
         
@@ -37,7 +47,35 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
     }
     
-    var recentItemId:Int!
+    @IBAction func editItemButtonAction(sender: UIButton) {
+        print(itemTitle)
+        print(itemValue)
+        
+        self.performSegueWithIdentifier("editItemSegue", sender:  editItemButton)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "editItemSegue") {
+            let Destination : AddItemInfoTableViewController = segue.destinationViewController as! AddItemInfoTableViewController
+            Destination.itemNameTextField.text = itemTitle
+            Destination.itemPriceTextField.text = "\(itemValue)"
+            Destination.itemDescriptionTextField.text = itemDescription
+            Destination.addPhoto1!.setImage(itemImage.image, forState: .Normal)
+            Destination.isPatch = true
+            Destination.patchItemId = recentItemId
+        } else if (segue.identifier == "showUserDetail") {
+            let Destination : UserDetailViewController = segue.destinationViewController as! UserDetailViewController
+            //let selectedNumber = sender as! Int
+            Destination.userId = itemSellerId
+        }
+    }
+    
+    @IBAction func deleteItemButtonActions(sender: UIButton) {
+    }
+    
+    
+
     
     @IBOutlet weak var map: MKMapView!
 
@@ -51,9 +89,11 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.performSegueWithIdentifier("goBack", sender: self )
     }
 
+
     
     override func viewWillAppear(animated: Bool) {
         getSpecificItem()
+        
     }
     
     override func viewDidLoad() {
@@ -110,13 +150,6 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
 
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let Destination : UserDetailViewController = segue.destinationViewController as! UserDetailViewController
-        //let selectedNumber = sender as! Int
-        Destination.userId = itemSellerId
-    }
-    
-    
     private func getSpecificItem() {
 
         let methodParameters: [String: String!] = [
@@ -161,10 +194,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
-                    itemTitle = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-                    itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-                    itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
-                    itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
+                    self.itemTitle = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+                    self.itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
+                    self.itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
+                    self.itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
                     
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
@@ -183,9 +216,9 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     
                     performUIUpdatesOnMain(){
                         
-                        self.itemTitleLabel.text = itemTitle
-                        self.itemValueLabel.text = "NT$\(itemValue)"
-                        self.itemDescriptionLabel.text = itemDescription
+                        self.itemTitleLabel.text = self.itemTitle
+                        self.itemValueLabel.text = "NT$\(self.itemValue)"
+                        self.itemDescriptionLabel.text = self.itemDescription
                         
                         self.itemTitleLabel.hidden = false
                         self.itemDescriptionLabel.hidden = false
@@ -245,7 +278,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
-                    itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
+                    self.itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
                     
                     guard let imageUrlString = itemDictionary![Constants.UsersResponseKeys.Avatar_M] as? String else {
                         displayError("Cannot find key '\(Constants.UsersResponseKeys.Avatar_M)' in itemDictionary")
@@ -262,9 +295,14 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     
                     performUIUpdatesOnMain(){
                         
-                        self.itemSellerNameLabel.text = "\(itemSellerName)"
+                        self.itemSellerNameLabel.text = "\(self.itemSellerName)"
                         self.itemSellerNameLabel.hidden = false
                         self.getUserLocation()
+                        
+                        if self.itemSellerId == self.userDefault.integerForKey("userID") {
+                            self.editItemButton.hidden = false
+                            self.deleteItemButton.hidden = false
+                        }
                     }
                 }
             }
@@ -315,17 +353,12 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     
                     print(locationDictionary)
                     
-                    userLatitude = locationDictionary![0][Constants.LocationRespondKeys.Latitude] as? String!
-                    userLongtitude = locationDictionary![0][Constants.LocationRespondKeys.Longtitude] as? String!
+                    self.userLatitude = locationDictionary![0][Constants.LocationRespondKeys.Latitude] as? String!
+                    self.userLongtitude = locationDictionary![0][Constants.LocationRespondKeys.Longtitude] as? String!
                     
-                    let latitude: CLLocationDegrees = Double(userLatitude)!
-                    let longtitude: CLLocationDegrees = Double(userLongtitude)!
-//                    let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longtitude)
-//                    let xScale: CLLocationDegrees = 0.01
-//                    let yScale: CLLocationDegrees = 0.01
-//                    let span: MKCoordinateSpan = MKCoordinateSpanMake(xScale, yScale)
-//                    let region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-//                    
+                    let latitude: CLLocationDegrees = Double(self.userLatitude)!
+                    let longtitude: CLLocationDegrees = Double(self.userLongtitude)!
+              
                     var region: MKCoordinateRegion = self.map.region
                    
                     

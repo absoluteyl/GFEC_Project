@@ -102,14 +102,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
         
-//        let imageURL = NSURL(string: imageArray[indexPath.row])
-//        if let imageData = NSData(contentsOfURL: imageURL!) {
-//            cell.imageView.image = UIImage(data: imageData)!
-//        } else {
-//            print("Image does not exist at \(imageURL)")
-//        }
-        
-        cell.imageView.loadImageFromURLString(imageArray[indexPath.row], placeholderImage: UIImage(named: "george")) {
+        // This following section let the images have time to load before showing
+        cell.imageView.loadImageFromURLString(imageArray[indexPath.row], placeholderImage: UIImage(named: "first")) {
             (finished, potentialError) in
             
             if finished {
