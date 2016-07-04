@@ -27,8 +27,6 @@ class LoggingInViewController: UIViewController {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         login()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {

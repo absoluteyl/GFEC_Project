@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KFSwiftImageLoader
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
@@ -36,8 +37,6 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
         activityIndicator.startAnimating()
         
-    
-           
     }
     
     override func viewDidLoad() {
@@ -103,13 +102,25 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
         
-        let imageURL = NSURL(string: imageArray[indexPath.row])
-        if let imageData = NSData(contentsOfURL: imageURL!) {
-            cell.imageView.image = UIImage(data: imageData)!
-        } else {
-            print("Image does not exist at \(imageURL)")
+//        let imageURL = NSURL(string: imageArray[indexPath.row])
+//        if let imageData = NSData(contentsOfURL: imageURL!) {
+//            cell.imageView.image = UIImage(data: imageData)!
+//        } else {
+//            print("Image does not exist at \(imageURL)")
+//        }
+        
+        cell.imageView.loadImageFromURLString(imageArray[indexPath.row], placeholderImage: UIImage(named: "george")) {
+            (finished, potentialError) in
+            
+            if finished {
+                // Do something in the completion block.
+            }
+            else if let error = potentialError {
+                print("error occurred with description: \(error.localizedDescription)")
+            }
         }
         
+    
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
        // cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
