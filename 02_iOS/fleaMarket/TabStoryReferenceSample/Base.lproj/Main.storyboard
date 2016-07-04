@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login View Controller-->
@@ -86,24 +87,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zko-uZ-YIc">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zko-uZ-YIc">
                                 <rect key="frame" x="110" y="289" width="385" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="03X-FT-XaK">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="03X-FT-XaK">
                                 <rect key="frame" x="290" y="365" width="20" height="20"/>
                             </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-Xd-31V">
-                                <rect key="frame" x="180" y="99" width="240" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zkp-Xd-31V">
+                                <rect key="frame" x="200" y="55" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="YZg-0O-R24"/>
+                                    <constraint firstAttribute="width" constant="200" id="pvW-r6-v0Q"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Zko-uZ-YIc" firstAttribute="centerX" secondItem="Bhv-tD-8Ed" secondAttribute="centerX" id="IkG-hH-wp8"/>
+                            <constraint firstItem="Zko-uZ-YIc" firstAttribute="centerY" secondItem="Bhv-tD-8Ed" secondAttribute="centerY" id="Edz-Kf-oyv"/>
+                            <constraint firstItem="03X-FT-XaK" firstAttribute="top" secondItem="Zko-uZ-YIc" secondAttribute="bottom" constant="55" id="JLE-Z5-0Ab"/>
                             <constraint firstItem="03X-FT-XaK" firstAttribute="centerX" secondItem="Bhv-tD-8Ed" secondAttribute="centerX" id="Mpw-oR-MX0"/>
-                            <constraint firstItem="Zkp-Xd-31V" firstAttribute="centerX" secondItem="Bhv-tD-8Ed" secondAttribute="centerX" id="fdY-d8-fxA"/>
+                            <constraint firstItem="Zkp-Xd-31V" firstAttribute="top" secondItem="lgM-Ki-Yxy" secondAttribute="bottom" constant="35" id="Vfq-bF-o3t"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zko-uZ-YIc" secondAttribute="trailing" constant="85" id="ZO6-Yz-1Y8"/>
+                            <constraint firstItem="Zkp-Xd-31V" firstAttribute="centerX" secondItem="03X-FT-XaK" secondAttribute="centerX" id="oPH-9q-V3Q"/>
+                            <constraint firstItem="Zko-uZ-YIc" firstAttribute="leading" secondItem="Bhv-tD-8Ed" secondAttribute="leadingMargin" constant="90" id="vIU-q6-mgC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -191,6 +200,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ghv-EI-qkH"/>
+        <segue reference="InB-k5-c4J"/>
     </inferredMetricsTieBreakers>
 </document>

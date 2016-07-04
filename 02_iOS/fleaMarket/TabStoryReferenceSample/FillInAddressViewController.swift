@@ -144,10 +144,11 @@ class FillInAddressViewController: UIViewController {
         
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
+        var userDefault = NSUserDefaults.standardUserDefaults()
         
         let params:[String: AnyObject] = [
             "location":[
-                "user_id" : self.theDelegate.userID,
+                "user_id" : userDefault.integerForKey("userID"),
                 "lat" : Float(tempLatitude),
                 "long" : Float(tempLongtitude),
                 "address" : addressTextField.text!

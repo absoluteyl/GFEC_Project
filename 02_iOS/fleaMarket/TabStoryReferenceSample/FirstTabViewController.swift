@@ -7,18 +7,19 @@
 //
 
 import UIKit
+import KFSwiftImageLoader
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
 var priceArray = [Int]()
 var itemIdArray = [Int]()
 var imageArray = [String]()
-let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
-
-
-
 
 class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    var refreshControl:UIRefreshControl!
+    
+    var selectedNumber:Int!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -38,8 +39,6 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
         activityIndicator.startAnimating()
         
-    
-           
     }
     
     override func viewDidLoad() {
@@ -55,9 +54,23 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         self.navigationItem.titleView = imageView
         // End of adding logo to Navigation Bar
         
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        self.refreshControl.addTarget(self, action: "refresh:",   forControlEvents: UIControlEvents.ValueChanged)
+        collectionView!.addSubview(refreshControl)
+        
     }
     
-    
+    func refresh(sender:AnyObject)
+    {
+        titleArray = []
+        priceArray = []
+        itemIdArray = []
+        imageArray = []
+        getDataFromDB()
+        print("bubi")
+        self.refreshControl.endRefreshing()
+    }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         
@@ -95,13 +108,19 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
         
-        let imageURL = NSURL(string: imageArray[indexPath.row])
-        if let imageData = NSData(contentsOfURL: imageURL!) {
-            cell.imageView.image = UIImage(data: imageData)!
-        } else {
-            print("Image does not exist at \(imageURL)")
+        // This following section let the images have time to load before showing
+        cell.imageView.loadImageFromURLString(imageArray[indexPath.row], placeholderImage: UIImage(named: "first")) {
+            (finished, potentialError) in
+            
+            if finished {
+                // Do something in the completion block.
+            }
+            else if let error = potentialError {
+                print("error occurred with description: \(error.localizedDescription)")
+            }
         }
         
+    
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
        // cell.imageView.image = UIImage(named:images[indexPath.row]) //顯示圖片
@@ -126,13 +145,14 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     // Sends the item id for itemDetailView to load the specific item details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController
-        let selectedNumber = sender as! Int
+        //let selectedNumber = sender as! Int
         Destination.recentItemId = itemIdArray[selectedNumber]
     }
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
          //self.navigationController?.pushViewController(v1, animated: true)//連接到商品頁面
+        selectedNumber = indexPath.row
         self.performSegueWithIdentifier("showItemDetail", sender: indexPath.row)
     }
     

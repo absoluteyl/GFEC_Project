@@ -76,6 +76,7 @@ struct Constants {
         static let UserName = "username"
         static let Users = "users"
         static let User = "user"
+        static let Avatar = "avatar"
         static let Avatar_O = "avatar_url_o"
         static let Avatar_M = "avatar_url_m"
         static let Avatar_S = "avatar_url_s"
@@ -94,6 +95,11 @@ struct Constants {
         static let Latitude = "lat"
         static let Longtitude = "long"
         static let Status = "status"
+    }
+    
+    struct CategoryArrays {
+        static let CategoryTitleArray = ["Ｗomen’s Clothing","Men’s Clothing","Games & Toys","Sports & Outdoors","Accessories","Cosmetics & Care","Electronics & Computers","Cellphones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets","Miscellaneous"]
+        static let CategoryIdArray = ["1","11","77","84","19","26","34","43","49","57","64","69","92","99","104","110","115"]
     }
     
     
