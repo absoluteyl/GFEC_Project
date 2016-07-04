@@ -29,7 +29,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var idOfUser:Int!
     var userLatitude:String!
     var userLongtitude:String!
-
+    var statusReply:String!
+    let locationManager = CLLocationManager() // get user's location
+    var location: CLLocation!
+    var deleteAlert = UIAlertController()
     
     @IBOutlet weak var editItemButton: UIButton!
     @IBOutlet weak var deleteItemButton: UIButton!
@@ -41,6 +44,11 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var itemCategoryLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var seeUserButton: UIButton!
+    @IBOutlet weak var map: MKMapView!
+    @IBOutlet weak var sellerImage: UIImageView!
+    
+
+    
     @IBAction func seeUserButtonAction(sender: AnyObject) {
         
         self.performSegueWithIdentifier("showUserDetail", sender:  seeUserButton)
@@ -50,18 +58,16 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBAction func editItemButtonAction(sender: UIButton) {
         print(itemTitle)
         print(itemValue)
-        
         self.performSegueWithIdentifier("editItemSegue", sender:  editItemButton)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if (segue.identifier == "editItemSegue") {
             let Destination : AddItemInfoTableViewController = segue.destinationViewController as! AddItemInfoTableViewController
-            Destination.itemNameTextField.text = itemTitle
-            Destination.itemPriceTextField.text = "\(itemValue)"
-            Destination.itemDescriptionTextField.text = itemDescription
-            Destination.addPhoto1!.setImage(itemImage.image, forState: .Normal)
+            Destination.patchItemTitle = itemTitle
+            Destination.patchItemValue = itemValue
+            Destination.patchItemDescription = itemDescription
+            Destination.patchItemPhoto1 = itemImage.image
             Destination.isPatch = true
             Destination.patchItemId = recentItemId
         } else if (segue.identifier == "showUserDetail") {
@@ -72,18 +78,21 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     }
     
     @IBAction func deleteItemButtonActions(sender: UIButton) {
+        
+        self.deleteAlert = UIAlertController(title: "Do you really want to delete this item?", message: "", preferredStyle: .Alert)
+        let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler:{ (action:UIAlertAction) -> () in
+                //print("DELETED")
+            self.delete()
+            })
+        let cancelAction = UIAlertAction(title: "No, keep it",style: .Default, handler: { (action:UIAlertAction) -> () in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        })
+        
+        deleteAlert.addAction(deleteAction)
+        deleteAlert.addAction(cancelAction)
+        
+        self.presentViewController(deleteAlert, animated: true, completion: nil)
     }
-    
-    
-
-    
-    @IBOutlet weak var map: MKMapView!
-
-    @IBOutlet weak var sellerImage: UIImageView!
-    
-    let locationManager = CLLocationManager() // get user's location
-    
-    var location: CLLocation!
     
     @IBAction func backButton(sender: UIButton) {
         self.performSegueWithIdentifier("goBack", sender: self )
@@ -376,6 +385,110 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
             }
         }
         task.resume()
+    }
+    
+    private func delete () {
+        
+        let methodParameters: [String: String!] = [Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,]
+        
+        print(methodParameters)
+        
+        let url = NSURL(string: Constants.Merchandises.APIBaseURL + "/\(recentItemId!)" + escapedParameters(methodParameters))
+        
+        
+        let request = NSMutableURLRequest(URL: url!)
+        
+        print(request)
+        
+        request.HTTPMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //print(self.theDelegate.userID)
+        
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        
+        
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            if let response = response, data = data {
+                print("RESPONSE:\(response)")
+                //print(String(data: data, encoding: NSUTF8StringEncoding))
+                
+                let parsedResult: AnyObject!
+                do {
+                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                } catch {
+                    displayError("Could not parse the data as JSON: '\(data)'")
+                    return
+                }
+                
+                self.statusReply = parsedResult![Constants.UsersResponseKeys.Status] as? String
+                
+                performUIUpdatesOnMain(){
+                    if self.statusReply == "OK" {
+                        //self.deleteAlert.dismissWithClickedButtonIndex(-1, animated: true)
+                        
+                        let alert = UIAlertView()
+                        alert.title = "Upload Sucess!"
+                        alert.message = ""
+                        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+                        loadingIndicator.center = self.view.center;
+                        loadingIndicator.hidesWhenStopped = true
+                        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+                        loadingIndicator.startAnimating();
+                        
+                        alert.setValue(loadingIndicator, forKey: "accessoryView")
+                        loadingIndicator.startAnimating()
+                        
+                        alert.show()
+                        
+                        // Delay the dismissal by 5 seconds
+                        
+                        let seconds = 1.2
+                        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        
+                        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                            
+                            alert.dismissWithClickedButtonIndex(-1, animated: true)
+                            self.navigationController?.popViewControllerAnimated(true)
+
+                        })
+                        
+                    }
+                }
+                
+            } else {
+                print(error)
+            }
+            
+        }
+        
+        task.resume()
+        
+        
     }
     
     func escapedParameters(parameters: [String:AnyObject]) -> String {

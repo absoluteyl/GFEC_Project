@@ -28,6 +28,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     var isPatch:Bool = false
     var patchItemId: Int?
+    var patchItemTitle:String?
+    var patchItemValue:Int?
+    var patchItemDescription:String?
+    var patchItemPhoto1:UIImage?
     
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var addPhoto1: UIButton?
@@ -147,6 +151,14 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         itemAmount.text = "1"
         itemPriceTextField.text = "100"
         
+        if isPatch == true {
+            itemNameTextField.text = patchItemTitle
+            itemDescriptionTextField.text = patchItemDescription
+            itemPriceTextField.text = String(patchItemValue!)
+            addPhoto1!.setTitle("", forState: .Normal)
+            addPhoto1!.setImage(patchItemPhoto1, forState: .Normal)
+            imageSelected = patchItemPhoto1
+        }
 
      
     }
@@ -309,7 +321,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         print(methodParameters)
         
-        let url = NSURL(string: Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters))
+        let url = NSURL(string: Constants.Merchandises.APIBaseURL + "/\(patchItemId!)" + escapedParameters(methodParameters))
         
         
         let request = NSMutableURLRequest(URL: url!)
@@ -428,7 +440,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                         dispatch_after(dispatchTime, dispatch_get_main_queue(), {
                             
                             alert.dismissWithClickedButtonIndex(-1, animated: true)
-                            self.tabBarController?.selectedIndex = 0
+                            self.navigationController?.popViewControllerAnimated(true)
                             self.postButton.enabled = true
                         })
                         

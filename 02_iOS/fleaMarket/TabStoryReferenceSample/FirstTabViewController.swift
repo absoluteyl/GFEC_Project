@@ -19,6 +19,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     var refreshControl:UIRefreshControl!
     
+    var selectedNumber:Int!
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -61,6 +63,10 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     func refresh(sender:AnyObject)
     {
+        titleArray = []
+        priceArray = []
+        itemIdArray = []
+        imageArray = []
         getDataFromDB()
         print("bubi")
         self.refreshControl.endRefreshing()
@@ -139,13 +145,14 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     // Sends the item id for itemDetailView to load the specific item details
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController
-        let selectedNumber = sender as! Int
+        //let selectedNumber = sender as! Int
         Destination.recentItemId = itemIdArray[selectedNumber]
     }
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
          //self.navigationController?.pushViewController(v1, animated: true)//連接到商品頁面
+        selectedNumber = indexPath.row
         self.performSegueWithIdentifier("showItemDetail", sender: indexPath.row)
     }
     
