@@ -130,7 +130,15 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             
         }
     }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     override func viewWillAppear(animated: Bool) {
         
@@ -144,6 +152,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround() 
         
         // for testing
         itemNameTextField.text = "Pudding"
