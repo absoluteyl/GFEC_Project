@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704084541) do
+ActiveRecord::Schema.define(version: 20160705125219) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -87,13 +87,14 @@ ActiveRecord::Schema.define(version: 20160704084541) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "buyer"
-    t.string   "seller"
+    t.integer  "buyer_id"
+    t.integer  "seller_id"
     t.string   "address"
     t.string   "order_status",   default: "In Progress"
     t.string   "payment_method"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.integer  "location_id"
   end
 
   create_table "subcategories", force: :cascade do |t|
