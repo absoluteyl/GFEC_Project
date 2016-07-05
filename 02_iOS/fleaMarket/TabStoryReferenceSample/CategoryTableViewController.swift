@@ -44,24 +44,19 @@ class CategoryTableViewController: UITableViewController {
         
         let cell = UITableViewCell()
         
-        cell.textLabel!.text = categoriesArray[indexPath.row]
+        cell.textLabel!.text = Constants.CategoryArrays.CategoryTitleArray[indexPath.row]
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        //let storyboard = UIStoryboard(name: "AddItemInfo", bundle: nil)
-            //storyboard.instantiateViewControllerWithIdentifier("AddItemInfoTableViewController") as! AddItemInfoTableViewController
+        
         
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.dataItem = indexPath.row
+        appDelegate.itemCategoryNumber = indexPath.row
         
-        
-        //controller.categorySelectedName.text = categoriesArray[indexPath.row]
-        //controller.hasSelectedCategory = true
 
-        //controller.categorySelectedName.text = categoriesArray[indexPath.row]
         
         navigationController?.popViewControllerAnimated(true)
     }

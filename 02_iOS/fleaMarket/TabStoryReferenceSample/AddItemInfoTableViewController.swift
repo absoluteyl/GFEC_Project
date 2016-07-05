@@ -12,9 +12,6 @@ import UIKit
 
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
-    
     var categoryNumber:Int!
     var hasSelectedCategory:Bool = false
     
@@ -24,7 +21,17 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     var imageSelected: UIImage!
     
     @IBOutlet weak var tempImageVIew: UIImageView!
+    
     var appDelegate: AppDelegate!
+    
+    var statusReply:String!
+    
+    var isPatch:Bool = false
+    var patchItemId: Int?
+    var patchItemTitle:String?
+    var patchItemValue:Int?
+    var patchItemDescription:String?
+    var patchItemPhoto1:UIImage?
     
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var addPhoto1: UIButton?
@@ -37,11 +44,43 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     @IBOutlet weak var itemAmount: UITextField!
     
     @IBOutlet weak var categoryCell: UITableViewCell!
+
+    let uploadAlert = UIAlertView()
     
     @IBAction func postButtonAction(sender: UIButton) {
         
+        uploadAlert.title = "Uploading"
+        uploadAlert.message = "Please wait"
+        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+        loadingIndicator.center = self.view.center;
+        loadingIndicator.hidesWhenStopped = true
+        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        loadingIndicator.startAnimating();
+        uploadAlert.setValue(loadingIndicator, forKey: "accessoryView")
+        loadingIndicator.startAnimating()
+        uploadAlert.show()
+
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
+        if appDelegate.itemCategoryNumber == -1 {
+            let alert = UIAlertController(title: "Oops!", message: "Please select item category before uploading!", preferredStyle:.Alert)
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: {
+                (action:UIAlertAction) -> () in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            })
+            alert.addAction(okAction)
+            self.presentViewController(alert, animated: true, completion: nil)
+        } else {
         addPhoto1 = sender
-        post()
+            
+            if isPatch == false {
+                // if isPatch == false this is posting a new item
+                post()
+            } else {
+                patch()// else it is patching an existing item
+            }
+        }
         
     }
     @IBOutlet weak var categorySelectedName: UILabel!
@@ -58,12 +97,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {        
-
-          // setting the buuton image to selected image
-//        let selectedImage = info[UIImagePickerControllerOriginalImage]! as! UIImage
-//        addPhoto1.imageView?.backgroundColor = UIColor.clearColor()
-//        addPhoto1.setImage(selectedImage, forState: UIControlState.Normal)
-//        addPhoto1.imageView?.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
         
         guard let addPhoto1 = addPhoto1 else {
             print("Error! action button is nil")
@@ -102,17 +135,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     override func viewWillAppear(animated: Bool) {
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        if appDelegate.dataItem != -1 {
-            categorySelectedName.text = categoriesArray[appDelegate.dataItem]
+        if appDelegate.itemCategoryNumber != -1 {
+            categorySelectedName.text = Constants.CategoryArrays.CategoryTitleArray[appDelegate.itemCategoryNumber]
         }
-        
-//        if categoryNumber != nil {
-//            categorySelectedName.text = categoriesArray[categoryNumber]
-//        }
-        if categoryNumber != nil {
-            categoryCell.detailTextLabel!.text = categoriesArray[categoryNumber]
-        }
-        
         
     }
    
@@ -126,6 +151,14 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         itemAmount.text = "1"
         itemPriceTextField.text = "100"
         
+        if isPatch == true {
+            itemNameTextField.text = patchItemTitle
+            itemDescriptionTextField.text = patchItemDescription
+            itemPriceTextField.text = String(patchItemValue!)
+            addPhoto1!.setTitle("", forState: .Normal)
+            addPhoto1!.setImage(patchItemPhoto1, forState: .Normal)
+            imageSelected = patchItemPhoto1
+        }
 
      
     }
@@ -144,7 +177,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         print(methodParameters)
         
-        //let url = NSURL(string: Constants.Merchandises.APIBaseURL)!
         let url = NSURL(string: Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters))
         
         
@@ -164,22 +196,16 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
         
-        
-        if imageData1 == nil {
-            print("DATA1: NIL ")
-        } else {
-            print(base64String1)
-        }
-        
-        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-            print("You selected cell number: \(indexPath.row)!")
-            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
-        }
+//        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+//            print("You selected cell number: \(indexPath.row)!")
+//            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
+//        }
         
         //print("64STRING:\(base64String1)")
         
-//        request.HTTPBody = "{\"title\": \"\(itemNameTextField.text!)\",\"description\": \"\(itemDescriptionTextField.text!)\", \"price\": \(itemPriceTextField.text!),\"amount\": \(itemAmount.text!),\"user_id\": \(self.theDelegate.userID),\"image_1\": \(base64String1)}".dataUsingEncoding(NSUTF8StringEncoding);
-        
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+       
+        var userDefault = NSUserDefaults.standardUserDefaults()
         
         let params:[String: AnyObject] = [
             "merchandise":[
@@ -187,9 +213,13 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "description" : itemDescriptionTextField.text!,
                 "price" : itemPriceTextField.text!,
                 "amount" : itemAmount.text!,
-                "user_id" : self.theDelegate.userID,
-                "image_1" : "data:image/jpeg;base64,\(base64String1)"]
+                "user_id" : userDefault.integerForKey("userID"),
+                "category_id" : Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber],
+                "image_1" : "data:image/jpeg;base64,\(base64String1)"],
         ]
+        
+        print("CATEGORY ARRAY NO.:\(appDelegate.itemCategoryNumber)")
+        print("CATEGORY DB NO.:\(Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber])")
         
         do{
             if NSJSONSerialization.isValidJSONObject(params) {
@@ -203,18 +233,230 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             return
         }
         
+        
+        
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
             if let response = response, data = data {
-                print(response)
-                print(String(data: data, encoding: NSUTF8StringEncoding))
+                print("RESPONSE:\(response)")
+                //print(String(data: data, encoding: NSUTF8StringEncoding))
+                
+                let parsedResult: AnyObject!
+                do {
+                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                } catch {
+                    displayError("Could not parse the data as JSON: '\(data)'")
+                    return
+                }
+                
+                self.statusReply = parsedResult![Constants.UsersResponseKeys.Status] as? String
+                
+                performUIUpdatesOnMain(){
+                    if self.statusReply == "OK" {
+                        self.uploadAlert.dismissWithClickedButtonIndex(-1, animated: true)
+                        let alert = UIAlertView()
+                        alert.title = "Upload Sucess!"
+                        alert.message = ""
+                        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+                        loadingIndicator.center = self.view.center;
+                        loadingIndicator.hidesWhenStopped = true
+                        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+                        loadingIndicator.startAnimating();
+                        
+                        alert.setValue(loadingIndicator, forKey: "accessoryView")
+                        loadingIndicator.startAnimating()
+                        
+                        alert.show()
+                        
+                        // Delay the dismissal by 5 seconds
+                        
+                        let seconds = 1.2
+                        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        
+                        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                            
+                            alert.dismissWithClickedButtonIndex(-1, animated: true)
+                            self.tabBarController?.selectedIndex = 0
+                            self.postButton.enabled = true
+                        })
+                    }
+                }
+                
             } else {
                 print(error)
             }
+            
         }
-
+        
         task.resume()
+        
     
+    }
+    
+    private func patch () {
+        
+        postButton.enabled = false
+        
+        let methodParameters: [String: String!] = [Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,]
+        
+        print(methodParameters)
+        
+        let url = NSURL(string: Constants.Merchandises.APIBaseURL + "/\(patchItemId!)" + escapedParameters(methodParameters))
+        
+        
+        let request = NSMutableURLRequest(URL: url!)
+        
+        print(request)
+        
+        request.HTTPMethod = "PATCH"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        //print(self.theDelegate.userID)
+        
+        var imageT : UIImage = (imageSelected)!
+        
+        var imageData1 = UIImageJPEGRepresentation(imageT, 1.0)
+        
+        var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        //        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        //            print("You selected cell number: \(indexPath.row)!")
+        //            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
+        //        }
+        
+        //print("64STRING:\(base64String1)")
+        
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        
+        let params:[String: AnyObject] = [
+            "merchandise":[
+                "title" : itemNameTextField.text!,
+                "description" : itemDescriptionTextField.text!,
+                "price" : itemPriceTextField.text!,
+                "amount" : itemAmount.text!,
+                "user_id" : userDefault.integerForKey("userID"),
+                "category_id" : Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber],
+                "image_1" : "data:image/jpeg;base64,\(base64String1)"],
+            ]
+        
+        print("CATEGORY ARRAY NO.:\(appDelegate.itemCategoryNumber)")
+        print("CATEGORY DB NO.:\(Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber])")
+        
+        do{
+            if NSJSONSerialization.isValidJSONObject(params) {
+                request.HTTPBody = try NSJSONSerialization.dataWithJSONObject(params, options:.PrettyPrinted)
+            }else{
+                print("Not Valid")
+            }
+            
+        }catch {
+            print("Error!  dataWithJSONObject \(error)")
+            return
+        }
+        
+        
+        
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request) { data, response, error in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            if let response = response, data = data {
+                print("RESPONSE:\(response)")
+                //print(String(data: data, encoding: NSUTF8StringEncoding))
+                
+                let parsedResult: AnyObject!
+                do {
+                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                } catch {
+                    displayError("Could not parse the data as JSON: '\(data)'")
+                    return
+                }
+                
+                self.statusReply = parsedResult![Constants.UsersResponseKeys.Status] as? String
+                
+                performUIUpdatesOnMain(){
+                    if self.statusReply == "OK" {
+                        self.uploadAlert.dismissWithClickedButtonIndex(-1, animated: true)
+                        let alert = UIAlertView()
+                        alert.title = "Upload Sucess!"
+                        alert.message = ""
+                        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+                        loadingIndicator.center = self.view.center;
+                        loadingIndicator.hidesWhenStopped = true
+                        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+                        loadingIndicator.startAnimating();
+                        
+                        alert.setValue(loadingIndicator, forKey: "accessoryView")
+                        loadingIndicator.startAnimating()
+                        
+                        alert.show()
+                        
+                        // Delay the dismissal by 5 seconds
+                        
+                        let seconds = 1.2
+                        let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                        let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                        
+                        dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                            
+                            alert.dismissWithClickedButtonIndex(-1, animated: true)
+                            self.navigationController?.popViewControllerAnimated(true)
+                            self.postButton.enabled = true
+                        })
+                        
+                        self.isPatch = false
+                    }
+                }
+                
+            } else {
+                print(error)
+            }
+            
+        }
+        
+        task.resume()
+        
+        
     }
     
     func escapedParameters(parameters: [String:AnyObject]) -> String {

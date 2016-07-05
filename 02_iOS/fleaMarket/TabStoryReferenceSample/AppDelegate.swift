@@ -10,15 +10,30 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var itemArray: NSArray?
-    var userID: Int = 7 //for testing
+    //var userID: Int = 3 //for testing
     
-    var dataItem = -1
+    var itemCategoryNumber = -1
+    var itemStatusNumber = -1
+    var itemDeliveryNumber = -1
+    
+    /*
+     self.userDefault.setInteger(userID , forKey: "userID")
+      userDefault.setBool(true, forKey: "hasLoggedIn")
+     userDefault.setObject(self.useremail, forKey: "userEmail"
+     */
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if  NSUserDefaults.standardUserDefaults().boolForKey("hasLoggedIn") == true {
+            let mainStoryBoard = UIStoryboard(name:"Main", bundle: nil)
+            let targetViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("main")
+            self.window?.rootViewController = targetViewController
+        }
+        
         return true
     }
 
