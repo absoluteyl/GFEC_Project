@@ -11,10 +11,12 @@ Rails.application.routes.draw do
   #Categories Routes
   resources :categories, except: [:destroy]
   
-  #Cart Routes
+  #Trade Routes
   resources :carts, only: [:show, :destroy]
-  resources :line_items
-  
+  resources :line_items, only: [:create, :destroy]
+  resources :orders, only: [:show, :new, :create] do
+   get :checkout
+  end
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
 

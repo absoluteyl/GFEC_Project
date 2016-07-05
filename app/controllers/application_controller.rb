@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
   # This is Devise's authentication
   before_filter :authenticate_user!
   acts_as_token_authentication_handler_for User
-
+  
+  include CurrentCart
+  before_action :set_cart
   private
   
   def authenticate_user_from_token!

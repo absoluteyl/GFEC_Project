@@ -18,10 +18,11 @@
       </ul>
     </div>
     <div class="cart">
-      <a href="javascript:;">
-        <i class="fa fa-shopping-cart"></i>
-        <span class="name">購物車</span>
-      </a>
+      <% %>
+      <%= link_to cart_path(@cart) do %>
+        <%= content_tag :i, '', :class => 'fa fa-shopping-cart' %>
+        <%= content_tag :span, '購物車', :class => 'name' %>
+      <% end %>
     </div>
   </div>
 </div>

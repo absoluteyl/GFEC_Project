@@ -14,4 +14,5 @@
       <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
     </tr>
 </table>
-<%= button_to 'Buy Next Time', @cart.line_items.first, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Check Out Now', new_order_path, method: :get %>
+<%= button_to 'Buy Next Time', @cart.line_items.first, method: :delete, data: { confirm: 'Are you sure?' } %> 
