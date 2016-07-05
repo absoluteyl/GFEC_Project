@@ -11,12 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630072434) do
+ActiveRecord::Schema.define(version: 20160704084541) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.string   "cart_status", default: "New Cart", null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -26,22 +32,42 @@ ActiveRecord::Schema.define(version: 20160630072434) do
     t.integer  "parent_id"
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string  "postcode"
+    t.string  "name"
+    t.integer "parent_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "cart_id"
+    t.integer  "merchandise_id"
+    t.decimal  "unit_price",                 null: false
+    t.integer  "quantity",       default: 1, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"
+  add_index "line_items", ["merchandise_id"], name: "index_line_items_on_merchandise_id"
+  add_index "line_items", ["order_id"], name: "index_line_items_on_order_id"
+
   create_table "locations", force: :cascade do |t|
-    t.integer "postcode_id"
+    t.integer "city_id"
     t.string  "city"
     t.string  "address"
     t.string  "recipient"
     t.integer "user_id"
     t.string  "phone"
-    t.decimal "lat",         precision: 15, scale: 12
-    t.decimal "long",        precision: 15, scale: 12
+    t.decimal "lat",       precision: 15, scale: 12
+    t.decimal "long",      precision: 15, scale: 12
   end
 
   create_table "merchandises", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.integer  "price"
-    t.integer  "amount",               default: 1
+    t.string   "title",                            null: false
+    t.text     "description",                      null: false
+    t.integer  "price",                default: 0, null: false
+    t.integer  "amount",               default: 1, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -60,10 +86,14 @@ ActiveRecord::Schema.define(version: 20160630072434) do
     t.integer  "category_id"
   end
 
-  create_table "postcodes", force: :cascade do |t|
-    t.string  "postcode"
-    t.string  "name"
-    t.integer "city_id"
+  create_table "orders", force: :cascade do |t|
+    t.string   "buyer"
+    t.string   "seller"
+    t.string   "address"
+    t.string   "order_status",   default: "In Progress"
+    t.string   "payment_method"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "subcategories", force: :cascade do |t|

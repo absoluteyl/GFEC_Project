@@ -1,0 +1,18 @@
+<%= render 'shared/errors', obj: @cart %>
+<h2>Your Cart</h2> 
+<table>
+  <% @cart.line_items.each do |item| %> 
+    <tr>
+      <td><%= image_tag item.merchandise.image_1.url(:thumb) %></td>
+      <td><%= item.merchandise.title %></td>
+      <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+      <td><%#= button_to 'Buy Next Time', item, method: :delete %></td>
+    </tr> 
+  <% end %>
+    <tr class="total_line">
+      <td colspan="2">Total</td>
+      <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+    </tr>
+</table>
+<%= button_to 'Check Out Now', new_order_path, method: :get %>
+<%= button_to 'Buy Next Time', @cart.line_items.first, method: :delete, data: { confirm: 'Are you sure?' } %> 

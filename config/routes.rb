@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'cart/index'
-
   #Root Route
   root 'welcome#index'
   get 'about' => 'welcome#about'
@@ -13,11 +11,12 @@ Rails.application.routes.draw do
   #Categories Routes
   resources :categories, except: [:destroy]
   
-  #Cart Routes
-  get 'cart' => 'cart#index'
-  get 'buynow' => 'cart#buy_now'
-  get 'nexttime' => 'cart#next_time'
-  
+  #Trade Routes
+  resources :carts, only: [:show, :destroy]
+  resources :line_items, only: [:create, :destroy]
+  resources :orders, only: [:show, :new, :create] do
+   get :checkout
+  end
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
 
