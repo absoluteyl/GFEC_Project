@@ -12,6 +12,8 @@ class LoginViewController: UIViewController {
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
+    var isReLoggingIn:Bool = false
+    
     @IBOutlet weak var topLabel: UILabel!
 
     @IBOutlet weak var userNameTextField: UITextField!
@@ -35,9 +37,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if isReLoggingIn == true {
+            self.navigationController!.navigationBar.hidden = true
+            isReLoggingIn = false
+        }
         userNameTextField.text = "kyujyokei@gmail.com"
-        
         passwordTextField.text = "effort"
     }
 

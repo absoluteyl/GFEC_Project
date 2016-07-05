@@ -18,6 +18,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     }
     
     @IBAction func logoutButtonActions(sender: UIButton) {
+        navigationController?.popToRootViewControllerAnimated(true)
         logout()
     }
     
@@ -88,6 +89,13 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        segue.identifier == "ReLoggingIn"
+            let Destination : LoginViewController = segue.destinationViewController as! LoginViewController
+            Destination.isReLoggingIn = true
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
