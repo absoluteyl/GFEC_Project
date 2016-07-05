@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : LoggingInViewController = segue.destinationViewController as! LoggingInViewController
-        Destination.username = userNameTextField.text
+        Destination.useremail = userNameTextField.text
         Destination.password = passwordTextField.text
     }
     

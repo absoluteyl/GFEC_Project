@@ -10,6 +10,8 @@ import UIKit
 
 class LoggingInViewController: UIViewController {
     
+    var userDefault = NSUserDefaults.standardUserDefaults()
+    
     @IBOutlet weak var userImage: UIImageView!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -18,15 +20,13 @@ class LoggingInViewController: UIViewController {
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
-    var username: String!
+    var useremail: String!
     var password: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         login()
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +56,7 @@ class LoggingInViewController: UIViewController {
         
         let params:[String: AnyObject] = [
                 "user_login":[
-                    "email": "\(username)",
+                    "email": "\(useremail)",
                     "password": "\(password)"
                 ]
             ]
@@ -126,26 +126,33 @@ class LoggingInViewController: UIViewController {
                      */
                     
                     let userDoc = userDictionary! as? [String:AnyObject]
-                    //print("USER DOC:\(userDoc)")
+                    print("USER DOC:\(userDoc)")
                     
                     let userID = userDoc![Constants.UsersResponseKeys.UserId] as! Int
-                    //let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
-                    //let userImage = userDoc![Constants.UsersResponseKeys.Avatar_S] as? String
+                    let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
+                    let userImage = userDoc![Constants.UsersResponseKeys.Avatar] as? String
                     
-                    //print("ID:\(userID)")
+                    print("ID:\(userID)")
                     
-                    self.theDelegate.userID = userID
+                    
                     
                     if statusReply! == "OK" {
                         performUIUpdatesOnMain(){
-                            //self.resultLabel.text = "Welcome!\(userName)!"
                             
-//                            let imageURL = NSURL(string: userImage!)
-//                            if let imageData = NSData(contentsOfURL: imageURL!) {
-//                                self.userImage.image = UIImage(data: imageData)!
-//                            } else {
-//                                print("Image does not exist at \(imageURL)")
-//                            }
+                            var userDefault = NSUserDefaults.standardUserDefaults()
+                            
+                            userDefault.setBool(true, forKey: "hasLoggedIn")
+                            userDefault.setObject(self.useremail, forKey: "userEmail")
+                            userDefault.setInteger(userID , forKey: "userID")
+                            
+                            self.resultLabel.text = "Welcome!\(userName)!"
+                            
+                            let imageURL = NSURL(string: userImage!)
+                            if let imageData = NSData(contentsOfURL: imageURL!) {
+                                self.userImage.image = UIImage(data: imageData)!
+                            } else {
+                                print("Image does not exist at \(imageURL)")
+                            }
                             self.activityIndicator.stopAnimating()
                             
                             let seconds = 1.2
@@ -157,8 +164,6 @@ class LoggingInViewController: UIViewController {
                                 self.performSegueWithIdentifier("goMain", sender: self)
                                 
                             })
-                           
-                            
                         }
                     } else {
                     
@@ -166,10 +171,7 @@ class LoggingInViewController: UIViewController {
                         {
                             navigationController.popViewControllerAnimated(true)
                         }
-                        
                     }
-                    
-                    
                 }
             }
         }
