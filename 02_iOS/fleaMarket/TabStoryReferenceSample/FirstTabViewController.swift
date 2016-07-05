@@ -48,10 +48,12 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
         //print("2.\(titleArray.count)")
         
+        
         // Beggining of adding logo to Navigation Bar
         let logo = UIImage(named: "logo_temp_small.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
+        navigationController!.navigationBar.barTintColor = UIColor(red: 81.0/255.0, green: 57.0/255.0, blue: 105.0/255.0, alpha: 1.0)
         // End of adding logo to Navigation Bar
         
         self.refreshControl = UIRefreshControl()

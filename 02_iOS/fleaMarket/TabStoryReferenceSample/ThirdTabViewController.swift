@@ -55,5 +55,12 @@ class ThirdTabViewController: UIViewController , UIImagePickerControllerDelegate
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         ImageDiaplay.image = info[UIImagePickerControllerOriginalImage] as? UIImage; dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("goUploadSegue", sender: UIButton())
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let Destination : AddItemInfoTableViewController = segue.destinationViewController as! AddItemInfoTableViewController
+        //Destination.recentItemId = itemIdArray[selectedNumber]
+        Destination.imageSelected = ImageDiaplay.image
     }
 }

@@ -170,6 +170,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             imageSelected = patchItemPhoto1
         }
 
+        self.addPhoto1!.setTitle("", forState: .Normal)
+        self.addPhoto1!.setImage(imageSelected!, forState: .Normal)
      
     }
 
