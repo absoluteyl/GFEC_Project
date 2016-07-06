@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+  
+  def show
+    @orders = Order.where(buyer_id: current_user.id)
+  end
+  
   def new
     if @cart.line_items.empty?
       redirect_to store_url, notice: "Your cart is empty"
