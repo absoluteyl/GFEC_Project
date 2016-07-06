@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :merchandises, dependent: :destroy
   has_many :locations, dependent: :destroy
   has_many :orders, dependent: :destroy
+  has_many :line_items, dependent: :destroy
   validates :username, presence: true,
                         uniqueness: { case_sensitive: false },
                         length: {minimum: 3, maximum: 25 }

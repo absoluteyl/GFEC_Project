@@ -1,0 +1,19 @@
+<h1>Your Orders</h1>
+<% @orders.each do |order| %>
+  <table>
+    <tr>
+      <th>Order ID</th>
+      <th>Merchandise</th>
+      <th>Payment Method</th>
+      <th>Status</th>
+      <th>Create Date</th>
+    </tr>
+    <tr>
+      <td><%= order.id %></td>
+      <td><%= link_to order.line_items.first.merchandise.title, merchandise_path(order.line_items.first.merchandise) %></td>
+      <td><%= order.payment_method %></td>
+      <td><%= order.order_status %></td>
+      <td><%= order.created_at.to_s(:db) %></td>
+    </tr>
+  </table>
+<% end %>

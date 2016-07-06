@@ -46,7 +46,7 @@ class MerchandisesController < ApplicationController
     
     private
     def merchandise_params
-        params.require(:merchandise).permit(:title, :description, :price, :amount, :category_id, :image_1, :image_2, :image_3)
+        params.require(:merchandise).permit(:title, :description, :price, :category_id, :location_id, :image_1, :image_2, :image_3)
     end
     
     def set_merchandise

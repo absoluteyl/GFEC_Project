@@ -1,0 +1,22 @@
+<%= render 'shared/errors', obj: @order %>
+<%= form_for @order do |f| %>
+  <!--<div class="field">-->
+  <!--  <%#= f.label 'Name:' %>-->
+  <!--  <%#= f.text_field :buyer, size: 40 %>-->
+  <!--</div>-->
+  <div class="field">
+    <%= f.label :payment_method %>
+    <%= f.select :payment_method, Order::PAYMENT_METHODS,
+                  prompt: 'Select a payment method' %>
+  </div>
+    <%= content_tag :p, '商品地點: ' + "#{@cart.line_items.first.merchandise.location.city.name}" %>
+  <div class="field">
+    <%= f.label 'Shipping Location' %>
+    <%= f.collection_select(:location_id, Location.where(user_id: current_user), :id, :alias, prompt: true) %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit 'Place Order' %>
+  </div>
+
+<% end %>

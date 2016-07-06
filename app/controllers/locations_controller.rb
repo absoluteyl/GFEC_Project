@@ -44,6 +44,6 @@ class LocationsController < ApplicationController
         puts @location.id
     end
     def location_params
-        params.require(:location).permit(:city, :address, :recipient, :phone)
+        params.require(:location).permit(:city_id, :alias, :address, :recipient, :phone, :lat, :long)
     end
 end

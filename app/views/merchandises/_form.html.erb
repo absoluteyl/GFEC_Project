@@ -11,11 +11,14 @@
         <%= f.label :price %>
         <%= f.text_field :price, placeholder: "Price of merchandise" %>
         <br />
-        <%= f.label :amount %>
-        <%= f.text_field :amount, placeholder: "Amount of merchandise" %>
-        <br />
+        <!--<%#= f.label :amount %>-->
+        <!--<%#= f.text_field :amount, placeholder: "Amount of merchandise" %>-->
+        <!--<br />-->
         <%= f.label :category_id %>
         <%= f.collection_select(:category_id, Category.where(parent_id: nil), :id, :name, prompt: true) %>
+        <br />
+        <%= f.label :location_id %>
+        <%= f.collection_select(:location_id, Location.where(user_id: current_user), :id, :alias, prompt: true) %>
         <br />
         <div class="well">
         <%= f.label :image_1 %>
