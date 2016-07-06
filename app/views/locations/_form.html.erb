@@ -1,8 +1,11 @@
 <%= render 'shared/errors', obj: @location %>
     <div>
     <%= form_for @location do |f| %>
+        <%= f.label '地點名稱' %>
+        <%= f.text_field :alias, placeholder: "Enter a name for this location", autofocus: true %>
+        <br />
         <%= f.label :recipient %>
-        <%= f.text_field :recipient, placeholder: "Enter recipient name", autofocus: true %>
+        <%= f.text_field :recipient, placeholder: "Enter recipient name" %>
         <br />
         <%= f.label :city_id %>
         <%= f.collection_select(:city_id, City.where(parent_id: nil), :id, :name, prompt: true) %>

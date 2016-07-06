@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
   belongs_to :buyer, :class_name => 'User', :foreign_key => "buyer_id"
   belongs_to :seller, :class_name => 'User', :foreign_key => "seller_id"
+  
   PAYMENT_METHODS = [ "面交", "宅配（使用歐付寶付款）" ]
   
   validates :payment_method, inclusion: PAYMENT_METHODS

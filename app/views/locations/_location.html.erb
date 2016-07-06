@@ -1,6 +1,7 @@
 <table>
     <tr>
        <th>#</th>
+       <th>Name</th>
        <th>Recipient</th>
        <th>Address</th>
        <th>Phone</th>
@@ -9,6 +10,7 @@
     <% obj.each do |location| %>
         <tr>
             <td><%= location.id %></td>
+            <td><%= location.alias %></td>
             <td><%= location.recipient %></td>
             <td>
                 <%#= location.postcode %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705144025) do
+ActiveRecord::Schema.define(version: 20160706060304) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20160705144025) do
     t.integer  "order_id"
     t.integer  "cart_id"
     t.integer  "merchandise_id"
-    t.decimal  "unit_price",                 null: false
+    t.integer  "unit_price",                 null: false
     t.integer  "quantity",       default: 1, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20160705144025) do
     t.string  "phone"
     t.decimal "lat",       precision: 15, scale: 12
     t.decimal "long",      precision: 15, scale: 12
+    t.string  "alias"
   end
 
   create_table "merchandises", force: :cascade do |t|
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160705144025) do
     t.integer  "image_3_file_size"
     t.datetime "image_3_updated_at"
     t.integer  "category_id"
+    t.integer  "location_id"
   end
 
   create_table "orders", force: :cascade do |t|

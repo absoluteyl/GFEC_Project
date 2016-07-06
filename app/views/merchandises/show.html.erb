@@ -14,7 +14,7 @@
   <%= simple_format(@merchandise.description) %>
   <br />
   <p>Price: <%= @merchandise.price %></p>
-  <p>Amount: <%= @merchandise.amount %></p>
+  <p>Location: <%= @merchandise.location.city.name %></p>
   <% if @merchandise.category %>
     <p>Category: <%= render @merchandise.category %></p>
   <% end %>
