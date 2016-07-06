@@ -35,59 +35,59 @@
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1p5-6j-uHL">
                                 <rect key="frame" x="0.0" y="44" width="1200" height="80"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lq5-WR-aWe">
-                                        <rect key="frame" x="0.0" y="0.0" width="1200" height="80"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lq5-WR-aWe">
+                                        <rect key="frame" x="0.0" y="-6" width="1200" height="86"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghs-VL-kYl">
-                                                <rect key="frame" x="152" y="20" width="90" height="34"/>
+                                                <rect key="frame" x="152" y="26" width="90" height="34"/>
                                                 <state key="normal" title="Category 2">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROC-Cn-R3M">
-                                                <rect key="frame" x="299" y="20" width="90" height="34"/>
+                                                <rect key="frame" x="299" y="26" width="90" height="34"/>
                                                 <state key="normal" title="Category 3">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glW-Dj-b3v">
-                                                <rect key="frame" x="424" y="20" width="87" height="34"/>
+                                                <rect key="frame" x="424" y="26" width="87" height="34"/>
                                                 <state key="normal" title="Category 1">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ea4-9t-4c3">
-                                                <rect key="frame" x="556" y="20" width="90" height="34"/>
+                                                <rect key="frame" x="556" y="26" width="90" height="34"/>
                                                 <state key="normal" title="Category 2">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9x-rW-sIG">
-                                                <rect key="frame" x="703" y="20" width="90" height="34"/>
+                                                <rect key="frame" x="703" y="26" width="90" height="34"/>
                                                 <state key="normal" title="Category 3">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Asy-gU-beU">
-                                                <rect key="frame" x="823" y="20" width="87" height="34"/>
+                                                <rect key="frame" x="823" y="26" width="87" height="34"/>
                                                 <state key="normal" title="Category 1">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBr-ll-5oL">
-                                                <rect key="frame" x="955" y="20" width="90" height="34"/>
+                                                <rect key="frame" x="955" y="26" width="90" height="34"/>
                                                 <state key="normal" title="Category 2">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ot-rB-uST">
-                                                <rect key="frame" x="1102" y="20" width="90" height="34"/>
+                                                <rect key="frame" x="1102" y="26" width="90" height="34"/>
                                                 <state key="normal" title="Category 3">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCc-hU-sW6">
-                                                <rect key="frame" x="21" y="5" width="100" height="70"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cCc-hU-sW6">
+                                                <rect key="frame" x="21" y="11" width="100" height="70"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="YXP-VF-NgC"/>
                                                 </constraints>
@@ -125,33 +125,34 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="UICollectionView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fJQ-Ib-p39">
                                 <rect key="frame" x="0.0" y="124" width="1200" height="419"/>
                                 <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="JdK-ie-ugt">
+                                <inset key="scrollIndicatorInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="JdK-ie-ugt">
                                     <size key="itemSize" width="131" height="131"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                    <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="6l5-Io-QKz" customClass="CollectionViewCell" customModule="fleaMarket" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="180" height="210"/>
+                                        <rect key="frame" x="20" y="10" width="180" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="210"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srN-B3-sto">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srN-B3-sto">
                                                     <rect key="frame" x="0.0" y="0.0" width="180" height="155"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NP-0z-Ssu">
-                                                    <rect key="frame" x="8" y="173" width="90" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NP-0z-Ssu">
+                                                    <rect key="frame" x="8" y="181" width="164" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYo-Pw-ttf">
-                                                    <rect key="frame" x="82" y="173" width="90" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYo-Pw-ttf">
+                                                    <rect key="frame" x="0.0" y="158" width="180" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.57254901960000004" green="0.2274509804" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -159,16 +160,9 @@
                                         </view>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="srN-B3-sto" firstAttribute="leading" secondItem="6l5-Io-QKz" secondAttribute="leading" id="1Li-Cg-oa7"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="RYo-Pw-ttf" secondAttribute="trailing" id="4j9-CU-rYf"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="RYo-Pw-ttf" secondAttribute="bottom" constant="1" id="5YT-Tu-jez"/>
-                                            <constraint firstItem="srN-B3-sto" firstAttribute="top" secondItem="6l5-Io-QKz" secondAttribute="top" id="9GM-9e-FhP"/>
-                                            <constraint firstItem="RYo-Pw-ttf" firstAttribute="width" secondItem="6l5-Io-QKz" secondAttribute="width" multiplier="0.5" id="Df0-T5-PCY"/>
-                                            <constraint firstItem="6NP-0z-Ssu" firstAttribute="width" secondItem="6l5-Io-QKz" secondAttribute="width" multiplier="0.5" id="aM2-qF-JU4"/>
-                                            <constraint firstItem="RYo-Pw-ttf" firstAttribute="top" secondItem="srN-B3-sto" secondAttribute="bottom" constant="5" id="cHk-YQ-9T9"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="6NP-0z-Ssu" secondAttribute="bottom" constant="1" id="nBa-Y9-C7p"/>
-                                            <constraint firstItem="6NP-0z-Ssu" firstAttribute="leading" secondItem="6l5-Io-QKz" secondAttribute="leadingMargin" id="oe7-bh-9f2"/>
-                                            <constraint firstAttribute="trailing" secondItem="srN-B3-sto" secondAttribute="trailing" id="uTR-cC-RNR"/>
+                                            <constraint firstItem="srN-B3-sto" firstAttribute="top" secondItem="6l5-Io-QKz" secondAttribute="top" id="Fsw-hm-khj"/>
+                                            <constraint firstAttribute="trailing" secondItem="srN-B3-sto" secondAttribute="trailing" id="dOx-L6-4yb"/>
+                                            <constraint firstItem="srN-B3-sto" firstAttribute="leading" secondItem="6l5-Io-QKz" secondAttribute="leading" id="kdX-R5-e1H"/>
                                         </constraints>
                                         <size key="customSize" width="180" height="210"/>
                                         <connections>

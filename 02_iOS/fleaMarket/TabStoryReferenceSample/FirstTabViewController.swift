@@ -44,17 +44,19 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("1.\(titleArray.count)")
-        //getDataFromDB()
         
-        //print("2.\(titleArray.count)")
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "bg");
+        bgImage.contentMode = .ScaleToFill
+        
+        self.collectionView?.backgroundView = bgImage
         
         
         // Beggining of adding logo to Navigation Bar
         let logo = UIImage(named: "logo_w.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
-        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0x513969);
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
 
         // End of adding logo to Navigation Bar
         
@@ -63,7 +65,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         self.refreshControl.addTarget(self, action: "refresh:",   forControlEvents: UIControlEvents.ValueChanged)
         collectionView!.addSubview(refreshControl)
         
-        categoryScroll.backgroundColor = UIColorUtil.rgb(0x513969);
+        categoryScroll.backgroundColor = UIColorUtil.rgb(0xffffff);
         
     }
     
@@ -83,7 +85,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         //決定每個cell的大小
         if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
             //如果是直的
-            return CGSize(width: 180, height: 180)
+
+            return CGSize(width: view.bounds.width / 2.3, height: 210)
         }else{
             return CGSize(width: 200, height: 200)
             
