@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705125219) do
+ActiveRecord::Schema.define(version: 20160705144025) do
 
   create_table "api_keys", force: :cascade do |t|
     t.string   "api_key"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160705125219) do
     t.integer  "quantity",       default: 1, null: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "seller_id"
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id"

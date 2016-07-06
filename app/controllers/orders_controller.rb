@@ -11,6 +11,9 @@ class OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.add_line_items_from_cart(@cart)
     @order.order_status = "New Order"
+    @order.buyer = current_user
+    @order.seller = @cart.line_items.last.merchandise.user
+    
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil

@@ -4,14 +4,20 @@
         <%= f.label :recipient %>
         <%= f.text_field :recipient, placeholder: "Enter recipient name", autofocus: true %>
         <br />
-        <%= f.label :city %>
-        <%= f.text_field :city, placeholder: "Enter city in chinese" %>
+        <%= f.label :city_id %>
+        <%= f.collection_select(:city_id, City.where(parent_id: nil), :id, :name, prompt: true) %>
         <br />
         <%= f.label :address %>
         <%= f.text_field :address, rows: 10, placeholder: "Description the status and spec of your location" %>
         <br />
         <%= f.label :phone %>
         <%= f.text_field :phone, placeholder: "Enter recipient phone number" %>
+        <br />
+        <%= f.label '緯度' %>
+        <%= f.text_field :lat %>
+        <br />
+        <%= f.label '經度' %>
+        <%= f.text_field :long %>
         <br />
         <%= f.submit %>
     <% end %>

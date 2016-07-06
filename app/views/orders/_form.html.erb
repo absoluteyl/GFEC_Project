@@ -1,9 +1,9 @@
 <%= render 'shared/errors', obj: @order %>
 <%= form_for @order do |f| %>
-  <div class="field">
-    <%= f.label 'Name:' %>
-    <%= f.text_field :buyer, size: 40 %>
-  </div>
+  <!--<div class="field">-->
+  <!--  <%#= f.label 'Name:' %>-->
+  <!--  <%#= f.text_field :buyer, size: 40 %>-->
+  <!--</div>-->
   <div class="field">
     <%= f.label :address %>
     <%= f.text_area :address, size: 40, rows: 3, cols: 40 %>
