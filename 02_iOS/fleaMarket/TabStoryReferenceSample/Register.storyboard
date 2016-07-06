@@ -91,6 +91,12 @@
                                     <action selector="CreateButtonAction:" destination="Vg8-p9-cT7" eventType="touchUpInside" id="ypU-SI-Tn5"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z08-Ba-g9V">
+                                <rect key="frame" x="174" y="486" width="253" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -102,13 +108,16 @@
                             <constraint firstItem="Eoo-Ge-Xn0" firstAttribute="leading" secondItem="MWi-Xa-2nT" secondAttribute="leading" id="KgR-al-HPj"/>
                             <constraint firstItem="RKi-3S-QXt" firstAttribute="trailing" secondItem="vq4-KB-icD" secondAttribute="trailing" id="M4T-pH-9bp"/>
                             <constraint firstItem="MWi-Xa-2nT" firstAttribute="top" secondItem="5Vu-z5-5z9" secondAttribute="bottom" constant="8" symbolic="YES" id="MOp-nM-KVA"/>
+                            <constraint firstItem="Z08-Ba-g9V" firstAttribute="top" secondItem="nYq-GD-7PZ" secondAttribute="bottom" constant="9" id="NCT-Ke-AeE"/>
                             <constraint firstItem="RKi-3S-QXt" firstAttribute="centerX" secondItem="Wnu-qv-VEW" secondAttribute="centerX" id="OcP-Ka-MBY"/>
                             <constraint firstItem="5Vu-z5-5z9" firstAttribute="centerX" secondItem="MWi-Xa-2nT" secondAttribute="centerX" id="OkG-Og-Pj5"/>
                             <constraint firstItem="RKi-3S-QXt" firstAttribute="centerX" secondItem="6FB-IZ-RN2" secondAttribute="centerX" id="VwP-ta-Epa"/>
                             <constraint firstItem="wys-aI-ulL" firstAttribute="centerX" secondItem="RKi-3S-QXt" secondAttribute="centerX" id="Vzv-q3-U6H"/>
+                            <constraint firstItem="Z08-Ba-g9V" firstAttribute="leading" secondItem="nYq-GD-7PZ" secondAttribute="leading" id="XXj-87-PB8"/>
                             <constraint firstItem="vq4-KB-icD" firstAttribute="trailing" secondItem="Eoo-Ge-Xn0" secondAttribute="trailing" id="aoD-HC-uTv"/>
                             <constraint firstItem="5Vu-z5-5z9" firstAttribute="top" secondItem="Eoo-Ge-Xn0" secondAttribute="bottom" constant="23" id="asx-qi-9nR"/>
                             <constraint firstItem="ldg-Uy-Ryc" firstAttribute="top" secondItem="wys-aI-ulL" secondAttribute="bottom" constant="13" id="bgn-08-HLk"/>
+                            <constraint firstItem="Z08-Ba-g9V" firstAttribute="trailing" secondItem="nYq-GD-7PZ" secondAttribute="trailing" id="bkQ-qT-ogH"/>
                             <constraint firstItem="Eoo-Ge-Xn0" firstAttribute="top" secondItem="4w9-PB-2eL" secondAttribute="bottom" constant="8" symbolic="YES" id="eFh-Fn-6X2"/>
                             <constraint firstItem="g4C-Bp-Wfi" firstAttribute="top" secondItem="nYq-GD-7PZ" secondAttribute="bottom" constant="43" id="eVS-0L-S8I"/>
                             <constraint firstItem="MWi-Xa-2nT" firstAttribute="trailing" secondItem="nYq-GD-7PZ" secondAttribute="trailing" id="ehd-7s-9oi"/>
@@ -129,12 +138,47 @@
                         <outlet property="mobileTextField" destination="Eoo-Ge-Xn0" id="zUw-Id-ZvP"/>
                         <outlet property="passwordConfirmTextField" destination="nYq-GD-7PZ" id="LbU-Fp-sRg"/>
                         <outlet property="passwordTextField" destination="MWi-Xa-2nT" id="7z0-oV-jsj"/>
+                        <outlet property="pwCheckLabel" destination="Z08-Ba-g9V" id="geJ-ax-lhB"/>
                         <outlet property="userNameTextField" destination="RKi-3S-QXt" id="fMX-0O-7qg"/>
+                        <segue destination="WaP-Oy-fZM" kind="show" identifier="goNext" id="Vg7-pT-sL8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J31-fU-yur" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-40" y="7"/>
+        </scene>
+        <!--Registering View Controller-->
+        <scene sceneID="LoS-Xw-FC1">
+            <objects>
+                <viewController id="WaP-Oy-fZM" customClass="RegisteringViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VRw-F4-Ljn"/>
+                        <viewControllerLayoutGuide type="bottom" id="eqD-ml-hMa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AHu-X8-hvz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please wait..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zwy-3l-LKr">
+                                <rect key="frame" x="219" y="187" width="163" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bti-o8-ELe">
+                                <rect key="frame" x="290" y="321" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="bti-o8-ELe" id="eei-1J-yXW"/>
+                        <outlet property="textLabel" destination="Zwy-3l-LKr" id="1ZB-6k-Zrd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XiH-ak-fEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="709" y="7"/>
         </scene>
     </scenes>
 </document>
