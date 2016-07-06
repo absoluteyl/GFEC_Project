@@ -30,9 +30,11 @@ class LoginViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goNext" {
         let Destination : LoggingInViewController = segue.destinationViewController as! LoggingInViewController
         Destination.useremail = userNameTextField.text
         Destination.password = passwordTextField.text
+        }
     }
     
     override func viewDidLoad() {

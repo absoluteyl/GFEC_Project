@@ -27,6 +27,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     
+    @IBOutlet weak var categoryScroll: UIScrollView!
     
     var hasGotAPIYet: Bool = false
     
@@ -50,16 +51,19 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
         
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
+        let logo = UIImage(named: "logo_w.png")
         let imageView = UIImageView(image:logo)
         self.navigationItem.titleView = imageView
-        navigationController!.navigationBar.barTintColor = UIColor(red: 81.0/255.0, green: 57.0/255.0, blue: 105.0/255.0, alpha: 1.0)
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0x513969);
+
         // End of adding logo to Navigation Bar
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:",   forControlEvents: UIControlEvents.ValueChanged)
         collectionView!.addSubview(refreshControl)
+        
+        categoryScroll.backgroundColor = UIColorUtil.rgb(0x513969);
         
     }
     

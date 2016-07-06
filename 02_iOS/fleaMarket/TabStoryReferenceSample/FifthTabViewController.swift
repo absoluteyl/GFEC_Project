@@ -93,9 +93,10 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        segue.identifier == "ReLoggingIn"
+        if segue.identifier == "ReLoggingIn" {
             let Destination : LoginViewController = segue.destinationViewController as! LoginViewController
             Destination.isReLoggingIn = true
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -209,6 +210,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
                             var userDefault = NSUserDefaults.standardUserDefaults()
                             
                             userDefault.setBool(false, forKey: "hasLoggedIn")
+                            self.navigationController?.popViewControllerAnimated(true)
                             self.performSegueWithIdentifier("logoutSegue", sender: self)
                         }
                     }
