@@ -168,7 +168,7 @@ a:focus {
 }
 
 .footer {
-  background-color: #5EC3B3;
+  background-color: #513969;
   width: 100%;
   color: #333;
   padding-top: 64px;
@@ -187,11 +187,12 @@ a:focus {
   text-align: center;
   line-height: 73px;
   color: #fff;
-  border: 3px solid #513969;
+  border: 3px solid #5EC3B3;
   transition: .3s;
 }
 .footer .share a:hover {
-  background: #513969;
+  color: #333;
+  background: #5EC3B3;
 }
 .footer .copyright {
   text-align: center;
