@@ -82,11 +82,8 @@ class Api::LocationsController < Api::ApiController
     mer_list = []
     locations.each do |location|
       mer_list.push(Merchandise.where(location: location).order(:updated_at).reverse_order)
-      #mer_list.push(location.user.merchandises.order(:updated_at).reverse_order)
-      #merchandises.push(location.user.merchandises.select(:id, :user_id, :title))
-      #.select(:id, :user_id, :title, :image_1.url(:thumb))
     end
-    mer_list
+    mer_list.map{|i| i.take(3)}
   end
   
 end
