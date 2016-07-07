@@ -59,11 +59,11 @@
             </objects>
             <point key="canvasLocation" x="1668" y="-444"/>
         </scene>
-        <!--Second-->
+        <!--Navigation Controller-->
         <scene sceneID="hop-Nd-v2e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wBo-IG-Oof" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gSb-5p-9F8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -80,7 +80,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="26" height="26"/>
         <image name="mapHome" width="60" height="60"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>

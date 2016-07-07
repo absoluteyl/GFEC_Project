@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Messages-->
+        <!--Fourth Tab View Controller-->
         <scene sceneID="k9J-ki-Syj">
             <objects>
                 <viewController id="ikC-PM-pZY" customClass="FourthTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -44,7 +44,7 @@
                             <constraint firstAttribute="trailing" secondItem="0yc-f1-NkR" secondAttribute="trailing" id="xep-ZG-gY9"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="tab4message" id="irD-BY-kvz"/>
+                    <tabBarItem key="tabBarItem" title="" image="chat" id="irD-BY-kvz"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wij-EH-5Yq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -53,6 +53,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab4message" width="18" height="18"/>
+        <image name="chat" width="26" height="26"/>
     </resources>
 </document>
