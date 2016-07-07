@@ -46,4 +46,15 @@ class LocationsController < ApplicationController
     def location_params
         params.require(:location).permit(:city_id, :alias, :address, :recipient, :phone, :lat, :long)
     end
+    def query_merchandises(locations)
+        merchandises = []
+        locations.each do |location|
+          location.user.merchandises.each do |merchandise|
+            merchandises.push(merchandise.select(:id, :user_id, :title, :image_1.url(:thumb)))
+          #merchandises.push(location.user.merchandises.select(:id, :user_id, :title))
+          #.select(:id, :user_id, :title, :image_1.url(:thumb))
+          end
+        end
+        merchandises
+    end
 end

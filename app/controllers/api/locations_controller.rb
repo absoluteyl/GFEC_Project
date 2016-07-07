@@ -1,22 +1,32 @@
 class Api::LocationsController < Api::ApiController
   skip_before_filter :verify_authenticity_token
   before_action :set_location, only: [:edit, :update, :destroy]
-  
   def index
-    if user = params[:user]
-      @locations = Location.where(user: user)
+    @locations = Location.all
+    if city_id = params[:city_id]
+        @locations = @locations.where(city_id: city_id)
+    end
       render status: 200, json: {
         status: "OK", 
-        locations: @locations.as_json
+        locations: @locations,
+        merchandises: query_merchandises(@locations)
       }.to_json
-    else
-      render status: 422, json: {
-        status: "Unprocessable Entity",
-        message: "Must define user"
-      }.to_json
-    end
-    
   end
+  # def show
+  #   if user = params[:user]
+  #     @locations = Location.where(user: user)
+  #     render status: 200, json: {
+  #       status: "OK", 
+  #       locations: @locations.as_json
+  #     }.to_json
+  #   else
+  #     render status: 422, json: {
+  #       status: "Unprocessable Entity",
+  #       message: "Must define user"
+  #     }.to_json
+  #   end
+    
+  # end
   
   def create
     @location = Location.new(location_params)
@@ -65,6 +75,18 @@ class Api::LocationsController < Api::ApiController
       puts @location.id
   end
   def location_params
-      params.require(:location).permit(:city, :address, :recipient, :phone, :user_id, :lat, :long)
+      params.require(:location).permit(:city_id, :address, :recipient, :phone, :user_id, :lat, :long)
   end
+  def query_merchandises(locations)
+    
+    mer_list = []
+    locations.each do |location|
+      mer_list.push(Merchandise.where(location: location).order(:updated_at).reverse_order)
+      #mer_list.push(location.user.merchandises.order(:updated_at).reverse_order)
+      #merchandises.push(location.user.merchandises.select(:id, :user_id, :title))
+      #.select(:id, :user_id, :title, :image_1.url(:thumb))
+    end
+    mer_list
+  end
+  
 end

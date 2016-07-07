@@ -45,7 +45,7 @@ class Merchandise < ActiveRecord::Base
       :image_3_file_name, :image_3_content_type, :image_3_file_size, :image_3_updated_at,
     ],
     methods: [
-      :image1_url_o, :image1_url_m, :image1_url_s,
+      :image1_url_o, :image1_url_m, :image1_url_s, :image1_url_t,
       :image2_url_o, :image2_url_m, :image2_url_s,
       :image3_url_o, :image3_url_m, :image3_url_s,
     ]
@@ -64,6 +64,11 @@ class Merchandise < ActiveRecord::Base
   def image1_url_s
     if image_1?
       image_1.url(:small)
+    end
+  end
+  def image1_url_t
+    if image_1?
+      image_1.url(:thumb)
     end
   end
   def image2_url_o

@@ -5,4 +5,6 @@ class Location < ActiveRecord::Base
   validates :user_id, presence: true
   validates :lat, presence: true
   validates :long, presence: true
+  
+  
 end

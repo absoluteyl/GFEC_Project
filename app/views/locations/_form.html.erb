@@ -8,7 +8,7 @@
         <%= f.text_field :recipient, placeholder: "Enter recipient name" %>
         <br />
         <%= f.label :city_id %>
-        <%= f.collection_select(:city_id, City.where(parent_id: nil), :id, :name, prompt: true) %>
+        <%= f.collection_select(:city_id, City.all, :id, :name, prompt: true) %>
         <br />
         <%= f.label :address %>
         <%= f.text_field :address, rows: 10, placeholder: "Description the status and spec of your location" %>
