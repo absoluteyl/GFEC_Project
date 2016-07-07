@@ -7,7 +7,7 @@
        <th>Phone</th>
        <th col_span="2">Actions</th>
     </tr>
-    <% obj.each do |location| %>
+    <% @locations.each do |location| %>
         <tr>
             <td><%= location.alias %></td>
             <td><%= location.recipient %></td>
