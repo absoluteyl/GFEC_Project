@@ -19,6 +19,25 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var location: CLLocation!
     
+    var latitudeArray = [String]()
+    var longtitufeArray = [String]()
+    var coordinateArray: [CLLocationCoordinate2D] = []
+
+    class Artwork: NSObject, MKAnnotation {
+        let title: String?
+        let locationName: String
+        let discipline: String
+        let coordinate: CLLocationCoordinate2D
+        
+        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
+            self.title = title
+            self.locationName = locationName
+            self.discipline = discipline
+            self.coordinate = coordinate
+            
+            super.init()
+        }
+    }
     
     @IBAction func resetLocationButton(sender: UIButton) {
         
@@ -26,6 +45,41 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         self.map.setRegion(region, animated: true)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+//        for i in 0...coordinateArray.count-1 {
+//            
+//        }
+        getDataFromDB()
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationIdentifier = "annotation"
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationIdentifier)
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            view?.canShowCallout = true
+            view?.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        } else {
+            view?.annotation = annotation
+        }
+        return view
+    }
+    
+    var selectedAnnotation: MKPointAnnotation!
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            selectedAnnotation = view.annotation as? MKPointAnnotation
+            performSegueWithIdentifier("showUser", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? UserDetailViewController {
+          //  destination.userId = selectedAnnotation
+        }
     }
     
     override func viewDidLoad() {
@@ -77,78 +131,80 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     
     
-//    private func getDataFromDB() {
-//        
-//        
-//        let methodParameters: [String: String!] = [
-//            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
-//            ]
-//        
-//        //print(methodParameters)
-//        
-//        let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
-//        
-//        print("URL:\(urlString)")
-//        
-//        let url = NSURL(string: urlString)!
-//        let request = NSURLRequest(URL: url)
-//        var itemArray:NSArray?
-//        
-//        
-//        // if an error occur, print it
-//        func displayError(error: String) {
-//            print(error)
-//            print("URL at time of error: \(url)")
-//            
-//        }
-//        
-//        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
-//            
-//            if error == nil {
-//                if let data = data {
-//                    let parsedResult: AnyObject!
-//                    do {
-//                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
-//                    } catch {
-//                        displayError("Could not parse the data as JSON: '\(data)'")
-//                        return
-//                    }
-//                    
-//                    //print(parsedResult)
-//                    
-//                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
-//                    
-//                    
-//                    //grab every "title" in dictionaries by look into the array with for loop
-//                    for i in 0...itemDictionary!.count-1 {
-//                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-//                        //print (itemTitle!)
-//                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-//                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
-//                        let itemImage = itemDictionary![i][Constants.MerchandisesResponseKeys.image_1_s] as? String
-//                        
-//                        
-//                        priceArray.append(itemPrice!)
-//                        titleArray.append(itemTitle!)
-//                        itemIdArray.append(itemId!)
-//                        imageArray.append(itemImage!)
-//                        
-//                    }
-//                    //print(priceArray)
-//                    //print(titleArray)
-//                    //print(itemIdArray)
-//                    
-//                    //print("3.\(titleArray.count)")
-//                    
-//                    performUIUpdatesOnMain(){
-//                        self.collectionView.reloadData()
-//                        self.activityIndicator.stopAnimating()
-//                    }
-//                }
-//            }
-//        }
-//        task.resume()
-//    }
+    private func getDataFromDB() {
+        
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        //print(methodParameters)
+        
+        let urlString = Constants.Locations.APIBaseURL + escapedParameters(methodParameters)
+        
+        print("URL:\(urlString)")
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Locations] as! [[String:AnyObject]]
+                    print(locationDictionary)
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    for i in 0...locationDictionary.count-1 {
+                        let locLatitude = locationDictionary[i][Constants.LocationRespondKeys.Latitude] as! String
+                        let locLongtitude = locationDictionary[i][Constants.LocationRespondKeys.Longtitude] as! String
+                        let locName = locationDictionary[i][Constants.LocationRespondKeys.Recipient] as! String
+                        
+                        let dobLat = Double(locLatitude)!
+                        let dobLong = Double(locLongtitude)!
+                        
+                        let destination:CLLocationCoordinate2D = CLLocationCoordinate2DMake(dobLat, dobLong)
+
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate = destination
+                        annotation.title = locName
+                        
+                        self.map.addAnnotation(annotation)
+                    }
+                    //print(priceArray)
+                    //print(titleArray)
+                    //print(itemIdArray)
+                    
+                    //print("3.\(titleArray.count)")
+                    
+                    performUIUpdatesOnMain(){
+                       
+                      //  self.activityIndicator.stopAnimating()
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
     
     func escapedParameters(parameters: [String:AnyObject]) -> String {
         if parameters.isEmpty {

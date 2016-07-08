@@ -409,9 +409,11 @@
         <scene sceneID="Xp7-wx-xz2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ppH-fr-Fcx" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="" image="home" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="OvV-Zf-y3o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

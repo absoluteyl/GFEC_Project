@@ -89,6 +89,7 @@ struct Constants {
         static let UserId = "user_id"
         static let PostCode = "postcode"
         static let City = "city"
+        static let CityId = "city_id"
         static let Address = "address"
         static let Recipient = "recipient"
         static let Phone = "phone"
