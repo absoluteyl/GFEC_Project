@@ -27,12 +27,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-  
   <div class="field">
     <%= f.label :avatar %><br />
     <%= f.file_field :avatar %>
@@ -44,8 +38,11 @@
         <%= @user.avatar_file_name %>
       </p>
     <% end %>
+  </div><br /><br />
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
-  
   <div class="actions">
     <%= f.submit "Update" %>
   </div>

@@ -15,7 +15,7 @@
   <br />
   <p>Price: <%= @merchandise.price %></p>
   <% if @merchandise.location %>
-  <p>Location: <%= @merchandise.location.city.name %></p>
+  <p>Location: <%= City.find_by(id: @merchandise.location.city.parent_id).name + @merchandise.location.city.name %></p>
   <% end %>
   <% if @merchandise.category %>
     <p>Category: <%= render @merchandise.category %></p>
@@ -30,8 +30,8 @@
   <% end %>
   <div class="merchandise-actions">
     <% if user_signed_in? && (current_user == @merchandise.user) %>
-      <%= link_to "Edit this merchandise", edit_merchandise_path(@merchandise) %>
-      <%= link_to "Delete this merchandise", merchandise_path(@merchandise), method: :delete, 
+      <%= button_to "Edit", edit_merchandise_path(@merchandise), method: :get %>
+      <%= button_to "Delete", merchandise_path(@merchandise), method: :delete, 
                                         data: { confirm: "Are you sure you want to delete the merchandise?"} %>
     <% else%>
       <%= button_to 'Add to Cart', line_items_path(merchandise_id: @merchandise) %>

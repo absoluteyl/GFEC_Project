@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
-    include CitySelect
-    before_action :set_cart, only: [:new, :create, :edit, :update]
+    before_action :set_city, only: [:new, :edit]
     before_action :set_location, only: [:edit, :update, :destroy]
     
     def index
@@ -9,8 +8,6 @@ class LocationsController < ApplicationController
     
     def new
         @location = Location.new
-        @cities = City.where(parent_id: nil)
-        @districts = City.where(parent_id: City.where(parent_id: nil).first.id)
     end
     def create
         @location = Location.new(location_params)
@@ -42,23 +39,23 @@ class LocationsController < ApplicationController
       redirect_to locations_path
     end
     
+    def update_districts
+        @districts = City.where(parent_id: params[:parent_id])
+        respond_to do |format|
+          format.js
+        end
+    end
+  
     private
     def set_location
         @location = Location.find(params[:id])
         puts @location.id
     end
+    def set_city
+        @cities = City.where(parent_id: nil)
+        @districts = City.where(parent_id: City.where(parent_id: nil).first.id) 
+    end
     def location_params
         params.require(:location).permit(:city_id, :alias, :address, :recipient, :phone, :lat, :long)
-    end
-    def query_merchandises(locations)
-        merchandises = []
-        locations.each do |location|
-          location.user.merchandises.each do |merchandise|
-            merchandises.push(merchandise.select(:id, :user_id, :title, :image_1.url(:thumb)))
-          #merchandises.push(location.user.merchandises.select(:id, :user_id, :title))
-          #.select(:id, :user_id, :title, :image_1.url(:thumb))
-          end
-        end
-        merchandises
     end
 end

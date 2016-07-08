@@ -13,7 +13,7 @@
             <td><%= location.recipient %></td>
             <td>
                 <%#= location.postcode %>
-                <%= location.city.name %>
+                <%= City.find_by(id: location.city.parent_id).name + location.city.name %>
                 <%= location.address %>
             </td>
             <td><%= location.phone %></td>

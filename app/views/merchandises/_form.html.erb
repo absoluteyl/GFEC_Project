@@ -14,8 +14,10 @@
         <!--<%#= f.label :amount %>-->
         <!--<%#= f.text_field :amount, placeholder: "Amount of merchandise" %>-->
         <!--<br />-->
-        <%= f.label :category_id %>
-        <%= f.collection_select(:category_id, Category.where(parent_id: nil), :id, :name, prompt: true) %>
+        <%= f.select :category_id, options_for_select(@categories.collect { |category|
+            [category.name, category.id] }, 1), {}, { id: 'categories_select' } %>
+        <%= f.select :category_id, options_for_select(@subcategories.collect { |subcategory|
+            [subcategory.name, subcategory.id] }, 0), {}, { id: 'subcategories_select' } %>
         <br />
         <%= f.label :location_id %>
         <%= f.collection_select(:location_id, Location.where(user_id: current_user), :id, :alias, prompt: true) %>

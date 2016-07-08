@@ -20,3 +20,5 @@
 //= require ./common/common
 //= require ./index
 //= require ./merchandise
+//= require ./locations
+//= require ./merchandises

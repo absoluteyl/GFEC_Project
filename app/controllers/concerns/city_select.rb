@@ -7,6 +7,7 @@ module CitySelect
     @districts = City.where(parent_id: params[:parent_id])
     respond_to do |format|
       format.js
+      format.html
     end
   end
 end

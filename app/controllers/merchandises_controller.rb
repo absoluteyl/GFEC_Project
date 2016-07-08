@@ -1,6 +1,7 @@
 class MerchandisesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     before_action :set_merchandise, only: [:edit, :update, :show, :destroy]
+    before_action :set_category, only: [:new, :edit]
     before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def new
@@ -43,6 +44,12 @@ class MerchandisesController < ApplicationController
       redirect_to merchandises_path
     end
     
+    def update_subcategories
+        @subcategories = Category.where(parent_id: params[:parent_id])
+        respond_to do |format|
+          format.js
+        end
+    end
     
     private
     def merchandise_params
@@ -51,6 +58,11 @@ class MerchandisesController < ApplicationController
     
     def set_merchandise
       @merchandise = Merchandise.find(params[:id])
+    end
+    
+    def set_category
+        @categories = Category.where(parent_id: nil)
+        @subcategories = Category.where(parent_id: Category.where(parent_id: nil).first.id) 
     end
     
     def require_same_user

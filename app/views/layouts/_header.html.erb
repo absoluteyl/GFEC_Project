@@ -18,8 +18,7 @@
       </ul>
     </div>
     <div class="cart">
-      <% %>
-      <%= link_to cart_path(current_cart) do %>
+      <%= link_to cart_path(@cart) do %>
         <%= content_tag :i, '', :class => 'fa fa-shopping-cart' %>
         <%= content_tag :span, '購物車', :class => 'name' %>
       <% end %>

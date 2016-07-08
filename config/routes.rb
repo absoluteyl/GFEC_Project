@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   get 'contact' => 'welcome#contact'
   
   #Merchandises Routes
-  resources :merchandises
+  resources :merchandises do 
+    collection do 
+      get 'update_subcategories' => 'merchandises#update_subcategories', as: 'update_subcategories'
+    end
+    member do 
+      get 'update_subcategories' => 'merchandises#update_subcategories', as: 'update_subcategories'
+    end
+  end
   
   #Categories Routes
   resources :categories, except: [:destroy]
@@ -17,21 +24,22 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :new, :create] do
    get :checkout
   end
+  
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
 
   resources :users, only: [:show] do
     member do
-      resources :locations, except: [:show]
+      resources :locations, except: [:show] do
+        collection do
+          get 'update_districts' => 'locations#update_districts', as: 'update_districts'
+        end
+        member do
+          get 'update_districts' => 'locations#update_districts', as: 'update_districts'
+        end
+      end
     end
   end
-  # #new user route
-  # get 'signup', to: 'users#new'
-  
-  #Sessions Routes
-  # get 'login', to: 'sessions#new'
-  # post 'login', to: 'sessions#create'
-  # delete 'logout', to: 'sessions#destroy'
   
   #API Routes
   namespace :api do
