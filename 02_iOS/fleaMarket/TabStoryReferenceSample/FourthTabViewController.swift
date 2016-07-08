@@ -22,12 +22,16 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
         //contactImage.clipsToBounds = true
         
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
     }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

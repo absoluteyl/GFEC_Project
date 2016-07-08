@@ -88,6 +88,8 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="7n2-Fo-qjJ" id="ImH-r0-gYm"/>
+                        <outlet property="userImage" destination="uBe-LZ-3hq" id="jhW-3G-lIL"/>
+                        <outlet property="userNameLabel" destination="Oi1-dU-shp" id="lCE-ES-xpw"/>
                         <segue destination="RYu-IR-upk" kind="show" identifier="itemDetailSegue" id="wey-ds-19g"/>
                     </connections>
                 </viewController>

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import KFSwiftImageLoader
 
 var titleArray_1 = [String]()
 var priceArray_1 = [Int]()
@@ -17,17 +17,33 @@ var imageArray_1 = [String]()
 class UserDetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var userId:Int!
-
+    var userImageUrl:String!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewWillAppear(animated: Bool) {
-        getItemFromDB()
+        titleArray_1 = []
+        priceArray_1 = []
+        itemIdArray_1 = []
+        imageArray_1 = []
+        getUserFromDB()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Beggining of adding logo to Navigation Bar
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        // End of adding logo to Navigation Bar
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +62,25 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionViewCell
         
-        let imageURL = NSURL(string: imageArray_1[indexPath.row])
-        if let imageData = NSData(contentsOfURL: imageURL!) {
-            cell.imageView.image = UIImage(data: imageData)!
-        } else {
-            print("Image does not exist at \(imageURL)")
+        // This following section let the images have time to load before showing
+        cell.imageView.loadImageFromURLString(imageArray_1[indexPath.row], placeholderImage: UIImage(named: "first")) {
+            (finished, potentialError) in
+            
+            if finished {
+                // Do something in the completion block.
+            }
+            else if let error = potentialError {
+                print("error occurred with description: \(error.localizedDescription)")
+            }
         }
+        
+//        let imageURL = NSURL(string: imageArray_1[indexPath.row])
+//        if let imageData = NSData(contentsOfURL: imageURL!) {
+//            cell.imageView.image = UIImage(data: imageData)!
+//        } else {
+//            print("Image does not exist at \(imageURL)")
+//        }
+        
         
         cell.layer.cornerRadius = 10
         cell.layer.masksToBounds = true
@@ -60,6 +89,8 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         cell.cellPriceLabel.text = "$ \(priceArray_1[indexPath.row])"//顯示價格
         
         var itemId = itemIdArray_1[indexPath.row] //給予每個cell item id，為了讓itemDetailView可以正確顯示
+        
+        
         
         return cell
         
@@ -130,69 +161,10 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
                     
                     //print(parsedResult)
                     
-                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [String:AnyObject]
-                    
-                    
-                    //grab every "title" in dictionaries by look into the array with for loop
-                    
-                        let itemTitle = itemDictionary![Constants.UsersResponseKeys.UserName]
-                        
-                
-                    performUIUpdatesOnMain(){
-                        self.collectionView.reloadData()
-                    }
-                }
-            }
-        }
-        task.resume()
-    
-    }
-    
-    
-    private func getItemFromDB() {
-        
-        
-        let methodParameters: [String: String!] = [
-            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
-            Constants.ParameterKeys.User: "\(userId)"
-            ]
-        
-        print(methodParameters)
-        
-        let urlString = Constants.Merchandises.APIBaseURL + escapedParameters(methodParameters)
-        
-        print("URL:\(urlString)")
-        
-        let url = NSURL(string: urlString)!
-        let request = NSURLRequest(URL: url)
-        var itemArray:NSArray?
-        
-        
-        // if an error occur, print it
-        func displayError(error: String) {
-            print(error)
-            print("URL at time of error: \(url)")
-            
-        }
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
-            
-            if error == nil {
-                if let data = data {
-                    let parsedResult: AnyObject!
-                    do {
-                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
-                    } catch {
-                        displayError("Could not parse the data as JSON: '\(data)'")
-                        return
-                    }
-                    
-                    //print(parsedResult)
+                    let userDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
                     
                     let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
                     
-                    
-                    //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...itemDictionary!.count-1 {
                         let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
                         //print (itemTitle!)
@@ -207,20 +179,33 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
                         imageArray_1.append(itemImage!)
                         
                     }
-                    print(priceArray_1)
-                    print(titleArray_1)
-                    print(itemIdArray_1)
                     
-                    print("3.\(titleArray_1.count)")
+                    //grab every "title" in dictionaries by look into the array with for loop
                     
+                        let userName = userDictionary![Constants.UsersResponseKeys.UserName] as! String!
+                        let userImage = userDictionary![Constants.UsersResponseKeys.Avatar_S] as! String!
+                        let ImgUrl = NSURL(fileURLWithPath: userImage)
+                
+                    print(userImage)
                     performUIUpdatesOnMain(){
+                        self.userNameLabel.text = userName
+//                        self.userImageUrl = userImage
                         self.collectionView.reloadData()
+                       
+                        self.userImage.loadImageFromURLString(userImage)
+                        //print(ImgUrl)
+                        
+                        
                     }
                 }
             }
         }
         task.resume()
+    
     }
+    
+    
+
     
     func escapedParameters(parameters: [String:AnyObject]) -> String {
         if parameters.isEmpty {

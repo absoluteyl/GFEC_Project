@@ -153,6 +153,15 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Beggining of adding logo to Navigation Bar
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        // End of adding logo to Navigation Bar
+        
         self.hideKeyboardWhenTappedAround() 
         
         // for testing

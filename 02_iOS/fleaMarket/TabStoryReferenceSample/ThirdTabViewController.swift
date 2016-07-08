@@ -20,10 +20,23 @@ class ThirdTabViewController: UIViewController , UIImagePickerControllerDelegate
         super.viewDidLoad()
 
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
+        
+        PhotoLibrary.backgroundColor = UIColor.clearColor()
+        PhotoLibrary.layer.cornerRadius = 26
+        PhotoLibrary.layer.borderWidth = 3
+        PhotoLibrary.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        Camera.backgroundColor = UIColor.clearColor()
+        Camera.layer.cornerRadius = 26
+        Camera.layer.borderWidth = 3
+        Camera.layer.borderColor = UIColor.whiteColor().CGColor
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,6 +45,12 @@ class ThirdTabViewController: UIViewController , UIImagePickerControllerDelegate
     }
     
 
+    /*
+     button.backgroundColor = UIColor.clearColor()
+     button.layer.cornerRadius = 5
+     button.layer.borderWidth = 1
+     button.layer.borderColor = UIColor.blackColor().CGColor
+     */
 
     @IBAction func PhotoLibraryAction(sender: UIButton) {
     

@@ -17,32 +17,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wZ2-2k-Ge9">
-                                <rect key="frame" x="23" y="173" width="332" height="313"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-sH-YSH">
-                                <rect key="frame" x="294" y="135" width="66" height="30"/>
-                                <state key="normal" title="Photo Lib"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-sH-YSH">
+                                <rect key="frame" x="107.5" y="333" width="160" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="p5k-4a-wTH"/>
+                                    <constraint firstAttribute="height" constant="53" id="yix-ba-osm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <state key="normal" title="Photo Lib">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="PhotoLibraryAction:" destination="21j-ss-hip" eventType="touchUpInside" id="yfM-tw-ARW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxz-hK-nLQ">
-                                <rect key="frame" x="18" y="135" width="54" height="30"/>
-                                <state key="normal" title="Camera"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxz-hK-nLQ">
+                                <rect key="frame" x="117" y="210" width="140" height="53"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="htg-aM-vcB"/>
+                                    <constraint firstAttribute="width" constant="140" id="uhe-Ko-y2c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                <state key="normal" title="Camera">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="CameraAction:" destination="21j-ss-hip" eventType="touchUpInside" id="7QZ-u6-iDk"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.31764705879999999" green="0.22352941179999999" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Xap-sH-YSH" firstAttribute="centerX" secondItem="5QF-vb-6z5" secondAttribute="centerX" id="RrK-aT-48d"/>
+                            <constraint firstItem="lxz-hK-nLQ" firstAttribute="centerX" secondItem="5QF-vb-6z5" secondAttribute="centerX" id="ZYf-iH-Hpw"/>
+                            <constraint firstItem="Xap-sH-YSH" firstAttribute="top" secondItem="lxz-hK-nLQ" secondAttribute="bottom" constant="70" id="c3M-0N-T2S"/>
+                            <constraint firstItem="lxz-hK-nLQ" firstAttribute="top" secondItem="Ih1-p3-POD" secondAttribute="bottom" constant="146" id="oLz-Rq-n3g"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0L2-SA-hQe"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="Camera" destination="lxz-hK-nLQ" id="neF-Pg-sxI"/>
-                        <outlet property="ImageDiaplay" destination="wZ2-2k-Ge9" id="VMz-il-gGB"/>
                         <outlet property="PhotoLibrary" destination="Xap-sH-YSH" id="K7j-Df-c6O"/>
                         <segue destination="0IF-FQ-YeF" kind="show" identifier="goUploadSegue" id="1J2-AV-keA"/>
                     </connections>

@@ -53,21 +53,12 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
         
         // Beggining of adding logo to Navigation Bar
-//        let logo = UIImage(named: "logo.png")
-//        let imageView = UIImageView(image:logo)
-//        imageView.frame.size.width = 30;
-//        imageView.frame.size.height = 33;
-//        self.navigationItem.titleView = imageView
         var titleView : UIImageView
-        // set the dimensions you want here
         titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
-        // Set how do you want to maintain the aspect
         titleView.contentMode = .ScaleAspectFit
         titleView.image = UIImage(named: "logo.png")
-        
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
-
         // End of adding logo to Navigation Bar
         
         self.refreshControl = UIRefreshControl()

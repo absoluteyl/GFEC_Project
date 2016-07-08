@@ -26,7 +26,6 @@
 		C90273501D0FB88100EC081D /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734F1D0FB88100EC081D /* LoginPage.storyboard */; };
 		C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273511D0FB89700EC081D /* LoginPageViewController.swift */; };
 		C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90EEA721D2D283800711C22 /* RegisteringViewController.swift */; };
-		C91008031D2F6047000EDDDB /* VCMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91008021D2F6047000EDDDB /* VCMapView.swift */; };
 		C932F2D21D2D050600DA6540 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C932F2D11D2D050600DA6540 /* Register.storyboard */; };
 		C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932F2D31D2D052800DA6540 /* RegisterViewController.swift */; };
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
@@ -121,7 +120,6 @@
 		C902734F1D0FB88100EC081D /* LoginPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
 		C90273511D0FB89700EC081D /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C90EEA721D2D283800711C22 /* RegisteringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteringViewController.swift; sourceTree = "<group>"; };
-		C91008021D2F6047000EDDDB /* VCMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCMapView.swift; sourceTree = "<group>"; };
 		C932F2D11D2D050600DA6540 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C932F2D31D2D052800DA6540 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			children = (
 				7A751C6D1CF9BEAD0096BDE6 /* SecondTab.storyboard */,
 				7A751C3E1CF9BDBA0096BDE6 /* SecondTabViewController.swift */,
-				C91008021D2F6047000EDDDB /* VCMapView.swift */,
 			);
 			name = Tab2;
 			path = ..;
@@ -766,7 +763,6 @@
 				C9FFA3961D2411A80057E439 /* LoginViewController.swift in Sources */,
 				C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */,
 				C974EE3C1D06EF66001002BE /* S04_FavoritesCollectionViewController.swift in Sources */,
-				C91008031D2F6047000EDDDB /* VCMapView.swift in Sources */,
 				C974EE521D06F328001002BE /* S09_ContactSupportViewController.swift in Sources */,
 				C94EB6061D02E1F00077EBC6 /* functions.swift in Sources */,
 				C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */,

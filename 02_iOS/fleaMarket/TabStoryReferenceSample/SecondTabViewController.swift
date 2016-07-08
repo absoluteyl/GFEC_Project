@@ -23,21 +23,28 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var longtitufeArray = [String]()
     var coordinateArray: [CLLocationCoordinate2D] = []
 
-    class Artwork: NSObject, MKAnnotation {
+    class UserAnnotation: NSObject, MKAnnotation {
         let title: String?
         let locationName: String
         let discipline: String
         let coordinate: CLLocationCoordinate2D
+        let userid: Int
         
-        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
+        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D, userid: Int) {
             self.title = title
             self.locationName = locationName
             self.discipline = discipline
             self.coordinate = coordinate
+            self.userid = userid
             
             super.init()
         }
+        
+        func getUserId() -> Int {
+            return userid
+        }
     }
+    
     
     @IBAction func resetLocationButton(sender: UIButton) {
         
@@ -67,28 +74,38 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         return view
     }
     
-    var selectedAnnotation: MKPointAnnotation!
+    var selectedAnnotation: UserAnnotation!
+    var selectedUserId:Int!
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
-            selectedAnnotation = view.annotation as? MKPointAnnotation
+            selectedAnnotation = view.annotation as? UserAnnotation
+            //view.annotation.
+            //var Id = UserAnnotation.getUserId()
+            selectedUserId = selectedAnnotation.userid
             performSegueWithIdentifier("showUser", sender: self)
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destination = segue.destinationViewController as? UserDetailViewController {
-          //  destination.userId = selectedAnnotation
+            destination.userId = selectedUserId
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        map.delegate = self
+        
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
         homeButton.layer.cornerRadius = homeButton.frame.size.width/2
@@ -178,15 +195,18 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                         let locLatitude = locationDictionary[i][Constants.LocationRespondKeys.Latitude] as! String
                         let locLongtitude = locationDictionary[i][Constants.LocationRespondKeys.Longtitude] as! String
                         let locName = locationDictionary[i][Constants.LocationRespondKeys.Recipient] as! String
+                        let locUserId = locationDictionary[i][Constants.LocationRespondKeys.UserId] as! Int
                         
                         let dobLat = Double(locLatitude)!
                         let dobLong = Double(locLongtitude)!
                         
                         let destination:CLLocationCoordinate2D = CLLocationCoordinate2DMake(dobLat, dobLong)
 
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate = destination
-                        annotation.title = locName
+//                        let annotation = MKPointAnnotation()
+//                        annotation.coordinate = destination
+//                        annotation.title = locName
+                        
+                        let annotation = UserAnnotation(title: locName, locationName: locName, discipline: locName, coordinate: destination, userid: locUserId)
                         
                         self.map.addAnnotation(annotation)
                     }

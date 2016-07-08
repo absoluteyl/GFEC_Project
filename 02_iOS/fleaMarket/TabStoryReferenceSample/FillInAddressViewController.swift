@@ -99,7 +99,15 @@ class FillInAddressViewController: UIViewController {
         super.viewDidLoad()
         
         addAddressButton.enabled = false
-        // Do any additional setup after loading the view.
+        
+        // Beggining of adding logo to Navigation Bar
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        // End of adding logo to Navigation Bar
     }
 
     override func didReceiveMemoryWarning() {
