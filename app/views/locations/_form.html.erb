@@ -7,8 +7,11 @@
         <%= f.label :recipient %>
         <%= f.text_field :recipient, placeholder: "Enter recipient name" %>
         <br />
-        <%= f.label :city_id %>
-        <%= f.collection_select(:city_id, City.all, :id, :name, prompt: true) %>
+        <%= form_for :trip, url: { action: "show" }, html: { method: "get" } do |f| %>
+          <%= f.select :parent_id, options_for_select(@cities.collect { |city|
+            [city.name, city.id] }, 1), {}, { id: 'cities_select' } %>
+          <%= f.select :id, options_for_select(@districts.collect { |district|
+            [district.name, district.id] }, 0), {}, { id: 'districts_select' } %>
         <br />
         <%= f.label :address %>
         <%= f.text_field :address, rows: 10, placeholder: "Description the status and spec of your location" %>

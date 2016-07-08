@@ -1,4 +1,6 @@
 class LocationsController < ApplicationController
+    include CitySelect
+    before_action :set_cart, only: [:new, :create, :edit, :update]
     before_action :set_location, only: [:edit, :update, :destroy]
     
     def index
@@ -7,6 +9,8 @@ class LocationsController < ApplicationController
     
     def new
         @location = Location.new
+        @cities = City.where(parent_id: nil)
+        @districts = City.where(parent_id: City.where(parent_id: nil).first.id)
     end
     def create
         @location = Location.new(location_params)
