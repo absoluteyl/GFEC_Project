@@ -7,26 +7,28 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Create a root user with admin privilege
-#User.create(username: 'root', email: 'root@example.com', mobile: '0987654321', password: 'GFEC01', admin: true)
+#User.create(username: 'absoluteyl', email: 'chinbo@gmail.com', mobile: '0987654321', password: '111qaz')
+#User.create(username: 'chin1', email: 'chin1@example.com', mobile: '0988776655', password: '111111')
+# Create Merchandises for test
 
 # Create data for Category table
-# Category. create(name: "Women's Clothing")
-# Category. create(name: "Men’s Clothing")
-# Category. create(name: "Games & Toys")
-# Category. create(name: "Sports & Outdoors")
-# Category. create(name: "Accessories")
-# Category. create(name: "Cosmetics & Care")
-# Category. create(name: "Electronics & Computers")
-# Category. create(name: "Cellphones & Accessories")
-# Category. create(name: "Home & Living")
-# Category. create(name: "Mom & Baby")
-# Category. create(name: "Food & Beverage")
-# Category. create(name: "Cameras & Lens")
-# Category. create(name: "Books & Audible")
-# Category. create(name: "Handmade")
-# Category. create(name: "Tickets")
-# Category. create(name: "Pets")
-# Category. create(name: "Miscellaneous")
+Category. create(name: "Women's Clothing")
+Category. create(name: "Men’s Clothing")
+Category. create(name: "Games & Toys")
+Category. create(name: "Sports & Outdoors")
+Category. create(name: "Accessories")
+Category. create(name: "Cosmetics & Care")
+Category. create(name: "Electronics & Computers")
+Category. create(name: "Cellphones & Accessories")
+Category. create(name: "Home & Living")
+Category. create(name: "Mom & Baby")
+Category. create(name: "Food & Beverage")
+Category. create(name: "Cameras & Lens")
+Category. create(name: "Books & Audible")
+Category. create(name: "Handmade")
+Category. create(name: "Tickets")
+Category. create(name: "Pets")
+Category. create(name: "Miscellaneous")
 
 # Create data for City table
 City. delete_all

@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160706060304) do
 
   create_table "locations", force: :cascade do |t|
     t.integer "city_id"
-    t.string  "city"
     t.string  "address"
     t.string  "recipient"
     t.integer "user_id"
