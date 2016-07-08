@@ -270,6 +270,16 @@ General Query:
     Accept: application/json
     Content-type: application/json
     
+####City:
+#####GET:
+General Query:
+    
+    GET /api/cities
+
+Filtered Query:
+    
+    GET /api/cities?id=id
+    GET /api/cities?name=exactName
 
 <br />
 
