@@ -14,6 +14,7 @@ class Merchandise < ActiveRecord::Base
   validates :price, presence: true, numericality: { only_integer: true }
   validates :amount, presence: true, numericality: { only_integer: true }
   validates :category_id, presence: true
+  validates :location_id, presence: true
   # Paperclip configurations
   has_attached_file :image_1, styles: {
     medium: '375x300>', 

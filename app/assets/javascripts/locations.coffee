@@ -1,3 +1,5 @@
+# Dynamic Dropdown list for new/edit locations
+
 $ ->
   $(document).on 'change', '#cities_select', (evt) ->
     $.ajax 'update_districts',

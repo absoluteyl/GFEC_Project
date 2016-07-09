@@ -1,3 +1,5 @@
+# Dynamic Dropdown list for new/edit merchandises
+
 $ ->
   $(document).on 'change', '#categories_select', (evt) ->
     $.ajax 'update_subcategories',
