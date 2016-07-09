@@ -102,7 +102,7 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         //決定每個cell的大小
         if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
             //如果是直的
-            return CGSize(width: 180, height: 180)
+            return CGSize(width: 180, height: 210)
         }else{
             return CGSize(width: 200, height: 200)
             
