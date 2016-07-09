@@ -130,7 +130,15 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             
         }
     }
+
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     override func viewWillAppear(animated: Bool) {
         
@@ -144,6 +152,17 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Beggining of adding logo to Navigation Bar
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        // End of adding logo to Navigation Bar
+        
+        self.hideKeyboardWhenTappedAround() 
         
         // for testing
         itemNameTextField.text = "Pudding"
@@ -160,6 +179,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             imageSelected = patchItemPhoto1
         }
 
+        self.addPhoto1!.setTitle("", forState: .Normal)
+        self.addPhoto1!.setImage(imageSelected!, forState: .Normal)
      
     }
 

@@ -25,6 +25,9 @@
 		C902734E1D0C1B7C00EC081D /* AddItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */; };
 		C90273501D0FB88100EC081D /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734F1D0FB88100EC081D /* LoginPage.storyboard */; };
 		C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273511D0FB89700EC081D /* LoginPageViewController.swift */; };
+		C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90EEA721D2D283800711C22 /* RegisteringViewController.swift */; };
+		C932F2D21D2D050600DA6540 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C932F2D11D2D050600DA6540 /* Register.storyboard */; };
+		C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932F2D31D2D052800DA6540 /* RegisterViewController.swift */; };
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
 		C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */; };
 		C94EB6021D01AC670077EBC6 /* FourthTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */; };
@@ -116,6 +119,9 @@
 		C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddItemInfo.storyboard; sourceTree = "<group>"; };
 		C902734F1D0FB88100EC081D /* LoginPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
 		C90273511D0FB89700EC081D /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		C90EEA721D2D283800711C22 /* RegisteringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteringViewController.swift; sourceTree = "<group>"; };
+		C932F2D11D2D050600DA6540 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
+		C932F2D31D2D052800DA6540 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
 		C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthTabViewController.swift; sourceTree = "<group>"; };
 		C94EB6011D01AC670077EBC6 /* FourthTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthTabViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +239,9 @@
 				7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */,
 				C9FFA3951D2411A80057E439 /* LoginViewController.swift */,
 				C9FFA3971D241A090057E439 /* LoggingInViewController.swift */,
+				C932F2D11D2D050600DA6540 /* Register.storyboard */,
+				C932F2D31D2D052800DA6540 /* RegisterViewController.swift */,
+				C90EEA721D2D283800711C22 /* RegisteringViewController.swift */,
 				C974EE191D06DDF7001002BE /* Tab1 */,
 				C974EE1A1D06DE6B001002BE /* Tab2 */,
 				C974EE1B1D06DE85001002BE /* Tab3 */,
@@ -572,6 +581,7 @@
 				7A751C441CF9BDBA0096BDE6 /* Assets.xcassets in Resources */,
 				C974EE581D06F42B001002BE /* S07_QnA.storyboard in Resources */,
 				C974EE401D06EFB3001002BE /* S05_MySell.storyboard in Resources */,
+				C932F2D21D2D050600DA6540 /* Register.storyboard in Resources */,
 				C9FFA38E1D181A700057E439 /* Search.storyboard in Resources */,
 				7A751C711CF9BEBC0096BDE6 /* 3rdTab.storyboard in Resources */,
 				7A751C731CF9BED00096BDE6 /* 4thTab.storyboard in Resources */,
@@ -758,10 +768,12 @@
 				C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */,
 				C9FFA3901D181A7F0057E439 /* SearchViewController.swift in Sources */,
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
+				C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
 				C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */,
 				C9FFA38C1D14D14B0057E439 /* FillInAddressViewController.swift in Sources */,
 				C974EE2C1D06EE0C001002BE /* S03_SettingsTableViewController.swift in Sources */,
+				C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,6 +19,32 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     
     var location: CLLocation!
     
+    var latitudeArray = [String]()
+    var longtitufeArray = [String]()
+    var coordinateArray: [CLLocationCoordinate2D] = []
+
+    class UserAnnotation: NSObject, MKAnnotation {
+        let title: String?
+        let locationName: String
+        let discipline: String
+        let coordinate: CLLocationCoordinate2D
+        let userid: Int
+        
+        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D, userid: Int) {
+            self.title = title
+            self.locationName = locationName
+            self.discipline = discipline
+            self.coordinate = coordinate
+            self.userid = userid
+            
+            super.init()
+        }
+        
+        func getUserId() -> Int {
+            return userid
+        }
+    }
+    
     
     @IBAction func resetLocationButton(sender: UIButton) {
         
@@ -28,13 +54,58 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         self.map.setRegion(region, animated: true)
     }
     
+    override func viewWillAppear(animated: Bool) {
+//        for i in 0...coordinateArray.count-1 {
+//            
+//        }
+        getDataFromDB()
+    }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationIdentifier = "annotation"
+        var view = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationIdentifier)
+        if view == nil {
+            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            view?.canShowCallout = true
+            view?.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        } else {
+            view?.annotation = annotation
+        }
+        return view
+    }
+    
+    var selectedAnnotation: UserAnnotation!
+    var selectedUserId:Int!
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            selectedAnnotation = view.annotation as? UserAnnotation
+            //view.annotation.
+            //var Id = UserAnnotation.getUserId()
+            selectedUserId = selectedAnnotation.userid
+            performSegueWithIdentifier("showUser", sender: self)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? UserDetailViewController {
+            destination.userId = selectedUserId
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        map.delegate = self
+        
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
         homeButton.layer.cornerRadius = homeButton.frame.size.width/2
@@ -75,6 +146,108 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         print("Errors: " + error.localizedDescription) // should it trigger errors, this will put error messages to the debugger
     }
     
+    
+    
+    private func getDataFromDB() {
+        
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        //print(methodParameters)
+        
+        let urlString = Constants.Locations.APIBaseURL + escapedParameters(methodParameters)
+        
+        print("URL:\(urlString)")
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Locations] as! [[String:AnyObject]]
+                    print(locationDictionary)
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    for i in 0...locationDictionary.count-1 {
+                        let locLatitude = locationDictionary[i][Constants.LocationRespondKeys.Latitude] as! String
+                        let locLongtitude = locationDictionary[i][Constants.LocationRespondKeys.Longtitude] as! String
+                        let locName = locationDictionary[i][Constants.LocationRespondKeys.Recipient] as! String
+                        let locUserId = locationDictionary[i][Constants.LocationRespondKeys.UserId] as! Int
+                        
+                        let dobLat = Double(locLatitude)!
+                        let dobLong = Double(locLongtitude)!
+                        
+                        let destination:CLLocationCoordinate2D = CLLocationCoordinate2DMake(dobLat, dobLong)
+
+//                        let annotation = MKPointAnnotation()
+//                        annotation.coordinate = destination
+//                        annotation.title = locName
+                        
+                        let annotation = UserAnnotation(title: locName, locationName: locName, discipline: locName, coordinate: destination, userid: locUserId)
+                        
+                        self.map.addAnnotation(annotation)
+                    }
+                    //print(priceArray)
+                    //print(titleArray)
+                    //print(itemIdArray)
+                    
+                    //print("3.\(titleArray.count)")
+                    
+                    performUIUpdatesOnMain(){
+                       
+                      //  self.activityIndicator.stopAnimating()
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func escapedParameters(parameters: [String:AnyObject]) -> String {
+        if parameters.isEmpty {
+            return ""
+        } else {
+            var keyValurPairs = [String]()
+            
+            for (key, value) in parameters {
+                
+                // make sure it is a string value (convert the ones aren't)
+                let stringValue = "\(value)"
+                
+                //escape it
+                let escapeValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet()) //convert string to ASCII compliant version of a string, returns characters considered safe ASCIIs only
+                
+                //append it
+                keyValurPairs.append(key + "=" + "\(escapeValue!)")
+                
+            }
+            return "?\(keyValurPairs.joinWithSeparator("&"))"
+        }
+        
+    }
     
 
 }

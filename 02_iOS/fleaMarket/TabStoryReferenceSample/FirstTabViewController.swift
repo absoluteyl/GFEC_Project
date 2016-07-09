@@ -27,6 +27,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     
+    @IBOutlet weak var categoryScroll: UIScrollView!
     
     var hasGotAPIYet: Bool = false
     
@@ -43,21 +44,29 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("1.\(titleArray.count)")
-        //getDataFromDB()
         
-        //print("2.\(titleArray.count)")
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "bg");
+        bgImage.contentMode = .ScaleToFill
+        
+        self.collectionView?.backgroundView = bgImage
+        
         
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:",   forControlEvents: UIControlEvents.ValueChanged)
         collectionView!.addSubview(refreshControl)
+        
+        categoryScroll.backgroundColor = UIColorUtil.rgb(0xffffff);
         
     }
     
@@ -77,7 +86,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         //決定每個cell的大小
         if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
             //如果是直的
-            return CGSize(width: 180, height: 180)
+
+            return CGSize(width: view.bounds.width / 2.3, height: 210)
         }else{
             return CGSize(width: 200, height: 200)
             

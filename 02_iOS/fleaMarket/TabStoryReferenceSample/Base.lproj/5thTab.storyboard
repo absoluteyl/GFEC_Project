@@ -153,7 +153,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="loginButton:" destination="T61-0W-SZC" eventType="touchUpInside" id="ggA-8V-slS"/>
-                                    <segue destination="10l-ia-FNL" kind="show" id="r6J-6r-wJf"/>
+                                    <segue destination="10l-ia-FNL" kind="show" identifier="ReLogginIn" id="r6J-6r-wJf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jH9-ZP-mJo">
@@ -277,11 +277,11 @@
             </objects>
             <point key="canvasLocation" x="1128.5" y="1215"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="oYd-lA-hCO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZKW-9d-ycR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="first" id="FsA-E3-i5l"/>
+                    <tabBarItem key="tabBarItem" title="" image="config" id="FsA-E3-i5l"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Nq-cw-7m9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -298,7 +298,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="config" width="26" height="26"/>
         <image name="george" width="604" height="595"/>
         <image name="usertab1" width="125" height="125"/>
         <image name="usertab2" width="125" height="125"/>

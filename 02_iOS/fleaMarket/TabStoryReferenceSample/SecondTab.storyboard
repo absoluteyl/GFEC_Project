@@ -31,6 +31,9 @@
                                     <action selector="resetLocationButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="liT-5S-D2N"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-QW-3kW">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -41,6 +44,8 @@
                             <constraint firstAttribute="trailing" secondItem="4Rt-uz-esJ" secondAttribute="trailing" id="OfS-IW-9gM"/>
                             <constraint firstItem="4Rt-uz-esJ" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="YnN-c2-xNn"/>
                             <constraint firstItem="zyY-fa-8Ur" firstAttribute="trailing" secondItem="4Rt-uz-esJ" secondAttribute="trailing" constant="-20" id="eL5-04-7mQ"/>
+                            <constraint firstItem="sIi-QW-3kW" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="haT-Ut-uca"/>
+                            <constraint firstItem="sIi-QW-3kW" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="jdl-ay-lLN"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -53,17 +58,26 @@
                     <connections>
                         <outlet property="homeButton" destination="zyY-fa-8Ur" id="lHg-il-QiP"/>
                         <outlet property="map" destination="4Rt-uz-esJ" id="mtd-A8-BaM"/>
+                        <segue destination="R1H-HP-PTE" kind="show" identifier="showUser" id="RyH-gJ-qsS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1668" y="-444"/>
         </scene>
-        <!--Second-->
+        <!--UserDetail-->
+        <scene sceneID="ies-fP-U7Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="UserDetail" id="R1H-HP-PTE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gbn-rw-VYu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2126.5" y="-500"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="hop-Nd-v2e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wBo-IG-Oof" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="" image="map" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gSb-5p-9F8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -80,7 +94,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="map" width="26" height="26"/>
         <image name="mapHome" width="60" height="60"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>
