@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   before_save :ensure_authentication_token
   has_many :merchandises, dependent: :destroy
   has_many :locations, dependent: :destroy
-  has_many :orders, dependent: :destroy
-  has_many :line_items, dependent: :destroy
+  has_many :orders
+  has_many :line_items
   validates :username, presence: true,
                         uniqueness: { case_sensitive: false },
                         length: {minimum: 3, maximum: 25 }
