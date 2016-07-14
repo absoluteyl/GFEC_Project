@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
         let Destination : LoggingInViewController = segue.destinationViewController as! LoggingInViewController
         Destination.useremail = userNameTextField.text
         Destination.password = passwordTextField.text
+        Destination.userName = userNameTextField.text
         }
     }
     

@@ -24,7 +24,28 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         
         var storageRef: FIRStorageReference!
         var remoteConfig: FIRRemoteConfig!
+    
+    class Constants {
+        struct NotificationKeys {
+            static let SignedIn = "onSignInCompleted"
+        }
         
+        struct Segues {
+            static let SignInToFp = "SignInToFP"
+            static let FpToSignIn = "FPToSignIn"
+        }
+        
+        struct MessageFields {
+            static let name = "name"
+            static let text = "text"
+            static let photoUrl = "photoUrl"
+            static let imageUrl = "imageUrl"
+        }
+    }
+    
+    @IBAction func didSendMessage(sender: UIButton) {
+        textFieldShouldReturn(textField)
+    }
 
         @IBOutlet weak var clientTable: UITableView!
         
@@ -55,7 +76,7 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         }
         
         func configureStorage() {
-            storageRef = FIRStorage.storage().referenceForURL("gs://friendlychat-ac2ee.appspot.com")
+            storageRef = FIRStorage.storage().referenceForURL("gs://ririkokochat.appspot.com")
         }
         
         func configureRemoteConfig() {
@@ -97,9 +118,7 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
             }
         }
         
-        @IBAction func didSendMessage(sender: UIButton) {
-            textFieldShouldReturn(textField)
-        }
+
     
         
         func logViewLoaded() {
@@ -119,35 +138,36 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         
         func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             // Dequeue cell
-            let cell: UITableViewCell! = self.clientTable .dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath)
+            let cell = self.clientTable .dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! ChatLogMessageCell
             // Unpack message from Firebase DataSnapshot
             let messageSnapshot: FIRDataSnapshot! = self.messages[indexPath.row]
             let message = messageSnapshot.value as! Dictionary<String, String>
             let name = message[Constants.MessageFields.name] as String!
-            if let imageUrl = message[Constants.MessageFields.imageUrl] {
-                if imageUrl.hasPrefix("gs://") {
-                    FIRStorage.storage().referenceForURL(imageUrl).dataWithMaxSize(INT64_MAX){ (data, error) in
-                        if let error = error {
-                            print("Error downloading: \(error)")
-                            return
-                        }
-                        cell.imageView?.image = UIImage.init(data: data!)
-                    }
-                } else if let url = NSURL(string:imageUrl), data = NSData(contentsOfURL: url) {
-                    cell.imageView?.image = UIImage.init(data: data)
-                }
-                cell!.textLabel?.text = "sent by: \(name)"
-            } else {
-                let text = message[Constants.MessageFields.text] as String!
-                cell!.textLabel?.text = name + ": " + text
-                cell!.imageView?.image = UIImage(named: "ic_account_circle")
-                if let photoUrl = message[Constants.MessageFields.photoUrl], url = NSURL(string:photoUrl), data = NSData(contentsOfURL: url) {
-                    cell!.imageView?.image = UIImage(data: data)
-                }
-            }
-            return cell!
+//            if let imageUrl = message[Constants.MessageFields.imageUrl] {
+//                if imageUrl.hasPrefix("gs://") {
+//                    FIRStorage.storage().referenceForURL(imageUrl).dataWithMaxSize(INT64_MAX){ (data, error) in
+//                        if let error = error {
+//                            print("Error downloading: \(error)")
+//                            return
+//                        }
+//                        cell.imageView?.image = UIImage.init(data: data!)
+//                    }
+//                } else if let url = NSURL(string:imageUrl), data = NSData(contentsOfURL: url) {
+//                    cell.imageView?.image = UIImage.init(data: data)
+//                }
+//                cell!.textLabel?.text = "sent by: \(name)"
+//            } else {
+//                let text = message[Constants.MessageFields.text] as String!
+//                cell!.textLabel?.text = name + ": " + text
+//                cell!.imageView?.image = UIImage(named: "ic_account_circle")
+//                if let photoUrl = message[Constants.MessageFields.photoUrl], url = NSURL(string:photoUrl), data = NSData(contentsOfURL: url) {
+//                    cell!.imageView?.image = UIImage(data: data)
+//                }
+//            }
+            return cell
         }
-        
+    
+    
         // UITextViewDelegate protocol methods
         func textFieldShouldReturn(textField: UITextField) -> Bool {
             let data = [Constants.MessageFields.text: textField.text! as String]
@@ -204,7 +224,6 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
             // if it's a photo from the library, not an image from the camera
             if #available(iOS 8.0, *), let referenceUrl = info[UIImagePickerControllerReferenceURL] {
                 //public class func fetchAssetsWithALAssetURLs(assetURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
-                func fetchAssetsWithALAssetURLs(assetURLs: [NSURL], options: PHFetchOptions?) -> PHFetchResult
                 let assets = PHAsset.fetchAssetsWithALAssetURLs([referenceUrl as! NSURL], options: nil)
                 let asset = assets.firstObject
                 asset?.requestContentEditingInputWithOptions(nil, completionHandler: { (contentEditingInput, info) in
@@ -259,5 +278,72 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         }
         
     }
+class ChatLogMessageCell: BaseCell {
+    
+    let messageTextView: UITextView = {
+        let textView = UITextView()
+        textView.font = UIFont.systemFontOfSize(18)
+        textView.text = "Sample message"
+        textView.backgroundColor = UIColor.clearColor()
+        return textView
+    }()
+    
+    let textBubbleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        view.layer.cornerRadius = 15
+        view.layer.masksToBounds = true
+        return view
+    }()
+    
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .ScaleAspectFill
+        imageView.layer.cornerRadius = 15
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        
+        addSubview(textBubbleView)
+        addSubview(messageTextView)
+        
+        addSubview(profileImageView)
+        addConstraintsWithFormat("H:|-8-[v0(30)]", views: profileImageView)
+        addConstraintsWithFormat("V:[v0(30)]|", views: profileImageView)
+        profileImageView.backgroundColor = UIColor.redColor()
+    }
+    
+}
 
+class BaseCell: UICollectionViewCell {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+    }
+}
 
+extension UIView {
+    
+    func addConstraintsWithFormat(format: String, views: UIView...) {
+        
+        var viewsDictionary = [String: UIView]()
+        for (index, view) in views.enumerate() {
+            let key = "v\(index)"
+            viewsDictionary[key] = view
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+    
+}

@@ -23,6 +23,7 @@ class LoggingInViewController: UIViewController {
 
     var useremail: String!
     var password: String!
+    var userName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +44,7 @@ class LoggingInViewController: UIViewController {
 
     func setDisplayName(user: FIRUser) {
         let changeRequest = user.profileChangeRequest()
-        changeRequest.displayName = user.email!.componentsSeparatedByString("@")[0]
+        changeRequest.displayName = userName
         changeRequest.commitChangesWithCompletion(){ (error) in
             if let error = error {
                 print(error.localizedDescription)

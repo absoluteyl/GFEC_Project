@@ -122,9 +122,7 @@ struct Constants {
     
     
     // MARK: FleaMarket Response Values
-    struct MerchandisesResponseValues {
-    }
-    
+
     // MARK: Get merchandise list or filter specific items
     struct Merchandise {
         static let APIBaseURL = "https://flea-market-absoluteyl.c9users.io/api/merchandises/"

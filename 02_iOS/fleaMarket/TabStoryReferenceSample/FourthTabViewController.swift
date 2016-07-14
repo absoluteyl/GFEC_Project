@@ -65,6 +65,10 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
 
         return cell
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("goChat", sender: self)
+    }
 
     /*
     // MARK: - Navigation

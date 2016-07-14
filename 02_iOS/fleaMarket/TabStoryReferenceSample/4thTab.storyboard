@@ -46,10 +46,21 @@
                     </view>
                     <navigationItem key="navigationItem" id="hez-G6-45r"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="Kzi-Sg-SIS" kind="show" identifier="goChat" id="Ic7-vp-Wcf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wij-EH-5Yq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1536" y="1162"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="2vE-Gm-G06">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="Kzi-Sg-SIS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgN-ao-nhw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1964.5" y="1107"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="T5r-AN-Gth">
