@@ -12,7 +12,7 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var contactImage: UIImageView!
 
-    let contacts = ["Amy","Bob","Caroline","Dandy","Elsa","Fergus","George","Harry","Issac"]
+    let contacts = ["Elsa"]
     let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
     
     override func viewDidLoad() {

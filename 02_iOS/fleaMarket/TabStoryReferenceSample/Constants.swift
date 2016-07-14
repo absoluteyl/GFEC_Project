@@ -103,6 +103,23 @@ struct Constants {
         static let CategoryIdArray = ["1","11","77","84","19","26","34","43","49","57","64","69","92","99","104","110","115"]
     }
     
+    //Below are for Firebase
+    struct NotificationKeys {
+        static let SignedIn = "onSignInCompleted"
+    }
+    
+    struct Segues {
+        static let SignInToFp = "SignInToFP"
+        static let FpToSignIn = "FPToSignIn"
+    }
+    
+    struct MessageFields {
+        static let name = "name"
+        static let text = "text"
+        static let photoUrl = "photoUrl"
+        static let imageUrl = "imageUrl"
+    }
+    
     
     // MARK: FleaMarket Response Values
     struct MerchandisesResponseValues {

@@ -8,6 +8,7 @@
 
 import UIKit
 import KFSwiftImageLoader
+import Firebase
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
@@ -42,6 +43,22 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if let user = FIRAuth.auth()?.currentUser {
+            self.signedIn(user)
+        }
+    }
+    
+    func signedIn(user: FIRUser?) {
+        MeasurementHelper.sendLoginEvent()
+        
+        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+        AppState.sharedInstance.photoUrl = user?.photoURL
+        AppState.sharedInstance.signedIn = true
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+        performSegueWithIdentifier(Constants.Segues.SignInToFp, sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,6 +77,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")

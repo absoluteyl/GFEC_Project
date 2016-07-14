@@ -41,7 +41,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nm6-ZY-Pvg">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nm6-ZY-Pvg">
                                 <rect key="frame" x="281" y="339" width="38" height="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,6 +79,7 @@
                             <constraint firstItem="fT0-h5-spD" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="Osy-ZU-Z5T"/>
                             <constraint firstItem="mUV-5h-SQ2" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="UKq-fk-VKc"/>
                             <constraint firstItem="mEW-UR-2qe" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="gpM-3Z-UYc"/>
+                            <constraint firstItem="Nm6-ZY-Pvg" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="ham-FP-Ngn"/>
                             <constraint firstItem="6BT-rY-Huy" firstAttribute="centerX" secondItem="8RO-yZ-Rw0" secondAttribute="centerX" id="zjk-T1-kBz"/>
                         </constraints>
                     </view>

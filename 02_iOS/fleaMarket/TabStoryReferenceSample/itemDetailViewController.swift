@@ -454,7 +454,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         //self.deleteAlert.dismissWithClickedButtonIndex(-1, animated: true)
                         
                         let alert = UIAlertView()
-                        alert.title = "Upload Sucess!"
+                        alert.title = "Item Deleted!"
                         alert.message = ""
                         var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
                         loadingIndicator.center = self.view.center;

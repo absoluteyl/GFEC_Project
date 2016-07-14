@@ -121,24 +121,28 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 2 {
             if indexPath.row == 1 {
+                print("Show category")
                 self.performSegueWithIdentifier("showCategory", sender: indexPath.row)
+                
             } else if indexPath.row == 0 {
+                print("Show Status")
                 self.performSegueWithIdentifier("showItemStatus", sender: indexPath.row)
             } else if indexPath.row == 2 {
+                print("Show Delivery")
                 self.performSegueWithIdentifier("showDelivery", sender: indexPath.row)
             }
             
         }
     }
 
-    func hideKeyboardWhenTappedAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
-    }
-    
-    func dismissKeyboard() {
-        view.endEditing(true)
-    }
+//    func hideKeyboardWhenTappedAround() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        view.addGestureRecognizer(tap)
+//    }
+//    
+//    func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
     
     override func viewWillAppear(animated: Bool) {
         
@@ -162,7 +166,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
-        self.hideKeyboardWhenTappedAround() 
+//        self.hideKeyboardWhenTappedAround() 
         
         // for testing
         itemNameTextField.text = "Pudding"
@@ -216,11 +220,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         var imageData1 = UIImageJPEGRepresentation(imageT, 1.0)
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-        
-//        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-//            print("You selected cell number: \(indexPath.row)!")
-//            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
-//        }
         
         //print("64STRING:\(base64String1)")
         
@@ -360,11 +359,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         var imageData1 = UIImageJPEGRepresentation(imageT, 1.0)
         
         var base64String1 = imageData1!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-        
-        //        func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        //            print("You selected cell number: \(indexPath.row)!")
-        //            //self.performSegueWithIdentifier("yourIdentifier", sender: self)
-        //        }
         
         //print("64STRING:\(base64String1)")
         

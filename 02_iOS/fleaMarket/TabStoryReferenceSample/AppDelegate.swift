@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var itemArray: NSArray?
-    //var userID: Int = 3 //for testing
     
     var itemCategoryNumber = -1
     var itemStatusNumber = -1
@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let targetViewController = mainStoryBoard.instantiateViewControllerWithIdentifier("main")
             self.window?.rootViewController = targetViewController
         }
+        
+        FIRApp.configure()
         
         return true
     }
