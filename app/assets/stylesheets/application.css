@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *= require ./common/normalize.css
- *= require ./common/font-awesome.min.css
+ *= require font-awesome
  *= require ./common/hamburgers.css
  *= require ./common/isotope.css
  *= require ./common/common.css
