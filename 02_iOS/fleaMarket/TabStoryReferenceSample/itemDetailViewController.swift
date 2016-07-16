@@ -27,12 +27,14 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var itemSellerId:Int!
     var itemSellerName:String!
     var idOfUser:Int!
+    var itemLocationId:Int!
     var userLatitude:String!
     var userLongtitude:String!
     var statusReply:String!
     let locationManager = CLLocationManager() // get user's location
     var location: CLLocation!
     var deleteAlert = UIAlertController()
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var editItemButton: UIButton!
     @IBOutlet weak var deleteItemButton: UIButton!
@@ -58,6 +60,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBAction func editItemButtonAction(sender: UIButton) {
         print(itemTitle)
         print(itemValue)
+        appDelegate.itemLocationId = itemLocationId
         self.performSegueWithIdentifier("editItemSegue", sender:  editItemButton)
     }
     
@@ -214,7 +217,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     self.itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
                     self.itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
                     self.itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
-                    
+                    self.itemLocationId = itemDictionary![Constants.MerchandisesResponseKeys.LocationId] as? Int
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
                         displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")

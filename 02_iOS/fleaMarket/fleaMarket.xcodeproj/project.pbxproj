@@ -313,8 +313,8 @@
 			isa = PBXGroup;
 			children = (
 				7A751C6A1CF9BE990096BDE6 /* FirstTab.storyboard */,
-				C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */,
 				C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */,
+				C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */,
 				C98058771CFE8E8E00F8F629 /* itemDetail.storyboard */,
 				C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */,
 				C9FFA38D1D181A700057E439 /* Search.storyboard */,

@@ -9,7 +9,7 @@
         <!--Login View Controller-->
         <scene sceneID="1eC-P0-kgB">
             <objects>
-                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c8V-bB-HYd" customClass="LoginViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" useStoryboardIdentifierAsRestorationIdentifier="YES" id="c8V-bB-HYd" customClass="LoginViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="umO-2j-2AY"/>
                         <viewControllerLayoutGuide type="bottom" id="dXN-Hz-cxn"/>
@@ -106,7 +106,7 @@
         <!--Logging In View Controller-->
         <scene sceneID="eDg-WQ-b2f">
             <objects>
-                <viewController id="Wbx-e2-Kls" customClass="LoggingInViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Wbx-e2-Kls" customClass="LoggingInViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lgM-Ki-Yxy"/>
                         <viewControllerLayoutGuide type="bottom" id="WP3-eG-Fg3"/>

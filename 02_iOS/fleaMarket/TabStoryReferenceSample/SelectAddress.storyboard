@@ -13,6 +13,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="0gG-dg-PHY">
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
@@ -28,6 +30,9 @@
                             <outlet property="delegate" destination="XAO-Sn-9ul" id="ga3-As-oA0"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="tableView" destination="6EQ-A1-yLl" id="419-i3-JgC"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4k0-WC-XcW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

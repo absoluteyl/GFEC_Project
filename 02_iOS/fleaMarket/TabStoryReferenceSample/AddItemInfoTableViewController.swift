@@ -138,6 +138,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             }
 
         }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -145,6 +146,72 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             let destination = segue.destinationViewController as! SelectAddressTableViewController
             destination.addressArray = addressArray
         }
+    }
+    
+//    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
+//    {
+//        let headerView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 30))
+//
+//            headerView.backgroundColor = UIColor.clearColor()
+//
+//        return headerView
+//    }
+    
+    let sectionHeaderTitleArray = ["Photo","Item Info","Details","Share"]
+    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let returnedView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 40)) //set these values as necessary
+        returnedView.backgroundColor = UIColorUtil.rgb(0x654982)
+        
+        let label = UILabel(frame: CGRectMake(18, 8, 100, 20))
+        label.text = self.sectionHeaderTitleArray[section]
+        label.textColor = UIColor.whiteColor()
+        returnedView.addSubview(label)
+        
+        return returnedView
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+                let cornerRadius : CGFloat = 10.0
+                cell.backgroundColor = UIColor.clearColor()
+                var layer: CAShapeLayer = CAShapeLayer()
+                var pathRef:CGMutablePathRef = CGPathCreateMutable()
+                var bounds: CGRect = CGRectInset(cell.bounds, 18, 0)
+                var addLine: Bool = false
+                
+                if (indexPath.row == 0 && indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
+                    CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius)
+                } else if (indexPath.row == 0) {
+                    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds))
+                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius)
+                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius)
+                    CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds))
+                    addLine = true
+                } else if (indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
+                    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds))
+                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius)
+                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius)
+                    CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds))
+                } else {
+                    CGPathAddRect(pathRef, nil, bounds)
+                    addLine = true
+                }
+                
+                layer.path = pathRef
+                layer.fillColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.8).CGColor
+                
+                if (addLine == true) {
+                    var lineLayer: CALayer = CALayer()
+                    var lineHeight: CGFloat = (1.0 / UIScreen.mainScreen().scale)
+                    lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+10, bounds.size.height-lineHeight, bounds.size.width-10, lineHeight)
+                    lineLayer.backgroundColor = tableView.separatorColor!.CGColor
+                    layer.addSublayer(lineLayer)
+                }
+                var testView: UIView = UIView(frame: bounds)
+                testView.layer.insertSublayer(layer, atIndex: 0)
+                testView.backgroundColor = UIColor.clearColor()
+                cell.backgroundView = testView
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+        
     }
 
 //    func hideKeyboardWhenTappedAround() {
@@ -162,12 +229,18 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         if appDelegate.itemCategoryNumber != -1 {
             categorySelectedName.text = Constants.CategoryArrays.CategoryTitleArray[appDelegate.itemCategoryNumber]
         }
+        if appDelegate.itemLocationId != -1 {
+            locationIdSelected = appDelegate.itemLocationId
+        }
         
     }
    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.backgroundColor = UIColorUtil.rgb(0x654982)
+
         
         // Beggining of adding logo to Navigation Bar
         var titleView : UIImageView
@@ -201,6 +274,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 
         self.addPhoto1!.setTitle("", forState: .Normal)
         self.addPhoto1!.setImage(imageSelected!, forState: .Normal)
+        
      
     }
 
@@ -266,6 +340,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                         tempLocation.city_id = cityArray[Constants.LocationRespondKeys.ParentId] as! Int
                         tempLocation.name = locationDictionary[i][Constants.LocationRespondKeys.Alias] as! String
                         tempLocation.address = locationDictionary[i][Constants.LocationRespondKeys.Address] as! String
+                        tempLocation.postCode = cityArray[Constants.LocationRespondKeys.PostCode] as! String
                         self.addressArray.append(tempLocation)
                     }
                     print(self.addressArray[0].city_id)
@@ -273,7 +348,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                     print(self.addressArray[0].name)
                     print(self.addressArray[0].address)
                     performUIUpdatesOnMain(){
-                        self.showLocationLabel.text = Constants.CityArrays.CityNameArray[self.addressArray[0].city_id-1] + self.addressArray[0].name + "區" + self.addressArray[0].address
+                        self.showLocationLabel.text = self.addressArray[0].postCode + Constants.CityArrays.CityNameArray[self.addressArray[0].city_id-1] + self.addressArray[0].name + "區" + self.addressArray[0].address
                         
                         
                     }
@@ -325,7 +400,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "amount" : itemAmount.text!,
                 "user_id" : userDefault.integerForKey("userID"),
                 "category_id" : Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber],
-                "image_1" : "data:image/jpeg;base64,\(base64String1)"],
+                "image_1" : "data:image/jpeg;base64,\(base64String1)",
+                "location_id" : locationIdSelected
+            ],
         ]
         
         print("CATEGORY ARRAY NO.:\(appDelegate.itemCategoryNumber)")
@@ -464,7 +541,9 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 "amount" : itemAmount.text!,
                 "user_id" : userDefault.integerForKey("userID"),
                 "category_id" : Constants.CategoryArrays.CategoryIdArray[appDelegate.itemCategoryNumber],
-                "image_1" : "data:image/jpeg;base64,\(base64String1)"],
+                "image_1" : "data:image/jpeg;base64,\(base64String1)",
+                "location_id" : locationIdSelected
+             ],
             ]
         
         print("CATEGORY ARRAY NO.:\(appDelegate.itemCategoryNumber)")
@@ -586,6 +665,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         }
         
     }
+    
     
     
     

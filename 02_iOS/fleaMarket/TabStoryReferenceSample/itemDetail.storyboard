@@ -32,7 +32,7 @@
         <!--Item Detail View Controller-->
         <scene sceneID="cKg-xB-nq6">
             <objects>
-                <viewController id="1LD-cq-aO6" customClass="itemDetailViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1LD-cq-aO6" customClass="itemDetailViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H99-NZ-iDy"/>
                         <viewControllerLayoutGuide type="bottom" id="swb-gN-abH"/>

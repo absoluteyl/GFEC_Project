@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemCategoryNumber = -1
     var itemStatusNumber = -1
     var itemDeliveryNumber = -1
+    var itemLocationId = -1
     
     /*
      self.userDefault.setInteger(userID , forKey: "userID")

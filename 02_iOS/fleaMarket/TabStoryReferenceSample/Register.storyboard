@@ -8,7 +8,7 @@
         <!--Register View Controller-->
         <scene sceneID="tgR-Ot-zc8">
             <objects>
-                <viewController id="Vg8-p9-cT7" customClass="RegisterViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Vg8-p9-cT7" customClass="RegisterViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y44-w4-9wG"/>
                         <viewControllerLayoutGuide type="bottom" id="R3B-oB-c9x"/>
@@ -152,7 +152,7 @@
         <!--Registering View Controller-->
         <scene sceneID="LoS-Xw-FC1">
             <objects>
-                <viewController id="WaP-Oy-fZM" customClass="RegisteringViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="WaP-Oy-fZM" customClass="RegisteringViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="VRw-F4-Ljn"/>
                         <viewControllerLayoutGuide type="bottom" id="eqD-ml-hMa"/>
