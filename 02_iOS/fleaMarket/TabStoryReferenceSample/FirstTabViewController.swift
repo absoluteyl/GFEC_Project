@@ -8,7 +8,7 @@
 
 import UIKit
 import KFSwiftImageLoader
-import Firebase
+//import Firebase
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
@@ -37,7 +37,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         priceArray = []
         itemIdArray = []
         imageArray = []
-//            getDataFromDB()
+            getDataFromDB()
         
 //        activityIndicator.startAnimating()
         
@@ -46,50 +46,50 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
 
     
 // firebase TESTING
-    func setDisplayName(user: FIRUser) {
-        let changeRequest = user.profileChangeRequest()
-        changeRequest.displayName = "kyujyokei"
-        changeRequest.commitChangesWithCompletion(){(error)in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self.signedIn(FIRAuth.auth()?.currentUser)
-        }
-    }
+//    func setDisplayName(user: FIRUser) {
+//        let changeRequest = user.profileChangeRequest()
+//        changeRequest.displayName = "kyujyokei"
+//        changeRequest.commitChangesWithCompletion(){(error)in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.signedIn(FIRAuth.auth()?.currentUser)
+//        }
+//    }
     
-    func signedIn(user: FIRUser?) {
-        MeasurementHelper.sendLoginEvent()
-        
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.photoUrl = user?.photoURL
-        AppState.sharedInstance.signedIn = true
-        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
-       
-    }
+//    func signedIn(user: FIRUser?) {
+//        MeasurementHelper.sendLoginEvent()
+//        
+//        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+//        AppState.sharedInstance.photoUrl = user?.photoURL
+//        AppState.sharedInstance.signedIn = true
+//        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+//       
+//    }
 // firebase TESTING
     
-    override func viewDidAppear(animated: Bool) {
-        if let user = FIRAuth.auth()?.currentUser{
-            self.signedIn(user)
-        }
-    }
+//    override func viewDidAppear(animated: Bool) {
+//        if let user = FIRAuth.auth()?.currentUser{
+//            self.signedIn(user)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
         // firebase TESTING
-        let email = "kyujyokei@gmail.com"
-        let password = "effort"
-        FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user,error) in
-            if let error=error{
-                print(error.localizedDescription)
-                return
-            }
-            self.setDisplayName(user!)
-            print("init success")
-        }
+//        let email = "kyujyokei@gmail.com"
+//        let password = "effort"
+//        FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user,error) in
+//            if let error=error{
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.setDisplayName(user!)
+//            print("init success")
+//        }
 
         // firebase TESTING
         

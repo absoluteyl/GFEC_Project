@@ -11,6 +11,8 @@ import Firebase
 
 class LoggingInViewController: UIViewController {
     
+    var firebase: Bool = false
+    
     var userDefault = NSUserDefaults.standardUserDefaults()
     
     @IBOutlet weak var userImage: UIImageView!

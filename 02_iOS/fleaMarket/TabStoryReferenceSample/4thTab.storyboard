@@ -8,7 +8,7 @@
         <!--Fourth Tab View Controller-->
         <scene sceneID="k9J-ki-Syj">
             <objects>
-                <viewController id="ikC-PM-pZY" customClass="FourthTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ikC-PM-pZY" customClass="FourthTabViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zBy-kR-l6h"/>
                         <viewControllerLayoutGuide type="bottom" id="gkl-Gz-ukM"/>

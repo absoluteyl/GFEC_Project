@@ -33,6 +33,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     var patchItemDescription:String?
     var patchItemPhoto1:UIImage?
     
+    @IBOutlet weak var showLocationLabel: UILabel!
     @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var addPhoto1: UIButton?
     @IBOutlet weak var addPhoto2: UIButton!
@@ -164,6 +165,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         titleView.image = UIImage(named: "logo.png")
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        addButton.tintColor = UIColor.clearColor()
+        navigationItem.rightBarButtonItem = addButton
         // End of adding logo to Navigation Bar
         
 //        self.hideKeyboardWhenTappedAround() 
@@ -192,6 +197,74 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    private func getLocationFromDB() {
+        
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        //print(methodParameters)
+        
+        let urlString = Constants.Locations.APIBaseURL + escapedParameters(methodParameters)
+        
+        print("URL:\(urlString)")
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    let locationDictionary = parsedResult![Constants.LocationRespondKeys.Locations] as! [[String:AnyObject]]
+                    print(locationDictionary)
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    for i in 0...locationDictionary.count-1 {
+                        let locLatitude = locationDictionary[i][Constants.LocationRespondKeys.Latitude] as! String
+                        let locLongtitude = locationDictionary[i][Constants.LocationRespondKeys.Longtitude] as! String
+
+                    }
+                    //print(priceArray)
+                    //print(titleArray)
+                    //print(itemIdArray)
+                    
+                    //print("3.\(titleArray.count)")
+                    
+                    performUIUpdatesOnMain(){
+                        
+                        
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+
+    
+    
 
 
     private func post () {

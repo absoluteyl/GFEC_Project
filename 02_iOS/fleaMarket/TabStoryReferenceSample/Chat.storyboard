@@ -9,7 +9,7 @@
         <!--Chat-->
         <scene sceneID="dYZ-Hi-dta">
             <objects>
-                <viewController id="12F-CI-jVH" customClass="Chat" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="12F-CI-jVH" customClass="Chat" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kJ8-TH-820"/>
                         <viewControllerLayoutGuide type="bottom" id="wwo-vI-1qB"/>

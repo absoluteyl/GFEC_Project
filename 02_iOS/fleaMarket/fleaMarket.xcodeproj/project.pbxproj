@@ -23,8 +23,6 @@
 		7A751C761CF9BEE20096BDE6 /* 5thTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */; };
 		C902734C1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C902734B1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift */; };
 		C902734E1D0C1B7C00EC081D /* AddItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */; };
-		C90273501D0FB88100EC081D /* LoginPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734F1D0FB88100EC081D /* LoginPage.storyboard */; };
-		C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90273511D0FB89700EC081D /* LoginPageViewController.swift */; };
 		C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90EEA721D2D283800711C22 /* RegisteringViewController.swift */; };
 		C932F2D21D2D050600DA6540 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C932F2D11D2D050600DA6540 /* Register.storyboard */; };
 		C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932F2D31D2D052800DA6540 /* RegisterViewController.swift */; };
@@ -44,6 +42,7 @@
 		C96C123B1D379D35006641F2 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96C12391D379D35006641F2 /* Chat.storyboard */; };
 		C96C123C1D379D35006641F2 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96C12391D379D35006641F2 /* Chat.storyboard */; };
 		C96C123E1D37C4E0006641F2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C96C123D1D37C4E0006641F2 /* GoogleService-Info.plist */; };
+		C96C12401D38C933006641F2 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C96C123F1D38C933006641F2 /* Storyboard.storyboard */; };
 		C974EE1F1D06E3A4001002BE /* S01_Address.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C974EE1E1D06E3A4001002BE /* S01_Address.storyboard */; };
 		C974EE231D06ECF1001002BE /* S02_Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C974EE221D06ECF1001002BE /* S02_Account.storyboard */; };
 		C974EE281D06ED60001002BE /* S01_AddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C974EE271D06ED60001002BE /* S01_AddressTableViewController.swift */; };
@@ -102,7 +101,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7A751C371CF9BDBA0096BDE6 /* fleaMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fleaMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A751C371CF9BDBA0096BDE6 /* RiRiKoKo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiRiKoKo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A751C3A1CF9BDBA0096BDE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A751C3C1CF9BDBA0096BDE6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		7A751C3E1CF9BDBA0096BDE6 /* SecondTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecondTabViewController.swift; path = TabStoryReferenceSample/SecondTabViewController.swift; sourceTree = "<group>"; };
@@ -127,8 +126,6 @@
 		9DD127326FB0F46640F4071B /* Pods_fleaMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fleaMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C902734B1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemInfoTableViewController.swift; sourceTree = "<group>"; };
 		C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddItemInfo.storyboard; sourceTree = "<group>"; };
-		C902734F1D0FB88100EC081D /* LoginPage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginPage.storyboard; sourceTree = "<group>"; };
-		C90273511D0FB89700EC081D /* LoginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		C90EEA721D2D283800711C22 /* RegisteringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteringViewController.swift; sourceTree = "<group>"; };
 		C932F2D11D2D050600DA6540 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C932F2D31D2D052800DA6540 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +139,7 @@
 		C96C12351D379D21006641F2 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		C96C12391D379D35006641F2 /* Chat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Chat.storyboard; sourceTree = "<group>"; };
 		C96C123D1D37C4E0006641F2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C96C123F1D38C933006641F2 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		C974EE1E1D06E3A4001002BE /* S01_Address.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = S01_Address.storyboard; sourceTree = "<group>"; };
 		C974EE221D06ECF1001002BE /* S02_Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = S02_Account.storyboard; sourceTree = "<group>"; };
 		C974EE271D06ED60001002BE /* S01_AddressTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S01_AddressTableViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +237,7 @@
 		7A751C381CF9BDBA0096BDE6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A751C371CF9BDBA0096BDE6 /* fleaMarket.app */,
+				7A751C371CF9BDBA0096BDE6 /* RiRiKoKo.app */,
 				7A751C4D1CF9BDBA0096BDE6 /* fleaMarket.xctest */,
 				7A751C581CF9BDBA0096BDE6 /* fleaMarket.xctest */,
 			);
@@ -319,6 +317,7 @@
 				C9FFA38F1D181A7F0057E439 /* SearchViewController.swift */,
 				C9FFA3931D1E99110057E439 /* UserDetail.storyboard */,
 				C9FFA3911D1E99040057E439 /* UserDetailViewController.swift */,
+				C96C123F1D38C933006641F2 /* Storyboard.storyboard */,
 			);
 			name = Tab1;
 			sourceTree = "<group>";
@@ -361,8 +360,6 @@
 			children = (
 				7A751C741CF9BEE20096BDE6 /* 5thTab.storyboard */,
 				C94EB5FF1D018DE00077EBC6 /* FifthTabViewController.swift */,
-				C902734F1D0FB88100EC081D /* LoginPage.storyboard */,
-				C90273511D0FB89700EC081D /* LoginPageViewController.swift */,
 				C974EE2F1D06EE5C001002BE /* S01_Address */,
 				C974EE301D06EE6C001002BE /* S02_Account */,
 				C974EE311D06EE7C001002BE /* S03_Settings */,
@@ -492,7 +489,7 @@
 			);
 			name = fleaMarket;
 			productName = TabStoryReferenceSample;
-			productReference = 7A751C371CF9BDBA0096BDE6 /* fleaMarket.app */;
+			productReference = 7A751C371CF9BDBA0096BDE6 /* RiRiKoKo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		7A751C4C1CF9BDBA0096BDE6 /* fleaMarketTests */ = {
@@ -611,9 +608,9 @@
 				C974EE4E1D06F2EB001002BE /* S08_About.storyboard in Resources */,
 				C974EE231D06ECF1001002BE /* S02_Account.storyboard in Resources */,
 				C974EE421D06EFE3001002BE /* S06_Records.storyboard in Resources */,
-				C90273501D0FB88100EC081D /* LoginPage.storyboard in Resources */,
 				C98058781CFE8E8E00F8F629 /* itemDetail.storyboard in Resources */,
 				7A751C421CF9BDBA0096BDE6 /* Main.storyboard in Resources */,
+				C96C12401D38C933006641F2 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,7 +791,6 @@
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
 				C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
-				C90273521D0FB89700EC081D /* LoginPageViewController.swift in Sources */,
 				C9FFA38C1D14D14B0057E439 /* FillInAddressViewController.swift in Sources */,
 				C974EE2C1D06EE0C001002BE /* S03_SettingsTableViewController.swift in Sources */,
 				C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */,
@@ -974,7 +970,7 @@
 				INFOPLIST_FILE = TabStoryReferenceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSample;
-				PRODUCT_NAME = fleaMarket;
+				PRODUCT_NAME = RiRiKoKo;
 			};
 			name = Debug;
 		};
@@ -987,7 +983,7 @@
 				INFOPLIST_FILE = TabStoryReferenceSample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.colorkit.filmaker.TabStoryReferenceSample;
-				PRODUCT_NAME = fleaMarket;
+				PRODUCT_NAME = RiRiKoKo;
 			};
 			name = Release;
 		};

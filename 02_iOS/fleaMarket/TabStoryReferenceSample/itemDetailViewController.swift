@@ -137,6 +137,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         titleView.image = UIImage(named: "logo.png")
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        addButton.tintColor = UIColor.clearColor()
+        navigationItem.rightBarButtonItem = addButton
         // End of adding logo to Navigation Bar
     }
 
