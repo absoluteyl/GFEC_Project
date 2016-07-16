@@ -84,23 +84,31 @@ struct Constants {
     }
     
     struct  LocationRespondKeys {
+        static let Id = "id"
         static let Location = "location"
         static let Locations = "locations"
         static let UserId = "user_id"
         static let PostCode = "postcode"
         static let City = "city"
         static let CityId = "city_id"
+        static let Name = "name"
+        static let ParentId = "parent_id"
         static let Address = "address"
         static let Recipient = "recipient"
         static let Phone = "phone"
         static let Latitude = "lat"
         static let Longtitude = "long"
         static let Status = "status"
+        static let Alias = "alias"
     }
     
     struct CategoryArrays {
         static let CategoryTitleArray = ["Ｗomen’s Clothing","Men’s Clothing","Games & Toys","Sports & Outdoors","Accessories","Cosmetics & Care","Electronics & Computers","Cellphones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets","Miscellaneous"]
         static let CategoryIdArray = ["1","11","77","84","19","26","34","43","49","57","64","69","92","99","104","110","115"]
+    }
+    
+    struct CityArrays {
+        static let CityNameArray = ["台北市","新北市","基隆市","宜蘭縣","桃園縣","新竹市","新竹縣","苗栗縣","台中市","彰化縣","南投縣","嘉義市","嘉義縣","雲林縣","台南市","高雄市","澎湖縣","屏東縣","台東縣","花蓮縣","金門縣","連江縣","南海諸島"]
     }
     
     //Below are for Firebase

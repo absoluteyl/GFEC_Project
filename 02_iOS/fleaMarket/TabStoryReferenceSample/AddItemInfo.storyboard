@@ -214,6 +214,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DwZ-hb-1yy">
                                                     <rect key="frame" x="523.5" y="12" width="41.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -304,12 +305,13 @@
                         <outlet property="itemNameTextField" destination="wou-UA-wBB" id="TEl-Ox-OEs"/>
                         <outlet property="itemPriceTextField" destination="BID-An-IF6" id="KPp-Sy-ZY6"/>
                         <outlet property="postButton" destination="amx-4i-E0p" id="H4P-DJ-2Jn"/>
-                        <outlet property="showLocationLabel" destination="XU0-qa-FTh" id="YI3-ZN-aA1"/>
+                        <outlet property="showLocationLabel" destination="DwZ-hb-1yy" id="8zd-94-s25"/>
                         <outlet property="tempImageVIew" destination="VIw-QM-S5y" id="A0L-Tm-aX3"/>
                         <segue destination="A25-UG-er3" kind="show" identifier="showCategory" id="ePb-FI-AJf"/>
                         <segue destination="MTR-3i-FL8" kind="show" identifier="showItemStatus" id="Zl9-MD-Lx2"/>
                         <segue destination="9vi-ib-F2C" kind="show" identifier="showDelivery" id="n5O-gT-DzP"/>
                         <segue destination="YyN-C4-Is3" kind="show" identifier="backToTab1Segue" id="wtl-dr-efY"/>
+                        <segue destination="TI9-ei-zOR" kind="show" identifier="selectAddressSegue" id="ENO-QA-A2r"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deb-ZX-0Zb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,7 +348,15 @@
                 <viewControllerPlaceholder storyboardName="FirstTab" id="YyN-C4-Is3" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M69-a9-plm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831.5" y="506"/>
+            <point key="canvasLocation" x="790" y="393"/>
+        </scene>
+        <!--SelectAddress-->
+        <scene sceneID="AdY-QC-kgb">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SelectAddress" id="TI9-ei-zOR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d32-hK-wBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="757" y="460"/>
         </scene>
     </scenes>
 </document>

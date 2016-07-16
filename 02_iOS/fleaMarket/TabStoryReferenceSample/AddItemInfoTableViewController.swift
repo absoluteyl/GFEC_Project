@@ -11,14 +11,16 @@ import UIKit
 
 
 class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     var categoryNumber:Int!
     var hasSelectedCategory:Bool = false
+    var addressArray = [AddressForm]()
     
     @IBOutlet var StaticTableView: UITableView!
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var imageSelected: UIImage!
+    var locationIdSelected: Int!
     
     @IBOutlet weak var tempImageVIew: UIImageView!
     
@@ -131,8 +133,17 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             } else if indexPath.row == 2 {
                 print("Show Delivery")
                 self.performSegueWithIdentifier("showDelivery", sender: indexPath.row)
+            } else if indexPath.row == 3 {
+                self.performSegueWithIdentifier("selectAddressSegue", sender: indexPath.row)
             }
-            
+
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "selectAddressSegue" {
+            let destination = segue.destinationViewController as! SelectAddressTableViewController
+            destination.addressArray = addressArray
         }
     }
 
@@ -146,7 +157,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //    }
     
     override func viewWillAppear(animated: Bool) {
-        
+        getLocationFromDB()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.itemCategoryNumber != -1 {
             categorySelectedName.text = Constants.CategoryArrays.CategoryTitleArray[appDelegate.itemCategoryNumber]
@@ -201,9 +212,13 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     private func getLocationFromDB() {
         
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        
+        //http://ririkoko.herokuapp.com/api/locations?user=1&api_key=e813852b6d35e706f776c74434b001f9
         
         let methodParameters: [String: String!] = [
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            Constants.ParameterKeys.User: String(userDefault.integerForKey("userID"))
             ]
         
         //print(methodParameters)
@@ -243,17 +258,22 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...locationDictionary.count-1 {
-                        let locLatitude = locationDictionary[i][Constants.LocationRespondKeys.Latitude] as! String
-                        let locLongtitude = locationDictionary[i][Constants.LocationRespondKeys.Longtitude] as! String
-
+                        
+                        let tempLocation = AddressForm()
+                        
+                        tempLocation.id = locationDictionary[i][Constants.LocationRespondKeys.Id] as! Int
+                        let cityArray = locationDictionary[i][Constants.LocationRespondKeys.City] as! [String:AnyObject]
+                        tempLocation.city_id = cityArray[Constants.LocationRespondKeys.ParentId] as! Int
+                        tempLocation.name = locationDictionary[i][Constants.LocationRespondKeys.Alias] as! String
+                        tempLocation.address = locationDictionary[i][Constants.LocationRespondKeys.Address] as! String
+                        self.addressArray.append(tempLocation)
                     }
-                    //print(priceArray)
-                    //print(titleArray)
-                    //print(itemIdArray)
-                    
-                    //print("3.\(titleArray.count)")
-                    
+                    print(self.addressArray[0].city_id)
+                    print(Constants.CityArrays.CityNameArray[self.addressArray[0].city_id])
+                    print(self.addressArray[0].name)
+                    print(self.addressArray[0].address)
                     performUIUpdatesOnMain(){
+                        self.showLocationLabel.text = Constants.CityArrays.CityNameArray[self.addressArray[0].city_id-1] + self.addressArray[0].name + "區" + self.addressArray[0].address
                         
                         
                     }
@@ -262,9 +282,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         }
         task.resume()
     }
-
-    
-    
 
 
     private func post () {

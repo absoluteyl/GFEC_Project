@@ -21,4 +21,12 @@ struct UIColorUtil {
     }
 }
 
+public class AddressForm {
+    var id:Int = 0
+    var city_id:Int = 0
+    var name:String = ""
+    var address:String = ""
+}
+
+
 

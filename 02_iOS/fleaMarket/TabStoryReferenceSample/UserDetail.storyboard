@@ -9,7 +9,7 @@
         <!--User Detail View Controller-->
         <scene sceneID="KyM-zw-dDm">
             <objects>
-                <viewController id="f93-cu-Sza" customClass="UserDetailViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="f93-cu-Sza" customClass="UserDetailViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8BX-SI-6Zj"/>
                         <viewControllerLayoutGuide type="bottom" id="OvJ-WR-aGD"/>
@@ -35,7 +35,7 @@
                                     <inset key="sectionInset" minX="20" minY="10" maxX="20" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Adl-sf-FkB" userLabel="cell" customClass="CollectionViewCell" customModule="fleaMarket" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Adl-sf-FkB" userLabel="cell" customClass="CollectionViewCell" customModule="RiRiKoKo" customModuleProvider="target">
                                         <rect key="frame" x="20" y="10" width="180" height="210"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
