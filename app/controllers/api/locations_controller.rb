@@ -3,6 +3,9 @@ class Api::LocationsController < Api::ApiController
   before_action :set_location, only: [:edit, :update, :destroy]
   def index
     @locations = Location.all
+    if id = params[:id]
+      @locations = @locations.where(id: id)
+    end
     if city_id = params[:city_id]
         @locations = @locations.where(city_id: city_id)
     end
