@@ -46,7 +46,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jIt-T6-QTY">
                                         <rect key="frame" x="539" y="17" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Send"/>
                                         <connections>
                                             <action selector="didSendMessage:" destination="12F-CI-jVH" eventType="touchUpInside" id="icZ-NM-Lcs"/>
                                         </connections>

@@ -8,7 +8,7 @@
         <!--Fifth Tab View Controller-->
         <scene sceneID="3dq-VC-I6z">
             <objects>
-                <viewController id="T61-0W-SZC" customClass="FifthTabViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="T61-0W-SZC" customClass="FifthTabViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zEx-i8-otw"/>
                         <viewControllerLayoutGuide type="bottom" id="sDX-gX-2G6"/>

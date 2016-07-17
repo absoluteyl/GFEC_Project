@@ -234,15 +234,26 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amx-4i-E0p">
-                                                    <rect key="frame" x="280" y="8" width="40" height="30"/>
-                                                    <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="POST"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amx-4i-E0p">
+                                                    <rect key="frame" x="265" y="2.5" width="70" height="40"/>
+                                                    <color key="backgroundColor" red="0.57254901960000004" green="0.2274509804" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="PHP-f0-pj4"/>
+                                                        <constraint firstAttribute="width" constant="70" id="oNH-Sj-Mvg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                    <state key="normal" title="POST">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="postButtonAction:" destination="znx-RW-K34" eventType="touchUpInside" id="jwT-9e-h6Q"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="amx-4i-E0p" firstAttribute="centerX" secondItem="0lE-bX-JQq" secondAttribute="centerX" id="aaC-3B-Dhv"/>
+                                                <constraint firstItem="amx-4i-E0p" firstAttribute="centerY" secondItem="0lE-bX-JQq" secondAttribute="centerY" id="lrk-2f-W4o"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -253,19 +264,25 @@
                                         <rect key="frame" x="0.0" y="637" width="600" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3QQ-1a-C3k" id="rj2-Hi-wVf">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-NQ-8r6">
-                                                    <rect key="frame" x="523" y="6" width="51" height="31"/>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Share on Facebook !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-y5-Xvk">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share on Facebook !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UD4-y5-Xvk">
                                                     <rect key="frame" x="15" y="11" width="156" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-NQ-8r6">
+                                                    <rect key="frame" x="523" y="6" width="51" height="31"/>
+                                                </switch>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="nrP-NQ-8r6" firstAttribute="centerY" secondItem="UD4-y5-Xvk" secondAttribute="centerY" id="HUk-hm-ck0"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nrP-NQ-8r6" secondAttribute="trailing" constant="20" id="OfQ-0i-r4B"/>
+                                                <constraint firstItem="UD4-y5-Xvk" firstAttribute="leading" secondItem="rj2-Hi-wVf" secondAttribute="leadingMargin" constant="7" id="gD2-gE-sZa"/>
+                                                <constraint firstItem="nrP-NQ-8r6" firstAttribute="centerY" secondItem="rj2-Hi-wVf" secondAttribute="centerY" id="mjm-4Y-T58"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -290,6 +307,7 @@
                         <outlet property="itemNameTextField" destination="wou-UA-wBB" id="TEl-Ox-OEs"/>
                         <outlet property="itemPriceTextField" destination="BID-An-IF6" id="KPp-Sy-ZY6"/>
                         <outlet property="postButton" destination="amx-4i-E0p" id="H4P-DJ-2Jn"/>
+                        <outlet property="shareSwitch" destination="nrP-NQ-8r6" id="3se-kW-2k4"/>
                         <outlet property="showLocationLabel" destination="DwZ-hb-1yy" id="8zd-94-s25"/>
                         <segue destination="A25-UG-er3" kind="show" identifier="showCategory" id="ePb-FI-AJf"/>
                         <segue destination="MTR-3i-FL8" kind="show" identifier="showItemStatus" id="Zl9-MD-Lx2"/>

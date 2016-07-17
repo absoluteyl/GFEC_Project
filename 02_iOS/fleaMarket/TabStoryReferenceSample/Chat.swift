@@ -45,6 +45,7 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
     
     @IBAction func didSendMessage(sender: UIButton) {
         textFieldShouldReturn(textField)
+        textField.text = ""
     }
 
         @IBOutlet weak var clientTable: UITableView!
@@ -54,6 +55,7 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
             super.viewDidLoad()
             
             self.clientTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
+            self.title = "Elsa"
             
             configureDatabase()
             configureStorage()

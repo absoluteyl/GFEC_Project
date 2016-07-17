@@ -24,6 +24,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     @IBOutlet weak var tempImageVIew: UIImageView!
     
+    @IBOutlet weak var shareSwitch: UISwitch!
     var appDelegate: AppDelegate!
     
     var statusReply:String!
@@ -160,22 +161,27 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     let sectionHeaderTitleArray = ["Photo","Item Info","Details","Share"]
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let returnedView = UIView(frame: CGRectMake(0, 0, tableView.bounds.size.width, 40)) //set these values as necessary
-        returnedView.backgroundColor = UIColorUtil.rgb(0x654982)
+        returnedView.backgroundColor = UIColorUtil.rgb(0xececec)
         
-        let label = UILabel(frame: CGRectMake(18, 8, 100, 20))
+        let label = UILabel(frame: CGRectMake(18, 25, 100, 20))
         label.text = self.sectionHeaderTitleArray[section]
-        label.textColor = UIColor.whiteColor()
+        label.textColor = UIColor.darkGrayColor()
+        
         returnedView.addSubview(label)
         
         return returnedView
     }
     
+    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50.0
+    }
+    
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-                let cornerRadius : CGFloat = 10.0
+                let cornerRadius : CGFloat = 9.0
                 cell.backgroundColor = UIColor.clearColor()
                 var layer: CAShapeLayer = CAShapeLayer()
                 var pathRef:CGMutablePathRef = CGPathCreateMutable()
-                var bounds: CGRect = CGRectInset(cell.bounds, 18, 0)
+                var bounds: CGRect = CGRectInset(cell.bounds, 10, 0)
                 var addLine: Bool = false
                 
                 if (indexPath.row == 0 && indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
@@ -224,7 +230,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //    }
     
     override func viewWillAppear(animated: Bool) {
-        getLocationFromDB()
+//        getLocationFromDB()
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.itemCategoryNumber != -1 {
             categorySelectedName.text = Constants.CategoryArrays.CategoryTitleArray[appDelegate.itemCategoryNumber]
@@ -235,11 +241,28 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         
     }
    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.backgroundColor = UIColorUtil.rgb(0x654982)
+        getLocationFromDB()
+        tableView.backgroundColor = UIColorUtil.rgb(0xececec)
+        postButton.backgroundColor = UIColor.clearColor()
+        postButton.layer.cornerRadius = 20
+        postButton.backgroundColor = UIColorUtil.rgb(0x654982)
+        shareSwitch.on = false
+        
+        let onColor  = UIColorUtil.rgb(0x5EC3B3)
+        let offColor = UIColorUtil.rgb(0xececec)
+        
+        /*For on state*/
+        shareSwitch.onTintColor = onColor
+        
+        /*For off state*/
+        shareSwitch.tintColor = offColor
+        shareSwitch.layer.cornerRadius = 16
+        shareSwitch.backgroundColor = offColor
 
         
         // Beggining of adding logo to Navigation Bar
@@ -342,6 +365,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                         tempLocation.address = locationDictionary[i][Constants.LocationRespondKeys.Address] as! String
                         tempLocation.postCode = cityArray[Constants.LocationRespondKeys.PostCode] as! String
                         self.addressArray.append(tempLocation)
+
                     }
                     print(self.addressArray[0].city_id)
                     print(Constants.CityArrays.CityNameArray[self.addressArray[0].city_id])
@@ -349,7 +373,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                     print(self.addressArray[0].address)
                     performUIUpdatesOnMain(){
                         self.showLocationLabel.text = self.addressArray[0].postCode + Constants.CityArrays.CityNameArray[self.addressArray[0].city_id-1] + self.addressArray[0].name + "區" + self.addressArray[0].address
-                        
+                        self.locationIdSelected = self.addressArray[0].id
                         
                     }
                 }
@@ -439,8 +463,32 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                displayError("Your request returned a status code other than 2xx!")
-                return
+                    displayError("Your request returned a status code other than 2xx!")
+                    
+                        performUIUpdatesOnMain(){
+                            self.uploadAlert.dismissWithClickedButtonIndex(-1, animated: true)
+                            let alert = UIAlertView()
+                            alert.title = "Oops!!"
+                            alert.message = "error occured"
+                            var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+                            
+                            
+                            alert.show()
+                            
+                            // Delay the dismissal by 5 seconds
+                            
+                            let seconds = 1.2
+                            let delay = seconds * Double(NSEC_PER_SEC)  // nanoseconds per seconds
+                            let dispatchTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                            
+                            dispatch_after(dispatchTime, dispatch_get_main_queue(), {
+                                
+                                alert.dismissWithClickedButtonIndex(-1, animated: true)
+                                self.postButton.enabled = true
+                            })
+                        }
+                
+                    return
             }
             
             if let response = response, data = data {
@@ -485,10 +533,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                             alert.dismissWithClickedButtonIndex(-1, animated: true)
                             self.tabBarController?.selectedIndex = 0
                             self.postButton.enabled = true
-                        })
-                    }
+                        })}
+
+                    
                 }
-                
             } else {
                 print(error)
             }

@@ -11,7 +11,7 @@ import MapKit
 
 
 
-class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
 //    @IBOutlet weak var sellerName: UILabel!
 //    @IBOutlet weak var itemDescription: UITextView!
@@ -35,13 +35,20 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var location: CLLocation!
     var deleteAlert = UIAlertController()
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var categoryTemp: String = ""
+    var locationTemp: String = ""
     
     @IBOutlet weak var editItemButton: UIButton!
     @IBOutlet weak var deleteItemButton: UIButton!
     
     @IBOutlet weak var itemValueLabel: UILabel!
     @IBOutlet weak var itemTitleLabel: UILabel!
-    @IBOutlet weak var itemDescriptionLabel: UITextView!
+   
+
+    @IBOutlet weak var itemDescriptionText: UITextView!
+ 
+    
+    
     @IBOutlet weak var itemSellerNameLabel: UILabel!
     @IBOutlet weak var itemCategoryLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
@@ -111,7 +118,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     override func viewDidLoad() {
         
         itemTitleLabel.hidden = true
-        itemDescriptionLabel.hidden = true
+        itemDescriptionText.hidden = true
         itemValueLabel.hidden = true
         itemSellerNameLabel.hidden = true
         
@@ -152,6 +159,38 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! ItemDetailStatusCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.leftLabel.text = "Status"
+            cell.rightLabel.text = "90% New"
+        case 1:
+            cell.leftLabel.text = "Category"
+            cell.rightLabel.text = categoryTemp
+        case 2:
+            cell.leftLabel.text = "Delivery"
+            cell.rightLabel.text = "Takkyubin"
+        case 3:
+            cell.leftLabel.text = "Location"
+            cell.rightLabel.text = locationTemp
+        default:
+            cell.leftLabel.text = "Title"
+            cell.rightLabel.text = "Detail"
+        }
+        
+        return cell
+    }
     
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -237,10 +276,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         
                         self.itemTitleLabel.text = self.itemTitle
                         self.itemValueLabel.text = "NT$\(self.itemValue)"
-                        self.itemDescriptionLabel.text = self.itemDescription
+                        self.itemDescriptionText.text = self.itemDescription
                         
                         self.itemTitleLabel.hidden = false
-                        self.itemDescriptionLabel.hidden = false
+                        self.itemDescriptionText.hidden = false
                         self.itemValueLabel.hidden = false
                         
                         self.getSpecificUser()
