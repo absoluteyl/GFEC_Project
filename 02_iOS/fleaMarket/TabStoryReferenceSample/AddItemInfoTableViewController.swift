@@ -53,18 +53,6 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     
     @IBAction func postButtonAction(sender: UIButton) {
         
-        uploadAlert.title = "Uploading"
-        uploadAlert.message = "Please wait"
-        var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
-        loadingIndicator.center = self.view.center;
-        loadingIndicator.hidesWhenStopped = true
-        loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        loadingIndicator.startAnimating();
-        uploadAlert.setValue(loadingIndicator, forKey: "accessoryView")
-        loadingIndicator.startAnimating()
-        uploadAlert.show()
-
-        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
         if appDelegate.itemCategoryNumber == -1 {
@@ -76,6 +64,18 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             alert.addAction(okAction)
             self.presentViewController(alert, animated: true, completion: nil)
         } else {
+            
+            uploadAlert.title = "Uploading"
+            uploadAlert.message = "Please wait"
+            var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+            loadingIndicator.center = self.view.center;
+            loadingIndicator.hidesWhenStopped = true
+            loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            loadingIndicator.startAnimating();
+            uploadAlert.setValue(loadingIndicator, forKey: "accessoryView")
+            loadingIndicator.startAnimating()
+            uploadAlert.show()
+            
         addPhoto1 = sender
             
             if isPatch == false {
@@ -217,6 +217,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 testView.backgroundColor = UIColor.clearColor()
                 cell.backgroundView = testView
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
+                cell.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 50)
         
     }
 
@@ -230,7 +231,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //    }
     
     override func viewWillAppear(animated: Bool) {
-//        getLocationFromDB()
+
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         if appDelegate.itemCategoryNumber != -1 {
             categorySelectedName.text = Constants.CategoryArrays.CategoryTitleArray[appDelegate.itemCategoryNumber]
@@ -239,12 +241,17 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
             locationIdSelected = appDelegate.itemLocationId
         }
         
+        tableView.reloadData()
+        
     }
    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
         getLocationFromDB()
         tableView.backgroundColor = UIColorUtil.rgb(0xececec)

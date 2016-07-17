@@ -37,6 +37,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var categoryTemp: String = ""
     var locationTemp: String = ""
+    var like_on: UIImage = UIImage(named:"like_on.png")!
+    var like_off: UIImage = UIImage(named:"like_off.png")!
     
     @IBOutlet weak var editItemButton: UIButton!
     @IBOutlet weak var deleteItemButton: UIButton!
@@ -48,6 +50,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var itemDescriptionText: UITextView!
  
     
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var itemSellerNameLabel: UILabel!
     @IBOutlet weak var itemCategoryLabel: UILabel!
@@ -56,7 +59,18 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var sellerImage: UIImageView!
     
+    @IBOutlet weak var likeButton: UIButton!
+    var likeButtonPushed = false
 
+    @IBAction func likeButtonAction(sender: UIButton) {
+        if likeButtonPushed == false {
+            likeButton.setImage(like_on, forState: .Normal)
+            likeButtonPushed = true
+        } else {
+            likeButton.setImage(like_off, forState: .Normal)
+            likeButtonPushed = false
+        }
+    }
     
     @IBAction func seeUserButtonAction(sender: AnyObject) {
         
@@ -67,7 +81,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBAction func editItemButtonAction(sender: UIButton) {
         print(itemTitle)
         print(itemValue)
-        appDelegate.itemLocationId = itemLocationId
+        //appDelegate.itemLocationId = itemLocationId
         self.performSegueWithIdentifier("editItemSegue", sender:  editItemButton)
     }
     
@@ -257,6 +271,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     self.itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
                     self.itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
                     self.itemLocationId = itemDictionary![Constants.MerchandisesResponseKeys.LocationId] as? Int
+                    let categoryNumber = itemDictionary![Constants.MerchandisesResponseKeys.CategoryId] as? Int
+                    self.categoryTemp = findCategoryNameById(categoryNumber!)
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
                         displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")
@@ -283,7 +299,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         self.itemValueLabel.hidden = false
                         
                         self.getSpecificUser()
-                        
+                        self.tableView.reloadData()
+
                     }
                     
                     
@@ -355,7 +372,6 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         
                         self.itemSellerNameLabel.text = "\(self.itemSellerName)"
                         self.itemSellerNameLabel.hidden = false
-                        self.getUserLocation()
                         
                         if self.itemSellerId == self.userDefault.integerForKey("userID") {
                             self.editItemButton.hidden = false
@@ -368,7 +384,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         task.resume()
     }
     
-    private func getUserLocation() {
+    private func getItemLocation() {
         
         let methodParameters: [String: String!] = [
             Constants.ParameterKeys.User: "\(itemSellerId)",

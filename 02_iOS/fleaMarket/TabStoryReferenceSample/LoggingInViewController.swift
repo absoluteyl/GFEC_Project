@@ -135,6 +135,13 @@ class LoggingInViewController: UIViewController {
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                performUIUpdatesOnMain({ 
+                    if let navigationController = self.navigationController
+                    {
+                        navigationController.popViewControllerAnimated(true)
+                    }
+                })
+                
                 return
             }
             
@@ -174,7 +181,7 @@ class LoggingInViewController: UIViewController {
                     
                     
                     
-                    if statusReply! == "OK" {
+                    //if statusReply! == "OK" {
                         performUIUpdatesOnMain(){
                             
                             var userDefault = NSUserDefaults.standardUserDefaults()
@@ -203,13 +210,13 @@ class LoggingInViewController: UIViewController {
                                 
                             })
                         }
-                    } else {
-                    
-                        if let navigationController = self.navigationController
-                        {
-                            navigationController.popViewControllerAnimated(true)
-                        }
-                    }
+//                    } else {
+//                    
+//                        if let navigationController = self.navigationController
+//                        {
+//                            navigationController.popViewControllerAnimated(true)
+//                        }
+//                    }
                 }
             }
         }

@@ -68,6 +68,7 @@ struct Constants {
         static let image_1_o = "image1_url_o"
         static let Status = "status"
         static let LocationId = "location_id"
+        static let CategoryId = "category_id"
     }
     
     struct UsersResponseKeys {
