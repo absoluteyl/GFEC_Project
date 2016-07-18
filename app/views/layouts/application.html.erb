@@ -15,7 +15,11 @@
   <%= render 'layouts/nav' %>
   <%= render 'layouts/categoryarea' %>
   <%= render 'layouts/messages' %>
+  <!--bootstrap styling start-->
+  <div class="container">
   <%= yield %>
+  </div>
+  <!--bootstrap styling end-->
   <%= render 'layouts/footer' %>
   <%= render 'layouts/gotopbtn' %>
 </body>

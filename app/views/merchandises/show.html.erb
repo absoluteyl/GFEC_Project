@@ -1,15 +1,47 @@
-<h2 align="center">Title: <%= @merchandise.title %></h2>
-  <h4></h4>
-  <hr>
-  <% if @merchandise.image_1? %>
-    <%= image_tag @merchandise.image_1.url(:medium)%>
-  <% end %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+  a {
+    display: block;
+    color: #000;
+  }
+  a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+  a:focus {
+    outline: none;
+  }
+  .btn-default {
+    background-color: #5ec3b3;
+    border-color: #5ec3b3;
+    color: #fff;
+  }
+  .btn-default:hover {
+    background-color: #ee4947;
+    border-color: #ee4947;
+    color: #fff;
+  }
+  .btn-danger {
+    background-color: #ee4947;
+    border-color: #ee4947;
+  }
+  .btn-danger:hover {
+    background-color: #513969;
+    border-color: #513969;
+  }
+</style>
+<h2 class="text-center"><%= @merchandise.title %></h2>
+<hr>
+<div class="text-center">
+  <%= image_tag @merchandise.image_1.url(:medium)%>
   <% if @merchandise.image_2? %>
     <%= image_tag @merchandise.image_2.url(:medium)%>
   <% end %>
   <% if @merchandise.image_3? %>
     <%= image_tag @merchandise.image_3.url(:medium)%>
   <% end %>
+
+
   <br />
   <%= simple_format(@merchandise.description) %>
   <br />
@@ -30,12 +62,13 @@
   <% end %>
   <div class="merchandise-actions">
     <% if user_signed_in? && (current_user == @merchandise.user) %>
-      <%= button_to "Edit", edit_merchandise_path(@merchandise), method: :get %>
+      <%= button_to "Edit", edit_merchandise_path(@merchandise), method: :get, class: 'btn btn-default btn-lg' %>
       <%= button_to "Delete", merchandise_path(@merchandise), method: :delete, 
-                                        data: { confirm: "Are you sure you want to delete the merchandise?"} %>
+                                        data: { confirm: "Are you sure you want to delete the merchandise?"}, class: 'btn btn-danger btn-lg' %>
     <% else%>
-      <%= button_to 'Add to Cart', line_items_path(merchandise_id: @merchandise) %>
+      <%= button_to 'Add to Cart', line_items_path(merchandise_id: @merchandise), class: 'btn btn-default btn-lg' %>
     <% end %>
     <%= link_to "View all merchandises", merchandises_path %>
   </div>
+</div>
 </div>

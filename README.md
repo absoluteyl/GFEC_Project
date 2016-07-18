@@ -100,10 +100,11 @@ Filtered Query:
             "price": integer,
             "amount": integer,
             "user_id": integer,
+            "category_id": integer,
+            "location_id": integer,
+            "image_1": attachment
             
             #Optional Fields
-            "category_id": integer,
-            "image_1": attachment,
             "image_2": attachment,
             "image_3": attachment
         }
@@ -217,6 +218,7 @@ Filtered Query:
 #####GET:
 General Query:
     
+    GET /api/locations?id=[id]
     GET /api/locations?user=[user_id]
 
 #####POST:
