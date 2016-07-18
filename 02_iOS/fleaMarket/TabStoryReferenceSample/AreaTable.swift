@@ -39,7 +39,8 @@ class AreaTable: UITableViewController {
         var theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         theDelegate.cityNameTemp = PostalDictionay.PostalArrayOfTuples[theDelegate.cityTemp][indexPath.row].1
         theDelegate.postalTemp = PostalDictionay.PostalArrayOfTuples[theDelegate.cityTemp][indexPath.row].0
-        
+        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewControllerAnimated(true)
         //print(theDelegate.cityTemp)
         
     }
