@@ -15,6 +15,7 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var homeButton: UIButton!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let locationManager = CLLocationManager() // get user's location
     
     var location: CLLocation!
@@ -218,7 +219,7 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                     
                     performUIUpdatesOnMain(){
                        
-                      //  self.activityIndicator.stopAnimating()
+                    self.activityIndicator.stopAnimating()
                     }
                 }
             }

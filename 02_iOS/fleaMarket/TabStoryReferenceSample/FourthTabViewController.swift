@@ -12,8 +12,8 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var contactImage: UIImageView!
 
-    let contacts = ["Amy","Bob","Caroline","Dandy","Elsa","Fergus","George","Harry","Issac"]
-    let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
+    let contacts = ["Elsa"]
+    let images = ["absolutely"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +64,10 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
         UIGraphicsEndImageContext()
 
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("goChat", sender: self)
     }
 
     /*

@@ -9,8 +9,6 @@
 import UIKit
 
 class CategoryTableViewController: UITableViewController {
-
-    let categoriesArray = ["Women's Clothing","Men's Clothing","Games & Toys","Sports & Outdoors","Accessories","Electronics & Computers","Cell Phones & Accessories","Home & Living","Mom & Baby","Food & Beverage","Cameras & Lens","Books & Audible","Handmade","Tickets","Pets"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +34,7 @@ class CategoryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return categoriesArray.count
+        return Constants.CategoryArrays.CategoryTitleArray.count
     }
 
 
@@ -51,12 +49,8 @@ class CategoryTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        
-        
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.itemCategoryNumber = indexPath.row
-        
-
         
         navigationController?.popViewControllerAnimated(true)
     }

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
-               BuildableName = "fleaMarket.app"
+               BuildableName = "RiRiKoKo.app"
                BlueprintName = "fleaMarket"
                ReferencedContainer = "container:fleaMarket.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
-            BuildableName = "fleaMarket.app"
+            BuildableName = "RiRiKoKo.app"
             BlueprintName = "fleaMarket"
             ReferencedContainer = "container:fleaMarket.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
-            BuildableName = "fleaMarket.app"
+            BuildableName = "RiRiKoKo.app"
             BlueprintName = "fleaMarket"
             ReferencedContainer = "container:fleaMarket.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "7A751C361CF9BDBA0096BDE6"
-            BuildableName = "fleaMarket.app"
+            BuildableName = "RiRiKoKo.app"
             BlueprintName = "fleaMarket"
             ReferencedContainer = "container:fleaMarket.xcodeproj">
          </BuildableReference>

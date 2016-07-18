@@ -8,6 +8,7 @@
 
 import UIKit
 import KFSwiftImageLoader
+//import Firebase
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
@@ -38,12 +39,60 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         imageArray = []
             getDataFromDB()
         
-        activityIndicator.startAnimating()
+//        activityIndicator.startAnimating()
         
     }
     
+
+    
+// firebase TESTING
+//    func setDisplayName(user: FIRUser) {
+//        let changeRequest = user.profileChangeRequest()
+//        changeRequest.displayName = "kyujyokei"
+//        changeRequest.commitChangesWithCompletion(){(error)in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.signedIn(FIRAuth.auth()?.currentUser)
+//        }
+//    }
+    
+//    func signedIn(user: FIRUser?) {
+//        MeasurementHelper.sendLoginEvent()
+//        
+//        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+//        AppState.sharedInstance.photoUrl = user?.photoURL
+//        AppState.sharedInstance.signedIn = true
+//        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+//       
+//    }
+// firebase TESTING
+    
+//    override func viewDidAppear(animated: Bool) {
+//        if let user = FIRAuth.auth()?.currentUser{
+//            self.signedIn(user)
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // firebase TESTING
+//        let email = "kyujyokei@gmail.com"
+//        let password = "effort"
+//        FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user,error) in
+//            if let error=error{
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.setDisplayName(user!)
+//            print("init success")
+//        }
+
+        // firebase TESTING
+        
         
         let bgImage = UIImageView();
         bgImage.image = UIImage(named: "bg");
@@ -60,6 +109,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -77,7 +128,6 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         itemIdArray = []
         imageArray = []
         getDataFromDB()
-        print("bubi")
         self.refreshControl.endRefreshing()
     }
     
@@ -204,10 +254,10 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         return
                     }
                     
-                    //print(parsedResult)
                     
-                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
                    
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
+                   //print(itemDictionary)
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...itemDictionary!.count-1 {

@@ -8,7 +8,7 @@
         <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -31,7 +31,7 @@
                                     <action selector="resetLocationButton:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="liT-5S-D2N"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-QW-3kW">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-QW-3kW">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
@@ -56,6 +56,7 @@
                     <navigationItem key="navigationItem" id="7ZM-39-0f3"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="sIi-QW-3kW" id="07l-po-Yyx"/>
                         <outlet property="homeButton" destination="zyY-fa-8Ur" id="lHg-il-QiP"/>
                         <outlet property="map" destination="4Rt-uz-esJ" id="mtd-A8-BaM"/>
                         <segue destination="R1H-HP-PTE" kind="show" identifier="showUser" id="RyH-gJ-qsS"/>

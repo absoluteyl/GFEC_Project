@@ -42,6 +42,10 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         titleView.image = UIImage(named: "logo.png")
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        addButton.tintColor = UIColor.clearColor()
+        navigationItem.rightBarButtonItem = addButton
         // End of adding logo to Navigation Bar
 
     }
@@ -102,7 +106,7 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         //決定每個cell的大小
         if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
             //如果是直的
-            return CGSize(width: 180, height: 180)
+            return CGSize(width: 180, height: 210)
         }else{
             return CGSize(width: 200, height: 200)
             
