@@ -8,9 +8,11 @@
 
 import UIKit
 import MapKit
+import KFSwiftImageLoader
 
 class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationManagerDelegate {
     
+
     let userDefault = NSUserDefaults.standardUserDefaults()
     
     @IBAction func loginButton(sender: UIButton) {
@@ -56,7 +58,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     
     
     @IBOutlet weak var userImage: UIImageView!
-    
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var map: MKMapView!
     
     let locationManager = CLLocationManager() // get user's location
@@ -66,7 +68,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        getUserFromDB()
         userImage.layer.cornerRadius = userImage.frame.size.width/2
         userImage.clipsToBounds = true
         
@@ -105,7 +107,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last // get the last location
         let center = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)! , longitude: (location?.coordinate.longitude)!) // center to location
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta:  0.1, longitudeDelta: 0.1)) // zoom the map
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta:  0.01, longitudeDelta: 0.01)) // zoom the map
         
         self.map.setRegion(region, animated: true)
         
@@ -114,6 +116,88 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         print("Errors: " + error.localizedDescription) // should it trigger errors, this will put error messages to the debugger
+    }
+    
+    
+    private func getUserFromDB(){
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        print(methodParameters)
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        let urlString = Constants.Users.APIBaseURL + "/\(userDefault.integerForKey("userID"))" + escapedParameters(methodParameters)
+        
+        print("URL:\(urlString)")
+        
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //print(parsedResult)
+                    
+                    let userDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
+                    
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
+                    
+                    for i in 0...itemDictionary!.count-1 {
+                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+                        //print (itemTitle!)
+                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
+                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
+                        let itemImage = itemDictionary![i][Constants.MerchandisesResponseKeys.image_1_s] as? String
+                        
+                        
+                        priceArray_1.append(itemPrice!)
+                        titleArray_1.append(itemTitle!)
+                        itemIdArray_1.append(itemId!)
+                        imageArray_1.append(itemImage!)
+                        
+                    }
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    
+                    let userName = userDictionary![Constants.UsersResponseKeys.UserName] as! String!
+                    let userImage = userDictionary![Constants.UsersResponseKeys.Avatar_S] as! String!
+                    let ImgUrl = NSURL(fileURLWithPath: userImage)
+                    
+                    print(userImage)
+                    performUIUpdatesOnMain(){
+                        self.userNameLabel.text = userName
+//                        self.userImageUrl = userImage
+
+                        
+                        self.userImage.loadImageFromURLString(userImage)
+                        //print(ImgUrl) 
+                        
+                    }
+                }
+            }
+        }
+        task.resume()
+        
     }
     
 

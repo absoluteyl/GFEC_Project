@@ -52,56 +52,12 @@ class SelectAddressTableViewController: UITableViewController {
         return cell
     }
  
-//    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//
-//                let cornerRadius : CGFloat = 12.0
-//                cell.backgroundColor = UIColor.clearColor()
-//                var layer: CAShapeLayer = CAShapeLayer()
-//                var pathRef:CGMutablePathRef = CGPathCreateMutable()
-//                var bounds: CGRect = CGRectInset(cell.bounds, 25, 0)
-//                var addLine: Bool = false
-//                
-//                if (indexPath.row == 0 && indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
-//                    CGPathAddRoundedRect(pathRef, nil, bounds, cornerRadius, cornerRadius)
-//                } else if (indexPath.row == 0) {
-//                    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds))
-//                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds), CGRectGetMidX(bounds), CGRectGetMinY(bounds), cornerRadius)
-//                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius)
-//                    CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds))
-//                    addLine = true
-//                } else if (indexPath.row == tableView.numberOfRowsInSection(indexPath.section)-1) {
-//                    CGPathMoveToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMinY(bounds))
-//                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMinX(bounds), CGRectGetMaxY(bounds), CGRectGetMidX(bounds), CGRectGetMaxY(bounds), cornerRadius)
-//                    CGPathAddArcToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMaxY(bounds), CGRectGetMaxX(bounds), CGRectGetMidY(bounds), cornerRadius)
-//                    CGPathAddLineToPoint(pathRef, nil, CGRectGetMaxX(bounds), CGRectGetMinY(bounds))
-//                } else {
-//                    CGPathAddRect(pathRef, nil, bounds)
-//                    addLine = true
-//                }
-//                
-//                layer.path = pathRef
-//                layer.fillColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 0.8).CGColor
-//                
-//                if (addLine == true) {
-//                    var lineLayer: CALayer = CALayer()
-//                    var lineHeight: CGFloat = (1.0 / UIScreen.mainScreen().scale)
-//                    lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+10, bounds.size.height-lineHeight, bounds.size.width-10, lineHeight)
-//                    lineLayer.backgroundColor = tableView.separatorColor!.CGColor
-//                    layer.addSublayer(lineLayer)
-//                }
-//                var testView: UIView = UIView(frame: bounds)
-//                testView.layer.insertSublayer(layer, atIndex: 0)
-//                testView.backgroundColor = UIColor.clearColor()
-//                cell.backgroundView = testView
-//        
-//    
-//    }
-
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.itemLocationId = addressArray[indexPath.row].id
+        appDelegate.itemLocationTemp = self.addressArray[indexPath.row].postCode + Constants.CityArrays.CityNameArray[self.addressArray[indexPath.row].city_id] + self.addressArray[indexPath.row].name + "區" + self.addressArray[indexPath.row].address
         navigationController?.popViewControllerAnimated(true)
     }
     /*

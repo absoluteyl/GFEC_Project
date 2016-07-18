@@ -114,6 +114,11 @@ struct Constants {
         static let CityNameArray = ["台北市","新北市","基隆市","宜蘭縣","桃園縣","新竹市","新竹縣","苗栗縣","台中市","彰化縣","南投縣","嘉義市","嘉義縣","雲林縣","台南市","高雄市","澎湖縣","屏東縣","台東縣","花蓮縣","金門縣","連江縣","南海諸島"]
     }
     
+    struct ItemArrays {
+        static let statusArray = ["Brand New & Unused","UnWrapped but Unused","Still in Good Shape","Functionable & Slight Defects","Damaged"]
+        static let deliveryArray = ["Mail","Let's Meet","Takkyubin"]
+    }
+    
     //Below are for Firebase
     struct NotificationKeys {
         static let SignedIn = "onSignInCompleted"

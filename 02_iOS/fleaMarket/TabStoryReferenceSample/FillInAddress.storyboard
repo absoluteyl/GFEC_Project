@@ -9,7 +9,7 @@
         <!--Fill In Address View Controller-->
         <scene sceneID="SHO-if-LFG">
             <objects>
-                <viewController id="TYF-Z3-CTO" customClass="FillInAddressViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TYF-Z3-CTO" customClass="FillInAddressViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zvD-L1-ko1"/>
                         <viewControllerLayoutGuide type="bottom" id="Y0g-Vz-oC4"/>
@@ -49,15 +49,29 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aap-Nt-ghH">
                                 <rect key="frame" x="100" y="66" width="190" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2PM-Zf-D2L">
                                 <rect key="frame" x="310" y="66" width="190" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-LQ-PXB">
+                                <rect key="frame" x="32" y="66" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="8ht-n9-2rX" kind="show" id="oUb-cO-sig"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIB-ih-9au">
+                                <rect key="frame" x="43" y="148" width="41" height="30"/>
+                                <state key="normal" title="ADDR"/>
+                                <connections>
+                                    <action selector="addressActionTest:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="fmz-vC-Lc3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -74,6 +88,10 @@
                             <constraint firstItem="P4L-kX-wQn" firstAttribute="centerX" secondItem="M5t-Mc-Ikx" secondAttribute="centerX" id="dlf-ho-maE"/>
                         </constraints>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="FDx-90-QeW"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addAddressButton" destination="P4L-kX-wQn" id="CQ1-Mr-QPv"/>
                         <outlet property="addressTextField" destination="hMR-q7-t99" id="JIv-H0-uiL"/>
@@ -85,6 +103,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kki-g7-g9A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="325" y="280"/>
+        </scene>
+        <!--CityTable-->
+        <scene sceneID="LLp-jI-CG6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CityTable" id="8ht-n9-2rX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I7Z-Rc-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="692.5" y="81"/>
         </scene>
     </scenes>
 </document>

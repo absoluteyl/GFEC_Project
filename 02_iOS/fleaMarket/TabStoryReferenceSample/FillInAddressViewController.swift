@@ -9,9 +9,12 @@
 import UIKit
 import MapKit
 
-class FillInAddressViewController: UIViewController {
+class FillInAddressViewController: UIViewController, UIPopoverPresentationControllerDelegate {
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    let CityTableViewController = CityTable()
+    let AreaTableViewController = AreaTable()
     
     var tempLatitude:Double!
     var tempLongtitude:Double!
@@ -27,6 +30,18 @@ class FillInAddressViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var addressTextField: UITextField!
+    
+    
+    @IBAction func addressActionTest(sender: UIButton) {
+        
+        let popoverMenuViewController = CityTableViewController.popoverPresentationController
+//        popoverMenuViewController?.permittedArrowDirections = .Any
+        popoverMenuViewController?.delegate = self
+        popoverMenuViewController?.sourceView = view
+        popoverMenuViewController?.sourceRect = CGRect(x: 1, y: 1, width: 100, height: 100)
+        presentViewController(CityTableViewController,animated: true,completion: nil)
+    }
+    
     
     @IBAction func submitAddressButtonAction(sender: UIButton) {
 
@@ -100,6 +115,12 @@ class FillInAddressViewController: UIViewController {
         
         addAddressButton.enabled = false
         
+        CityTableViewController.modalPresentationStyle = .Popover
+        CityTableViewController.preferredContentSize = CGSizeMake(50, 100)
+        
+        AreaTableViewController.modalPresentationStyle = .Popover
+        AreaTableViewController.preferredContentSize = CGSizeMake(50, 100)
+        
         // Beggining of adding logo to Navigation Bar
         var titleView : UIImageView
         titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
@@ -107,6 +128,10 @@ class FillInAddressViewController: UIViewController {
         titleView.image = UIImage(named: "logo.png")
         self.navigationItem.titleView = titleView
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        addButton.tintColor = UIColor.clearColor()
+        navigationItem.rightBarButtonItem = addButton
         // End of adding logo to Navigation Bar
     }
 

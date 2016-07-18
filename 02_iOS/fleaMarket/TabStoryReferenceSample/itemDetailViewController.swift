@@ -134,6 +134,8 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     override func viewDidLoad() {
         
+
+        
         itemTitleLabel.hidden = true
         itemDescriptionText.hidden = true
         itemValueLabel.hidden = true
@@ -286,7 +288,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     self.itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
                     self.itemLocationId = itemDictionary![Constants.MerchandisesResponseKeys.LocationId] as? Int
                     let categoryNumber = itemDictionary![Constants.MerchandisesResponseKeys.CategoryId] as? Int
-                    self.categoryTemp = findCategoryNameById(categoryNumber!)
+                    self.categoryTemp = Dictionaries.CategoryDictionary[categoryNumber!]!
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
                         displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")

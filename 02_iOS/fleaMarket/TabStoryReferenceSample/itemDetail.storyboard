@@ -181,20 +181,6 @@
                                             <outlet property="delegate" destination="1LD-cq-aO6" id="H0I-Xj-pxh"/>
                                         </connections>
                                     </tableView>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-gC-s63">
-                                        <rect key="frame" x="134" y="372" width="30" height="30"/>
-                                        <state key="normal" title="Edit"/>
-                                        <connections>
-                                            <action selector="editItemButtonAction:" destination="1LD-cq-aO6" eventType="touchUpInside" id="phr-7W-cw8"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgI-y9-NZQ">
-                                        <rect key="frame" x="179" y="372" width="45" height="30"/>
-                                        <state key="normal" title="Delete"/>
-                                        <connections>
-                                            <action selector="deleteItemButtonActions:" destination="1LD-cq-aO6" eventType="touchUpInside" id="X4w-K5-MxL"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="itemPrice" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DLI-9Z-9si">
                                         <rect key="frame" x="20" y="331" width="335" height="40"/>
                                         <constraints>
@@ -204,6 +190,20 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz5-gC-s63">
+                                        <rect key="frame" x="267" y="336" width="30" height="30"/>
+                                        <state key="normal" title="Edit"/>
+                                        <connections>
+                                            <action selector="editItemButtonAction:" destination="1LD-cq-aO6" eventType="touchUpInside" id="phr-7W-cw8"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgI-y9-NZQ">
+                                        <rect key="frame" x="310" y="336" width="45" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteItemButtonActions:" destination="1LD-cq-aO6" eventType="touchUpInside" id="X4w-K5-MxL"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-Bc-Fb4">
                                         <rect key="frame" x="295" y="373" width="26" height="26"/>
                                         <state key="normal" image="like_off"/>
