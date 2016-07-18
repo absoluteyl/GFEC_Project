@@ -100,6 +100,8 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 
         map.delegate = self
         
+        map.showsUserLocation = true
+        
         // Beggining of adding logo to Navigation Bar
         var titleView : UIImageView
         titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
@@ -147,6 +149,17 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         print("Errors: " + error.localizedDescription) // should it trigger errors, this will put error messages to the debugger
     }
     
+
+    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [MKAnnotationView]!) {
+        
+        for view in views {
+            if view.annotation!.isKindOfClass(MKUserLocation) {
+                //view.canShowCallout = false
+                view.rightCalloutAccessoryView = nil
+            }
+        }
+        
+    }
     
     
     private func getDataFromDB() {
@@ -202,17 +215,13 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                         let dobLong = Double(locLongtitude)!
                         
                         let destination:CLLocationCoordinate2D = CLLocationCoordinate2DMake(dobLat, dobLong)
-
-//                        let annotation = MKPointAnnotation()
-//                        annotation.coordinate = destination
-//                        annotation.title = locName
                         
                         let annotation = UserAnnotation(title: locName, locationName: locName, discipline: locName, coordinate: destination, userid: locUserId)
                         
                         self.map.addAnnotation(annotation)
                     }
                     //print(priceArray)
-                    //print(titleArray)
+                    
                     //print(itemIdArray)
                     
                     //print("3.\(titleArray.count)")

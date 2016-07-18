@@ -28,6 +28,7 @@ struct Constants {
     
     // MARK: Merchandises Parameter Keys
     struct ParameterKeys {
+        static let Id = "id"
         static let MerchandiseID = "id"
         static let MerchandiseTitle = "title"
         static let MerchandiseDescription = "description"
