@@ -1,7 +1,7 @@
 class MerchandisesController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]
     before_action :set_merchandise, only: [:edit, :update, :show, :destroy]
-    before_action :set_category, only: [:new, :edit]
+    before_action :set_category, only: [:new, :create, :edit]
     before_action :require_same_user, only: [:edit, :update, :destroy]
 
     def new
