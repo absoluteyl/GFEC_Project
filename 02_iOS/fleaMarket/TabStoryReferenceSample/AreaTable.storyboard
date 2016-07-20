@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Area Table-->
+        <!--AreaTable-->
         <scene sceneID="bOD-95-c7j">
             <objects>
-                <tableViewController id="26U-Cz-fjC" customClass="AreaTable" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AreaTable" title="AreaTable" id="26U-Cz-fjC" userLabel="AreaTable" customClass="AreaTable" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ocE-i4-bHj">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
