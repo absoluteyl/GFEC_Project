@@ -36,23 +36,45 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     @IBOutlet weak var chooseAreaButton: UIButton!
     
     @IBAction func chooseCityButtonAction(sender: UIButton) {
-        performSegueWithIdentifier("showPopover", sender: nil)
+        
+        let storyboard = UIStoryboard(name: "CityTable", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("CityTable") as! CityTable
+        
+        vc.preferredContentSize = CGSize(width: 200, height: 200)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .Popover
+        navController.navigationBarHidden = true
+        let popMenu = navController.popoverPresentationController
+        popMenu?.delegate = self
+        let viewForSource = sender as! UIView
+        popMenu?.sourceView = viewForSource
+        popMenu?.sourceRect = viewForSource.bounds
+        
+        presentViewController(navController, animated: true, completion: nil)
     }
     
     @IBOutlet weak var chooseAreaButtonAction: UIButton!
     
+    func addObservers(){
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FillInAddressViewController.menu(_:)), name: menuTappedDone, object: selectedNumber)
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showPopover" {
-           let vc = segue.destinationViewController
-            vc.preferredContentSize = CGSizeMake(200.0, 300.0)
-      
-            let controller = vc.popoverPresentationController
-            if controller != nil {
-                controller?.delegate = self
-            }
-        }
     }
+    
+    func menu(sender: NSNotificationCenter){
+        print(selectedNumber)
+    }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "showPopover" {
+//           let vc = segue.destinationViewController
+//            vc.preferredContentSize = CGSizeMake(200.0, 300.0)
+//      
+//            let controller = vc.popoverPresentationController
+//            if controller != nil {
+//                controller?.delegate = self
+//            }
+//        }
+//    }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None

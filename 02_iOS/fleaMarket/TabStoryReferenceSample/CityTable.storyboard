@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--City Table-->
+        <!--CityTable-->
         <scene sceneID="SEJ-sV-8Xu">
             <objects>
-                <tableViewController id="tNO-Mr-C7u" customClass="CityTable" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CityTable" title="CityTable" id="tNO-Mr-C7u" userLabel="CityTable" customClass="CityTable" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="KhD-TO-ew0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

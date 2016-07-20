@@ -8,6 +8,8 @@
 
 import UIKit
 
+let menuTappedDone = "menuTappedDone"
+var selectedNumber = 0
 
 class CityTable: UITableViewController {
     
@@ -27,19 +29,26 @@ class CityTable: UITableViewController {
         return cell
     }
     
+
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         theDelegate.cityTemp = indexPath.row + 1
-        print(theDelegate.cityTemp)
+        //print(theDelegate.cityTemp)
         
         var storyboard = UIStoryboard(name: "FillInAddress", bundle: nil)
         var controller = storyboard.instantiateViewControllerWithIdentifier("FillInAddressViewController") as! FillInAddressViewController
 
 //        controller.chooseCityButton.setTitle("Hi" , forState: .Normal)
+        selectedNumber = theDelegate.cityTemp
         
         navigationController?.popViewControllerAnimated(false)
-        self.dismissViewControllerAnimated(true, completion: nil)
+            
+        NSNotificationCenter.defaultCenter().postNotificationName(menuTappedDone, object: selectedNumber,userInfo: nil)
+
+        self.dismissViewControllerAnimated(true) { () -> Void in
+        
+        }
     }
     
     

@@ -65,9 +65,6 @@
                                 <state key="normal" title="Choose City"/>
                                 <connections>
                                     <action selector="chooseCityButtonAction:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="RXp-fG-4VJ"/>
-                                    <segue destination="8ht-n9-2rX" kind="popoverPresentation" identifier="showPopover" popoverAnchorView="iIB-ih-9au" id="D0b-FJ-fZz">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q04-qY-3e5">
@@ -105,7 +102,4 @@
             <point key="canvasLocation" x="818.5" y="334"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="D0b-FJ-fZz"/>
-    </inferredMetricsTieBreakers>
 </document>
