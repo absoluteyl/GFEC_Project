@@ -42,7 +42,7 @@
                 <viewControllerPlaceholder storyboardName="AreaTable" id="pAt-JA-CkW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jpr-ns-5wh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="573.5" y="-2"/>
+            <point key="canvasLocation" x="635.5" y="5"/>
         </scene>
     </scenes>
 </document>

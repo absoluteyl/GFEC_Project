@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class CityTable: UITableViewController {
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -31,15 +32,17 @@ class CityTable: UITableViewController {
         var theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         theDelegate.cityTemp = indexPath.row + 1
         print(theDelegate.cityTemp)
-//        print(Array(Dictionaries.CityDictionary.keys))
-//        self.performSegueWithIdentifier("test", sender: indexPath.row)
+        
+        var storyboard = UIStoryboard(name: "FillInAddress", bundle: nil)
+        var controller = storyboard.instantiateViewControllerWithIdentifier("FillInAddressViewController") as! FillInAddressViewController
+
+//        controller.chooseCityButton.setTitle("Hi" , forState: .Normal)
+        
         navigationController?.popViewControllerAnimated(false)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
-        print("done")
-    }
     
-
 }
+
+

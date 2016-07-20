@@ -96,6 +96,10 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        navigationController?.navigationBarHidden = true
+        tabBarController?.hidesBottomBarWhenPushed = true
+    }
   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ReLoggingIn" {

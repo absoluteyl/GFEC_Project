@@ -323,6 +323,14 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidDisappear(animated: Bool) {
+//        itemAmount.text = ""
+//        itemNameTextField.text = ""
+//        itemPriceTextField.text = ""
+//        itemDescriptionTextField.text = ""
+//        
+    }
+    
     
     private func getLocationFromDB() {
         
@@ -551,9 +559,23 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                             self.tabBarController?.selectedIndex = 0
                             self.postButton.enabled = true
                         })}
-
+                    
+                    appDelegate.itemStatusNumber = -1
+                    appDelegate.itemLocationTemp = ""
+                    appDelegate.itemLocationId = -1
+                    appDelegate.itemDeliveryNumber = -1
+                    appDelegate.itemStatusNumber = -1
+                    
+                    self.itemAmount.text = ""
+                    self.itemNameTextField.text = ""
+                    self.itemPriceTextField.text = ""
+                    self.itemDescriptionTextField.text = ""
+                    
                     
                 }
+                
+                self.navigationController?.popViewControllerAnimated(true)
+                
             } else {
                 print(error)
             }
@@ -701,7 +723,16 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                         appDelegate.itemLocationId = -1
                         appDelegate.itemDeliveryNumber = -1
                         appDelegate.itemStatusNumber = -1
+                        
+                        self.itemAmount.text = ""
+                        self.itemNameTextField.text = ""
+                        self.itemPriceTextField.text = ""
+                        self.itemDescriptionTextField.text = ""
+                        
+                        
                     }
+                    
+                    self.navigationController?.popViewControllerAnimated(true)
                 }
                 
             } else {

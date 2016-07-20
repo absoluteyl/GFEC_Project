@@ -31,15 +31,22 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     
     @IBOutlet weak var addressTextField: UITextField!
     
+    @IBOutlet weak var chooseCityButton: UIButton!
     
-    @IBAction func addressActionTest(sender: UIButton) {
+    @IBOutlet weak var chooseAreaButton: UIButton!
+    
+    @IBAction func chooseCityButtonAction(sender: UIButton) {
         performSegueWithIdentifier("showPopover", sender: nil)
     }
+    
+    @IBOutlet weak var chooseAreaButtonAction: UIButton!
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showPopover" {
            let vc = segue.destinationViewController
             vc.preferredContentSize = CGSizeMake(200.0, 300.0)
+      
             let controller = vc.popoverPresentationController
             if controller != nil {
                 controller?.delegate = self
@@ -118,11 +125,17 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        if theDelegate.cityTemp != -1{
+            chooseCityButton.setTitle(Constants.CityArrays.CityNameArray[theDelegate.cityTemp], forState: .Normal)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addAddressButton.enabled = false
+
         
         CityTableViewController.modalPresentationStyle = .Popover
         CityTableViewController.preferredContentSize = CGSizeMake(50, 100)

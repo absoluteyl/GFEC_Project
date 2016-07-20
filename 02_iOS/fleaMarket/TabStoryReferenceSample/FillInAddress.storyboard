@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Fill In Address View Controller-->
+        <!--FillInAddressViewController-->
         <scene sceneID="SHO-if-LFG">
             <objects>
-                <viewController id="TYF-Z3-CTO" customClass="FillInAddressViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FillInAddressViewController" title="FillInAddressViewController" id="TYF-Z3-CTO" userLabel="FillInAddressViewController" customClass="FillInAddressViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zvD-L1-ko1"/>
                         <viewControllerLayoutGuide type="bottom" id="Y0g-Vz-oC4"/>
@@ -53,22 +53,26 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-LQ-PXB">
-                                <rect key="frame" x="6" y="72" width="75" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLP-LQ-PXB">
+                                <rect key="frame" x="0.0" y="0.0" width="75" height="30"/>
                                 <state key="normal" title="SelectArea"/>
                                 <connections>
                                     <segue destination="8ht-n9-2rX" kind="show" id="oUb-cO-sig"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIB-ih-9au">
-                                <rect key="frame" x="112" y="72" width="134" height="30"/>
-                                <state key="normal" title="SelectAreaPopOver"/>
+                                <rect key="frame" x="60" y="65" width="84" height="30"/>
+                                <state key="normal" title="Choose City"/>
                                 <connections>
-                                    <action selector="addressActionTest:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="fmz-vC-Lc3"/>
+                                    <action selector="chooseCityButtonAction:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="RXp-fG-4VJ"/>
                                     <segue destination="8ht-n9-2rX" kind="popoverPresentation" identifier="showPopover" popoverAnchorView="iIB-ih-9au" id="D0b-FJ-fZz">
                                         <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
                                     </segue>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q04-qY-3e5">
+                                <rect key="frame" x="188" y="65" width="32" height="30"/>
+                                <state key="normal" title="Area"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,6 +84,9 @@
                     <connections>
                         <outlet property="addAddressButton" destination="P4L-kX-wQn" id="CQ1-Mr-QPv"/>
                         <outlet property="addressTextField" destination="hMR-q7-t99" id="JIv-H0-uiL"/>
+                        <outlet property="chooseAreaButton" destination="Q04-qY-3e5" id="ayW-3I-8t3"/>
+                        <outlet property="chooseAreaButtonAction" destination="Q04-qY-3e5" id="ZAL-P9-xCd"/>
+                        <outlet property="chooseCityButton" destination="iIB-ih-9au" id="C0C-zm-J9a"/>
                         <outlet property="mapView" destination="aGc-GX-49I" id="g2H-Ir-cto"/>
                         <outlet property="testLat" destination="aap-Nt-ghH" id="SBd-iL-K1M"/>
                         <outlet property="testLong" destination="2PM-Zf-D2L" id="oK9-nI-OgY"/>
