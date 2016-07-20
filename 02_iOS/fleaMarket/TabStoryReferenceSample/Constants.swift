@@ -115,8 +115,8 @@ struct Constants {
     }
     
     struct ItemArrays {
-        static let statusArray = ["Brand New & Unused","UnWrapped but Unused","Still in Good Shape","Functionable & Slight Defects","Damaged"]
-        static let deliveryArray = ["Mail","Let's Meet","Takkyubin"]
+        static let statusArray = ["Brand New & Unused","90% New","Still in Good Shape","Functionable & Slight Defects","Damaged"]
+        static let deliveryArray = ["Mail","Meet Up","Takkyubin"]
     }
     
     //Below are for Firebase

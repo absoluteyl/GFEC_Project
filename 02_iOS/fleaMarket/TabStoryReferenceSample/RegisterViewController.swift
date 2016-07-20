@@ -14,6 +14,19 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate, 
     
     var statusReply:String?
 
+    @IBAction func backButtonAction(sender: UIButton) {
+//        self.navigationController?.popToRootViewControllerAnimated(true)
+        performSegueWithIdentifier("goBack", sender: self)
+        
+    }
+    
+
+    @IBAction func unwindToViewController (sender: UIStoryboardSegue){
+        
+    }
+    
+    @IBOutlet weak var backButton: UIButton!
+    
     @IBOutlet weak var addPhotoButton: UIButton!
     
     @IBOutlet weak var userNameTextField: UITextField!
@@ -28,7 +41,6 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var CreateButton: UIButton!
     
-    @IBOutlet weak var pwCheckLabel: UILabel!
     @IBAction func addPhotoButtonAction(sender: UIButton) {
         
         let picker = UIImagePickerController()
@@ -54,13 +66,15 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate, 
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-
+        
+        if segue.identifier == "goNext" {
             let Destination : RegisteringViewController = segue.destinationViewController as! RegisteringViewController
             Destination.userName = userNameTextField.text
             Destination.email = emailTextField.text
             Destination.mobile = mobileTextField.text
             Destination.password = passwordTextField.text
             Destination.uploadimage = uploadimage
+        }
     }
     
     override func viewDidLoad() {
@@ -70,6 +84,17 @@ class RegisterViewController: UIViewController,UIImagePickerControllerDelegate, 
 //            CreateButton.enabled = true
 //        }
         // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBarHidden = true
+        
+        let purple:UIColor = UIColorUtil.rgb(0x513969)
+        
+        backButton.backgroundColor = UIColor.clearColor()
+        backButton.layer.cornerRadius = 6
+        backButton.layer.borderWidth = 2
+        backButton.layer.borderColor = purple.CGColor
+        
+        CreateButton.layer.cornerRadius = 6
         
         //for testing
         userNameTextField.text = "Bubui"

@@ -29,6 +29,10 @@ class LoggingInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userImage.layer.cornerRadius = userImage.frame.size.width/2
+        self.navigationController?.navigationBarHidden = true
+        
         activityIndicator.startAnimating()
         login()
         

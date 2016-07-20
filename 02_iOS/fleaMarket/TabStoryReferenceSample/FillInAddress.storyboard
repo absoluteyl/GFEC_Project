@@ -65,6 +65,9 @@
                                 <state key="normal" title="SelectAreaPopOver"/>
                                 <connections>
                                     <action selector="addressActionTest:" destination="TYF-Z3-CTO" eventType="touchUpInside" id="fmz-vC-Lc3"/>
+                                    <segue destination="8ht-n9-2rX" kind="popoverPresentation" identifier="showPopover" popoverAnchorView="iIB-ih-9au" id="D0b-FJ-fZz">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -92,7 +95,10 @@
                 <viewControllerPlaceholder storyboardName="CityTable" id="8ht-n9-2rX" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7Z-Rc-cde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="692.5" y="81"/>
+            <point key="canvasLocation" x="818.5" y="334"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="D0b-FJ-fZz"/>
+    </inferredMetricsTieBreakers>
 </document>

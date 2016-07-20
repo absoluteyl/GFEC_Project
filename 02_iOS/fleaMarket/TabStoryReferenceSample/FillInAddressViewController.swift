@@ -33,13 +33,22 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     
     
     @IBAction func addressActionTest(sender: UIButton) {
-        
-        let popoverMenuViewController = CityTableViewController.popoverPresentationController
-//        popoverMenuViewController?.permittedArrowDirections = .Any
-        popoverMenuViewController?.delegate = self
-        popoverMenuViewController?.sourceView = view
-        popoverMenuViewController?.sourceRect = CGRect(x: 1, y: 1, width: 100, height: 100)
-        presentViewController(CityTableViewController,animated: true,completion: nil)
+        performSegueWithIdentifier("showPopover", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showPopover" {
+           let vc = segue.destinationViewController
+            vc.preferredContentSize = CGSizeMake(200.0, 300.0)
+            let controller = vc.popoverPresentationController
+            if controller != nil {
+                controller?.delegate = self
+            }
+        }
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
     }
     
     

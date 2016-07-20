@@ -19,6 +19,10 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    
+    
     @IBAction func loginButtonAction(sender: UIButton) {
         
         if userNameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
@@ -30,6 +34,7 @@ class LoginViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "goNext" {
         let Destination : LoggingInViewController = segue.destinationViewController as! LoggingInViewController
         Destination.useremail = userNameTextField.text
@@ -40,6 +45,13 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBarHidden = true
+        
+        registerButton.layer.cornerRadius = 6
+        
+        loginButton.layer.cornerRadius = 6
+        
         if isReLoggingIn == true {
             self.navigationController!.navigationBar.hidden = true
             isReLoggingIn = false

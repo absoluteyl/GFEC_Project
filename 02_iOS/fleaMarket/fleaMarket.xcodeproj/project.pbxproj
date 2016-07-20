@@ -25,6 +25,7 @@
 		C902734E1D0C1B7C00EC081D /* AddItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */; };
 		C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90EEA721D2D283800711C22 /* RegisteringViewController.swift */; };
 		C91A8EDF1D3D304E006A7698 /* AreaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A8EDE1D3D304E006A7698 /* AreaTable.swift */; };
+		C91A8EE11D3F3B63006A7698 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A8EE01D3F3B63006A7698 /* CustomSegue.swift */; };
 		C932F2D21D2D050600DA6540 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C932F2D11D2D050600DA6540 /* Register.storyboard */; };
 		C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932F2D31D2D052800DA6540 /* RegisterViewController.swift */; };
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
@@ -137,6 +138,7 @@
 		C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddItemInfo.storyboard; sourceTree = "<group>"; };
 		C90EEA721D2D283800711C22 /* RegisteringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteringViewController.swift; sourceTree = "<group>"; };
 		C91A8EDE1D3D304E006A7698 /* AreaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTable.swift; sourceTree = "<group>"; };
+		C91A8EE01D3F3B63006A7698 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		C932F2D11D2D050600DA6540 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C932F2D31D2D052800DA6540 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				C9E9E2DD1D3D2C9200FB0312 /* PostalDict.swift */,
 				C94EB6051D02E1F00077EBC6 /* functions.swift */,
 				C94EB6071D0302040077EBC6 /* GCDBlackBox.swift */,
+				C91A8EE01D3F3B63006A7698 /* CustomSegue.swift */,
 			);
 			name = fleaMarket;
 			path = TabStoryReferenceSample;
@@ -296,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				7A751C511CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift */,
+				C974EE321D06EEA1001002BE /* S04_Favorites */,
 				7A751C531CF9BDBA0096BDE6 /* Info.plist */,
 			);
 			name = fleaMarketTests;
@@ -384,7 +388,6 @@
 				C974EE2F1D06EE5C001002BE /* S01_Address */,
 				C974EE301D06EE6C001002BE /* S02_Account */,
 				C974EE311D06EE7C001002BE /* S03_Settings */,
-				C974EE321D06EEA1001002BE /* S04_Favorites */,
 				C974EE331D06EEB4001002BE /* S05_MySell */,
 				C974EE341D06EEBD001002BE /* S06_Records */,
 				C974EE351D06EEC8001002BE /* S07_QnA */,
@@ -434,6 +437,7 @@
 				C974EE3B1D06EF66001002BE /* S04_FavoritesCollectionViewController.swift */,
 			);
 			name = S04_Favorites;
+			path = ../TabStoryReferenceSample;
 			sourceTree = "<group>";
 		};
 		C974EE331D06EEB4001002BE /* S05_MySell */ = {
@@ -802,6 +806,7 @@
 				C974EE461D06F28C001002BE /* S06_RecordsCollectionViewController.swift in Sources */,
 				C974EE281D06ED60001002BE /* S01_AddressTableViewController.swift in Sources */,
 				C974EE501D06F306001002BE /* S08_AboutViewController.swift in Sources */,
+				C91A8EE11D3F3B63006A7698 /* CustomSegue.swift in Sources */,
 				C902734C1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift in Sources */,
 				C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */,
 				C94EB6081D0302040077EBC6 /* GCDBlackBox.swift in Sources */,

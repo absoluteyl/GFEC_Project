@@ -32,7 +32,14 @@ class CityTable: UITableViewController {
         theDelegate.cityTemp = indexPath.row + 1
         print(theDelegate.cityTemp)
 //        print(Array(Dictionaries.CityDictionary.keys))
-        self.performSegueWithIdentifier("test", sender: indexPath.row)
+//        self.performSegueWithIdentifier("test", sender: indexPath.row)
+        navigationController?.popViewControllerAnimated(false)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func popoverPresentationControllerDidDismissPopover(popoverPresentationController: UIPopoverPresentationController) {
+        print("done")
+    }
+    
 
 }

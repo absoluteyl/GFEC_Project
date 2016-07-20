@@ -146,16 +146,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="347" height="34.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOr-pI-HfZ">
-                                                            <rect key="frame" x="8" y="0.0" width="67" height="35"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vv-Nl-uWM">
-                                                            <rect key="frame" x="92" y="0.0" width="235" height="35"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vv-Nl-uWM">
+                                                            <rect key="frame" x="96" y="0.0" width="243" height="35"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOr-pI-HfZ">
+                                                            <rect key="frame" x="8" y="0.0" width="69.5" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -205,7 +205,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NpP-Bc-Fb4">
-                                        <rect key="frame" x="295" y="373" width="26" height="26"/>
+                                        <rect key="frame" x="299" y="373" width="26" height="26"/>
                                         <state key="normal" image="like_off"/>
                                         <connections>
                                             <action selector="likeButtonAction:" destination="1LD-cq-aO6" eventType="touchUpInside" id="bbB-LF-gWF"/>
@@ -268,7 +268,7 @@
                                     <constraint firstItem="dgl-L6-fEg" firstAttribute="leading" secondItem="ikH-3R-5js" secondAttribute="leading" constant="14" id="5AV-U6-up5"/>
                                     <constraint firstItem="GYA-Jd-zPw" firstAttribute="trailing" secondItem="DLI-9Z-9si" secondAttribute="trailing" id="5WR-Nq-UQQ"/>
                                     <constraint firstItem="fMO-rQ-FXo" firstAttribute="leading" secondItem="ikH-3R-5js" secondAttribute="leading" constant="20" id="6i3-EH-bYk"/>
-                                    <constraint firstItem="GYA-Jd-zPw" firstAttribute="leading" secondItem="NpP-Bc-Fb4" secondAttribute="trailing" constant="14" id="7Be-Yj-DMh"/>
+                                    <constraint firstItem="GYA-Jd-zPw" firstAttribute="leading" secondItem="NpP-Bc-Fb4" secondAttribute="trailing" constant="10" id="7Be-Yj-DMh"/>
                                     <constraint firstAttribute="trailing" secondItem="dgl-L6-fEg" secondAttribute="trailing" constant="14" id="84X-3H-L7O"/>
                                     <constraint firstItem="aE6-Qj-zKw" firstAttribute="leading" secondItem="ikH-3R-5js" secondAttribute="leading" constant="18" id="9VI-cR-bRa"/>
                                     <constraint firstAttribute="trailing" secondItem="lpB-Xc-Ccj" secondAttribute="trailing" id="Ads-p4-z9a"/>
