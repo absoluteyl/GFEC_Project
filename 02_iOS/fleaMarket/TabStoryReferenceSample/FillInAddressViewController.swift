@@ -19,6 +19,8 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     var tempLatitude:Double!
     var tempLongtitude:Double!
     
+    var selecedIdForArea:Int?
+    
     @IBOutlet weak var testLat: UILabel!
     
     @IBOutlet weak var testLong: UILabel!
@@ -53,28 +55,39 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         presentViewController(navController, animated: true, completion: nil)
     }
     
-    @IBOutlet weak var chooseAreaButtonAction: UIButton!
+    @IBAction func chooseAreaButtonAction(sender: UIButton) {
+        
+        let storyboard = UIStoryboard(name: "AreaTable", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("AreaTable") as! AreaTable
+        
+        vc.preferredContentSize = CGSize(width: 200, height: 200)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .Popover
+        navController.navigationBarHidden = true
+        vc.selectedCityId = selecedIdForArea
+        
+        let popMenu = navController.popoverPresentationController
+        popMenu?.delegate = self
+        let viewForSource = sender as! UIView
+        popMenu?.sourceView = viewForSource
+        popMenu?.sourceRect = viewForSource.bounds
+        
+        presentViewController(navController, animated: true, completion: nil)
+    }
+
     
     func addObservers(){
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FillInAddressViewController.menu(_:)), name: menuTappedDone, object: selectedNumber)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FillInAddressViewController.menu(_:)), name: menuTappedDone, object: nil)
     
     }
     
     func menu(sender: NSNotificationCenter){
-        print(selectedNumber)
+        chooseCityButton.setTitle(Constants.CityArrays.CityNameArray[selectedNumber], forState: .Normal)
+        chooseAreaButton.setTitle(PostalDictionay.PostalArrayOfTuples[selectedNumber][0].1, forState: .Normal)
+        selecedIdForArea = selectedNumber
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "showPopover" {
-//           let vc = segue.destinationViewController
-//            vc.preferredContentSize = CGSizeMake(200.0, 300.0)
-//      
-//            let controller = vc.popoverPresentationController
-//            if controller != nil {
-//                controller?.delegate = self
-//            }
-//        }
-//    }
+
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
@@ -157,7 +170,7 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         super.viewDidLoad()
         
         addAddressButton.enabled = false
-
+        addObservers()
         
         CityTableViewController.modalPresentationStyle = .Popover
         CityTableViewController.preferredContentSize = CGSizeMake(50, 100)
@@ -182,6 +195,10 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
 

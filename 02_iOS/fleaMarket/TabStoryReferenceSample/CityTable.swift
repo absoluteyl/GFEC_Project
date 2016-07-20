@@ -44,7 +44,7 @@ class CityTable: UITableViewController {
         
         navigationController?.popViewControllerAnimated(false)
             
-        NSNotificationCenter.defaultCenter().postNotificationName(menuTappedDone, object: selectedNumber,userInfo: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName(menuTappedDone, object: self ,userInfo: nil)
 
         self.dismissViewControllerAnimated(true) { () -> Void in
         
