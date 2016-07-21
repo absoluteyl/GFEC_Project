@@ -33,7 +33,8 @@ class CityTable: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        theDelegate.cityTemp = indexPath.row + 1
+        
+        theDelegate.cityTemp = indexPath.row
         //print(theDelegate.cityTemp)
         
         var storyboard = UIStoryboard(name: "FillInAddress", bundle: nil)

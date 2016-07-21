@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class FillInAddressViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+class FillInAddressViewController: UIViewController, UIPopoverPresentationControllerDelegate, UITextFieldDelegate {
     
     let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
@@ -36,6 +36,9 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     @IBOutlet weak var chooseCityButton: UIButton!
     
     @IBOutlet weak var chooseAreaButton: UIButton!
+    
+    @IBOutlet weak var searchButton: UIButton!
+    
     
     @IBAction func chooseCityButtonAction(sender: UIButton) {
         
@@ -78,16 +81,28 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     
     func addObservers(){
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FillInAddressViewController.menu(_:)), name: menuTappedDone, object: nil)
-    
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(FillInAddressViewController.menu1(_:)), name: menuTappedDone1, object: nil)
     }
     
     func menu(sender: NSNotificationCenter){
-        chooseCityButton.setTitle(Constants.CityArrays.CityNameArray[selectedNumber], forState: .Normal)
-        chooseAreaButton.setTitle(PostalDictionay.PostalArrayOfTuples[selectedNumber][0].1, forState: .Normal)
+        chooseCityButton.setTitle(Constants.CityArrays.CityNameArray[selectedNumber] + "  ▿", forState: .Normal)
+        chooseAreaButton.setTitle(PostalDictionay.PostalArrayOfTuples[selectedNumber][0].1 + "  ▿", forState: .Normal)
         selecedIdForArea = selectedNumber
+        print(selectedNumber)
+        print(selecedIdForArea)
     }
     
-
+    func menu1(sender: NSNotificationCenter){
+        chooseAreaButton.setTitle(PostalDictionay.PostalArrayOfTuples[selectedNumber][selectedAreaNumber].1 + "  ▿", forState: .Normal)
+        selecedIdForArea = selectedAreaNumber
+        print(selectedNumber)
+        print(selecedIdForArea)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
@@ -99,7 +114,7 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         if addressTextField.text != "" {
             
             
-            var address = "\(addressTextField.text)"
+            var address = Constants.CityArrays.CityNameArray[selectedNumber] + PostalDictionay.PostalArrayOfTuples[selectedNumber][selectedAreaNumber].1 + "\(addressTextField.text)"
             var geocoder = CLGeocoder()
             
             geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
@@ -143,7 +158,7 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = location
                     
-                    
+                    self.addAddressButton.backgroundColor = UIColorUtil.rgb(0x654982)
                     self.addAddressButton.enabled = true
                 }
             })
@@ -162,15 +177,42 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     
     override func viewWillAppear(animated: Bool) {
         if theDelegate.cityTemp != -1{
-            chooseCityButton.setTitle(Constants.CityArrays.CityNameArray[theDelegate.cityTemp], forState: .Normal)
+            chooseCityButton.setTitle(Constants.CityArrays.CityNameArray[theDelegate.cityTemp] + "  ▿", forState: .Normal)
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addAddressButton.enabled = false
         addObservers()
+        
+
+        self.addressTextField.delegate = self
+        self.addressTextField.returnKeyType = UIReturnKeyType.Done
+
+        
+        addAddressButton.backgroundColor = UIColorUtil.rgb(0xB3A8BF)
+        addAddressButton.layer.cornerRadius = 6
+        
+        addAddressButton.enabled = false
+    
+        let purple = UIColorUtil.rgb(0x654982)
+        
+        chooseCityButton.layer.cornerRadius = 6
+        chooseCityButton.backgroundColor = UIColor.clearColor()
+        chooseCityButton.layer.borderColor = purple.CGColor
+        chooseCityButton.layer.borderWidth = 1
+        
+        chooseAreaButton.layer.cornerRadius = 6
+        chooseAreaButton.backgroundColor = UIColor.clearColor()
+        chooseAreaButton.layer.borderColor = purple.CGColor
+        chooseAreaButton.layer.borderWidth = 1
+        
+        searchButton.layer.borderWidth = 1
+        searchButton.layer.borderColor = purple.CGColor
+        searchButton.layer.cornerRadius = 20
+        
+        addAddressButton.layer.cornerRadius = 17.5
         
         CityTableViewController.modalPresentationStyle = .Popover
         CityTableViewController.preferredContentSize = CGSizeMake(50, 100)
@@ -221,14 +263,14 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         print(methodParameters)
         
         //let url = NSURL(string: Constants.Merchandises.APIBaseURL)!
-        let url = NSURL(string: Constants.Locations.APIBaseURL + "/2" + escapedParameters(methodParameters))
+        let url = NSURL(string: Constants.Locations.APIBaseURL  + escapedParameters(methodParameters))
         
         
         let request = NSMutableURLRequest(URL: url!)
         
         print(request)
         
-        request.HTTPMethod = "PUT"
+        request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
@@ -240,12 +282,17 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         
         var userDefault = NSUserDefaults.standardUserDefaults()
         
+        let postCode:Int = PostalDictionay.PostalArrayOfTuples[selectedNumber][selectedAreaNumber].0
+        
         let params:[String: AnyObject] = [
             "location":[
                 "user_id" : userDefault.integerForKey("userID"),
                 "lat" : Float(tempLatitude),
                 "long" : Float(tempLongtitude),
-                "address" : addressTextField.text!
+                "address" : addressTextField.text!,
+                "postcode" : postCode ,
+                "city": "string",
+
                 ]
         ]
         
@@ -269,6 +316,11 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
             if let response = response, data = data {
                 print(response)
                 //print(String(data: data, encoding: NSUTF8StringEncoding))
+                
+                    performUIUpdatesOnMain({ 
+                        self.navigationController?.popViewControllerAnimated(true)
+                    })
+            
             } else {
                 print(error)
             }

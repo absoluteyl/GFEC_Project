@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var categoryNumber:Int!
     var hasSelectedCategory:Bool = false
@@ -254,11 +254,25 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         tableView.reloadData()
         
     }
-   
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.itemAmount.delegate = self
+        self.itemNameTextField.delegate = self
+        self.itemPriceTextField.delegate = self
+        self.itemDescriptionTextField.delegate = self
+        self.itemAmount.returnKeyType = UIReturnKeyType.Done
+        self.itemNameTextField.returnKeyType = UIReturnKeyType.Done
+        self.itemPriceTextField.returnKeyType = UIReturnKeyType.Done
+        self.itemDescriptionTextField.returnKeyType = UIReturnKeyType.Done
+        
         
         tableView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

@@ -21,6 +21,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     
     @IBAction func logoutButtonActions(sender: UIButton) {
         navigationController?.popToRootViewControllerAnimated(true)
+        logoutButton.enabled = false
         logout()
     }
     
@@ -56,6 +57,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     @IBAction func button09_ContactSupport(sender: UIButton) {
     }
     
+    @IBOutlet weak var logoutButton: UIButton!
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -196,7 +198,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
                         self.userNameLabel.text = userName
 //                        self.userImageUrl = userImage
 
-                        
+                        self.logoutButton.enabled = true
                         self.userImage.loadImageFromURLString(userImage)
                         //print(ImgUrl) 
                         

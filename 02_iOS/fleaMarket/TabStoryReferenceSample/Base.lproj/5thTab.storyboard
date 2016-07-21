@@ -222,6 +222,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="logoutButton" destination="DMk-n4-b6d" id="WGQ-Z4-I2B"/>
                         <outlet property="map" destination="r6A-42-n8A" id="55F-9z-akC"/>
                         <outlet property="userImage" destination="mbV-gY-ZX7" id="2Ll-Rz-suh"/>
                         <outlet property="userNameLabel" destination="34j-uc-mib" id="Yrw-gm-xff"/>
