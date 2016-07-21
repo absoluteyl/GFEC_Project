@@ -22,3 +22,4 @@
 //= require ./merchandise
 //= require ./locations
 //= require ./merchandises
+//= require ./credit_card_form

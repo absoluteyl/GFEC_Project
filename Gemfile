@@ -35,6 +35,8 @@ gem 'simple_token_authentication', '~> 1.0'
 gem 'paperclip', '~> 4.1'
 # Use AWS gems with Paperclip so images can be stored even in Heroku
 gem 'aws-sdk', '< 2.0'
+# Use Stripe for credit card payment
+gem 'stripe'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
