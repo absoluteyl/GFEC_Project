@@ -24,21 +24,6 @@ class OrdersController < ApplicationController
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
       
-      @payment = Payment.new({ email: @order.buyer.email,
-                               token: params[:payment]["token"], 
-                               user_id: @order.buyer_id })
-      flash[:error] = "Please check registration errors" unless @payment.valid?
-
-      begin
-        @payment.process_payment
-        @payment.save
-      rescue Exception => e
-        flash[:error] = e.message
-
-        puts 'Payment failed'
-        render :new and return
-      end
-
       redirect_to merchandises_path, notice: 'Thank you for your purchase.'
     else
       render 'new'
@@ -49,12 +34,4 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit(:buyer, :payment_method, :location_id )
   end
-  
-  
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:create).push(:payment)
-  end
-
 end
