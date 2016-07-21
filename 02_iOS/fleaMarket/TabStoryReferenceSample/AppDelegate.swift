@@ -7,17 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var itemArray: NSArray?
-    //var userID: Int = 3 //for testing
     
     var itemCategoryNumber = -1
     var itemStatusNumber = -1
     var itemDeliveryNumber = -1
+    var itemLocationId = -1
     
     /*
      self.userDefault.setInteger(userID , forKey: "userID")
@@ -34,9 +35,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = targetViewController
         }
         
+        FIRApp.configure()
+        if let user = FIRAuth.auth()?.currentUser {
+            self.signedIn(user)
+        }
+        
         return true
     }
-
+    
+    func signedIn(user: FIRUser?) {
+        MeasurementHelper.sendLoginEvent()
+        
+        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+        AppState.sharedInstance.photoUrl = user?.photoURL
+        AppState.sharedInstance.signedIn = true
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

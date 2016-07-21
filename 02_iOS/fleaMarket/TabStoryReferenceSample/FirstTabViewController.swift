@@ -8,6 +8,7 @@
 
 import UIKit
 import KFSwiftImageLoader
+//import Firebase
 
 //define an array of merchandise title for later use
 var titleArray = [String]()
@@ -27,6 +28,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
     
     @IBOutlet weak var MyCollectionViewCell: UICollectionViewCell!
     
+    @IBOutlet weak var categoryScroll: UIScrollView!
     
     var hasGotAPIYet: Bool = false
     
@@ -37,27 +39,85 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         imageArray = []
             getDataFromDB()
         
-        activityIndicator.startAnimating()
+//        activityIndicator.startAnimating()
         
     }
     
+
+    
+// firebase TESTING
+//    func setDisplayName(user: FIRUser) {
+//        let changeRequest = user.profileChangeRequest()
+//        changeRequest.displayName = "kyujyokei"
+//        changeRequest.commitChangesWithCompletion(){(error)in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.signedIn(FIRAuth.auth()?.currentUser)
+//        }
+//    }
+    
+//    func signedIn(user: FIRUser?) {
+//        MeasurementHelper.sendLoginEvent()
+//        
+//        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+//        AppState.sharedInstance.photoUrl = user?.photoURL
+//        AppState.sharedInstance.signedIn = true
+//        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+//       
+//    }
+// firebase TESTING
+    
+//    override func viewDidAppear(animated: Bool) {
+//        if let user = FIRAuth.auth()?.currentUser{
+//            self.signedIn(user)
+//        }
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("1.\(titleArray.count)")
-        //getDataFromDB()
         
-        //print("2.\(titleArray.count)")
+        
+        // firebase TESTING
+//        let email = "kyujyokei@gmail.com"
+//        let password = "effort"
+//        FIRAuth.auth()?.createUserWithEmail(email, password: password) { (user,error) in
+//            if let error=error{
+//                print(error.localizedDescription)
+//                return
+//            }
+//            self.setDisplayName(user!)
+//            print("init success")
+//        }
+
+        // firebase TESTING
+        
+        
+        let bgImage = UIImageView();
+        bgImage.image = UIImage(named: "bg");
+        bgImage.contentMode = .ScaleToFill
+        
+        self.collectionView?.backgroundView = bgImage
+        
         
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         self.refreshControl.addTarget(self, action: "refresh:",   forControlEvents: UIControlEvents.ValueChanged)
         collectionView!.addSubview(refreshControl)
+        
+        categoryScroll.backgroundColor = UIColorUtil.rgb(0xffffff);
         
     }
     
@@ -68,7 +128,6 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         itemIdArray = []
         imageArray = []
         getDataFromDB()
-        print("bubi")
         self.refreshControl.endRefreshing()
     }
     
@@ -77,7 +136,8 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         //決定每個cell的大小
         if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
             //如果是直的
-            return CGSize(width: 180, height: 180)
+
+            return CGSize(width: view.bounds.width / 2.3, height: 210)
         }else{
             return CGSize(width: 200, height: 200)
             
@@ -194,10 +254,10 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
                         return
                     }
                     
-                    //print(parsedResult)
                     
-                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
                    
+                    let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
+                   //print(itemDictionary)
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     for i in 0...itemDictionary!.count-1 {

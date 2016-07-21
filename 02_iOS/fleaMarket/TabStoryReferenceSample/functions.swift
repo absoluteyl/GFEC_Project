@@ -10,114 +10,63 @@ import Foundation
 import UIKit
 
 
+struct UIColorUtil {
+    static func rgb(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+}
 
-//public func escapedParameters(parameters: [String:AnyObject]) -> String {
-//    
-//    if parameters.isEmpty {
-//        return ""
-//    } else {
-//        var keyValuePairs = [String]()
-//        
-//        for (key, value) in parameters {
-//            
-//            // make sure that it is a string value
-//            let stringValue = "\(value)"
-//            
-//            // escape it
-//            let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-//            
-//            // append it
-//            keyValuePairs.append(key + "=" + "\(escapedValue!)")
-//            
-//        }
-//        
-//        return "\(keyValuePairs)?"
-//        //return "?\(keyValuePairs.joinWithSeparator("&"))"
-//    }
-//}
+public class AddressForm {
+    var id:Int = 0
+    var city_id:Int = 0
+    var name:String = ""
+    var address:String = ""
+    var postCode:String = ""
+}
 
-
-
-//public func getImageFromFlickr() {
-//    
-////    let methodParameters = [
-//<<<<<<< HEAD
-////        Constants.ParameterKeys.Merchandises: Constants.ParameterValues.Merchandises
-////    ]
-//    
-//    //let urlString = Constants.Webpage.APIBaseURL + escapedParameters(methodParameters)
-//    let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
-//=======
-////        Constants.Merchandises: Constants.ParameterValues.Merchandises
-////    ]
-////    
-//    let urlString = Constants.Merchandises.APIBaseURL
-//    //let urlString = "https://flea-market-absoluteyl.c9users.io/api/merchandises"
-//>>>>>>> 571ec72cbc0f35f952e3b57cb346c56fb6f58a38
-//    let url = NSURL(string: urlString)!
-//    let request = NSURLRequest(URL: url)
-//    var itemArray:NSArray?
-//    
-//    
-//    // if an error occur, print it
-//    func displayError(error: String) {
-//        print(error)
-//        print("URL at time of error: \(url)")
-//
-//    }
-//    
-//    let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
-//        
-//        if error == nil {
-//            if let data = data {
-//                let parsedResult: AnyObject!
-//                do {
-//                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
-//                } catch {
-//                    displayError("Could not parse the data as JSON: '\(data)'")
-//                    return
-//                }
-//                
-//<<<<<<< HEAD
-//                let theDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                theDelegate.itemArray = parsedResult as? NSArray
-//                
-//
-//                performUIUpdatesOnMain(){
-////                    self.itemArray = itemArray
-//                        //reload table view
-//                }
-//                print (itemArray!)
-////                if let itemTitle = itemDictionary![Constants.itemResponseKeys.Title] as? String {
-////                        performUIUpdatesOnMain(){
-////                            cell.cellLabel.text = itemTitle
-////                        }
-//                }
-//
-//            
-//
-//                //print(parsedResult)
-//                
-//                //convert parseResult into a Dictionary, so it becomes several dictionaries in an array
-//                let itemDictionary = parsedResult as? [[String:AnyObject]]
-//                //print(itemDictionary!)
-//
-//                
-//                //grab every "title" in dictionaries by look into the array with for loop
-//                for i in 0...itemDictionary!.count-1 {
-//                    let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-//                    
-//                    titleArray.append(itemTitle!)
-//                    
-//                }
-//                print(titleArray)
-//
-//            }
-//        }
-//    
-//    task.resume()
-//    
-//    }
-
-
-
+public func findCategoryNameById(number:Int) -> String {
+    switch number {
+    case 1:
+        return "Ｗomen’s Clothing"
+    case 11:
+        return "Men’s Clothing"
+    case 77:
+        return "Games & Toys"
+    case 84:
+        return "Sports & Outdoors"
+    case 19:
+        return "Accessories"
+    case 26:
+        return "Cosmetics & Care"
+    case 34:
+        return "Electronics & Computers"
+    case 43:
+        return "Cellphones & Accessories"
+    case 49:
+        return "Home & Living"
+    case 57:
+        return "Mom & Baby"
+    case 64:
+        return "Food & Beverage"
+    case 69:
+        return "Cameras & Lens"
+    case 92:
+        return "Books & Audible"
+    case 99:
+        return "Handmade"
+    case 104:
+        return "Tickets"
+    case 110:
+        return "Pets"
+    case 115:
+        return "Miscellaneous"
+        
+    default:
+        return "Category"
+    }
+}

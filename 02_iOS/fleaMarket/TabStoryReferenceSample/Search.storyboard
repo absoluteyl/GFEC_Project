@@ -8,7 +8,7 @@
         <!--Search View Controller-->
         <scene sceneID="gYq-EA-8n0">
             <objects>
-                <viewController id="7VV-2R-5oP" customClass="SearchViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7VV-2R-5oP" customClass="SearchViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2zN-kX-Y4m"/>
                         <viewControllerLayoutGuide type="bottom" id="y9k-bQ-kdn"/>

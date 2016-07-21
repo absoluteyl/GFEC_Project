@@ -11,7 +11,7 @@ import MapKit
 
 
 
-class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
     
 //    @IBOutlet weak var sellerName: UILabel!
 //    @IBOutlet weak var itemDescription: UITextView!
@@ -27,19 +27,31 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     var itemSellerId:Int!
     var itemSellerName:String!
     var idOfUser:Int!
+    var itemLocationId:Int!
     var userLatitude:String!
     var userLongtitude:String!
     var statusReply:String!
     let locationManager = CLLocationManager() // get user's location
     var location: CLLocation!
     var deleteAlert = UIAlertController()
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var categoryTemp: String = ""
+    var locationTemp: String = ""
+    var like_on: UIImage = UIImage(named:"like_on.png")!
+    var like_off: UIImage = UIImage(named:"like_off.png")!
     
     @IBOutlet weak var editItemButton: UIButton!
     @IBOutlet weak var deleteItemButton: UIButton!
     
     @IBOutlet weak var itemValueLabel: UILabel!
     @IBOutlet weak var itemTitleLabel: UILabel!
-    @IBOutlet weak var itemDescriptionLabel: UITextView!
+   
+
+    @IBOutlet weak var itemDescriptionText: UITextView!
+ 
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var itemSellerNameLabel: UILabel!
     @IBOutlet weak var itemCategoryLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
@@ -47,7 +59,18 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var sellerImage: UIImageView!
     
+    @IBOutlet weak var likeButton: UIButton!
+    var likeButtonPushed = false
 
+    @IBAction func likeButtonAction(sender: UIButton) {
+        if likeButtonPushed == false {
+            likeButton.setImage(like_on, forState: .Normal)
+            likeButtonPushed = true
+        } else {
+            likeButton.setImage(like_off, forState: .Normal)
+            likeButtonPushed = false
+        }
+    }
     
     @IBAction func seeUserButtonAction(sender: AnyObject) {
         
@@ -58,6 +81,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBAction func editItemButtonAction(sender: UIButton) {
         print(itemTitle)
         print(itemValue)
+        //appDelegate.itemLocationId = itemLocationId
         self.performSegueWithIdentifier("editItemSegue", sender:  editItemButton)
     }
     
@@ -108,7 +132,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     override func viewDidLoad() {
         
         itemTitleLabel.hidden = true
-        itemDescriptionLabel.hidden = true
+        itemDescriptionText.hidden = true
         itemValueLabel.hidden = true
         itemSellerNameLabel.hidden = true
         
@@ -131,9 +155,16 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         self.map.showsUserLocation = true
 
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: nil)
+        addButton.tintColor = UIColor.clearColor()
+        navigationItem.rightBarButtonItem = addButton
         // End of adding logo to Navigation Bar
     }
 
@@ -142,6 +173,38 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! ItemDetailStatusCell
+        
+        switch indexPath.row {
+        case 0:
+            cell.leftLabel.text = "Status"
+            cell.rightLabel.text = "90% New"
+        case 1:
+            cell.leftLabel.text = "Category"
+            cell.rightLabel.text = categoryTemp
+        case 2:
+            cell.leftLabel.text = "Delivery"
+            cell.rightLabel.text = "Takkyubin"
+        case 3:
+            cell.leftLabel.text = "Location"
+            cell.rightLabel.text = locationTemp
+        default:
+            cell.leftLabel.text = "Title"
+            cell.rightLabel.text = "Detail"
+        }
+        
+        return cell
+    }
     
 
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -207,7 +270,9 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     self.itemValue = itemDictionary![Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
                     self.itemDescription = itemDictionary![Constants.MerchandisesResponseKeys.MerchandiseDescription] as? String
                     self.itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
-                    
+                    self.itemLocationId = itemDictionary![Constants.MerchandisesResponseKeys.LocationId] as? Int
+                    let categoryNumber = itemDictionary![Constants.MerchandisesResponseKeys.CategoryId] as? Int
+                    self.categoryTemp = findCategoryNameById(categoryNumber!)
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
                         displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")
@@ -227,14 +292,15 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         
                         self.itemTitleLabel.text = self.itemTitle
                         self.itemValueLabel.text = "NT$\(self.itemValue)"
-                        self.itemDescriptionLabel.text = self.itemDescription
+                        self.itemDescriptionText.text = self.itemDescription
                         
                         self.itemTitleLabel.hidden = false
-                        self.itemDescriptionLabel.hidden = false
+                        self.itemDescriptionText.hidden = false
                         self.itemValueLabel.hidden = false
                         
                         self.getSpecificUser()
-                        
+                        self.tableView.reloadData()
+
                     }
                     
                     
@@ -306,7 +372,6 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         
                         self.itemSellerNameLabel.text = "\(self.itemSellerName)"
                         self.itemSellerNameLabel.hidden = false
-                        self.getUserLocation()
                         
                         if self.itemSellerId == self.userDefault.integerForKey("userID") {
                             self.editItemButton.hidden = false
@@ -319,7 +384,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         task.resume()
     }
     
-    private func getUserLocation() {
+    private func getItemLocation() {
         
         let methodParameters: [String: String!] = [
             Constants.ParameterKeys.User: "\(itemSellerId)",
@@ -451,7 +516,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         //self.deleteAlert.dismissWithClickedButtonIndex(-1, animated: true)
                         
                         let alert = UIAlertView()
-                        alert.title = "Upload Sucess!"
+                        alert.title = "Item Deleted!"
                         alert.message = ""
                         var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
                         loadingIndicator.center = self.view.center;

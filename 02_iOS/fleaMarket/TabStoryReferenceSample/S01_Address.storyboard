@@ -8,7 +8,7 @@
         <!--Address Table View Controller-->
         <scene sceneID="Qqq-Cw-Lj4">
             <objects>
-                <tableViewController storyboardIdentifier="S01_AddressTable" id="cfG-Hr-jWn" customClass="S01_AddressTableViewController" customModule="fleaMarket" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="S01_AddressTable" id="cfG-Hr-jWn" customClass="S01_AddressTableViewController" customModule="RiRiKoKo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="iHf-X7-K7h">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

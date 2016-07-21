@@ -18,6 +18,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     }
     
     @IBAction func logoutButtonActions(sender: UIButton) {
+        navigationController?.popToRootViewControllerAnimated(true)
         logout()
     }
     
@@ -79,15 +80,26 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
         
         self.map.showsUserLocation = true
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+  
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ReLoggingIn" {
+            let Destination : LoginViewController = segue.destinationViewController as! LoginViewController
+            Destination.isReLoggingIn = true
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -201,6 +213,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
                             var userDefault = NSUserDefaults.standardUserDefaults()
                             
                             userDefault.setBool(false, forKey: "hasLoggedIn")
+                            self.navigationController?.popViewControllerAnimated(true)
                             self.performSegueWithIdentifier("logoutSegue", sender: self)
                         }
                     }

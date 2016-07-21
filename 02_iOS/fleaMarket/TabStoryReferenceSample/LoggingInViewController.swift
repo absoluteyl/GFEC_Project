@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class LoggingInViewController: UIViewController {
+    
+    var firebase: Bool = false
     
     var userDefault = NSUserDefaults.standardUserDefaults()
     
@@ -22,16 +25,51 @@ class LoggingInViewController: UIViewController {
 
     var useremail: String!
     var password: String!
+    var userName: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activityIndicator.startAnimating()
         login()
+        
+        let firebaseEmail = useremail
+        let firebasePassword = password
+        FIRAuth.auth()?.createUserWithEmail(firebaseEmail!, password: firebasePassword!) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.setDisplayName(user!)
+        }
+        
     }
 
+    func setDisplayName(user: FIRUser) {
+        let changeRequest = user.profileChangeRequest()
+        changeRequest.displayName = userName
+        changeRequest.commitChangesWithCompletion(){ (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.signedIn(FIRAuth.auth()?.currentUser)
+        }
+    }
+    
+    func signedIn(user: FIRUser?) {
+        MeasurementHelper.sendLoginEvent()
+        
+        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+        AppState.sharedInstance.photoUrl = user?.photoURL
+        AppState.sharedInstance.signedIn = true
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+        performSegueWithIdentifier(Constants.Segues.SignInToFp, sender: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
     }
     
     private func login() {
@@ -97,6 +135,13 @@ class LoggingInViewController: UIViewController {
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
                 displayError("Your request returned a status code other than 2xx!")
+                performUIUpdatesOnMain({ 
+                    if let navigationController = self.navigationController
+                    {
+                        navigationController.popViewControllerAnimated(true)
+                    }
+                })
+                
                 return
             }
             
@@ -136,7 +181,7 @@ class LoggingInViewController: UIViewController {
                     
                     
                     
-                    if statusReply! == "OK" {
+                    //if statusReply! == "OK" {
                         performUIUpdatesOnMain(){
                             
                             var userDefault = NSUserDefaults.standardUserDefaults()
@@ -165,13 +210,13 @@ class LoggingInViewController: UIViewController {
                                 
                             })
                         }
-                    } else {
-                    
-                        if let navigationController = self.navigationController
-                        {
-                            navigationController.popViewControllerAnimated(true)
-                        }
-                    }
+//                    } else {
+//                    
+//                        if let navigationController = self.navigationController
+//                        {
+//                            navigationController.popViewControllerAnimated(true)
+//                        }
+//                    }
                 }
             }
         }

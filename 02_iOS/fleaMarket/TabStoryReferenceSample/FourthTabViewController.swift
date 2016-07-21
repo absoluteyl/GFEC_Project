@@ -12,8 +12,8 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var contactImage: UIImageView!
 
-    let contacts = ["Amy","Bob","Caroline","Dandy","Elsa","Fergus","George","Harry","Issac"]
-    let images = ["animal1","animal2","animal3","animal4","animal5","animal6","animal7","animal8","animal9","animal10","animal11","animal12"]
+    let contacts = ["Elsa"]
+    let images = ["absolutely"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,16 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
         //contactImage.clipsToBounds = true
         
         // Beggining of adding logo to Navigation Bar
-        let logo = UIImage(named: "logo_temp_small.png")
-        let imageView = UIImageView(image:logo)
-        self.navigationItem.titleView = imageView
+        var titleView : UIImageView
+        titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
+        titleView.contentMode = .ScaleAspectFit
+        titleView.image = UIImage(named: "logo.png")
+        self.navigationItem.titleView = titleView
+        navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
     }
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,6 +64,10 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
         UIGraphicsEndImageContext()
 
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("goChat", sender: self)
     }
 
     /*
