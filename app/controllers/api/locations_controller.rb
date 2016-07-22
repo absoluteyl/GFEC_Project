@@ -6,8 +6,11 @@ class Api::LocationsController < Api::ApiController
     if id = params[:id]
       @locations = @locations.where(id: id)
     end
-    if city_id = params[:city_id]
+    if city_id = params[:city]
         @locations = @locations.where(city_id: city_id)
+    end
+    if user_id = params[:user]
+      @locations = @locations.where(user_id: user_id)
     end
       render status: 200, json: {
         status: "OK", 

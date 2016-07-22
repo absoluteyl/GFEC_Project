@@ -220,6 +220,7 @@ General Query:
     
     GET /api/locations?id=[id]
     GET /api/locations?user=[user_id]
+    GET /api/locations?city=[city_id]
 
 #####POST:
     
