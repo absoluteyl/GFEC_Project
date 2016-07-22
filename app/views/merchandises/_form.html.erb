@@ -1,28 +1,54 @@
 <%= render 'shared/errors', obj: @merchandise %>
-    <div>
-    <%= form_for @merchandise do |f| %>
-
-        <%= f.label :title %>
-        <%= f.text_field :title, placeholder: "Title of merchandise", autofocus: true %>
-        <br />
-        <%= f.label :description %>
-        <%= f.text_area :description, rows: 10, placeholder: "Description the status and spec of your merchandise" %>
-        <br />
-        <%= f.label :price %>
-        <%= f.text_field :price, placeholder: "Price of merchandise" %>
-        <br />
+  <div class="row">
+    <div class="col-xs-12">
+    <%= form_for @merchandise, html: {class: "form-horizontal"} do |f| %>
+      <div class="form-group">
+        <div class="col-sm-5 control-label">
+          <%= f.label :title %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.text_field :title, placeholder: "Title of merchandise", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-5 control-label">
+          <%= f.label :description %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.text_area :description, rows: 10, placeholder: "Description the status and spec of your merchandise" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-5 control-label">
+          <%= f.label :price %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.text_field :price, placeholder: "Price of merchandise" %>
+        </div>
+      </div>
         <!--<%#= f.label :amount %>-->
         <!--<%#= f.text_field :amount, placeholder: "Amount of merchandise" %>-->
         <!--<br />-->
-        <%= f.select :category_id, options_for_select(@categories.collect { |category|
+      <div class="form-group">
+        <div class="col-sm-5 control-label">
+          <%= f.label :category_id %>
+        </div>
+        <div class="col-sm-5">
+          <%= f.select :category_id, options_for_select(@categories.collect { |category|
             [category.name, category.id] }, 1), {}, { id: 'categories_select' } %>
-        <%= f.select :category_id, options_for_select(@subcategories.collect { |subcategory|
+          <%= f.select :category_id, options_for_select(@subcategories.collect { |subcategory|
             [subcategory.name, subcategory.id] }, 0), {}, { id: 'subcategories_select' } %>
-        <br />
-        <%= f.label :location_id %>
-        <%= f.collection_select(:location_id, Location.where(user_id: current_user), :id, :alias, prompt: true) %>
-        <br />
-        <div class="well">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-5 control-label">
+          <%= f.label :location_id %>
+        </div>
+        <div class="col-sm-3">
+          <%= f.collection_select(:location_id, Location.where(user_id: current_user), :id, :alias, prompt: true) %>
+        </div>
+      </div>
+        <div class="well col-sm-offset-4 col-sm-4">
         <%= f.label :image_1 %>
         <%= f.file_field :image_1 %>
         <% if f.object.image_1? %>
@@ -34,7 +60,7 @@
           </p>
         <% end %>
         </div>    
-        <div class="well">
+        <div class="well col-sm-offset-4 col-sm-4">
         <%= f.label :image_2 %>
         <%= f.file_field :image_2 %>
         <% if f.object.image_2? %>
@@ -46,7 +72,7 @@
           </p>
         <% end %>
         </div>
-        <div class="well">
+        <div class="well col-sm-offset-4 col-sm-4">
         <%= f.label :image_3 %>
         <%= f.file_field :image_3 %>
         <% if f.object.image_3? %>
@@ -58,8 +84,11 @@
           </p>
         <% end %>
         </div>
-        <br />
+        <div class="col-sm-offset-5 col-sm-3">
         <%= f.submit class: 'btn btn-default btn-lg' %>
+        </div>
     <% end %>
     </div>
-    <%= link_to "Cancel request and return to merchandise listing", merchandises_path %>
+    <div class="text-center">
+      <%= link_to "Cancel request and return to merchandise listing", merchandises_path %>
+      </div>
