@@ -1,6 +1,38 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+  a {
+    display: block;
+    color: #000;
+  }
+  a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+  a:focus {
+    outline: none;
+  }
+  .btn-default {
+    background-color: #5ec3b3;
+    border-color: #5ec3b3;
+    color: #fff;
+  }
+  .btn-default:hover {
+    background-color: #ee4947;
+    border-color: #ee4947;
+    color: #fff;
+  }
+    .btn-danger {
+    background-color: #ee4947;
+    border-color: #ee4947;
+  }
+  .btn-danger:hover {
+    background-color: #513969;
+    border-color: #513969;
+  }
+</style>
 <%= render 'shared/errors', obj: @cart %>
-<h2>Your Cart</h2> 
-<table>
+<h2 class="text-center">Your Cart</h2> 
+<table class="table">
   <% @cart.line_items.each do |item| %> 
     <tr>
       <td><%= image_tag item.merchandise.image_1.url(:thumb) %></td>
@@ -14,5 +46,5 @@
       <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
     </tr>
 </table>
-<%= button_to 'Check Out Now', new_order_path, method: :get %>
-<%= button_to 'Buy Next Time', @cart.line_items.first, method: :delete, data: { confirm: 'Are you sure?' } %> 
+<%= button_to 'Check Out Now', new_order_path, method: :get, class: 'btn btn-default btn-lg' %>
+<%= button_to 'Buy Next Time', @cart.line_items.first, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-lg' %> 

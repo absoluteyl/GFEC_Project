@@ -18,12 +18,32 @@ class OrdersController < ApplicationController
     @order.order_status = "New Order"
     @order.buyer = current_user
     @order.seller = @cart.line_items.last.merchandise.user
+    # Amount in cents
+    @amount = @cart.line_items.last.unit_price*100
+
+      customer = Stripe::Customer.create(
+        :email => params[:stripeEmail],
+        :source  => params[:stripeToken]
+      )
     
+      charge = Stripe::Charge.create(
+        :customer    => customer.id,
+        :amount      => @amount,
+        :description => 'Rails Stripe customer',
+        :currency    => 'usd'
+      )
+    
+    rescue Exception => e
+      flash[:error] = e.message
+
+      puts 'Payment failed'
+      render new_order_path and return
+
+
 
     if @order.save
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      
       redirect_to merchandises_path, notice: 'Thank you for your purchase.'
     else
       render 'new'
