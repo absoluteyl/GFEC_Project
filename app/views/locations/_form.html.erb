@@ -1,30 +1,106 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+  a {
+    display: block;
+    color: #000;
+  }
+  a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+  a:focus {
+    outline: none;
+  }
+  .btn-default {
+    background-color: #5ec3b3;
+    border-color: #5ec3b3;
+    color: #fff;
+  }
+  .btn-default:hover {
+    background-color: #ee4947;
+    border-color: #ee4947;
+    color: #fff;
+  }
+  .btn-danger {
+    background-color: #ee4947;
+    border-color: #ee4947;
+  }
+  .btn-danger:hover {
+    background-color: #513969;
+    border-color: #513969;
+  }
+</style>
 <%= render 'shared/errors', obj: @location %>
-    <div>
-    <%= form_for @location do |f| %>
-        <%= f.label '地點名稱' %>
-        <%= f.text_field :alias, placeholder: "Enter a name for this location", autofocus: true %>
-        <br />
-        <%= f.label :recipient %>
-        <%= f.text_field :recipient, placeholder: "Enter recipient name" %>
-        <br />
-        <%= f.select :city_id, options_for_select(@cities.collect { |city|
-            [city.name, city.id] }, 1), {}, { id: 'cities_select' } %>
-        <%= f.select :city_id, options_for_select(@districts.collect { |district|
-            [district.name, district.id] }, 0), {}, { id: 'districts_select' } %>
-        <br />
-        <%= f.label :address %>
-        <%= f.text_field :address, rows: 10, placeholder: "Enter rest of address" %>
-        <br />
-        <%= f.label :phone %>
-        <%= f.text_field :phone, placeholder: "Enter phone number" %>
-        <br />
-        <%= f.label '緯度' %>
-        <%= f.text_field :lat %>
-        <br />
-        <%= f.label '經度' %>
-        <%= f.text_field :long %>
-        <br />
-        <%= f.submit %>
-    <% end %>
+  <div class="row">
+    <div class="col-xs-12">
+        <%= form_for @location, html: {class: "form-horizontal"} do |f| %>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+            <%= f.label '地點名稱' %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :alias, placeholder: "Enter a name for this location", autofocus: true %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+            <%= f.label :recipient %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :recipient, placeholder: "Enter recipient name" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+              <%= f.label :city_id %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.select :city_id, options_for_select(@cities.collect { |city|
+                [city.name, city.id] }, 1), {}, { id: 'cities_select' } %>
+            <%= f.select :city_id, options_for_select(@districts.collect { |district|
+                [district.name, district.id] }, 0), {}, { id: 'districts_select' } %>
+            </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+            <%= f.label :address %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :address, rows: 10, placeholder: "Enter rest of address" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+            <%= f.label :phone %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :phone, placeholder: "Enter phone number" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+            <%= f.label '緯度' %>
+          </div>
+          <div class="col-sm-3">
+            <%= f.text_field :lat %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-5 control-label">
+            <%= f.label '經度' %>
+          </div>
+          <div class="col-sm-3">   
+            <%= f.text_field :long %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-5 col-sm-6">
+            <%= f.submit "Update", class: 'btn btn-default btn-lg' %>
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
-    <%= link_to "Cancel request and return to location listing", locations_path %>
+    <div class="text-center">
+        <%= link_to "Cancel request and return to location listing", locations_path %>
+    </div>

@@ -1,19 +1,59 @@
-<h1 align="center"><%= @user.username%>'s Profile</h1>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+  a {
+    display: block;
+    color: #000;
+  }
+  a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+  a:focus {
+    outline: none;
+  }
+  .btn-default {
+    background-color: #5ec3b3;
+    border-color: #5ec3b3;
+    color: #fff;
+  }
+  .btn-default:hover {
+    background-color: #ee4947;
+    border-color: #ee4947;
+    color: #fff;
+  }
+  .btn-danger {
+    background-color: #ee4947;
+    border-color: #ee4947;
+  }
+  .btn-danger:hover {
+    background-color: #513969;
+    border-color: #513969;
+  }
+</style>
+<h2 class="text-center"><%= @user.username%>'s Profile</h2>
 
-<h4 align="center">
+<h4 class="text-center">
 <% if @user.avatar? %>
     <%= image_tag @user.avatar.url(:medium) %>
 <% end %>
 
-<p align="center">
-    <% if user_signed_in? && current_user==@user %>
-        <%= link_to "Edit my profile", edit_user_registration_path %>
-        <%= link_to "Edit my location", locations_path %>
-        <%= link_to "View my orders", order_path(Order.where(user_id: current_user)) %>
-    <% end %>
-</p>
-<%= @user.username %>'s merchandises
+
+<% if user_signed_in? && current_user==@user %>
+<div class="text-center">
+    <%= link_to "Edit my profile", edit_user_registration_path %>
+
+</div>
+<div class="text-center">
+    <%= link_to "Edit my location", locations_path %>
+</div>
+<div class="text-center">
+    <%= link_to "View my orders", order_path(Order.where(user_id: current_user)) %>
+</div>
+<% end %>
 </h4>
+<hr>
+<h2 class="text-center"><%= @user.username %>'s merchandises</h2>
+
 
 
 <%= render 'merchandises/merchandise', obj: @user.merchandises %>

@@ -1,7 +1,39 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<style>
+  a {
+    display: block;
+    color: #000;
+  }
+  a:hover {
+    color: #000;
+    text-decoration: none;
+  }
+  a:focus {
+    outline: none;
+  }
+  .btn-default {
+    background-color: #5ec3b3;
+    border-color: #5ec3b3;
+    color: #fff;
+  }
+  .btn-default:hover {
+    background-color: #ee4947;
+    border-color: #ee4947;
+    color: #fff;
+  }
+  .btn-danger {
+    background-color: #ee4947;
+    border-color: #ee4947;
+  }
+  .btn-danger:hover {
+    background-color: #513969;
+    border-color: #513969;
+  }
+</style>
 <% if @locations.any? %>
-<table>
+<table class="table">
     <tr>
-       <th>Name</th>
+       <th>Alias</th>
        <th>Recipient</th>
        <th>Address</th>
        <th>Phone</th>
@@ -18,12 +50,12 @@
             </td>
             <td><%= location.phone %></td>
             <td>
-                <%= link_to "Edit", edit_location_path(location) %>
+                <%= link_to "Edit", edit_location_path(location), class: 'btn btn-default btn-sm' %>
                 <%= link_to "Delete", location_path(location), method: :delete, 
-                                                data: { confirm: "Are you sure you want to delete this location?"} %>
+                                                data: { confirm: "Are you sure you want to delete this location?"}, class: 'btn btn-danger btn-sm' %>
             </td>
         </tr>
     <% end %>
 </table>
 <% end %>
-<%= button_to "Add new location", new_location_path, method: :get %>
+<%= button_to "Add new location", new_location_path, method: :get, class: 'btn btn-default btn-lg' %>
