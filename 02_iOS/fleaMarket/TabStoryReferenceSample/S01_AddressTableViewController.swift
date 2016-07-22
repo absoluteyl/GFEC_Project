@@ -133,24 +133,27 @@ class S01_AddressTableViewController: UITableViewController {
                     let locationDictionary = parsedResult![Constants.LocationRespondKeys.Locations] as! [[String:AnyObject]]
                     print(locationDictionary)
                     
-                    //grab every "title" in dictionaries by look into the array with for loop
-                    for i in 0...locationDictionary.count-1 {
-                        
-                        let tempLocation = AddressForm()
-                        
-                        tempLocation.id = locationDictionary[i][Constants.LocationRespondKeys.Id] as! Int
-                        let cityArray = locationDictionary[i][Constants.LocationRespondKeys.City] as! [String:AnyObject]
-                        tempLocation.city_id = cityArray[Constants.LocationRespondKeys.ParentId] as! Int
-                        tempLocation.name = locationDictionary[i][Constants.LocationRespondKeys.Alias] as! String
-                        tempLocation.address = locationDictionary[i][Constants.LocationRespondKeys.Address] as! String
-                        tempLocation.postCode = cityArray[Constants.LocationRespondKeys.PostCode] as! String
-                        self.addressArray.append(tempLocation)
-                        
-                    }
-                  
-                    performUIUpdatesOnMain(){
-                            self.tableView.reloadData()
-                        
+                    if locationDictionary != [] {
+                    
+                        //grab every "title" in dictionaries by look into the array with for loop
+                        for i in 0...locationDictionary.count-1 {
+                            
+                            let tempLocation = AddressForm()
+                            
+                            tempLocation.id = locationDictionary[i][Constants.LocationRespondKeys.Id] as! Int
+                            let cityArray = locationDictionary[i][Constants.LocationRespondKeys.City] as! [String:AnyObject]
+                            tempLocation.city_id = cityArray[Constants.LocationRespondKeys.ParentId] as! Int
+                            tempLocation.name = locationDictionary[i][Constants.LocationRespondKeys.Alias] as! String
+                            tempLocation.address = locationDictionary[i][Constants.LocationRespondKeys.Address] as! String
+                            tempLocation.postCode = cityArray[Constants.LocationRespondKeys.PostCode] as! String
+                            self.addressArray.append(tempLocation)
+                            
+                        }
+                      
+                        performUIUpdatesOnMain(){
+                                self.tableView.reloadData()
+                            
+                        }
                     }
                 }
             }

@@ -131,12 +131,16 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
     
     private func getUserFromDB(){
         
+        var userDefault = NSUserDefaults.standardUserDefaults()
+        
+        print ("userID:\(userDefault.integerForKey("userID"))")
+        
         let methodParameters: [String: String!] = [
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
             ]
         
         print(methodParameters)
-        var userDefault = NSUserDefaults.standardUserDefaults()
+        
         let urlString = Constants.Users.APIBaseURL + "/\(userDefault.integerForKey("userID"))" + escapedParameters(methodParameters)
         
         print("URL:\(urlString)")
@@ -166,26 +170,31 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
                         return
                     }
                     
-                    //print(parsedResult)
+                    print(parsedResult)
                     
                     let userDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
                     
+                    print("userdictionary!!!!\(userDictionary)")
+                    
+                    
                     let itemDictionary = parsedResult![Constants.MerchandisesResponseKeys.Merchandises] as? [[String:AnyObject]]
                     
-                    for i in 0...itemDictionary!.count-1 {
-                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
-                        //print (itemTitle!)
-                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
-                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
-                        let itemImage = itemDictionary![i][Constants.MerchandisesResponseKeys.image_1_s] as? String
-                        
-                        
-                        priceArray_1.append(itemPrice!)
-                        titleArray_1.append(itemTitle!)
-                        itemIdArray_1.append(itemId!)
-                        imageArray_1.append(itemImage!)
-                        
-                    }
+                    print("itemDictionary!!!!\(itemDictionary)")
+                    
+//                    for i in 0...itemDictionary!.count-1 {
+//                        let itemTitle = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseTitle] as? String
+//                        //print (itemTitle!)
+//                        let itemPrice = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandisePrice] as? Int
+//                        let itemId = itemDictionary![i][Constants.MerchandisesResponseKeys.MerchandiseId] as? Int
+//                        let itemImage = itemDictionary![i][Constants.MerchandisesResponseKeys.image_1_s] as? String
+//                        
+//                        
+//                        priceArray_1.append(itemPrice!)
+//                        titleArray_1.append(itemTitle!)
+//                        itemIdArray_1.append(itemId!)
+//                        imageArray_1.append(itemImage!)
+//                        
+//                    }
                     
                     //grab every "title" in dictionaries by look into the array with for loop
                     
@@ -197,6 +206,7 @@ class FifthTabViewController: UIViewController , MKMapViewDelegate, CLLocationMa
                     performUIUpdatesOnMain(){
                         self.userNameLabel.text = userName
 //                        self.userImageUrl = userImage
+                        self.userDefault.setObject(userName , forKey: "userName")
 
                         self.logoutButton.enabled = true
                         self.userImage.loadImageFromURLString(userImage)

@@ -283,6 +283,11 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
         var userDefault = NSUserDefaults.standardUserDefaults()
         
         let postCode:Int = PostalDictionay.PostalArrayOfTuples[selectedNumber][selectedAreaNumber].0
+        let alias:String  = PostalDictionay.PostalArrayOfTuples[selectedNumber][selectedAreaNumber].1
+        let city_id:Int = PostalDictionay.PostalArrayOfTuples[selectedNumber][selectedAreaNumber].2
+
+        
+        print("postcode:\(postCode)")
         
         let params:[String: AnyObject] = [
             "location":[
@@ -291,8 +296,10 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
                 "long" : Float(tempLongtitude),
                 "address" : addressTextField.text!,
                 "postcode" : postCode ,
-                "city": "string",
-
+                "city_id" : city_id ,
+                "alias" : alias ,
+                "recipient" : "\(userDefault.objectForKey("userName")!)",
+                "phone" : "0000000000",
                 ]
         ]
         

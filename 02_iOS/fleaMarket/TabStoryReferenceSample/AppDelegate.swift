@@ -28,6 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      self.userDefault.setInteger(userID , forKey: "userID")
       userDefault.setBool(true, forKey: "hasLoggedIn")
      userDefault.setObject(self.useremail, forKey: "userEmail"
+     setObject( forKey:"userName")
      */
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

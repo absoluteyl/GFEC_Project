@@ -36,39 +36,13 @@ class LoggingInViewController: UIViewController {
         activityIndicator.startAnimating()
         login()
         
-        let firebaseEmail = useremail
-        let firebasePassword = password
-        FIRAuth.auth()?.createUserWithEmail(firebaseEmail!, password: firebasePassword!) { (user, error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self.setDisplayName(user!)
-        }
+
         
     }
 
-    func setDisplayName(user: FIRUser) {
-        let changeRequest = user.profileChangeRequest()
-        changeRequest.displayName = userName
-        changeRequest.commitChangesWithCompletion(){ (error) in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            self.signedIn(FIRAuth.auth()?.currentUser)
-        }
-    }
+
     
-    func signedIn(user: FIRUser?) {
-        MeasurementHelper.sendLoginEvent()
-        
-        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
-        AppState.sharedInstance.photoUrl = user?.photoURL
-        AppState.sharedInstance.signedIn = true
-        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
-        performSegueWithIdentifier(Constants.Segues.SignInToFp, sender: nil)
-    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -181,7 +155,7 @@ class LoggingInViewController: UIViewController {
                     let userName = userDoc![Constants.UsersResponseKeys.UserName] as! String
                     let userImage = userDoc![Constants.UsersResponseKeys.Avatar] as? String
                     
-                    print("ID:\(userID)")
+                    print("ID:\(parsedResult!)")
                     
                     
                     
@@ -193,6 +167,7 @@ class LoggingInViewController: UIViewController {
                             userDefault.setBool(true, forKey: "hasLoggedIn")
                             userDefault.setObject(self.useremail, forKey: "userEmail")
                             userDefault.setInteger(userID , forKey: "userID")
+                            userDefault.setObject(self.password, forKey: "userPassword")
                             
                             self.resultLabel.text = "Welcome!\(userName)!"
                             
