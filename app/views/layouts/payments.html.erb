@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Flea Market</title>
+  <meta name="viewport" content="width=device-width; maximum-scale=1.0; user-scalable=1;">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
-<body>
-  <%= yield %>
+<body class="<%= params[:controller] + '-' + params[:action] %>">
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/categoryarea' %>
+  <%= render 'layouts/messages' %>
+  <!--bootstrap styling start-->
+  <div class="container">
+    <%= yield %>
+  </div>
+  <!--bootstrap styling end-->
+  <%= render 'layouts/footer' %>
+  <%= render 'layouts/gotopbtn' %>
 </body>
 </html>

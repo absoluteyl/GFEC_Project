@@ -12,14 +12,16 @@ class PaymentsController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount*100,
-      :description => 'Rails Stripe customer',
+      :description => 'RiRiKoKo Purchase',
       :currency    => 'twd'
     )
   
   rescue Stripe::CardError => e
     flash[:error] = e.message
     redirect_to new_payment_path
+    
   end
+ 
   
   private
   def set_amount
