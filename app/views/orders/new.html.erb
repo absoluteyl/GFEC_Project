@@ -30,9 +30,10 @@
     border-color: #513969;
   }
 </style>
-<script language="Javascript">
-  Stripe.setPublishableKey("<%= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>");
-</script>
+
+<!--<script language="Javascript">-->
+<!--  Stripe.setPublishableKey("<%#= ENV['STRIPE_TEST_PUBLISHABLE_KEY'] %>");-->
+<!--</script>-->
 
 <h2 class="text-center">Please enter your details</h2>
 <%= render 'form' %>

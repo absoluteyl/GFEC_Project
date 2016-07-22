@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require ./credit_card_form
 //= require ./common/jquery.easing
 //= require ./common/jquery.isotope
 //= require ./common/fastclick

@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:show, :new, :create] do
    get :checkout
   end
+  resources :payments
   
   #Users Routes
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
