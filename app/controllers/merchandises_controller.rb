@@ -23,7 +23,7 @@ class MerchandisesController < ApplicationController
 
     end
     def index
-      @merchandise = Merchandise.all
+      @merchandise = Merchandise.where(amount: 1)
     end
     
     def edit

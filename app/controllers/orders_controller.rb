@@ -19,8 +19,6 @@ class OrdersController < ApplicationController
     @order.buyer = current_user
     @order.seller = @merchandise.user
     @order.total = @cart.total_price
-
-    
     
     if @order.save
      
