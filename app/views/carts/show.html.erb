@@ -37,13 +37,13 @@
     <tr>
       <td><%= image_tag item.merchandise.image_1.url(:thumb) %></td>
       <td><%= item.merchandise.title %></td>
-      <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+      <td class="item_price"><%= "$#{item.total_price}" %></td>
       <td><%#= button_to 'Buy Next Time', item, method: :delete %></td>
     </tr> 
   <% end %>
     <tr class="total_line">
       <td colspan="2">Total</td>
-      <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+      <td class="total_cell"><%= "$#{@cart.total_price}" %></td>
     </tr>
 </table>
 <%= button_to 'Check Out Now', new_order_path, method: :get, class: 'btn btn-default btn-lg' %>
