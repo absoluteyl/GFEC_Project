@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     if @order.save
      
       if @order.payment_method == "面交"
-        redirect_to merchandises_path, notice: 'Thank you for your purchase.'
+        redirect_to merchandises_path, notice: 'Thank you for your purchase. Seller will contact you directly.'
       else
         redirect_to new_payment_path
       end
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
       
       Cart.destroy(session[:cart_id])
       session[:cart_id] = nil
-      
+      OrderNotifier.received(@order).deliver
     else
       render 'new'
     end
