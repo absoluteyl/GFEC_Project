@@ -24,6 +24,8 @@
 		C902734C1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C902734B1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift */; };
 		C902734E1D0C1B7C00EC081D /* AddItemInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */; };
 		C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90EEA721D2D283800711C22 /* RegisteringViewController.swift */; };
+		C91A8EDF1D3D304E006A7698 /* AreaTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A8EDE1D3D304E006A7698 /* AreaTable.swift */; };
+		C91A8EE11D3F3B63006A7698 /* CustomSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91A8EE01D3F3B63006A7698 /* CustomSegue.swift */; };
 		C932F2D21D2D050600DA6540 /* Register.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C932F2D11D2D050600DA6540 /* Register.storyboard */; };
 		C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C932F2D31D2D052800DA6540 /* RegisterViewController.swift */; };
 		C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */; };
@@ -68,7 +70,11 @@
 		C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */; };
 		C9AD975B1CFA7E2D00672234 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */; };
 		C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */; };
-		C9E9E2D41D3BD89400FB0312 /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9E2D31D3BD89400FB0312 /* Cities.swift */; };
+		C9E9E2D41D3BD89400FB0312 /* Dictionaries.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9E2D31D3BD89400FB0312 /* Dictionaries.swift */; };
+		C9E9E2D61D3D26BE00FB0312 /* CityTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9E2D51D3D26BE00FB0312 /* CityTable.swift */; };
+		C9E9E2DA1D3D281F00FB0312 /* CityTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9E9E2D91D3D281F00FB0312 /* CityTable.storyboard */; };
+		C9E9E2DC1D3D282B00FB0312 /* AreaTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9E9E2DB1D3D282B00FB0312 /* AreaTable.storyboard */; };
+		C9E9E2DE1D3D2C9200FB0312 /* PostalDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9E2DD1D3D2C9200FB0312 /* PostalDict.swift */; };
 		C9FFA37C1D1429720057E439 /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA37B1D1429720057E439 /* CategoryTableViewController.swift */; };
 		C9FFA37E1D1429840057E439 /* ItemStatusTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA37D1D1429840057E439 /* ItemStatusTableViewController.swift */; };
 		C9FFA3801D1429F70057E439 /* DeliveryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FFA37F1D1429F70057E439 /* DeliveryTableViewController.swift */; };
@@ -131,6 +137,8 @@
 		C902734B1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddItemInfoTableViewController.swift; sourceTree = "<group>"; };
 		C902734D1D0C1B7C00EC081D /* AddItemInfo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddItemInfo.storyboard; sourceTree = "<group>"; };
 		C90EEA721D2D283800711C22 /* RegisteringViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisteringViewController.swift; sourceTree = "<group>"; };
+		C91A8EDE1D3D304E006A7698 /* AreaTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTable.swift; sourceTree = "<group>"; };
+		C91A8EE01D3F3B63006A7698 /* CustomSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegue.swift; sourceTree = "<group>"; };
 		C932F2D11D2D050600DA6540 /* Register.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Register.storyboard; sourceTree = "<group>"; };
 		C932F2D31D2D052800DA6540 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		C94EB5FD1D01858B0077EBC6 /* ThirdTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdTabViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +177,11 @@
 		C98058791CFE8ECA00F8F629 /* itemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = itemDetailViewController.swift; sourceTree = "<group>"; };
 		C9AD975A1CFA7E2D00672234 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C9AD975C1CFAA1E600672234 /* FirstTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTabViewController.swift; sourceTree = "<group>"; };
-		C9E9E2D31D3BD89400FB0312 /* Cities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		C9E9E2D31D3BD89400FB0312 /* Dictionaries.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dictionaries.swift; sourceTree = "<group>"; };
+		C9E9E2D51D3D26BE00FB0312 /* CityTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTable.swift; sourceTree = "<group>"; };
+		C9E9E2D91D3D281F00FB0312 /* CityTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CityTable.storyboard; sourceTree = "<group>"; };
+		C9E9E2DB1D3D282B00FB0312 /* AreaTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AreaTable.storyboard; sourceTree = "<group>"; };
+		C9E9E2DD1D3D2C9200FB0312 /* PostalDict.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostalDict.swift; sourceTree = "<group>"; };
 		C9FFA37B1D1429720057E439 /* CategoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		C9FFA37D1D1429840057E439 /* ItemStatusTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemStatusTableViewController.swift; sourceTree = "<group>"; };
 		C9FFA37F1D1429F70057E439 /* DeliveryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryTableViewController.swift; sourceTree = "<group>"; };
@@ -273,9 +285,11 @@
 				7A751C451CF9BDBA0096BDE6 /* LaunchScreen.storyboard */,
 				7A751C481CF9BDBA0096BDE6 /* Info.plist */,
 				C94EB6031D02DF0C0077EBC6 /* Constants.swift */,
-				C9E9E2D31D3BD89400FB0312 /* Cities.swift */,
+				C9E9E2D31D3BD89400FB0312 /* Dictionaries.swift */,
+				C9E9E2DD1D3D2C9200FB0312 /* PostalDict.swift */,
 				C94EB6051D02E1F00077EBC6 /* functions.swift */,
 				C94EB6071D0302040077EBC6 /* GCDBlackBox.swift */,
+				C91A8EE01D3F3B63006A7698 /* CustomSegue.swift */,
 			);
 			name = fleaMarket;
 			path = TabStoryReferenceSample;
@@ -285,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				7A751C511CF9BDBA0096BDE6 /* TabStoryReferenceSampleTests.swift */,
+				C974EE321D06EEA1001002BE /* S04_Favorites */,
 				7A751C531CF9BDBA0096BDE6 /* Info.plist */,
 			);
 			name = fleaMarketTests;
@@ -373,7 +388,6 @@
 				C974EE2F1D06EE5C001002BE /* S01_Address */,
 				C974EE301D06EE6C001002BE /* S02_Account */,
 				C974EE311D06EE7C001002BE /* S03_Settings */,
-				C974EE321D06EEA1001002BE /* S04_Favorites */,
 				C974EE331D06EEB4001002BE /* S05_MySell */,
 				C974EE341D06EEBD001002BE /* S06_Records */,
 				C974EE351D06EEC8001002BE /* S07_QnA */,
@@ -390,6 +404,10 @@
 				C974EE271D06ED60001002BE /* S01_AddressTableViewController.swift */,
 				C9FFA3871D14D02F0057E439 /* FillInAddress.storyboard */,
 				C9FFA38B1D14D14B0057E439 /* FillInAddressViewController.swift */,
+				C9E9E2D91D3D281F00FB0312 /* CityTable.storyboard */,
+				C9E9E2D51D3D26BE00FB0312 /* CityTable.swift */,
+				C9E9E2DB1D3D282B00FB0312 /* AreaTable.storyboard */,
+				C91A8EDE1D3D304E006A7698 /* AreaTable.swift */,
 			);
 			name = S01_Address;
 			sourceTree = "<group>";
@@ -419,6 +437,7 @@
 				C974EE3B1D06EF66001002BE /* S04_FavoritesCollectionViewController.swift */,
 			);
 			name = S04_Favorites;
+			path = ../TabStoryReferenceSample;
 			sourceTree = "<group>";
 		};
 		C974EE331D06EEB4001002BE /* S05_MySell */ = {
@@ -606,6 +625,7 @@
 				C9FFA3841D142A150057E439 /* ItemStatus.storyboard in Resources */,
 				7A751C6E1CF9BEAD0096BDE6 /* SecondTab.storyboard in Resources */,
 				C974EE2E1D06EE22001002BE /* S03_Settings.storyboard in Resources */,
+				C9E9E2DC1D3D282B00FB0312 /* AreaTable.storyboard in Resources */,
 				C974EE1F1D06E3A4001002BE /* S01_Address.storyboard in Resources */,
 				C9FFA3861D142A270057E439 /* Delivery.storyboard in Resources */,
 				7A751C441CF9BDBA0096BDE6 /* Assets.xcassets in Resources */,
@@ -621,6 +641,7 @@
 				C974EE4E1D06F2EB001002BE /* S08_About.storyboard in Resources */,
 				C974EE231D06ECF1001002BE /* S02_Account.storyboard in Resources */,
 				C974EE421D06EFE3001002BE /* S06_Records.storyboard in Resources */,
+				C9E9E2DA1D3D281F00FB0312 /* CityTable.storyboard in Resources */,
 				C98058781CFE8E8E00F8F629 /* itemDetail.storyboard in Resources */,
 				7A751C421CF9BDBA0096BDE6 /* Main.storyboard in Resources */,
 				C96C12401D38C933006641F2 /* Storyboard.storyboard in Resources */,
@@ -776,6 +797,7 @@
 				C974EE3E1D06EF9E001002BE /* S05_MySellViewController.swift in Sources */,
 				7A751C3F1CF9BDBA0096BDE6 /* SecondTabViewController.swift in Sources */,
 				C974EE2A1D06EDB1001002BE /* S02_AccountTableViewController.swift in Sources */,
+				C91A8EDF1D3D304E006A7698 /* AreaTable.swift in Sources */,
 				C9FFA3801D1429F70057E439 /* DeliveryTableViewController.swift in Sources */,
 				C9FFA3981D241A090057E439 /* LoggingInViewController.swift in Sources */,
 				C9AD975D1CFAA1E600672234 /* FirstTabViewController.swift in Sources */,
@@ -784,6 +806,7 @@
 				C974EE461D06F28C001002BE /* S06_RecordsCollectionViewController.swift in Sources */,
 				C974EE281D06ED60001002BE /* S01_AddressTableViewController.swift in Sources */,
 				C974EE501D06F306001002BE /* S08_AboutViewController.swift in Sources */,
+				C91A8EE11D3F3B63006A7698 /* CustomSegue.swift in Sources */,
 				C902734C1D0C1B6D00EC081D /* AddItemInfoTableViewController.swift in Sources */,
 				C94EB5FE1D01858B0077EBC6 /* ThirdTabViewController.swift in Sources */,
 				C94EB6081D0302040077EBC6 /* GCDBlackBox.swift in Sources */,
@@ -802,13 +825,15 @@
 				C94EB6061D02E1F00077EBC6 /* functions.swift in Sources */,
 				C96C12321D37839C006641F2 /* MeasurementHelper.swift in Sources */,
 				C980587A1CFE8ECA00F8F629 /* itemDetailViewController.swift in Sources */,
+				C9E9E2D61D3D26BE00FB0312 /* CityTable.swift in Sources */,
 				C9FFA3901D181A7F0057E439 /* SearchViewController.swift in Sources */,
 				C94EB6001D018DE00077EBC6 /* FifthTabViewController.swift in Sources */,
 				C932F2D41D2D052800DA6540 /* RegisterViewController.swift in Sources */,
+				C9E9E2DE1D3D2C9200FB0312 /* PostalDict.swift in Sources */,
 				7A751C3D1CF9BDBA0096BDE6 /* FirstViewController.swift in Sources */,
 				C9FFA38C1D14D14B0057E439 /* FillInAddressViewController.swift in Sources */,
 				C974EE2C1D06EE0C001002BE /* S03_SettingsTableViewController.swift in Sources */,
-				C9E9E2D41D3BD89400FB0312 /* Cities.swift in Sources */,
+				C9E9E2D41D3BD89400FB0312 /* Dictionaries.swift in Sources */,
 				C90EEA731D2D283800711C22 /* RegisteringViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

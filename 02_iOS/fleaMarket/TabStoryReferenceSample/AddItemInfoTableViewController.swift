@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class AddItemInfoTableViewController: UITableViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     var categoryNumber:Int!
     var hasSelectedCategory:Bool = false
@@ -41,6 +41,8 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     @IBOutlet weak var addPhoto1: UIButton?
     @IBOutlet weak var addPhoto2: UIButton!
     @IBOutlet weak var addPhoto3: UIButton!
+    @IBOutlet weak var statusDetailLabel: UILabel!
+    @IBOutlet weak var deliveryDetailLabel: UILabel!
     
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var itemPriceTextField: UITextField!
@@ -217,7 +219,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                 testView.backgroundColor = UIColor.clearColor()
                 cell.backgroundView = testView
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
-                cell.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 50)
+                cell.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         
     }
 
@@ -239,19 +241,41 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
         }
         if appDelegate.itemLocationId != -1 {
             locationIdSelected = appDelegate.itemLocationId
+            showLocationLabel.text = appDelegate.itemLocationTemp
+        }
+        if appDelegate.itemStatusNumber != -1 {
+            statusDetailLabel.text = Constants.ItemArrays.statusArray[appDelegate.itemStatusNumber]
+        }
+        
+        if appDelegate.itemDeliveryNumber != -1 {
+            deliveryDetailLabel.text = Constants.ItemArrays.deliveryArray[appDelegate.itemDeliveryNumber]
         }
         
         tableView.reloadData()
         
     }
-   
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        self.itemAmount.delegate = self
+        self.itemNameTextField.delegate = self
+        self.itemPriceTextField.delegate = self
+        self.itemDescriptionTextField.delegate = self
+        self.itemAmount.returnKeyType = UIReturnKeyType.Done
+        self.itemNameTextField.returnKeyType = UIReturnKeyType.Done
+        self.itemPriceTextField.returnKeyType = UIReturnKeyType.Done
+        self.itemDescriptionTextField.returnKeyType = UIReturnKeyType.Done
+        
+        
+        tableView.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         getLocationFromDB()
         tableView.backgroundColor = UIColorUtil.rgb(0xececec)
@@ -288,10 +312,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //        self.hideKeyboardWhenTappedAround() 
         
         // for testing
-        itemNameTextField.text = "Pudding"
-        itemDescriptionTextField.text = "This is a pudding I made. It's very good."
-        itemAmount.text = "1"
-        itemPriceTextField.text = "100"
+//        itemNameTextField.text = "Pudding"
+//        itemDescriptionTextField.text = "This is a pudding I made. It's very good."
+//        itemAmount.text = "1"
+//        itemPriceTextField.text = "100"
         
         if isPatch == true {
             itemNameTextField.text = patchItemTitle
@@ -311,6 +335,14 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+//        itemAmount.text = ""
+//        itemNameTextField.text = ""
+//        itemPriceTextField.text = ""
+//        itemDescriptionTextField.text = ""
+//        
     }
     
     
@@ -516,7 +548,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                     if self.statusReply == "OK" {
                         self.uploadAlert.dismissWithClickedButtonIndex(-1, animated: true)
                         let alert = UIAlertView()
-                        alert.title = "Upload Sucess!"
+                        alert.title = "Upload Success!"
                         alert.message = ""
                         var loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
                         loadingIndicator.center = self.view.center;
@@ -541,9 +573,23 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                             self.tabBarController?.selectedIndex = 0
                             self.postButton.enabled = true
                         })}
-
+                    
+                    appDelegate.itemStatusNumber = -1
+                    appDelegate.itemLocationTemp = ""
+                    appDelegate.itemLocationId = -1
+                    appDelegate.itemDeliveryNumber = -1
+                    appDelegate.itemStatusNumber = -1
+                    
+                    self.itemAmount.text = ""
+                    self.itemNameTextField.text = ""
+                    self.itemPriceTextField.text = ""
+                    self.itemDescriptionTextField.text = ""
+                    
                     
                 }
+                
+                self.navigationController?.popViewControllerAnimated(true)
+                
             } else {
                 print(error)
             }
@@ -663,7 +709,7 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                         loadingIndicator.center = self.view.center;
                         loadingIndicator.hidesWhenStopped = true
                         loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-                        loadingIndicator.startAnimating();
+                        loadingIndicator.startAnimating()
                         
                         alert.setValue(loadingIndicator, forKey: "accessoryView")
                         loadingIndicator.startAnimating()
@@ -681,10 +727,26 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
                             alert.dismissWithClickedButtonIndex(-1, animated: true)
                             self.navigationController?.popViewControllerAnimated(true)
                             self.postButton.enabled = true
+                            
                         })
                         
                         self.isPatch = false
+                        //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                        appDelegate.itemStatusNumber = -1
+                        appDelegate.itemLocationTemp = ""
+                        appDelegate.itemLocationId = -1
+                        appDelegate.itemDeliveryNumber = -1
+                        appDelegate.itemStatusNumber = -1
+                        
+                        self.itemAmount.text = ""
+                        self.itemNameTextField.text = ""
+                        self.itemPriceTextField.text = ""
+                        self.itemDescriptionTextField.text = ""
+                        
+                        
                     }
+                    
+                    self.navigationController?.popViewControllerAnimated(true)
                 }
                 
             } else {

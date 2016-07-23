@@ -7,16 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
 class FourthTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var contactImage: UIImageView!
 
-    let contacts = ["Elsa"]
+    let contacts = ["Caroline"]
     let images = ["absolutely"]
+    
+    var userDefault = NSUserDefaults.standardUserDefaults()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
         
         //contactImage.layer.cornerRadius = 30
         //contactImage.clipsToBounds = true
@@ -30,8 +37,51 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController!.navigationBar.barTintColor = UIColorUtil.rgb(0xffffff);
         // End of adding logo to Navigation Bar
         
+        
+        
+        let firebaseEmail = String(userDefault.objectForKey("userEmail")!)
+//        let firebaseEmail = "keroxie@icloud.com"
+        let firebasePassword = String(userDefault.objectForKey("userPassword")!)
+        FIRAuth.auth()?.createUserWithEmail(firebaseEmail, password: firebasePassword) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.setDisplayName(user!)
+        }
+        
+    }
+    
+    func setDisplayName(user: FIRUser) {
+        let changeRequest = user.profileChangeRequest()
+        changeRequest.displayName = String(userDefault.objectForKey("userName")!)
+        changeRequest.commitChangesWithCompletion(){ (error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            self.signedIn(FIRAuth.auth()?.currentUser)
+        }
     }
    
+    func signedIn(user: FIRUser?) {
+        MeasurementHelper.sendLoginEvent()
+        
+        AppState.sharedInstance.displayName = user?.displayName ?? user?.email
+        AppState.sharedInstance.photoUrl = user?.photoURL
+        AppState.sharedInstance.signedIn = true
+        NSNotificationCenter.defaultCenter().postNotificationName(Constants.NotificationKeys.SignedIn, object: nil, userInfo: nil)
+        //performSegueWithIdentifier(Constants.Segues.SignInToFp, sender: nil)
+    }
+    
+        override func viewDidAppear(animated: Bool) {
+            if let user = FIRAuth.auth()?.currentUser{
+                self.signedIn(user)
+            }
+        }
+
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

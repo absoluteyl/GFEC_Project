@@ -32,6 +32,21 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         getUserFromDB()
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        
+        //決定每個cell的大小
+        if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
+            //如果是直的
+            
+            return CGSize(width: view.bounds.width / 2.3, height: 210)
+        }else{
+            return CGSize(width: 200, height: 200)
+            
+        }
+        
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -94,24 +109,11 @@ class UserDetailViewController: UIViewController, UICollectionViewDataSource, UI
         
         var itemId = itemIdArray_1[indexPath.row] //給予每個cell item id，為了讓itemDetailView可以正確顯示
         
-        
-        
-        return cell
-        
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        
-        //決定每個cell的大小
-        if traitCollection.horizontalSizeClass == .Compact && traitCollection.verticalSizeClass == .Regular {
-            //如果是直的
-            return CGSize(width: 180, height: 210)
-        }else{
-            return CGSize(width: 200, height: 200)
-            
-        }
-    }
+
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let Destination : itemDetailViewController = segue.destinationViewController as! itemDetailViewController

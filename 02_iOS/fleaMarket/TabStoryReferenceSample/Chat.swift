@@ -25,6 +25,9 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         var storageRef: FIRStorageReference!
         var remoteConfig: FIRRemoteConfig!
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    
     class Constants {
         struct NotificationKeys {
             static let SignedIn = "onSignInCompleted"
@@ -54,8 +57,11 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         override func viewDidLoad() {
             super.viewDidLoad()
             
+            tableView.tableFooterView = UIView()
+            
             self.clientTable.registerClass(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
-            self.title = "Elsa"
+            self.title = "Chat"
+            self.textField.delegate = self
             
             configureDatabase()
             configureStorage()
@@ -63,6 +69,8 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
             fetchConfig()
             logViewLoaded()
         }
+    
+
         
         deinit {
             self.ref.child("messages").removeObserverWithHandle(_refHandle)
@@ -174,6 +182,7 @@ UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDele
         func textFieldShouldReturn(textField: UITextField) -> Bool {
             let data = [Constants.MessageFields.text: textField.text! as String]
             sendMessage(data)
+            self.view.endEditing(true)
             return true
         }
         

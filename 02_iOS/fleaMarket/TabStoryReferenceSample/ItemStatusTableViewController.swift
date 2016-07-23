@@ -10,11 +10,9 @@ import UIKit
 
 class ItemStatusTableViewController: UITableViewController {
     
-    let statusArray = ["Brand New & Unused","UnWrapped but Unused","Still in Good Shape","Functionable & Slight Defects","Damaged"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,19 +34,22 @@ class ItemStatusTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return statusArray.count
+        return Constants.ItemArrays.statusArray.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
         
-        cell.textLabel!.text = statusArray[indexPath.row]
+        cell.textLabel!.text = Constants.ItemArrays.statusArray[indexPath.row]
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.itemStatusNumber = indexPath.row
         
         navigationController?.popViewControllerAnimated(true)
     }

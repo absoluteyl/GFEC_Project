@@ -70,3 +70,15 @@ public func findCategoryNameById(number:Int) -> String {
         return "Category"
     }
 }
+
+public func findKeyForValue(value: String, dictionary: [String: [String]]) ->String?
+{
+    for (key, array) in dictionary
+    {
+        if (array.contains(value))
+        {
+            return key
+        }
+    }
+    return nil
+}

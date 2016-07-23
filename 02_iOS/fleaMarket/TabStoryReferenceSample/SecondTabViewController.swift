@@ -23,21 +23,22 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     var latitudeArray = [String]()
     var longtitufeArray = [String]()
     var coordinateArray: [CLLocationCoordinate2D] = []
-
+    
     class UserAnnotation: NSObject, MKAnnotation {
         let title: String?
         let locationName: String
         let discipline: String
         let coordinate: CLLocationCoordinate2D
         let userid: Int
+        var pinTintColor: MKPinAnnotationColor = MKPinAnnotationColor.Purple
         
-        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D, userid: Int) {
+        init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D, userid: Int, pinTIntColor: UIColor ) {
             self.title = title
             self.locationName = locationName
             self.discipline = discipline
             self.coordinate = coordinate
             self.userid = userid
-            
+
             super.init()
         }
         
@@ -62,16 +63,28 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         getDataFromDB()
     }
     
+    
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationIdentifier = "annotation"
         var view = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationIdentifier)
         if view == nil {
             view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
             view?.canShowCallout = true
-            view?.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+            view?.rightCalloutAccessoryView = UIButton(type: .ContactAdd)
         } else {
             view?.annotation = annotation
         }
+
+//        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationIdentifier) as? MKPinAnnotationView
+//        //let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+//        let anAnnotation = annotation as! UserAnnotation
+//        pinView!.pinColor = anAnnotation.pinTintColor
+//        view = pinView
+        /*
+         let colorPointAnnotation = annotation as! ColorPointAnnotation
+         pinView?.pinTintColor = colorPointAnnotation.pinColor
+         */
+        
         return view
     }
     
@@ -100,6 +113,8 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
 
         map.delegate = self
         
+        map.showsUserLocation = true
+
         // Beggining of adding logo to Navigation Bar
         var titleView : UIImageView
         titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))
@@ -136,7 +151,7 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         location = locations.last // get the last location
         let center = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)! , longitude: (location?.coordinate.longitude)!) // center to location
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta:  0.1, longitudeDelta: 0.1)) // zoom the map
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta:  0.05, longitudeDelta: 0.05)) // zoom the map
         
         self.map.setRegion(region, animated: true)
         
@@ -147,6 +162,17 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
         print("Errors: " + error.localizedDescription) // should it trigger errors, this will put error messages to the debugger
     }
     
+
+    func mapView(mapView: MKMapView!, didAddAnnotationViews views: [MKAnnotationView]!) {
+        
+        for view in views {
+            if view.annotation!.isKindOfClass(MKUserLocation) {
+                //view.canShowCallout = false
+                view.rightCalloutAccessoryView = nil
+            }
+        }
+        
+    }
     
     
     private func getDataFromDB() {
@@ -202,17 +228,14 @@ class SecondViewController: UIViewController, MKMapViewDelegate, CLLocationManag
                         let dobLong = Double(locLongtitude)!
                         
                         let destination:CLLocationCoordinate2D = CLLocationCoordinate2DMake(dobLat, dobLong)
-
-//                        let annotation = MKPointAnnotation()
-//                        annotation.coordinate = destination
-//                        annotation.title = locName
                         
-                        let annotation = UserAnnotation(title: locName, locationName: locName, discipline: locName, coordinate: destination, userid: locUserId)
+                        let purple:UIColor = UIColor.purpleColor()
+                        let annotation = UserAnnotation(title: locName, locationName: locName, discipline: locName, coordinate: destination, userid: locUserId, pinTIntColor: purple )
                         
                         self.map.addAnnotation(annotation)
                     }
                     //print(priceArray)
-                    //print(titleArray)
+                    
                     //print(itemIdArray)
                     
                     //print("3.\(titleArray.count)")

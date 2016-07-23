@@ -58,6 +58,9 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var seeUserButton: UIButton!
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var sellerImage: UIImageView!
+    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var contactButton: UIButton!
+    
     
     @IBOutlet weak var likeButton: UIButton!
     var likeButtonPushed = false
@@ -131,12 +134,25 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     override func viewDidLoad() {
         
+
+        
         itemTitleLabel.hidden = true
         itemDescriptionText.hidden = true
         itemValueLabel.hidden = true
         itemSellerNameLabel.hidden = true
         
         super.viewDidLoad()
+        
+        
+        buyButton.layer.cornerRadius = 35/2
+        buyButton.backgroundColor = UIColorUtil.rgb(0x654982)
+        
+        contactButton.layer.cornerRadius = 35/2
+        contactButton.backgroundColor = UIColor.clearColor()
+        contactButton.layer.borderWidth = 1
+        let purple = UIColorUtil.rgb(0x654982)
+        contactButton.layer.borderColor = purple.CGColor
+        
         
         //getSpecificUser()
         
@@ -272,7 +288,7 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                     self.itemSellerId = itemDictionary![Constants.MerchandisesResponseKeys.UserID] as? Int
                     self.itemLocationId = itemDictionary![Constants.MerchandisesResponseKeys.LocationId] as? Int
                     let categoryNumber = itemDictionary![Constants.MerchandisesResponseKeys.CategoryId] as? Int
-                    self.categoryTemp = findCategoryNameById(categoryNumber!)
+                    self.categoryTemp = Dictionaries.CategoryDictionary[categoryNumber!]!
                     
                     guard let imageUrlString = itemDictionary![Constants.MerchandisesResponseKeys.image_1_o] as? String else {
                         displayError("Cannot find key '\(Constants.MerchandisesResponseKeys.image_1_o)' in itemDictionary")
@@ -299,11 +315,10 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
                         self.itemValueLabel.hidden = false
                         
                         self.getSpecificUser()
+                        self.getItemLocation()
                         self.tableView.reloadData()
 
                     }
-                    
-                    
                 }
             }
         }
@@ -313,85 +328,15 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     
     
-    private func getSpecificUser() {
-        
-        let methodParameters: [String: String!] = [
-            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
-            ]
-        
-        //api/users/1?api_key=xxx
-        let urlString = Constants.Users.APIBaseURL + "/\(itemSellerId)" + escapedParameters(methodParameters)
-        
-        
-        let url = NSURL(string: urlString)!
-        let request = NSURLRequest(URL: url)
-        //var itemArray:NSArray?
-        
-        
-        // if an error occur, print it
-        func displayError(error: String) {
-            print(error)
-            print("URL at time of error: \(url)")
-            
-        }
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
-            
-            if error == nil {
-                if let data = data {
-                    let parsedResult: AnyObject!
-                    do {
-                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
-                    } catch {
-                        displayError("Could not parse the data as JSON: '\(data)'")
-                        return
-                    }
-                    
-//                    print(parsedResult)
-                    
-                    let itemDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
-                    
-                    //grab every "title" in dictionaries by look into the array with for loop
-                    
-                    self.itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
-                    
-                    guard let imageUrlString = itemDictionary![Constants.UsersResponseKeys.Avatar_M] as? String else {
-                        displayError("Cannot find key '\(Constants.UsersResponseKeys.Avatar_M)' in itemDictionary")
-                        return
-                    }
-                    let imageURL = NSURL(string: imageUrlString)
-                    if let imageData = NSData(contentsOfURL: imageURL!) {
-                        performUIUpdatesOnMain {
-                            self.sellerImage.image = UIImage(data: imageData)
-                        }
-                    } else {
-                        displayError("Image does not exist at \(imageURL)")
-                    }
-                    
-                    performUIUpdatesOnMain(){
-                        
-                        self.itemSellerNameLabel.text = "\(self.itemSellerName)"
-                        self.itemSellerNameLabel.hidden = false
-                        
-                        if self.itemSellerId == self.userDefault.integerForKey("userID") {
-                            self.editItemButton.hidden = false
-                            self.deleteItemButton.hidden = false
-                        }
-                    }
-                }
-            }
-        }
-        task.resume()
-    }
     
     private func getItemLocation() {
         
         let methodParameters: [String: String!] = [
-            Constants.ParameterKeys.User: "\(itemSellerId)",
+            Constants.ParameterKeys.Id: "\(itemLocationId)",
             Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key
             ]
         
-        //https://ririkoko.herokuapp.com/api/locations?user=7&api_key=e813852b6d35e706f776c74434b001f9
+        //https://ririkoko.herokuapp.com/api/locations?id=7&api_key=e813852b6d35e706f776c74434b001f9
         let urlString = Constants.Locations.APIBaseURL + escapedParameters(methodParameters)
         
         
@@ -451,6 +396,83 @@ class itemDetailViewController: UIViewController, MKMapViewDelegate, CLLocationM
         }
         task.resume()
     }
+    
+    
+    
+    private func getSpecificUser() {
+        
+        let methodParameters: [String: String!] = [
+            Constants.ParameterKeys.API_Key: Constants.ParameterValues.API_Key,
+            ]
+        
+        //api/users/1?api_key=xxx
+        let urlString = Constants.Users.APIBaseURL + "/\(itemSellerId)" + escapedParameters(methodParameters)
+        
+        
+        let url = NSURL(string: urlString)!
+        let request = NSURLRequest(URL: url)
+        //var itemArray:NSArray?
+        
+        
+        // if an error occur, print it
+        func displayError(error: String) {
+            print(error)
+            print("URL at time of error: \(url)")
+            
+        }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    let parsedResult: AnyObject!
+                    do {
+                        parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) //change 16 bit JSON code to redable format
+                    } catch {
+                        displayError("Could not parse the data as JSON: '\(data)'")
+                        return
+                    }
+                    
+                    //                    print(parsedResult)
+                    
+                    let itemDictionary = parsedResult![Constants.UsersResponseKeys.User] as? [String:AnyObject]
+                    
+                    //grab every "title" in dictionaries by look into the array with for loop
+                    
+                    self.itemSellerName = itemDictionary![Constants.UsersResponseKeys.UserName] as? String
+                    
+                    guard let imageUrlString = itemDictionary![Constants.UsersResponseKeys.Avatar_M] as? String else {
+                        displayError("Cannot find key '\(Constants.UsersResponseKeys.Avatar_M)' in itemDictionary")
+                        return
+                    }
+                    let imageURL = NSURL(string: imageUrlString)
+                    if let imageData = NSData(contentsOfURL: imageURL!) {
+                        performUIUpdatesOnMain {
+                            self.sellerImage.image = UIImage(data: imageData)
+                        }
+                    } else {
+                        displayError("Image does not exist at \(imageURL)")
+                    }
+                    
+                    performUIUpdatesOnMain(){
+                        
+                        self.itemSellerNameLabel.text = "\(self.itemSellerName)"
+                        self.itemSellerNameLabel.hidden = false
+                        
+                        if self.itemSellerId == self.userDefault.integerForKey("userID") {
+                            self.editItemButton.hidden = false
+                            self.deleteItemButton.hidden = false
+                        }
+                    }
+                }
+            }
+        }
+        task.resume()
+    }
+
+    
+    
+    
     
     private func delete () {
         

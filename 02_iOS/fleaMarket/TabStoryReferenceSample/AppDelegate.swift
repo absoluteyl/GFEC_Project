@@ -19,11 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var itemStatusNumber = -1
     var itemDeliveryNumber = -1
     var itemLocationId = -1
+    var itemLocationTemp:String = ""
+    var cityTemp = -1
+    var postalTemp = -1
+    var cityNameTemp = ""
     
     /*
      self.userDefault.setInteger(userID , forKey: "userID")
       userDefault.setBool(true, forKey: "hasLoggedIn")
      userDefault.setObject(self.useremail, forKey: "userEmail"
+     setObject( forKey:"userName")
      */
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

@@ -27,12 +27,14 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOh-ho-zDk">
                                                     <rect key="frame" x="133" y="5" width="90" height="90"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" title="Add Photo"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
+                                                    <state key="normal" title="+"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-Gc-IIX">
                                                     <rect key="frame" x="236" y="5" width="90" height="90"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <state key="normal" title="Add Photo"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
+                                                    <state key="normal" title="+"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ili-0W-aU1">
                                                     <rect key="frame" x="30" y="5" width="90" height="90"/>
@@ -57,8 +59,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name Your Item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wou-UA-wBB">
-                                                    <rect key="frame" x="28" y="13.5" width="107" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="28" y="12" width="126" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -76,8 +78,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Give It a Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BID-An-IF6">
-                                                    <rect key="frame" x="28" y="13.5" width="93.5" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="28" y="12" width="109" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -95,8 +97,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Talk about this item" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DZy-CU-SQu">
-                                                    <rect key="frame" x="28" y="8" width="600" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="28" y="8" width="600" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -115,8 +117,8 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Quantity" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edh-u8-rqz">
-                                                    <rect key="frame" x="28" y="16.5" width="59" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="28" y="14.5" width="69" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
@@ -302,6 +304,7 @@
                         <outlet property="addPhoto3" destination="qXX-Gc-IIX" id="R52-Qv-HyI"/>
                         <outlet property="categoryCell" destination="KWb-SP-cUx" id="oZo-6K-kTO"/>
                         <outlet property="categorySelectedName" destination="HGs-bN-PXV" id="FJX-0I-4su"/>
+                        <outlet property="deliveryDetailLabel" destination="8uq-GF-vCw" id="kVN-g3-Ira"/>
                         <outlet property="itemAmount" destination="edh-u8-rqz" id="sLu-Gb-h9B"/>
                         <outlet property="itemDescriptionTextField" destination="DZy-CU-SQu" id="jDC-5z-AtG"/>
                         <outlet property="itemNameTextField" destination="wou-UA-wBB" id="TEl-Ox-OEs"/>
@@ -309,6 +312,7 @@
                         <outlet property="postButton" destination="amx-4i-E0p" id="H4P-DJ-2Jn"/>
                         <outlet property="shareSwitch" destination="nrP-NQ-8r6" id="3se-kW-2k4"/>
                         <outlet property="showLocationLabel" destination="DwZ-hb-1yy" id="8zd-94-s25"/>
+                        <outlet property="statusDetailLabel" destination="aUA-pE-Hwe" id="1xH-h4-blj"/>
                         <segue destination="A25-UG-er3" kind="show" identifier="showCategory" id="ePb-FI-AJf"/>
                         <segue destination="MTR-3i-FL8" kind="show" identifier="showItemStatus" id="Zl9-MD-Lx2"/>
                         <segue destination="9vi-ib-F2C" kind="show" identifier="showDelivery" id="n5O-gT-DzP"/>
