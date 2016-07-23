@@ -2,12 +2,12 @@ class Api::MerchandisesController < Api::ApiController
   before_action :set_merchandise, only: [:edit, :update, :show, :destroy]
 
   def index
-    @merchandises = Merchandise.all
+    @merchandises = Merchandise.where(amount: 1)
     if title = params[:title]
-        @merchandises = @merchandises.where(title: title)
+        @merchandises = @merchandises.where(title: title, amount: 1)
     end
     if price = params[:price]
-        @merchandises = @merchandises.where(price: price)
+        @merchandises = @merchandises.where(price: price, amount: 1)
     end
     render status: 200, json: {
         status: "OK",
