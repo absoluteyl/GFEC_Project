@@ -1,6 +1,0 @@
-framework module Pods_fleaMarketTests {
-  umbrella header "Pods-fleaMarketTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

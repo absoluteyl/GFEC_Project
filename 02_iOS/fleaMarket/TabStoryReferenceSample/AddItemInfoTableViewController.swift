@@ -312,10 +312,10 @@ class AddItemInfoTableViewController: UITableViewController , UIImagePickerContr
 //        self.hideKeyboardWhenTappedAround() 
         
         // for testing
-        itemNameTextField.text = "Pudding"
-        itemDescriptionTextField.text = "This is a pudding I made. It's very good."
-        itemAmount.text = "1"
-        itemPriceTextField.text = "100"
+//        itemNameTextField.text = "Pudding"
+//        itemDescriptionTextField.text = "This is a pudding I made. It's very good."
+//        itemAmount.text = "1"
+//        itemPriceTextField.text = "100"
         
         if isPatch == true {
             itemNameTextField.text = patchItemTitle
