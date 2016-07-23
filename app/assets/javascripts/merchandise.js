@@ -2,12 +2,85 @@
 	$(function() {
 		var pageName = $('body').prop('class');
 		if ( pageName === "merchandises-index" ) {
-			merchandiseFilter();
+			showList();
 			setButton();
+			// merchandiseFilter();
 		}
 	});
 	function setButton() {
-		$('.filter-item li').eq(0).click().click();
+		
+	}
+	function showList() {
+		var categoriesJSON;
+		var merchandisesJSON;
+		$.ajax({
+			url: "http://json2jsonp.com/?url=https://ririkoko.herokuapp.com/api/merchandises?api_key=e813852b6d35e706f776c74434b001f9",
+			dataType: "jsonp",
+			success: function(data) {
+				var html = "";
+				merchandisesJSON = data;
+
+				// for(var i = 0; i < merchandisesJSON.merchandises.length; i++) {
+				// 	html += "<li class=\"product-list\">";
+				// 	html += "<a href=\"https://ririkoko.herokuapp.com/merchandises/" + merchandisesJSON.merchandises[i].id + "\">";
+    //       html += "<div class=\"product-img\">";
+    //       html += "<img src=" + merchandisesJSON.merchandises[i].image1_url_m + ">";
+    //       html += "</div>";
+    //       html += "<div class=\"product-info\">";
+    //       html += "<p class=\"name\">" + merchandisesJSON.merchandises[i].title +"</p>";
+    //       html += "<p class=\"price\">" + merchandisesJSON.merchandises[i].price + "</p>";
+    //       html += "</div>";
+    //       html += "</a>";
+    //       html += "<div class=\"mask\">";
+    //       html += "<div class=\"addToCart\">";
+    //       html += "<a href=\"https://ririkoko.herokuapp.com/merchandises/" + merchandisesJSON.merchandises[i].id + "\">view</a>";
+    //       html += "</div>";
+    //       html += "</div>";
+    //       html += "</li>";
+				// }
+
+				// $('#products .content').append(html);
+				
+				getCategories();
+			}
+		});
+		
+		function getCategories() {
+			$.ajax({
+				url: "http://json2jsonp.com/?url=https://ririkoko.herokuapp.com/api/categories?api_key=e813852b6d35e706f776c74434b001f9",
+				dataType: "jsonp",
+				success: function(data) {
+					var myCategories;
+					var myCategoriesArr = [];
+					var html = "";
+					var filterItem;
+					var name;
+					categoriesJSON = data;
+					for(var i = 0; i < merchandisesJSON.merchandises.length; i++) {
+						for(var j = 0; j < categoriesJSON.categories.length; j++) {
+							if (categoriesJSON.categories[j].id == merchandisesJSON.merchandises[i].category_id) {
+								myCategories = categoriesJSON.categories[j];
+								myCategoriesArr.push(myCategories);
+							}
+						}
+
+						merchandisesJSON.merchandises[i].categoriesName = myCategories.name;
+						name = removeAllSpace(merchandisesJSON.merchandises[i].categoriesName).replace(/&/g, "").replace(/'/g, "");
+						$('#products .content li').eq(i).addClass(name);
+						filterItem = "<li data-filter=\"." + name + "\">" + merchandisesJSON.merchandises[i].categoriesName + "</li>"
+						$('#product-filter .filter-item').append(filterItem);
+						merchandiseFilter();
+						$('.filter-item li').eq(0).click().click();
+						$('#products').animate({
+							'opacity': 1
+						}, 1000);
+					}
+				}
+			});
+		}
+	}
+	function removeAllSpace(str) {
+	  return str.replace(/\s+/g, "");
 	}
 	function merchandiseFilter() {
 		var j_html = $('html');
