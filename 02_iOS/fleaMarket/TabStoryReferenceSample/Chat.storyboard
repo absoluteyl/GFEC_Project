@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="clientTable" destination="YfY-xT-3I8" id="yyN-Ux-J2a"/>
                         <outlet property="sendButton" destination="jIt-T6-QTY" id="qJ1-6O-7l7"/>
+                        <outlet property="tableView" destination="YfY-xT-3I8" id="7Li-02-jx0"/>
                         <outlet property="textField" destination="9el-2U-5MH" id="sF6-bf-ctu"/>
                     </connections>
                 </viewController>

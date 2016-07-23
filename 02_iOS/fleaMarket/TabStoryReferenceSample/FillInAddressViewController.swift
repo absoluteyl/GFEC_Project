@@ -16,6 +16,8 @@ class FillInAddressViewController: UIViewController, UIPopoverPresentationContro
     let CityTableViewController = CityTable()
     let AreaTableViewController = AreaTable()
     
+    
+    
     var tempLatitude:Double!
     var tempLongtitude:Double!
     

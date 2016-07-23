@@ -13,13 +13,17 @@ class FourthTabViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet weak var imageView: UIView!
     @IBOutlet weak var contactImage: UIImageView!
 
-    let contacts = ["Elsa"]
+    let contacts = ["Caroline"]
     let images = ["absolutely"]
     
     var userDefault = NSUserDefaults.standardUserDefaults()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
         
         //contactImage.layer.cornerRadius = 30
         //contactImage.clipsToBounds = true

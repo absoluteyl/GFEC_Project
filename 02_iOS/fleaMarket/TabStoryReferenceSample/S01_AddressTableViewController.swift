@@ -25,6 +25,8 @@ class S01_AddressTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
+        
         // Beggining of adding logo to Navigation Bar
         var titleView : UIImageView
         titleView = UIImageView(frame:CGRectMake(0, 0, 30, 45))

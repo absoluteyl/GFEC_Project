@@ -47,6 +47,7 @@
                     <navigationItem key="navigationItem" id="hez-G6-45r"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="tableView" destination="0yc-f1-NkR" id="nz0-rL-uIk"/>
                         <segue destination="Kzi-Sg-SIS" kind="show" identifier="goChat" id="Ic7-vp-Wcf"/>
                     </connections>
                 </viewController>

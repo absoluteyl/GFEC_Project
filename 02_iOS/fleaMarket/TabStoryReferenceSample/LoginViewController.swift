@@ -56,8 +56,8 @@ class LoginViewController: UIViewController {
             self.navigationController!.navigationBar.hidden = true
             isReLoggingIn = false
         }
-        userNameTextField.text = "kyujyokei@gmail.com"
-        passwordTextField.text = "effort"
+        userNameTextField.text = ""
+        passwordTextField.text = ""
     }
 
     override func didReceiveMemoryWarning() {

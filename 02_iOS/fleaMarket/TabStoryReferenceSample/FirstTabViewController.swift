@@ -57,7 +57,7 @@ class FirstTabViewController: UIViewController, UICollectionViewDelegate,  UICol
         bgImage.contentMode = .ScaleToFill
         
         self.collectionView?.backgroundView = bgImage
-        self.collectionView?.backgroundView!.contentMode = UIViewContentMode.ScaleAspectFit
+        self.collectionView?.backgroundView!.contentMode = UIViewContentMode.ScaleAspectFill
         
         
         // Beggining of adding logo to Navigation Bar

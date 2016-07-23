@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TabStoryReferenceSample/FillInAddressViewController.swift"
-            timestampString = "490777205.103501"
+            timestampString = "490934264.377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "277"
-            endingLineNumber = "277"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
             landmarkName = "postLocation()"
             landmarkType = "5">
          </BreakpointContent>
