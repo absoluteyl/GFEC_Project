@@ -1,35 +1,29 @@
 ##Introduction
-  This is the final project for III GFEC01, our goal is to provide a flea market platform which allows users to easily, quickly sell/buy stuff, food, or share/join activities and support both iOS app and websites.
+  This is the final project for III GFEC01, our goal is to provide a flea market platform which allows users to easily, quickly sell/buy stuff, food, or share/join activities and support both iOS app and Website.
 
 ##Features
- * Membership Control
- * Shopping Cart
- * Rating Mechnism
- * Online Chat
+ + **User Management:**  
+ Uses devise, including registration, email confirmation for registration, login/logout, forget password, delete account.  
 
+ + **User Location Management:**  
+ Allows users to configure their location profile for merchandise location, shipping address usages.  
 
-##How to Collaborate
-###iOS Platform
+ + **Merchandise Management:**  
+ Allows users to upload, update, delete merchandises.  
 
- 1. Fork this repository (absoluteyl/GFEC_Project) to your own GitHub account.
- 2. Clone this repository to your local machine.
- 3. Create a new branch and start making your contributions to xcode project under iOS directory.
- 4. Make a commit to your changes and push it to the new branch of your fork on GitHub.
- 5. Create a pull request from the new branch into master. (absoluteyl/GFEC_Project)
- 6. Resolve conflicts if any util your changes can be successfully merged into master.
+ + **File Upload:**  
+ Uses paperclip + AWS S3, so users can upload images for their avatar or merchandises.  
 
-###RoR Platform
-If you're using Cloud9 IDE, follow steps below to start your workspace, and make sure not to modify anything under iOS directory.
+ + **Shopping Cart & Order:**  
+ Uses Stripe Payment, allow users to pay with credit cards.  
 
- 1. After login to Cloud9, click on "create a new workspace"
- 2. Insert workspace name and descriptions whatever you like
- 3. In the text field "Clone from Git or Mercurial URL", you MUST input the SSH URL of this repository (git@github.com:absoluteyl/GFEC_Project.git)
- 4. Select Ruby Template for the workspace
- 5. Click on "Create workspace"
- 6. Create a new branch and start making your contributions to RoR application under RoR directory.
- 7. Make a commit to your changes and push it to the new branch of your fork on GitHub.
- 8. Create a pull request from the new branch into master. (absoluteyl/GFEC_Project)
- 9. Resolve conflicts if any util your changes can be successfully merged into master.
+ + **RESTful API support:**  
+ Support JSON API for iOS App to create/read/update/delete data from databse.  
+
+ + **Online Chat (iOS App only)**
+
+##Database Architecture
+![DB architecture](/app/assets/images/database.png)
 
 ##API Usage:
 ####API Authentication:
@@ -286,7 +280,31 @@ Filtered Query:
 
 <br />
 
+##How to Collaborate
+###iOS Platform
+
+ 1. Fork this repository (absoluteyl/GFEC_Project) to your own GitHub account.
+ 2. Clone this repository to your local machine.
+ 3. Create a new branch and start making your contributions to xcode project under iOS directory.
+ 4. Make a commit to your changes and push it to the new branch of your fork on GitHub.
+ 5. Create a pull request from the new branch into master. (absoluteyl/GFEC_Project)
+ 6. Resolve conflicts if any until your changes can be successfully merged into master.
+
+###RoR Platform
+If you're using Cloud9 IDE, follow steps below to start your workspace, and make sure not to modify anything under iOS directory.
+
+ 1. After login to Cloud9, click on "create a new workspace"
+ 2. Insert workspace name and descriptions whatever you like
+ 3. In the text field "Clone from Git or Mercurial URL", you MUST input the SSH URL of this repository (git@github.com:absoluteyl/GFEC_Project.git)
+ 4. Select Ruby Template for the workspace
+ 5. Click on "Create workspace"
+ 6. Create a new branch and start making your contributions to RoR application under RoR directory.
+ 7. Make a commit to your changes and push it to the new branch of your fork on GitHub.
+ 8. Create a pull request from the new branch into master. (absoluteyl/GFEC_Project)
+ 9. Resolve conflicts if any until your changes can be successfully merged into master.
+
+
 ##Contributors
-[Caroline Xie](https://github.com/kyujyokei) /
-[Elsa Lau](https://github.com/absoluteyl) /
-[Fergus Ke](https://github.com/KeJingTai) 
+iOS App - [Caroline Xie](https://github.com/kyujyokei)  
+Rails App - [Elsa Lau](https://github.com/absoluteyl)  
+Frontend - [Fergus Ke](https://github.com/KeJingTai) 
