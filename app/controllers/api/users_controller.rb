@@ -9,19 +9,19 @@ class Api::UsersController < Api::ApiController
         @users = @users.where(email: email)
     end
     render status: 200, json: {
-        status: "OK", 
+        status: "OK",
         users: @users.as_json
     }.to_json
   end
-  
+
   def show
       render status: 200, json: {
-          status: "OK", 
+          status: "OK",
           user: @user.as_json,
           merchandises: @user.merchandises
       }.to_json
   end
-  
+
   def create
     @user = User.new(create_user_params)
     if @user.save
@@ -38,7 +38,7 @@ class Api::UsersController < Api::ApiController
         }.to_json
     end
   end
-  
+
   def update
       puts :avatar_data
     if @user.update(update_user_params)
@@ -55,7 +55,7 @@ class Api::UsersController < Api::ApiController
       }.to_json
     end
   end
-  
+
   def destroy
     @user.destroy
     render status: 200, json: {
@@ -63,16 +63,16 @@ class Api::UsersController < Api::ApiController
         message: "User is been deleted successfully."
     }.to_json
   end
-  
+
   private
   def create_user_params
-    params.require(:user).permit(:username, :email, :mobile, :password, :avatar) 
+    params.require(:user).permit(:username, :email, :mobile, :password, :avatar)
   end
-  
+
   def update_user_params
-    params.require(:user).permit(:mobile, :password, :avatar) 
+    params.require(:user).permit(:mobile, :password, :avatar)
   end
-  
+
   def set_user
     @user = User.find(params[:id])
   end

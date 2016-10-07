@@ -49,15 +49,27 @@ gem 'stripe'
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
 end
 
-group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+# ------------- #
+# - for Debug - #
+# ------------- #
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+group :development, :test do
+  gem 'pry'
+  gem 'pry-remote'
+  gem 'pry-rails'
+  # 優化 console 顯示
+  gem 'awesome_print', require: false
+  gem 'hirb', require: false
+  gem 'hirb-unicode', require: false
+  # displays speed badge for every html page
+  gem 'rack-mini-profiler', '0.10.1'
+  gem 'flamegraph'
+  gem 'stackprof'
+  # rails 4 tools
+  gem 'byebug'
+  gem 'web-console', '~> 2.0'
   gem 'spring'
 end
 
