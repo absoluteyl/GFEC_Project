@@ -4,24 +4,27 @@ class Api::MerchandisesController < Api::ApiController
   def index
     @merchandises = Merchandise.all
     if title = params[:title]
-        @merchandises = @merchandises.where(title: title)
+      @merchandises = @merchandises.where(title: title)
     end
     if price = params[:price]
-        @merchandises = @merchandises.where(price: price)
+      @merchandises = @merchandises.where(price: price)
+    end
+    if category_id = params[:category_id]
+      @merchandiese = @merchandises.where(category_id: category_id)
     end
     render status: 200, json: {
         status: "OK",
         merchandises: @merchandises.as_json
     }.to_json
   end
-  
+
   def show
       render status: 200, json: {
           status: "OK",
           merchandise: @merchandise.as_json
       }.to_json
   end
-  
+
   def create
     @merchandise = Merchandise.new(merchandise_params)
     if @merchandise.save
@@ -38,7 +41,7 @@ class Api::MerchandisesController < Api::ApiController
         }.to_json
     end
   end
-  
+
   def update
     if @merchandise.update(merchandise_params)
         render status: 200, json: {
@@ -54,7 +57,7 @@ class Api::MerchandisesController < Api::ApiController
         }.to_json
     end
   end
-  
+
   def destroy
     @merchandise.destroy
     render status: 200, json: {
@@ -62,13 +65,13 @@ class Api::MerchandisesController < Api::ApiController
         message: "Merchandise is been deleted successfully."
     }.to_json
   end
-  
+
   private
   def merchandise_params
     #need to add category_id after ready
     params.require(:merchandise).permit(:title, :description, :price, :amount, :user_id, :category_id, :location_id, :image_1, :image_2, :image_3)
   end
-  
+
   def set_merchandise
     @merchandise = Merchandise.find(params[:id])
   end
