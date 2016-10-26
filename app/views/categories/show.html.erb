@@ -1,7 +1,7 @@
 <h1 align="center">
     <%= @category.name %>
 </h1>
-<%= render 'merchandises/merchandise', obj: @category.merchandises %>
+<%= render 'merchandises/merchandise', obj: @category.merchandises.where(amount: 1) %>
 
 <!-- Remove subcategories display temporary -->
 <!--<%# @categories.each do |category| %>-->
