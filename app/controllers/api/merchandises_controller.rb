@@ -2,7 +2,7 @@ class Api::MerchandisesController < Api::ApiController
   before_action :set_merchandise, only: [:edit, :update, :show, :destroy]
 
   def index
-    @merchandises = Merchandise.all
+    @merchandises = Merchandise.where(amount: 1)
     if title = params[:title]
       @merchandises = @merchandises.where(title: title)
     end
