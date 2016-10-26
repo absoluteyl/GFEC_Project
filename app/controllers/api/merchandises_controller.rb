@@ -5,12 +5,10 @@ class Api::MerchandisesController < Api::ApiController
     @merchandises = Merchandise.where(amount: 1)
     if title = params[:title]
       @merchandises = @merchandises.where(title: title)
-    end
-    if price = params[:price]
+    elsif price = params[:price]
       @merchandises = @merchandises.where(price: price)
-    end
-    if category_id = params[:category_id]
-      @merchandiese = @merchandises.where(category_id: category_id)
+    elsif category_id = params[:category_id]
+      @merchandises = @merchandises.where(category_id: category_id)
     end
     render status: 200, json: {
         status: "OK",
