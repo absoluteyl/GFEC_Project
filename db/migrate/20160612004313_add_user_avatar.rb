@@ -1,4 +1,4 @@
-class AddUserAvatar < ActiveRecord::Migration
+class AddUserAvatar < ActiveRecord::Migration[5.2]
   def change
     add_attachment :users, :avatar
   end

@@ -1,6 +1,6 @@
 class Api::SessionsController < Api::ApiController
-  skip_before_filter :authenticate_user!
-  before_filter :ensure_params_exist
+  skip_before_action :authenticate_user!
+  before_action :ensure_params_exist
   respond_to :json
 
   def create

@@ -1,5 +1,5 @@
 class Api::LocationsController < Api::ApiController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
   before_action :set_location, only: [:edit, :update, :destroy]
   def index
     @locations = Location.all
@@ -13,7 +13,7 @@ class Api::LocationsController < Api::ApiController
       @locations = @locations.where(user_id: user_id)
     end
       render status: 200, json: {
-        status: "OK", 
+        status: "OK",
         locations: @locations,
         merchandises: query_merchandises(@locations)
       }.to_json
@@ -22,7 +22,7 @@ class Api::LocationsController < Api::ApiController
   #   if user = params[:user]
   #     @locations = Location.where(user: user)
   #     render status: 200, json: {
-  #       status: "OK", 
+  #       status: "OK",
   #       locations: @locations.as_json
   #     }.to_json
   #   else
@@ -31,9 +31,9 @@ class Api::LocationsController < Api::ApiController
   #       message: "Must define user"
   #     }.to_json
   #   end
-    
+
   # end
-  
+
   def create
     @location = Location.new(location_params)
     if @location.save
@@ -50,7 +50,7 @@ class Api::LocationsController < Api::ApiController
       }.to_json
     end
   end
-  
+
   def update
     if @location.update(location_params)
       render status: 200, json: {
@@ -64,9 +64,9 @@ class Api::LocationsController < Api::ApiController
             message: "Location cannot be udpated.",
             errors: @location.errors
       }.to_json
-    end 
+    end
   end
-  
+
   def destroy
     @location.destroy
     render status: 200, json: {
@@ -74,7 +74,7 @@ class Api::LocationsController < Api::ApiController
         message: "Location is been deleted successfully."
     }.to_json
   end
-  
+
   private
   def set_location
       @location = Location.find(params[:id])
@@ -84,12 +84,12 @@ class Api::LocationsController < Api::ApiController
       params.require(:location).permit(:city_id, :address, :recipient, :phone, :user_id, :lat, :long, :alias)
   end
   def query_merchandises(locations)
-    
+
     mer_list = []
     locations.each do |location|
       mer_list.push(Merchandise.where(location: location).order(:updated_at).reverse_order)
     end
     mer_list.map{|i| i.take(3)}
   end
-  
+
 end

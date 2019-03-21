@@ -1,4 +1,4 @@
-class AddMerchandiseImages < ActiveRecord::Migration
+class AddMerchandiseImages < ActiveRecord::Migration[5.2]
   def change
       add_attachment :merchandises, :merchandise_img_1
       add_attachment :merchandises, :merchandise_img_2

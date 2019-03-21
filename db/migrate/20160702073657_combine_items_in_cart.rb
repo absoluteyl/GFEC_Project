@@ -1,10 +1,10 @@
-class CombineItemsInCart < ActiveRecord::Migration
+class CombineItemsInCart < ActiveRecord::Migration[5.2]
   def up
-    # replace multiple items for a single product in a cart with a single item 
+    # replace multiple items for a single product in a cart with a single item
     Cart.all.each do |cart|
       # count the number of each product in the cart
       sums = cart.line_items.group(:merchandise_id).sum(:quantity)
-      
+
       sums.each do |merchandise_id, quantity, price|
         if quantity > 1
         # remove individual items
@@ -19,16 +19,16 @@ class CombineItemsInCart < ActiveRecord::Migration
     end
   end
   def down
-    # split items with quantity>1 into multiple items 
+    # split items with quantity>1 into multiple items
     LineItem.where("quantity>1").each do |line_item|
       # add individual items
       line_item.quantity.times do
         LineItem.create cart_id: line_item.cart_id,
-          merchandise_id: line_item.merchandise_id, 
+          merchandise_id: line_item.merchandise_id,
           unit_price: line_item.unit_price, quantity: 1
       end
       # remove original item
       line_item.destroy
-    end 
+    end
   end
 end
